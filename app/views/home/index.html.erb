@@ -1,0 +1,208 @@
+<div id="sub-header-slider">
+  <!--<div id="sub-header-filter" class="container-fluid" style="display:block;"> -->
+  <div id="sub-header-filter" class="container-fluid">
+    <%= form_tag('/search') do %>
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <span class="label hidden-xs">Откуда</span>
+          <%= select_tag "cityFromId", options_from_collection_for_select(DepartCity.all, "sletat_id", "name"), class: 'selectize', prompt: true %>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <span class="label hidden-xs">Куда</span>
+          <%= select_tag "countryId", options_from_collection_for_select(Country.all, "sletat_id", "name"), class: 'selectize', prompt: true %>
+        </div>
+        <div class="clearfix visible-xs" style="height:10px"></div>
+        <div class="col-sm-5 col-md-4">
+          <span class="label hidden-xs">Начало поездки</span>
+          <div class='input-group date'>
+            <%= text_field_tag 's_departFrom', nil, class: 'form-control' %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <div class="over-right">
+            <% days = ['7-10', '12-17', '17-21'] %>
+            <%= select_tag "s_nights", options_for_select(days.collect{|d| ["На #{d} дней", d]}), class: 'selectize-text' %>
+          </div>
+        </div>
+        <div class="clearfix visible-lg visible-md" style="margin-bottom:20px"></div>
+        <div class="col-sm-5 col-sm-offset-2 col-md-offset-0 col-md-4">
+          <div class="visible-sm" style="width:100%;height:35px"></div>
+          <div class="clearfix">
+            <span class="label pull-left hidden-sm hidden-xs">Взрослые</span>
+            <label class="count-input">
+              <span class="pull-right minus">-</span>
+              <span class="pull-left plus">+</span>
+              <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27 %>
+            </label>
+          </div>
+          <div class="hidden-sm hidden-xs">
+            <div class="checkbox pull-right">
+              <input type="checkbox" id="cb-wh" checked>
+              <label for="cb-wh" class="label"><span class="glyphicon glyphicon-ok"></span> Так же дети</label>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix visible-sm" style="margin-bottom:20px"></div>
+        <div class="col-sm-3 col-md-2">
+          <span class="label pull-right hidden-xs">Бюджет</span>
+          <span class="label pull-left visible-xs" style="margin-top: -23px;">Бюджет</span>
+        </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <%= text_field_tag "s_priceMin", 0, class: 'form-control' %>
+          <div class="over-right hidden-xs" style="font-size:16px;margin-left:-6px;color:#ddd;">—</div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <%= text_field_tag "s_priceMax", 800000, class: 'form-control' %>
+        </div>
+        <div class="clearfix" style="margin-bottom:20px"></div>
+        <div class="col-sm-6 col-md-6 text-right">
+          <button class="btn btn-black">Подобрать тур</button>
+        </div>
+        <div class="hidden-xs col-sm-6 col-md-6">
+          <input type="reset" value="Сбросить поиск" class="btn btn-cyan">
+          <!--<button class="btn btn-cyan">Сбросить поиск</button>-->
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="header-slider" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#header-slider" data-slide-to="0" class="active"></li>
+      <li data-target="#header-slider" data-slide-to="1"></li>
+      <li data-target="#header-slider" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active" style="background-image:url(<%= image_path('DEMO/main-slider1.jpg') %>)">
+        <div class="carousel-caption">
+          <h3><span>Шри-Ланка</span> <small>от</small> <span class="price">45 000 <i class="fa fa-rub"></i> </span></h3>
+          <em>Позволь себе немного больше</em>
+          <div class="clearfix btnset">
+            <a class="btn btn-white">Подробнее</a>
+            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
+          </div>
+        </div>
+      </div>
+      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider2.jpg') %>)">
+        <div class="carousel-caption">
+          <h3><span>Макади</span> <small>от</small> <span class="price">20 000 <i class="fa fa-rub"></i></span></h3>
+          <em>Позволь себе немного больше</em>
+          <div class="clearfix btnset">
+            <a class="btn btn-white">Подробнее</a>
+            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
+          </div>
+        </div>
+      </div>
+      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider3.jpg') %>)">
+        <div class="carousel-caption">
+          <h3><span>Шарм-Эль-Шейх</span> <small>от</small> <span class="price">100 000 <i class="fa fa-rub"></i></span></h3>
+          <em>Позволь себе немного больше</em>
+          <div class="clearfix btnset">
+            <a class="btn btn-white">Подробнее</a>
+            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control hidden-xs" href="#header-slider" data-slide="prev"></a>
+    <a class="right carousel-control hidden-xs" href="#header-slider" data-slide="next"></a>
+  </div>
+</div>
+<!--<div id="sub-header" class="visible-xs"><img src="DEMO/main-slider2.jpg" style="width:100%" alt="..."></div>-->
+<div class="container-fluid main-page">
+  <div class="row items">
+    <div class="col-sm-6 col-md-4 col-lg-4 item top-gray h390 opened">
+      <div class="title-price">
+        <h2>Турция</h2>
+        <em>от <span>25 000</span> р.</em>
+      </div>
+      <div class="mobile-roll">
+        <div class="prev"><%= image_tag "DEMO/tour-item-3.jpg" %></div>
+        <div class="desc visible-xs">
+          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+        </div>
+        <a href="#" class="btn btn-outline">Подробнее</a>
+        <a href="#" class="like"></a>
+      </div>
+    </div>
+    <section class="hidden-xs col-sm-6 col-md-4 col-lg-4 inrus">
+      <div class="title-price">
+        <h2>Планируете отдых в России?</h2>
+      </div>
+      <div class="prev"><%= image_tag "DEMO/main-in-rus.jpg" %></div>
+      <a href="#" class="link">Все предложения</a>
+    </section>
+    <div class="hidden-sm col-md-4 col-lg-4 item top-gray h390">
+      <div class="title-price">
+        <h2>Египет</h2>
+        <em>от <span>35 000</span> р.</em>
+      </div>
+      <div class="mobile-roll">
+        <div class="prev"><%= image_tag "DEMO/tour-item-2.jpg" %></div>
+        <div class="desc visible-xs">
+          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+        </div>
+        <a href="#" class="btn btn-outline">Подробнее</a>
+        <a href="#" class="like"></a>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-8 item wide h215">
+      <div class="title-price">
+        <h2>Камбожда</h2>
+        <em>от <span>35 000</span> р.</em>
+      </div>
+      <div class="mobile-roll">
+        <div class="prev"><%= image_tag "DEMO/tour-item-4.jpg" %></div>
+        <div class="desc visible-xs">
+          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+        </div>
+        <a href="#" class="btn btn-outline">Подробнее</a>
+        <a href="#" class="like"></a>
+      </div>
+    </div>
+    <section class="hidden-xs hidden-sm col-md-4 col-lg-4 out">
+      <h2><span>Отдых</span> за границей</h2>
+      <div class="desc">Более 20 000 000 предложений</div>
+      <span class="arr"></span>
+    </section>
+    <div class="col-sm-6 col-md-4 col-lg-4 item no-top h300">
+      <div class="title-price">
+        <h2>Хургада</h2>
+        <em>от <span>32 800</span> р.</em>
+      </div>
+      <div class="mobile-roll">
+        <div class="prev"><%= image_tag "DEMO/main-huga.jpg" %></div>
+        <div class="desc visible-xs">
+          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+        </div>
+        <a href="#" class="btn btn-outline visible-xs">Подробнее</a>
+        <a href="#" class="like"></a>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-8 col-lg-8 item top-gray lg-double h300">
+      <div class="title-price">
+        <h2>Италия</h2>
+        <em>от <span>42 000</span> р.</em>
+      </div>
+      <div class="mobile-roll">
+        <div class="prev"><%= image_tag "DEMO/main-italy.jpg" %></div>
+        <div class="desc hidden-sm">
+          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+        </div>
+        <a href="#" class="btn btn-outline visible-xs">Подробнее</a>
+        <a href="#" class="like"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more"><a href="#">Показать еще</a></div>
+
