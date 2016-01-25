@@ -21,9 +21,6 @@ namespace :git do
   end
 end
 
-after 'git:deploy', 'deploy'
-after :deploy, 'server:restart'
-
 namespace :server do
   rails_env = 'production'
   desc 'Start server'
@@ -32,7 +29,7 @@ namespace :server do
       within current_path do
         execute "cd #{current_path}"
         execute :bundle, "exec unicorn_rails -c #{current_path}/config/unicorn.rb -E #{rails_env}"
-      end      
+      end
     end
   end
 
@@ -45,7 +42,7 @@ namespace :server do
 
   desc "Stop the application by killing the Unicorn process"
   task :stop do
-    on roles(:all) do      
+    on roles(:all) do
       execute "kill $(cat #{deploy_to}/run/unicorn.pid)"
     end
   end
@@ -88,4 +85,7 @@ namespace :deploy do
   before :setup, 'deploy:starting'
   before :setup, 'deploy:updating'
   before :setup, 'bundler:install'
+
+  after 'git:deploy', 'deploy'
+  after :deploy, 'server:restart'
 end
