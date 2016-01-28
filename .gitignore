@@ -45,3 +45,5 @@ bower.json
 
 /config/initializers/secret_token.rb
 /config/deploy/
+
+*.tmp

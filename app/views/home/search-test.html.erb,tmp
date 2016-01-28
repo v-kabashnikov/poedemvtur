@@ -1,0 +1,52 @@
+<div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
+	<h3><%= @country %></h3>
+</div>
+<div id="show-filter"><a href="#">Развернуть фильтр</a></div>
+<div class="container" id="tour-filtered">
+	<div class="row">
+		<h2 class="col-xs-12 col-sm-6 col-md-6">Найдено <%= @results.count %> отелей</h2>
+
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right" id="filters">
+			<div class="big">
+				<span class="xs-pull-right">
+					<span class="hidden-xxs">Валюта</span>
+					<span class="dropdown-text">RUB<span class="caret"></span></span>
+				</span>
+				<span class="view-change xs-pull-left"><a class="active" href="#">Плиткой</a><a href="#">Списком</a></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<% @results.each do |res| %>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<%= image_tag res.hotel.sletat_photo_url %>
+					<a href="#" class="like"></a>
+					<a href="#" class="onmap">На карте</a>				
+					
+
+					<div class="stars">
+						<input type="hidden" data-filled="glyphicon glyphicon-star custom-star-filled" data-empty="glyphicon glyphicon-star custom-star-empty" class="rating" data-readonly value="<%= res.hotel.hotel_rate %>"/>
+						<span class="rating-value">~ <%= res.hotel.hotel_rate %></span>
+					</div>
+					<a href="#" class="rept">Отзывы (42)</a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-right"><%= l( @dates.first , format: :mid) %> - <%= l( @dates.second , format: :mid) %></span>
+				</div>
+				<div class="info">
+					<h2><%= res.hotel.name %>
+						<small><%= res.hotel.resort.country.name if res.hotel.resort %>, <%= res.hotel.resort.name if res.hotel.resort %></small>
+					</h2>
+					<div class="price"><%= number_with_delimiter(res.min_price, locale: :ru) %> <i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+<div class="more"><a href="#">Загрузить еще</a></div>

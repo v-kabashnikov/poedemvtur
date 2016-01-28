@@ -89,3 +89,21 @@ namespace :deploy do
   after 'git:deploy', 'deploy'
   after :deploy, 'server:restart'
 end
+
+namespace :sidekiq do
+  desc "Start Sidekiq"
+  task :start do
+    on roles(:all) do
+      within current_path do
+        execute "cd #{current_path}"
+        execute :bundle, "exec sidekiq -q mailer -c 10 -e production -d -L /var/www/apps/crm/log/sidekiq.log -P /var/www/apps/crm/run/sidekiq.pid"
+      end
+    end
+  end
+  desc "Stop Sidekiq"
+  task :stop do
+    on roles(:all) do
+      execute "kill `cat #{deploy_to}/run/sidekiq.pid` || true"
+    end
+  end
+end

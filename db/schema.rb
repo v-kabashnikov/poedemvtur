@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122132105) do
+ActiveRecord::Schema.define(version: 20160128140317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blog_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
+    t.text     "content"
+    t.boolean  "display"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +72,116 @@ ActiveRecord::Schema.define(version: 20160122132105) do
 
   add_index "depart_cities", ["country_id"], name: "index_depart_cities_on_country_id", using: :btree
 
+  create_table "hotel_options", force: :cascade do |t|
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+    t.string   "name"
+    t.string   "hit"
+    t.integer  "sletat_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resort_id"
+    t.string   "old_cyrillic_name"
+    t.string   "old_latin_name"
+    t.string   "subtitle"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "sletat_photo_url"
+    t.float    "hotel_rate"
+    t.integer  "rating_meal"
+    t.integer  "rating_overall"
+    t.integer  "rating_place"
+    t.integer  "rating_service"
+    t.string   "sletat_description"
+    t.text     "description"
+    t.string   "video"
+    t.float    "city_center_distance"
+    t.string   "beach_line"
+    t.string   "district"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "airport_distance"
+    t.integer  "min_price"
+    t.integer  "star_id"
+    t.integer  "sletat_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "hotels", ["resort_id"], name: "index_hotels_on_resort_id", using: :btree
+  add_index "hotels", ["star_id"], name: "index_hotels_on_star_id", using: :btree
+
+  create_table "load_statuses", force: :cascade do |t|
+    t.integer  "request_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.text     "description"
+    t.integer  "sletat_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "resorts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.boolean  "display"
+    t.integer  "country_id"
+    t.integer  "sletat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "resorts", ["country_id"], name: "index_resorts_on_country_id", using: :btree
+
+  create_table "search_results", force: :cascade do |t|
+    t.integer "hotel_id"
+    t.integer "request_id"
+    t.integer "min_price"
+  end
+
+  add_index "search_results", ["hotel_id"], name: "index_search_results_on_hotel_id", using: :btree
+
+  create_table "stars", force: :cascade do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.integer  "sletat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tour_operators", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "site"
+    t.string   "address"
+    t.string   "phone"
+    t.text     "description"
+    t.string   "header_img_file_name"
+    t.string   "header_img_content_type"
+    t.integer  "header_img_file_size"
+    t.datetime "header_img_updated_at"
+    t.integer  "sletat_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -74,4 +202,8 @@ ActiveRecord::Schema.define(version: 20160122132105) do
 
   add_foreign_key "countries", "country_categories"
   add_foreign_key "depart_cities", "countries"
+  add_foreign_key "hotels", "resorts"
+  add_foreign_key "hotels", "stars"
+  add_foreign_key "resorts", "countries"
+  add_foreign_key "search_results", "hotels"
 end

@@ -4,6 +4,7 @@ class Country < ActiveRecord::Base
   extend Sletat
   belongs_to :country_category
   has_many :depart_cities
+  has_many :resorts
 
   has_attached_file :flag,
     styles: { thumb: "200x200>", medium: "500x500>", big: "1000x1000>" }

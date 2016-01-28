@@ -1,53 +1,103 @@
+<script>
+  function loadMore(){
+  	var loaded = $(".tour-block").length
+  	$.ajax({
+	  url: "/load_more",
+	  data: {
+	    loaded: loaded,
+	    requestId: $('#requestId').val()
+	  },
+	  success: function(data){
+	  	hotels = data["hotels"];
+	  	showHotels(hotels);
+	  	if(hotels.length + loaded == $('#total_number').html()){
+	  		$('.more').remove();
+	  	}
+	  }
+	})
+  }
+  function showHotels( hotels ){  			
+  			for(var i=0; i<hotels.length; i++){
+  				// var hotel = hotels[i];
+  				var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
+  					<div class="tour-block"> \
+  						<div class="thumb"> \
+  							<img src="' + hotels[i]['image_url'] + '"> \
+  							<a href="#" class="like"></a> \
+  							<a href="#" class="onmap">На карте</a> \
+  							<div class="stars"> \
+  								<input type="hidden" data-filled="glyphicon glyphicon-star custom-star-filled" data-empty="glyphicon glyphicon-star custom-star-empty" class="rating" data-readonly value="' + hotels[i]['rating'] + '"/> \
+  								<span class="rating-value">~ ' + hotels[i]['rating'] + '</span> \
+  							</div> \
+  							<a href="#" class="rept">Отзывы (42)</a> \
+  						</div> \
+  						<div class="sub-thumb"> \
+  							<span class="pull-right">18 февраля - 3 апреля</span> \
+  						</div> \
+  						<div class="info"> \
+  							<h2>' + hotels[i]['name'] + ' \
+  								<small>' + hotels[i]['position_info'] + '</small> \
+  							</h2> \
+  							<div class="price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i> \
+  								<small>на всех</small> \
+  							</div> \
+  						</div> \
+  					</div> \
+  				</div>'
+  				$('#hotels').append(hotel);
+  			}
+  			$('.stars input').rating();
+  		}
+  
+  	var intervalID = setInterval(function(){
+  		$.ajax({
+  		  url: "/check",
+  		  data: {
+  		    requestId: $('#requestId').val()
+  		  },
+  		  success: function(data){
+  		  	if(data["total"] > 0){
+  		  		$('#hotels').html('');
+  		  		showHotels(data["hotels"]);
+  		  	}
+  		  	console.log(data["total"]);
+  		  	if(data["status"] == 'finished'){
+  		  		$('#loading').remove();
+  		  		if(data["total"] > 18){
+  		  			$('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
+  		  		}
+  		  		if(data["total"] == 0){
+  		  			$('#total').html('Ничего не найдено')
+  		  		}
+  		  		else{
+  		  			$('#total').html('Найдено <span id="total_number">'+ data["total"] + '</span> отелей')
+  		  		}
+  		  		clearInterval(intervalID);
+  		  	}
+  		  }
+  		})
+  	}, 2000)
+</script>
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
-	<h3><%= @country %></h3>
+  <h3><%= @country %></h3>
 </div>
 <div id="show-filter"><a href="#">Развернуть фильтр</a></div>
 <div class="container" id="tour-filtered">
-	<div class="row">
-		<h2 class="col-xs-12 col-sm-6 col-md-6">Найдено <%= @hotels_number %> отелей</h2>
-
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right" id="filters">
-			<div class="big">
-				<span class="xs-pull-right">
-					<span class="hidden-xxs">Валюта</span>
-					<span class="dropdown-text">RUB<span class="caret"></span></span>
-				</span>
-				<span class="view-change xs-pull-left"><a class="active" href="#">Плиткой</a><a href="#">Списком</a></span>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<% @aaData.each do |aaData| %>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-			<div class="tour-block">
-				<div class="thumb">
-					<%= image_tag aaData[29] %>
-					<a href="#" class="like"></a>
-					<a href="#" class="onmap">На карте</a>				
-					
-
-					<div class="stars">
-						<input type="hidden" data-filled="glyphicon glyphicon-star custom-star-filled" data-empty="glyphicon glyphicon-star custom-star-empty" class="rating" data-readonly value="<%= (aaData[35].to_f / 2).round(1) %>"/>
-						<span class="rating-value">~ <%= (aaData[35].to_f / 2).round(1) %></span>
-					</div>
-					<a href="#" class="rept">Отзывы (42)</a>
-				</div>
-				<div class="sub-thumb">
-					<span class="pull-left"><%= aaData[36] %></span>
-					<span class="pull-right"><%= l( Date.parse(aaData[12]), format: :mid) %> - <%= l( Date.parse(aaData[13]), format: :mid) %></span>
-				</div>
-				<div class="info">
-					<h2><%= aaData[7] %>
-						<small><%= aaData[31] %>, <%= aaData[19] %></small>
-					</h2>
-					<div class="price"><%= number_with_delimiter(aaData[42], locale: :ru) %> <i class="fa fa-rub"></i>
-						<small>на всех</small>
-					</div>
-				</div>
-			</div>
-		</div>
-		<% end %>
-	</div>
+  <div class="row">
+    <h2 class="col-xs-12 col-sm-6 col-md-6" id="total"></h2>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right" id="filters">
+      <div class="big">
+        <span class="xs-pull-right">
+          <span class="hidden-xxs">Валюта</span>
+          <span class="dropdown-text">RUB<span class="caret"></span></span>
+        </span>
+        <span class="view-change xs-pull-left"><a class="active" href="#">Плиткой</a><a href="#">Списком</a></span>
+      </div>
+    </div>
+  </div>
+  <%= hidden_field_tag 'requestId', @requestId %>
+  <h4 class="text-center" id="loading">Загрузка результатов...</h4>
+  <div class="row" id="hotels">    
+  </div>
 </div>
-<div class="more"><a href="#">Загрузить еще</a></div>
+
