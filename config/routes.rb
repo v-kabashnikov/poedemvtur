@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/search', to: 'home#search'
   get '/check', to: 'home#check'
   get '/load_more', to: 'home#load_more'
+  get '/hotel/:id', to: 'home#hotel', as: :hotel
 end

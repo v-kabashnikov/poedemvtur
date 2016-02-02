@@ -4,91 +4,91 @@
     <title>Поедем в тур</title>
     <style>
       @-webkit-keyframes square-spin {
-                25% {
-                  -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0deg);
-                  transform: perspective(100px) rotateX(180deg) rotateY(0deg);
-                  background:#ddd;
-                }
+                      25% {
+                        -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0deg);
+                        transform: perspective(100px) rotateX(180deg) rotateY(0deg);
+                        background:#ddd;
+                      }
       
-                50% {
-                  -webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
-                  transform: perspective(100px) rotateX(180deg) rotateY(180deg);
-                  background:#365;
-                }
+                      50% {
+                        -webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+                        transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+                        background:#365;
+                      }
       
-                75% {
-                  -webkit-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
-                  transform: perspective(100px) rotateX(0deg) rotateY(180deg);
-                  background:#954;
-                }
+                      75% {
+                        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+                        transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+                        background:#954;
+                      }
       
-                100% {
-                  -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-                  transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-                  background:#456;
-                }
-              }
+                      100% {
+                        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+                        transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+                        background:#456;
+                      }
+                    }
       
-              @keyframes square-spin {
-                25% {
-                  -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0deg);
-                  transform: perspective(100px) rotateX(180deg) rotateY(0deg);
-                  background:#ddd;
-                }
+                    @keyframes square-spin {
+                      25% {
+                        -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0deg);
+                        transform: perspective(100px) rotateX(180deg) rotateY(0deg);
+                        background:#ddd;
+                      }
       
-                50% {
-                  -webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
-                  transform: perspective(100px) rotateX(180deg) rotateY(180deg);
-                  background:#365;
-                }
+                      50% {
+                        -webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+                        transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+                        background:#365;
+                      }
       
-                75% {
-                  -webkit-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
-                  transform: perspective(100px) rotateX(0deg) rotateY(180deg);
-                  background:#954;
-                }
+                      75% {
+                        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+                        transform: perspective(100px) rotateX(0deg) rotateY(180deg);
+                        background:#954;
+                      }
       
-                100% {
-                  -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-                  transform: perspective(100px) rotateX(0deg) rotateY(0deg);
-                  background:#456;
-                }
-              }
+                      100% {
+                        -webkit-transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+                        transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+                        background:#456;
+                      }
+                    }
       
-              #preloader{
-                display:block;
-                position:fixed;
-                top:0;
-                left:0;
-                right:0;
-                bottom:0;
-                background:#fff;
-                z-index:9999999;
-                visibility:visible;
-                -webkit-transition: visibility .3s;
-                -moz-transition: visibility .3s;
-                -ms-transition: visibility .3s;
-                -o-transition: visibility .3s;
-                transition: visibility .3s;
-              }
-              #preloader > div {
-                position:absolute;
-                top:0;
-                left:0;
-                right:0;
-                bottom:0;
-                margin:auto;
-                -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-                width: 50px;
-                height: 50px;
-                background:#456;
-                -webkit-animation: square-spin 2s 0s cubic-bezier(.09, .57, .49, .9) infinite;
-                animation: square-spin 2s 0s cubic-bezier(.09, .57, .49, .9) infinite; }
+                    #preloader{
+                      display:block;
+                      position:fixed;
+                      top:0;
+                      left:0;
+                      right:0;
+                      bottom:0;
+                      background:#fff;
+                      z-index:9999999;
+                      visibility:visible;
+                      -webkit-transition: visibility .3s;
+                      -moz-transition: visibility .3s;
+                      -ms-transition: visibility .3s;
+                      -o-transition: visibility .3s;
+                      transition: visibility .3s;
+                    }
+                    #preloader > div {
+                      position:absolute;
+                      top:0;
+                      left:0;
+                      right:0;
+                      bottom:0;
+                      margin:auto;
+                      -webkit-animation-fill-mode: both;
+                      animation-fill-mode: both;
+                      width: 50px;
+                      height: 50px;
+                      background:#456;
+                      -webkit-animation: square-spin 2s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+                      animation: square-spin 2s 0s cubic-bezier(.09, .57, .49, .9) infinite; }
     </style>
     <script>
       window.onload = function(){document.getElementById('preloader').style.display='none'};
-              window.onbeforeunload  = function(){document.getElementById('preloader').style.display='block'};
+                    window.onbeforeunload  = function(){document.getElementById('preloader').style.display='block'};
     </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -106,7 +106,42 @@
       <div id="site-overlay"></div>
       <%= render 'home/header' %>
       <%= yield %>
+      <%= render 'home/footer' %>
     </div>
     <%= javascript_include_tag 'main' %>
+    <script>
+      /*  FOOTER SCROLLSPY  */
+        (function(){
+          $footer = $('footer');
+      
+          $(window).scroll(footerCuCu);
+          $(window).resize(footerCuCu);
+          footerCuCu();
+      
+          function footerCuCu(){
+            var fheight = $footer.outerHeight();
+            var wheight = $(window).height();
+      
+            if(wheight>fheight){
+              $('body').css('margin-bottom',fheight);
+              var scroll = $(window).scrollTop()+wheight;
+              var fscroll = scroll - ($(document).outerHeight(true)-fheight);
+              $footer.addClass('fixed');
+              if(fscroll >= 0){
+                $footer.removeClass('transparent');
+              }
+              else{
+                $footer.addClass('transparent');
+              }
+            }
+            else{
+              $footer.removeClass('fixed').removeClass('transparent');
+              $('body').css('margin-bottom',0);
+            }     
+      
+      
+          }
+        })($);
+    </script>
   </body>
 </html>

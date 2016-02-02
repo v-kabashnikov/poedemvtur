@@ -1,6 +1,5 @@
 require 'sletat'
 class TourLoader
-  CONN = ActiveRecord::Base.connection
   include Sletat
   include Sidekiq::Worker
   sidekiq_options retry: false

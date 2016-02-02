@@ -7,6 +7,10 @@ class HomeController < ApplicationController
   def index
   end
 
+  def hotel
+    @hotel = Hotel.find(params[:id])
+  end
+
   def search
     s_nights = params["s_nights"].split('-')
     s_departFrom = Date.parse("18.02.2016")
@@ -38,7 +42,7 @@ class HomeController < ApplicationController
     else
       @status = 'loading'
     end
-    @results = SearchResult.where(request_id: requestId).preload(hotel: [resort: [:country]]).order(min_price: :asc).limit(18)
+    @results = SearchResult.where(request_id: requestId).preload(hotel: [:star, resort: [:country]]).order(min_price: :asc).limit(18)
   end
 
   def load_more

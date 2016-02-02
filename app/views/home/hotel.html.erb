@@ -1,0 +1,178 @@
+<div id="sub-header-slider">
+	<div id="header-slider" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators visible-sm visible-xs">
+			<li data-target="#header-slider" data-slide-to="0" class="active"></li>
+			<li data-target="#header-slider" data-slide-to="1"></li>
+			<li data-target="#header-slider" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active" style="background-image:url(/DEMO/main-slider1.jpg)"></div>
+			<div class="item" style="background-image:url(/DEMO/main-slider2.jpg)"></div>
+			<div class="item" style="background-image:url(/DEMO/main-slider3.jpg)"></div>
+		</div>
+
+
+		<div class="carousel-caption">
+			<h3 class="text-uppercase"><%= @hotel.name %></h3>
+			<em class="stars">
+				<i class="glyphicon glyphicon-star active"></i>
+				<i class="glyphicon glyphicon-star active"></i>
+				<i class="glyphicon glyphicon-star active"></i>
+				<i class="glyphicon glyphicon-star active"></i>
+				<i class="glyphicon glyphicon-star active"></i>
+			</em>
+			<div class="clearfix btnset rating">~ <%= @hotel.hotel_rate %></div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control hidden-xs" href="#header-slider" data-slide="prev"></a>
+		<a class="right carousel-control hidden-xs" href="#header-slider" data-slide="next"></a>
+
+
+
+		<!-- thumb navigation carousel -->
+		<div class="thumbs clearfix hidden-sm hidden-xs">
+			<div class="th-wrap">
+				<!-- thumb navigation carousel items -->
+				<div id="carousel-selector-0" style="background-image:url(/DEMO/main-slider1.jpg)" class="selected"></div>
+				<div id="carousel-selector-1" style="background-image:url(/DEMO/main-slider2.jpg)"></div>
+				<div id="carousel-selector-2" style="background-image:url(/DEMO/main-slider3.jpg)"></div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<div id="hotel">
+	<div class="container">
+		<!-- Nav tabs -->
+		<ul class="nav" id="hotel-tabs">
+			<li class="active"><a href="#info" data-toggle="tab">Описание и туры</a></li>
+			<li><a href="#comments" data-toggle="tab">Отзывы клиентов <span>7</span></a></li>
+			<li><a href="#map" data-toggle="tab">Отель на карте</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="info">
+				<div class="xs-padding">
+					<h2 class="clearfix">Уютный отель на берегу моря</h2>
+					<div class="row">
+						<div class="col-sm-9 col-md-9 col-lg-9">
+							<p>Тур "Наследие великих цивилизаций" поражает воображение! Целых 3 дня путешествия посвящены загадочному Стамбулу. Затем Вы побываете в Чанаккале, где разворачивалось действие «Илиады», увидите культурные святыни, открытые во время раскопок Шлиманна! Вас ждут руины города Пергам, «хлопковый замок» в Памуккале, термальные ванны Клеопатры, древний город Иераполис, экскурсия по Анталии и поездка к невероятному водопаду!</p>
+							<p>В стоимость тура включены: перелёт, проживание в отелях с завтраками, трансферы на комфортабельном автобусе, экскурсии, услуги гида.</p>
+						</div>
+						<div class="col-sm-3 col-md-3 col-lg-3 weather">
+							<div class="temp" data-operator="+" style="background-image:url(/img/weather-1.png)">35</div>
+							<div class="desc">Переменная облачность, без осадков</div>
+						</div>
+					</div>
+					<div id="hotel-options">
+						<!-- Nav tabs -->
+						<ul class="nav">
+							<li class="active"><a href="#opt-1" data-toggle="tab">Инфраструктура</a></li>
+							<li><a href="#opt-2" data-toggle="tab">Платно</a></li>
+							<li><a href="#opt-3" data-toggle="tab">В номере</a></li>
+							<li><a href="#opt-4" data-toggle="tab">Типы комнат</a></li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div class="tab-pane active" id="opt-1">
+								<div class="h-opt">
+									<div class="h-opt-icon"><img src="/img/hotel-opions/rest.png"></div>
+									<div class="h-opt-name">3 ресторана</div>
+								</div>
+								<div class="h-opt">
+									<div class="h-opt-icon"><img src="/img/hotel-opions/bar.png"></div>
+									<div class="h-opt-name">3 бара</div>
+								</div>
+								<div class="h-opt">
+									<div class="h-opt-icon"><img src="/img/hotel-opions/swim.png"></div>
+									<div class="h-opt-name">2 бассейна</div>
+								</div>
+								<div class="h-opt">
+									<div class="h-opt-icon"><img src="/img/hotel-opions/med.png"></div>
+									<div class="h-opt-name">Услуги врача</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="opt-2"></div>
+							<div class="tab-pane" id="opt-3"></div>
+							<div class="tab-pane" id="opt-4"></div>
+						</div>
+					</div>
+					<div id="filters"></div>
+					<div id="hotel-tours-info" class="hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
+
+				</div>
+				<hr>
+				<div class="col-md-12 clearfix hidden-xs">
+					<div class="col-sm-5 col-md-4 col-lg-3">Дата</div>
+					<div class="col-sm-2 col-md-2 col-lg-2">Питание</div>
+					<div class="col-sm-2 col-md-2 col-lg-3">Номер</div>
+					<div class="hidden-sm col-md-2 col-lg-2">Туроператор</div>
+					<div class="col-sm-3 col-md-2 col-lg-2">Цена</div>
+				</div>
+
+
+					<div class="col-md-12 tour-list-item clearfix">
+						<div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
+							<div class="price pull-right text-left">28&nbsp;500&nbsp;<i class="fa fa-rub"></i><small>на всех</small></div>
+							<div class="btn btn-orange">Купить сейчас</div>
+						</div>
+						<div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+							<div class="xs-pull-left"><span class="date">10.12</span>&nbsp;<span class="hidden-xs"> вылет из Екатеринбурга</span></div>
+							<div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b>16.12</span>&nbsp;<span class="hidden-xs"> вылет обратно, 7 ночей</span></div>
+							<div class="visible-xs clearfix"></div>
+							<div class="visible-xs">7 ночей</div>
+						</div>
+						<div class="col-xs-6 col-sm-2 col-md-2 info">
+							<span>Завтраки</span>
+						</div>
+						<div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
+							<span>Номер Стандартный.<br class="hidden-lg"> 2 взрослых</span>
+						</div>
+						<div class="hidden-xs hidden-sm col-md-2 info">
+							<span>Веди тур</span>
+						</div>
+					</div>
+
+
+			</div>
+			<div class="tab-pane fade" id="comments">
+				<div class="clearfix xs-padding">
+					<h2 class="pull-left">Отзывы клиентов</h2>
+					<button class="btn pull-right">Добавить отзыв</button>
+				</div>
+
+
+				<div class="comment clearfix">
+					<div class="col-xs-6 col-sm-3 col-md-3">
+						<div class="name">Иванов Иван</div>
+						<div class="date">28.08.15</div>
+						<a href="#" class="photos hidden-xs">Фотоотчет</a>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 pull-right text-right">
+						<p class="gray hidden-xs">Общая оценка:</p>
+						<div class="rating"><b>7,8</b> из 10</div>
+					</div>
+					<div class="visible-xs clearfix"></div>
+					<div class="visible-xs"><br></div>
+					<div class="col-xs-12 col-sm-6 col-md-7">
+						<p>Тестовый текст. Написан для наглядности. Расширяет блок в зависимости от количества текста... Тестовый текст. Написан для наглядности. Расширяет блок в зависимости от количества текста...</p>
+						<p class="gray hidden-xs">Отдыхал: один</p>
+					</div>
+				</div>
+
+
+				<div class="more"><a href="#">Показать еще</a></div>
+			</div>
+			<div class="tab-pane fade frame-map" id="map">
+				<% iframe_url = URI.escape("https://www.google.com/maps/embed/v1/place?q=#{@hotel.name} #{@hotel.resort.name} #{@hotel.resort.country.name}&key=AIzaSyAXyAnSQb2J0P9Su3OUTiFHzGg8pVNq07k") %>
+				<iframe src="<%= iframe_url %>" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</div>

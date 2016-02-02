@@ -96,7 +96,7 @@ namespace :sidekiq do
     on roles(:all) do
       within current_path do
         execute "cd #{current_path}"
-        execute :bundle, "exec sidekiq -q mailer -c 10 -e production -d -L /var/www/apps/crm/log/sidekiq.log -P /var/www/apps/crm/run/sidekiq.pid"
+        execute :bundle, "exec sidekiq -c 10 -e production -d -L /var/www/apps/poedemvtur/log/sidekiq.log -P /var/www/apps/poedemvtur/run/sidekiq.pid"
       end
     end
   end
@@ -104,6 +104,15 @@ namespace :sidekiq do
   task :stop do
     on roles(:all) do
       execute "kill `cat #{deploy_to}/run/sidekiq.pid` || true"
+    end
+  end
+end
+
+namespace :config do
+  task :update do
+    on roles(:all) do
+      upload!('config/application.yml', "#{shared_path}/config/application.yml")
+      execute "ln -s #{shared_path}/config/application.yml #{release_path}/config/application.yml"
     end
   end
 end
