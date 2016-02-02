@@ -9,6 +9,21 @@ class HomeController < ApplicationController
 
   def hotel
     @hotel = Hotel.find(params[:id])
+    weather_url = nil
+    if @hotel.latitude && @hotel.longitude
+      weather_url = "http://api.openweathermap.org/data/2.5/weather?lat=#{@hotel.latitude}&lon=#{@hotel.longitude}&units=metric&lang=ru&appid=5613a0135fbd6cc6488bdd20c8aa5572"
+    elsif @hotel.resort
+      weather_url = URI.escape("http://api.openweathermap.org/data/2.5/weather?q=#{@hotel.resort.name},#{@hotel.resort.country.name}&units=metric&lang=ru&appid=5613a0135fbd6cc6488bdd20c8aa5572")
+    end
+    if weather_url
+      json = open(weather_url).read
+      res = JSON.parse(json)
+      @weather = {
+        desc: res['weather'].first['description'],
+        temp: res['main']['temp'].abs.to_i,
+        sign: res['main']['temp'] > 0 ? '+' : '-'
+      }
+    end
   end
 
   def search
@@ -46,7 +61,7 @@ class HomeController < ApplicationController
   end
 
   def load_more
-    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [resort: [:country]]).order(min_price: :asc).limit(18).offset(params[:loaded])
+    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(18).offset(params[:loaded])
     render 'check'
   end
 end

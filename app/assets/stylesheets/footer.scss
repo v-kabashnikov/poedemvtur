@@ -78,7 +78,7 @@ margin-top: 20px;
 font-size: 220%;
 padding-left: 53px;
 color:inherit;
-background:url(/img/icon-footer-phone.gif) left center no-repeat;
+background: image-url('icon-footer-phone.gif') left center no-repeat;
 }
 footer .footer-phone:hover{
 text-decoration:none;
@@ -152,16 +152,16 @@ footer .footer-out-pages.visible-sm a:last-child{
 margin-bottom:10px;
 }
 footer .footer-out-pages .foot-icon-fb{
-background:url(/img/icon-footer-fb.gif) center no-repeat;
+background: image-url('icon-footer-fb.gif') center no-repeat;
 }
 footer .footer-out-pages .foot-icon-yt{
-background:url(/img/icon-footer-yt.gif) center no-repeat;
+background: image-url('icon-footer-yt.gif') center no-repeat;
 }
 footer .footer-out-pages .foot-icon-ig{
-background:url(/img/icon-footer-ig.gif) center no-repeat;
+background: image-url('icon-footer-ig.gif') center no-repeat;
 }
 footer .footer-out-pages .foot-icon-vk{
-background:url(/img/icon-footer-vk.gif) center no-repeat;
+background: image-url('icon-footer-vk.gif') center no-repeat;
 }
 #design-copy{
 float: right;
@@ -178,7 +178,7 @@ left: 50%;
 width: 36px;
 height: 22px;
 margin-left: -20px;
-background: #1f2120 url(/img/arr-to-top.png) center no-repeat;
+background: #1f2120 image-url('arr-to-top.png') center no-repeat;
 border-radius: 100px 100px 0 0;
 text-align:center;
 -webkit-transition: background 0.2s ease-out;

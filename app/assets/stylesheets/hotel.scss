@@ -1,6 +1,6 @@
 
 #hotel{
-background:#e5dcc6 url('/img/promo-item-bg.jpg');
+background:#e5dcc6 image-url('promo-item-bg.jpg');
 overflow:hidden;
 }
 #hotel .container{
@@ -55,13 +55,13 @@ background-position:center;
 background-repeat:no-repeat;
 }
 #hotel-tabs a[href="#info"]:before {
-background-image: url(/img/hotel-info.png);
+background-image: image-url('hotel-info.png');
 }
 #hotel-tabs a[href="#comments"]:before{
-background-image: url(/img/hotel-comments.png);
+background-image: image-url('hotel-comments.png');
 }
 #hotel-tabs a[href="#map"]:before{
-background-image: url(/img/hotel-map.png);
+background-image: image-url('hotel-map.png');
 }
 #hotel #comments,
 #hotel #info{
@@ -110,7 +110,7 @@ display: block;
 color:#9db3c8;
 margin: 15px 0 0;
 padding: 7px 0 3px 35px;
-background :url(/img/photo-report.png) no-repeat left center;
+background: image-url('photo-report.png') no-repeat left center;
 }
 #hotel #comments .comment p{
 }
@@ -190,7 +190,7 @@ font-weight:700;
 }
 
 #hotel-tours-info{
-background:url(/img/hotel-tours-info.png) left center no-repeat;
+background: image-url('hotel-tours-info.png') left center no-repeat;
 padding:0 0 0 50px;
 font-size:13px;
 color:#959595;
@@ -236,4 +236,7 @@ text-align:center;
 #hotel-options .nav li.active {
 border:none !important;
 }
+}
+#hotelDescriptionID {
+	border: 0;
 }
