@@ -1,22 +1,24 @@
 <script>
   function loadMore(){
+    var requestId = $('#requestId').val();
   	var loaded = $(".tour-block").length
   	$.ajax({
 	  url: "/load_more",
 	  data: {
 	    loaded: loaded,
-	    requestId: $('#requestId').val()
+	    requestId: requestId
 	  },
 	  success: function(data){
 	  	hotels = data["hotels"];
-	  	showHotels(hotels);
+	  	showHotels(hotels, requestId);
 	  	if(hotels.length + loaded == $('#total_number').html()){
 	  		$('.more').remove();
 	  	}
 	  }
 	})
   }
-  function showHotels( hotels ){  			
+  function showHotels( hotels, requestId ){
+      var req = requestId == undefined ? "" : "?requestId=" + requestId;
   			for(var i=0; i<hotels.length; i++){
   				// var hotel = hotels[i];
   				var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
@@ -24,18 +26,18 @@
   						<div class="thumb"> \
   							<img src="' + hotels[i]['image_url'] + '"> \
   							<a href="#" class="like"></a> \
-  							<a href="/hotel/' + hotels[i]['id'] + '#map" class="onmap" target="_blank">На карте</a> \
+  							<a href="/hotel/' + hotels[i]['id'] + req + '#map" class="onmap" target="_blank">На карте</a> \
   							<div class="stars"> \
   								<input type="hidden" data-filled="glyphicon glyphicon-star custom-star-filled" data-empty="glyphicon glyphicon-star custom-star-empty" class="rating" data-readonly value="' + hotels[i]['stars_count'] + '"/> \
   								<span class="rating-value">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
   							</div> \
-  							<a href="/hotel/' + hotels[i]['id'] + '#comments" class="rept" target="_blank">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
+  							<a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="rept" target="_blank">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
   						</div> \
   						<div class="sub-thumb"> \
-  							<span class="pull-right">18 февраля - 3 апреля</span> \
+  							<span class="pull-right"><%= "#{l(Date.parse(params[:s_departFrom]), format: :mid)} - #{l(Date.parse(params[:s_departFrom]) + 45.days, format: :mid)}" %></span> \
   						</div> \
   						<div class="info"> \
-  							<h2><a href="/hotel/' + hotels[i]['id'] + '" target="_blank">' + hotels[i]['name'] + '</a> \
+  							<h2><a href="/hotel/' + hotels[i]['id'] + req + '" target="_blank">' + hotels[i]['name'] + '</a> \
   								<small>' + hotels[i]['position_info'] + '</small> \
   							</h2> \
   							<div class="price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i> \
@@ -50,15 +52,16 @@
   		}
   
   	var intervalID = setInterval(function(){
+        var requestId = $('#requestId').val();
   		$.ajax({
   		  url: "/check",
   		  data: {
-  		    requestId: $('#requestId').val()
+  		    requestId: requestId
   		  },
   		  success: function(data){
   		  	if(data["total"] > 0){
   		  		$('#hotels').html('');
-  		  		showHotels(data["hotels"]);
+  		  		showHotels(data["hotels"], requestId);
   		  	}
   		  	console.log(data["total"]);
   		  	if(data["status"] == 'finished'){

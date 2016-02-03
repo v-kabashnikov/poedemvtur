@@ -59,9 +59,11 @@
             <% else %>
               <%= @hotel.sletat_description.html_safe %>
               <script>
-                var src = $('#hotelDescriptionID').attr('src');
-                                                $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                // var src = $('#hotelDescriptionID').attr('src');
+                                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                                                $('#hotelDescriptionID').attr('src', src);
+                                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
               </script>
             <% end %>
             <!--<div class="col-sm-9 col-md-9 col-lg-9">
@@ -78,32 +80,32 @@
           <div id="hotel-options">
             <!-- Nav tabs -->
             <ul class="nav">
-              <li class="active"><a href="#opt-1" data-toggle="tab">Инфраструктура</a></li>
-              <li><a href="#opt-2" data-toggle="tab">Платно</a></li>
-              <li><a href="#opt-3" data-toggle="tab">В номере</a></li>
-              <li><a href="#opt-4" data-toggle="tab">Типы комнат</a></li>
+              <% fg1 = @facilities.first %>
+              <li class="active"><a href="#opt-<%= fg1[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg1[0]).name %></a></li>
+              <% @facilities.to_a[1,1000].each do |fg| %>
+                <li><a href="#opt-<%= fg[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg[0]).name %></a></li>
+              <% end %>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
-              <div class="tab-pane active" id="opt-1">
-                <div class="h-opt">
-                  <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
-                  <div class="h-opt-name">3 ресторана</div>
-                </div>
-                <div class="h-opt">
-                  <div class="h-opt-icon"><%= image_tag 'hotel-opions/bar.png' %></div>
-                  <div class="h-opt-name">3 бара</div>
-                </div>
-                <div class="h-opt">
-                  <div class="h-opt-icon"><%= image_tag 'hotel-opions/swim.png' %></div>
-                  <div class="h-opt-name">2 бассейна</div>
-                </div>
-                <div class="h-opt">
-                  <div class="h-opt-icon"><%= image_tag 'hotel-opions/med.png' %></div>
-                  <div class="h-opt-name">Услуги врача</div>
-                </div>
+              <div class="tab-pane active" id="opt-<%= fg1[0] %>">
+                <% fg1[1].each do |f| %>
+                  <div class="h-opt">
+                    <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
+                    <div class="h-opt-name"><%= f.name %></div>
+                  </div>
+                <% end %>
               </div>
-              <div class="tab-pane" id="opt-2"></div>
+              <% @facilities.to_a[1,1000].each do |fg| %>
+                <div class="tab-pane" id="opt-<%= fg[0] %>">
+                  <% fg[1].each do |f| %>
+                    <div class="h-opt">
+                      <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
+                      <div class="h-opt-name"><%= f.name %></div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
               <div class="tab-pane" id="opt-3"></div>
               <div class="tab-pane" id="opt-4"></div>
             </div>
@@ -119,28 +121,30 @@
           <div class="hidden-sm col-md-2 col-lg-2">Туроператор</div>
           <div class="col-sm-3 col-md-2 col-lg-2">Цена</div>
         </div>
-        <div class="col-md-12 tour-list-item clearfix">
-          <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
-            <div class="price pull-right text-left">28&nbsp;500&nbsp;<i class="fa fa-rub"></i><small>на всех</small></div>
-            <div class="btn btn-orange">Купить сейчас</div>
+        <% @tours.each do |tour| %>
+          <div class="col-md-12 tour-list-item clearfix">
+            <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
+              <div class="price pull-right text-left"><%= tour.price %><i class="fa fa-rub"></i><small>на всех</small></div>
+              <div class="btn btn-orange">Купить сейчас</div>
+            </div>
+            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+              <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет из <%= tour.depart_city %></span></div>
+              <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
+              <div class="visible-xs clearfix"></div>
+              <div class="visible-xs"><%= tour.nights %> ночей</div>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2 info">
+              <span><%= tour.meal %></span>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
+              <span><%= tour.room_type %><%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %>
+              </span>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2 info">
+              <span><%= tour.tour_operator %></span>
+            </div>
           </div>
-          <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
-            <div class="xs-pull-left"><span class="date">10.12</span>&nbsp;<span class="hidden-xs"> вылет из Екатеринбурга</span></div>
-            <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b>16.12</span>&nbsp;<span class="hidden-xs"> вылет обратно, 7 ночей</span></div>
-            <div class="visible-xs clearfix"></div>
-            <div class="visible-xs">7 ночей</div>
-          </div>
-          <div class="col-xs-6 col-sm-2 col-md-2 info">
-            <span>Завтраки</span>
-          </div>
-          <div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
-            <span>Номер Стандартный.<br class="hidden-lg">
-              2 взрослых</span>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 info">
-            <span>Веди тур</span>
-          </div>
-        </div>
+        <% end %>
       </div>
       <div class="tab-pane fade" id="comments">
         <div class="clearfix xs-padding">

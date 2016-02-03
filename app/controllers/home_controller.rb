@@ -24,6 +24,10 @@ class HomeController < ApplicationController
         sign: res['main']['temp'] > 0 ? '+' : '-'
       }
     end
+    if params[:requestId]
+      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+    end
+    @facilities = @hotel.facilities.chunk(&:facility_group_id)
   end
 
   def search

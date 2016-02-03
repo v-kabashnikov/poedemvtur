@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202150322) do
+ActiveRecord::Schema.define(version: 20160203154529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,36 @@ ActiveRecord::Schema.define(version: 20160202150322) do
   end
 
   add_index "depart_cities", ["country_id"], name: "index_depart_cities_on_country_id", using: :btree
+
+  create_table "facilities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+    t.integer  "facility_group_id"
+    t.string   "hit"
+    t.integer  "sletat_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "facilities", ["facility_group_id"], name: "index_facilities_on_facility_group_id", using: :btree
+
+  create_table "facilities_hotels", id: false, force: :cascade do |t|
+    t.integer "facility_id"
+    t.integer "hotel_id"
+  end
+
+  add_index "facilities_hotels", ["facility_id"], name: "index_facilities_hotels_on_facility_id", using: :btree
+  add_index "facilities_hotels", ["hotel_id"], name: "index_facilities_hotels_on_hotel_id", using: :btree
+
+  create_table "facility_groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sletat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hotel_options", force: :cascade do |t|
     t.string   "icon_file_name"
@@ -196,6 +226,25 @@ ActiveRecord::Schema.define(version: 20160202150322) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "tour_results", force: :cascade do |t|
+    t.integer  "hotel_id"
+    t.date     "depart_date"
+    t.integer  "nights"
+    t.string   "depart_city"
+    t.string   "meal"
+    t.string   "tour_operator"
+    t.string   "room_type"
+    t.integer  "request_id"
+    t.integer  "price"
+    t.integer  "adults_number"
+    t.integer  "children_number"
+    t.string   "sletat_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "tour_results", ["hotel_id"], name: "index_tour_results_on_hotel_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -216,9 +265,11 @@ ActiveRecord::Schema.define(version: 20160202150322) do
 
   add_foreign_key "countries", "country_categories"
   add_foreign_key "depart_cities", "countries"
+  add_foreign_key "facilities", "facility_groups"
   add_foreign_key "hotels", "resorts"
   add_foreign_key "hotels", "stars"
   add_foreign_key "resorts", "countries"
   add_foreign_key "reviews", "hotels"
   add_foreign_key "search_results", "hotels"
+  add_foreign_key "tour_results", "hotels"
 end
