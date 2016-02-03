@@ -25,11 +25,7 @@ class TourLoader
               puts 101
               min_price = aaData[min_price_index][42]
               puts 102
-              begin
-                hotel = Hotel.get_or_update(hid, client)
-              rescue => error
-                puts("71 ERROR ===>> #{error.class} and #{error.message}")
-              end
+              hotel = Hotel.get_or_update(hid, client)
               puts 103
               sr = SearchResult.where(hotel_id: hotel.id, request_id: requestId).first
               puts 104

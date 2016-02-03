@@ -156,26 +156,48 @@ class Hotel < ActiveRecord::Base
       hotel_info_facility_group = info_res[:hotel_facilities][:hotel_info_facility_group]
       hotel_facilities = []
       if hotel_info_facility_group
+        # binding.pry
+        # begin
+        hotel_info_facility_group = hotel_info_facility_group.kind_of?(Array) ? hotel_info_facility_group : [] << hotel_info_facility_group
         hotel_info_facility_group.each do |hifg|
-          hfg = FacilityGroup.where(sletat_id: hifg[:id]).first_or_create(
-            name: hifg[:name],
-            sletat_id: hifg[:id]
-          )
-          facilities = hifg[:facilities].kind_of?(Array) ? hifg[:facilities] : ([] << hifg[:facilities])
-          hotel_facilities += facilities.map(&:id)
-          facilities.each do |facility|
-            facility = facility[:hotel_info_facility]
-            Facility.where(sletat_id: facility[:id]).first_or_create(
-              name: facility[:name],
-              sletat_id: facility[:id],
-              hit: facility[:hit],
-              facility_group_id: hfg.id
+          begin
+            hfg = FacilityGroup.where(sletat_id: hifg[:id]).first_or_create(
+              name: hifg[:name],
+              sletat_id: hifg[:id]
             )
+          rescue => error
+            puts("74 ERROR ===>> #{error.class} and #{error.message}")
+          end
+          puts hifg[:facilities][:hotel_info_facility].kind_of?(Array)
+          facilities = hifg[:facilities][:hotel_info_facility].kind_of?(Array) ? hifg[:facilities][:hotel_info_facility] : ([] << hifg[:facilities][:hotel_info_facility])
+          hotel_facilities += facilities
+          facilities.each do |facility|
+            puts facility[:name]
+            begin
+              Facility.where(sletat_id: facility[:id]).first_or_create(
+                name: facility[:name],
+                sletat_id: facility[:id],
+                hit: facility[:hit],
+                facility_group_id: hfg.id
+              )
+            rescue => error
+              puts("1 ERROR ===>> #{error.class} and #{error.message}")
+            end
           end
         end
+        # rescue => error
+        #   puts("ERROR ===>> #{error.class} and #{error.message}")
+        # end
       end
       unless hotel_facilities.empty?
-        hotel.facilities = Facility.where(sletat_id: hotel_facilities)
+        puts 3
+        begin
+          # binding.pry
+          hotel.facilities = Facility.where(sletat_id: hotel_facilities.map{|f| f[:id]})
+          puts 4
+        rescue => error
+          puts("2 ERROR ===>> #{error.class} and #{error.message}")
+        end
       end
       # puts "creating hotel #{hotel.id}"
       res_reviews = client.call :get_hotel_comments, message: { hotel_id: hid }
