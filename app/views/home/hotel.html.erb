@@ -1,3 +1,20 @@
+<script>
+  var intervalID = setInterval(function(){
+    var requestId = <%= params[:requestId] %>;
+    $.ajax({
+      url: "<%= check_tours_path(@hotel) %>",
+      data: {
+        requestId: requestId
+      },
+      success: function(data){
+        if(data){
+          clearInterval(intervalID);
+        }
+      }
+    });
+  }, 5000)
+</script>
+
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>
 <% end %>
@@ -61,10 +78,10 @@
                 <%= @hotel.sletat_description.html_safe %>
                 <script>
                   // var src = $('#hotelDescriptionID').attr('src');
-                  var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                  $('#hotelDescriptionID').attr('src', src);
-                  // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                  $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                                    var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                    $('#hotelDescriptionID').attr('src', src);
+                                    // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                    $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
                 </script>
               <% end %>
             <% end %>
@@ -123,30 +140,36 @@
           <div class="hidden-sm col-md-2 col-lg-2">Туроператор</div>
           <div class="col-sm-3 col-md-2 col-lg-2">Цена</div>
         </div>
-        <% @tours.each do |tour| %>
-          <div class="col-md-12 tour-list-item clearfix">
-            <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
-              <div class="price pull-right text-left"><%= tour.price %><i class="fa fa-rub"></i><small>на всех</small></div>
-              <div class="btn btn-orange">Купить сейчас</div>
-            </div>
-            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
-              <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет из <%= tour.depart_city %></span></div>
-              <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
-              <div class="visible-xs clearfix"></div>
-              <div class="visible-xs"><%= tour.nights %> ночей</div>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-2 info">
-              <span><%= tour.meal %></span>
-            </div>
-            <div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
-              <span><%= tour.room_type %><%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %>
-              </span>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-2 info">
-              <span><%= tour.tour_operator %></span>
-            </div>
-          </div>
-        <% end %>
+        <div id="tours" data-status="<%= @status %>">
+          <% if @status == 'finished' %>
+            <% @tours.each do |tour| %>
+              <div class="col-md-12 tour-list-item clearfix">
+                <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
+                  <div class="price pull-right text-left"><%= tour.price %><i class="fa fa-rub"></i><small>на всех</small></div>
+                  <div class="btn btn-orange">Купить сейчас</div>
+                </div>
+                <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+                  <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет из <%= tour.depart_city %></span></div>
+                  <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
+                  <div class="visible-xs clearfix"></div>
+                  <div class="visible-xs"><%= tour.nights %> ночей</div>
+                </div>
+                <div class="col-xs-6 col-sm-2 col-md-2 info">
+                  <span><%= tour.meal %></span>
+                </div>
+                <div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
+                  <span><%= tour.room_type %><%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %>
+                  </span>
+                </div>
+                <div class="hidden-xs hidden-sm col-md-2 info">
+                  <span><%= tour.tour_operator %></span>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="text-center">Загрузка туров...</p>
+          <% end %>
+        </div>
       </div>
       <div class="tab-pane fade" id="comments">
         <div class="clearfix xs-padding">

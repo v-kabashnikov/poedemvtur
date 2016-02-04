@@ -25,10 +25,27 @@ class HomeController < ApplicationController
       }
     end
     if params[:requestId]
-      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+      if LoadStatus.find_by(request_id: params[:requestId]).status == 1
+        @status = 'finished'
+        @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+      else
+        @status = 'loading'
+      end      
     end
     @hotel.load_facilities
     @facilities = @hotel.facilities.order(:facility_group_id).chunk(&:facility_group_id)
+  end
+
+  def check_tours
+    requestId = params[:requestId]
+    @hotel = Hotel.find(params[:id])
+    if LoadStatus.find_by(request_id: requestId).status == 1
+      @status = 'finished'
+      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+    else
+      @status = 'loading'
+      render nothing: true
+    end
   end
 
   def search

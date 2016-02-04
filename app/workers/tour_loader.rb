@@ -29,8 +29,7 @@ class TourLoader
               end
             end
           end
-          if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }
-            ls.update(status: 1)
+          if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }            
             aaData = get_res_data('GetTours', true, url_params)['aaData']
             puts "is_processed #{aaData.count}"
             aaData.each do |tour|
@@ -48,6 +47,7 @@ class TourLoader
                 tour_operator: tour[18]
               )
             end
+            ls.update(status: 1)
             break
           end
           sleep(1)
