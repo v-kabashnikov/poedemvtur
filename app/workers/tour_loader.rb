@@ -29,7 +29,7 @@ class TourLoader
               end
             end
           end
-          if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }            
+          if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }
             aaData = get_res_data('GetTours', true, url_params)['aaData']
             puts "is_processed #{aaData.count}"
             aaData.each do |tour|
@@ -54,6 +54,23 @@ class TourLoader
         end
       end
     rescue
+      aaData = get_res_data('GetTours', true, url_params)['aaData']
+      puts "is_processed #{aaData.count}"
+      aaData.each do |tour|
+        TourResult.create(
+          hotel_id: Hotel.find_by(sletat_id: tour[3]).id,
+          depart_date: Date.parse(tour[12]),
+          nights: tour[14],
+          depart_city: tour[33],
+          meal: tour[51],
+          room_type: tour[53],
+          request_id: requestId,
+          price: tour[42],
+          adults_number: tour[16],
+          children_number: tour[17],
+          tour_operator: tour[18]
+        )
+      end
       ls.update(status: 1)
     end
   end
