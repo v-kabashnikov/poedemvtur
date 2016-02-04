@@ -60,10 +60,10 @@
               <%= @hotel.sletat_description.html_safe %>
               <script>
                 // var src = $('#hotelDescriptionID').attr('src');
-                                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                                                $('#hotelDescriptionID').attr('src', src);
-                                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                                                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                                                                $('#hotelDescriptionID').attr('src', src);
+                                                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
               </script>
             <% end %>
             <!--<div class="col-sm-9 col-md-9 col-lg-9">
@@ -77,39 +77,39 @@
               </div>
             <% end %>
           </div>
-          <div id="hotel-options">
-            <!-- Nav tabs -->
-            <ul class="nav">
-              <% fg1 = @facilities.first %>
-              <li class="active"><a href="#opt-<%= fg1[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg1[0]).name %></a></li>
-              <% @facilities.to_a[1,1000].each do |fg| %>
-                <li><a href="#opt-<%= fg[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg[0]).name %></a></li>
-              <% end %>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div class="tab-pane active" id="opt-<%= fg1[0] %>">
-                <% fg1[1].each do |f| %>
-                  <div class="h-opt">
-                    <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
-                    <div class="h-opt-name"><%= f.name %></div>
-                  </div>
+          <% fg1 = @facilities.first %>
+          <% if fg1 %>
+            <div id="hotel-options">
+              <!-- Nav tabs -->
+              <ul class="nav">
+                <li class="active"><a href="#opt-<%= fg1[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg1[0]).name %></a></li>
+                <% @facilities.to_a[1,1000].each do |fg| %>
+                  <li><a href="#opt-<%= fg[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg[0]).name %></a></li>
                 <% end %>
-              </div>
-              <% @facilities.to_a[1,1000].each do |fg| %>
-                <div class="tab-pane" id="opt-<%= fg[0] %>">
-                  <% fg[1].each do |f| %>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="opt-<%= fg1[0] %>">
+                  <% fg1[1].each do |f| %>
                     <div class="h-opt">
                       <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
                       <div class="h-opt-name"><%= f.name %></div>
                     </div>
                   <% end %>
                 </div>
-              <% end %>
-              <div class="tab-pane" id="opt-3"></div>
-              <div class="tab-pane" id="opt-4"></div>
+                <% @facilities.to_a[1,1000].each do |fg| %>
+                  <div class="tab-pane" id="opt-<%= fg[0] %>">
+                    <% fg[1].each do |f| %>
+                      <div class="h-opt">
+                        <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
+                        <div class="h-opt-name"><%= f.name %></div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
           <div id="filters"></div>
           <div id="hotel-tours-info" class="hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
         </div>

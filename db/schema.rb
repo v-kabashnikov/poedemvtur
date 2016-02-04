@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203154529) do
+ActiveRecord::Schema.define(version: 20160204093103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,9 @@ ActiveRecord::Schema.define(version: 20160203154529) do
     t.integer "hotel_id"
   end
 
+  add_index "facilities_hotels", ["facility_id", "hotel_id"], name: "index_facilities_hotels_on_facility_id_and_hotel_id", unique: true, using: :btree
   add_index "facilities_hotels", ["facility_id"], name: "index_facilities_hotels_on_facility_id", using: :btree
+  add_index "facilities_hotels", ["hotel_id", "facility_id"], name: "index_facilities_hotels_on_hotel_id_and_facility_id", unique: true, using: :btree
   add_index "facilities_hotels", ["hotel_id"], name: "index_facilities_hotels_on_hotel_id", using: :btree
 
   create_table "facility_groups", force: :cascade do |t|
@@ -184,9 +186,9 @@ ActiveRecord::Schema.define(version: 20160203154529) do
     t.integer  "people_number"
     t.integer  "rate"
     t.integer  "hotel_id"
-    t.integer  "sletat_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "sletat"
   end
 
   add_index "reviews", ["hotel_id"], name: "index_reviews_on_hotel_id", using: :btree

@@ -13,7 +13,7 @@
 
 		menuHTML = '<li ' + (params['p'] ? '' : 'class="active"') + '><a href="/">Главная</a></li>'
 		menuHTML += '<li class="visible-xs"><a href="/?p=about#footer-map">Контакты</a></li>'
-		menuHTML += '<li class="visible-xs"><a href="/?' + Time.now.to_s + '#showfilter">Подобрать тур</a></li>'
+		menuHTML += '<li class="visible-xs"><a href="/#showfilter">Подобрать тур</a></li>'
 		active = false
 		menu.each_pair do |k, v|
 			active = (params['p'] && params['p'] == k) ? true : active
@@ -43,7 +43,7 @@
 <header class="container-fluid" id="all-header">
 	<div class="row">
 		<div class="hidden-xs col-md-4 col-sm-4 text-right">
-			<a class="header-link" <%= params['p'] ? 'href=/#showfilter' : 'href="#" data-click="showfilter"' %>>Подобрать тур</a>
+			<a class="header-link" <%= current_page?(root_url) ? 'href=/#showfilter data-click=showfilter' : 'href=/#showfilter' %>>Подобрать тур</a>
 		</div>
 		<div class="col-xs-12 col-md-4 col-sm-4 text-center" id="logo">
 			<a href="/">ПОЕДЕМ В ТУР</a>

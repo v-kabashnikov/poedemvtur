@@ -13,5 +13,7 @@ class CreateFacilities < ActiveRecord::Migration
       t.belongs_to :facility, index: true
       t.belongs_to :hotel, index: true
     end
+    add_index :facilities_hotels, [:facility_id, :hotel_id], unique: true
+    add_index :facilities_hotels, [:hotel_id, :facility_id], unique: true
   end
 end

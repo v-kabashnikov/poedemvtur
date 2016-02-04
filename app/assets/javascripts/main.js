@@ -443,3 +443,12 @@ var url = document.location.toString();
 if (url.match('#')) {
     $('#hotel-tabs a[href="#'+url.split('#')[1]+'"]').tab('show') ;
 } 
+
+(function(){
+	$( "#cb-wh" ).change(function() {
+	  $( "#children_input" ).toggle();
+	  if(!this.checked) {
+	    $("#children_input #s_kids").val(0);
+	  }
+	});
+})($);

@@ -27,7 +27,8 @@ class HomeController < ApplicationController
     if params[:requestId]
       @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
     end
-    @facilities = @hotel.facilities.chunk(&:facility_group_id)
+    @hotel.load_facilities
+    @facilities = @hotel.facilities.order(:facility_group_id).chunk(&:facility_group_id)
   end
 
   def search
@@ -35,7 +36,7 @@ class HomeController < ApplicationController
     s_departFrom = Date.parse("18.02.2016")
     s_departTo = s_departFrom + 45.days
     url_params = { cityFromId: params[:cityFromId], countryId: params[:countryId],
-                   s_adults: params[:s_adults], s_kids: 0, s_nightsMin: s_nights[0], s_nightsMax: s_nights[1],
+                   s_adults: params[:s_adults], s_kids: params[:s_kids], s_nightsMin: s_nights[0], s_nightsMax: s_nights[1],
                    s_priceMin: params[:s_priceMin], s_priceMax: params[:s_priceMax], s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
                    s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
                    includeDescriptions: 1, updateResult: 0 }
