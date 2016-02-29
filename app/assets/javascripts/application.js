@@ -25,3 +25,4 @@
 //= require bootstrap-rating.min.js
 //= require fancybox
 //= require jquery.slick
+//= require readmore

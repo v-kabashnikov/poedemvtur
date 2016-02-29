@@ -22,6 +22,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem "font-awesome-rails"
 gem "selectize-rails"
 gem 'fancybox2-rails', '~> 0.2.8'
+gem 'readmorejs-rails'
 gem "jquery-slick-rails"
 
 gem 'draper', '~> 2.1'

@@ -499,3 +499,19 @@ if (url.match('#')) {
   }
 
 })($);
+
+$('.block-hotel-comments--content').readmore({
+  speed: 75,
+  collapsedHeight: 110,
+	heightMargin: 40,
+  moreLink: '<a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>',
+  lessLink: '<a href="#" class="block-hotel-comments--fulllink">Свернуть</a>'
+});
+
+$('.hotel-comment--text').readmore({
+  speed: 75,
+  collapsedHeight: 50,
+	heightMargin: 40,
+  moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
+  lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
+});

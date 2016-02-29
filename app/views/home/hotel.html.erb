@@ -352,14 +352,13 @@
                   <div class="hotel-comment--text">
                     <p><%= review.comment.html_safe %></p>
                   </div>
-                  <a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
         <div class="">
-          <h2 class="clearfix">???</h2>
+          <h2 class="clearfix"><%= @hotel.name %></h2>
           <div class="row hotel-xs-padding">
             <div class="col-sm-12 col-md-9 col-lg-9">
               <% if @hotel.description %>
@@ -369,10 +368,10 @@
               <%= @hotel.sletat_description.html_safe %>
               <script>
                 // var src = $('#hotelDescriptionID').attr('src');
-                                            var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                            $('#hotelDescriptionID').attr('src', src);
-                                            // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                            $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                $('#hotelDescriptionID').attr('src', src);
+                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
               </script>
             <% end %>
           </div>
@@ -447,7 +446,7 @@
           <div class="visible-xs clearfix"></div>
           <div class="visible-xs"><br>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-7">
+          <div class="col-xs-12 col-sm-6 col-md-7 hotel-comment--text">
             <p><%= review.comment.html_safe %></p>
             <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
           </div>
@@ -477,7 +476,6 @@
               </div>
               <div class="block-hotel-comments--place"><%= @hotel.name %>, <%= @hotel.resort.name %>, <%= @hotel.resort.country.name %>, <%= review.date %></div>
               <div class="block-hotel-comments--content"><%= review.comment.html_safe %></div>
-              <a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>
             </div>
           </div>
         <% end %>
