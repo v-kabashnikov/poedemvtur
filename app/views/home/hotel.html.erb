@@ -1,56 +1,191 @@
 <script>
   var intervalID = setInterval(function(){
-    var requestId = <%= params[:requestId] %>;
-    $.ajax({
-      url: "<%= check_tours_path(@hotel) %>",
-      data: {
-        requestId: requestId
-      },
-      success: function(data){
-        if(data){
-          clearInterval(intervalID);
-        }
-      }
-    });
-  }, 5000)
+                    var requestId = <%= params[:requestId] %>;
+                    $.ajax({
+                      url: "<%= check_tours_path(@hotel) %>",
+                      data: {
+                        requestId: requestId
+                      },
+                      success: function(data){
+                        if(data){
+                          clearInterval(intervalID);
+                        }
+                      }
+                    });
+                  }, 5000)
 </script>
-
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>
 <% end %>
-<div id="sub-header-slider">
-  <div id="header-slider" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators visible-sm visible-xs">
-      <li data-target="#header-slider" data-slide-to="0" class="active"></li>
-      <li data-target="#header-slider" data-slide-to="1"></li>
-      <li data-target="#header-slider" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active" style="background-image:url(<%= image_path('DEMO/main-slider1.jpg') %>)"></div>
-      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider2.jpg') %>)"></div>
-      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider3.jpg') %>)"></div>
+<nav id="hotel-comment" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">
+  <div class="hotel-addcomment-bar">
+    <h3>Добавить отзыв</h3>
+    <form class="hotel-addcomment-form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Представтесь">
+      </div>
+      <div class="input-group date">
+        <input type="text" class="form-control" placeholder="Дата отдыха">
+        <span class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </span>
+      </div>
+      <ul class="input-group--checkboxs">
+        <li>
+          <label class="x-input-radio">
+            <input type="radio" name="col" id="addcomment-col1" checked>
+            <i><i></i></i>
+            <span>Отдыхал(а)</span>
+          </label>
+        </li>
+        <li>
+          <label class="x-input-radio">
+            <input type="radio" name="col" id="addcomment-col2">
+            <i><i></i></i>
+            <span>С семьей</span>
+          </label>
+        </li>
+      </ul>
+      <div class="form-group">
+        <h4>Обслуживание</h4>
+        <select class="form-control">
+          <option>Выберите</option>
+          <% 10.times do |i| %>
+            <option><%= i %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <h4>Питание</h4>
+        <select class="form-control">
+          <option>Выберите</option>
+          <% 10.times do |i| %>
+            <option><%= i %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <h4>Состояние номера</h4>
+        <select class="form-control">
+          <option>Выберите</option>
+          <% 10.times do |i| %>
+            <option><%= i %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" placeholder="Общее впечатление" rows="3"></textarea>
+      </div>
+      <div class="hotel-addcomment-photos">
+        <div class="hotel-addcomment-linephoto">
+          <% 3.times do %>
+            <div class="hotel-addcomment-item">
+              <div class="hotel-addcomment-photo">
+                <span class="hotel-addcomment-photo--text">Загрузить<br>
+                  фото</span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <a href="#" class="hotel-addcomment-addphoto">добавить Еще фото</a>
+      <div class="hotel-addcomment-btn">
+        <button class="btn btn-orange btn-block">оставить отзыв</button>
+      </div>
+    </form>
+  </div>
+</nav>
+<div id="sub-header" class="sub-header_hotel xxs-compact" style="background-image:url('<%= asset_path("bg-sub-header-hotel.jpg") %>')">
+</div>
+<div class="hotel-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8">
+        <h1 class="hotel-name"><%= @hotel.name.upcase %></h1>
+        <ul class="hotel-breadcrumbs">
+          <li><a href="#">Отели <%= @hotel.resort.country.name %></a></li>
+          <li class="sep">/</li>
+          <li><%= @hotel.name.upcase %></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 text-right-no-xs text-right">
+        <div class="hotel-rating">
+          <div class="hotel-rating--star"><img src="DEMO/rating.png" width="123" height="19" alt=""></div>
+          <span class="hotel-rating--number">~ <%= @hotel.hotel_rate %></span>
+        </div>
+        <button class="hotel-addcomment btn btn-yellow" data-recalc="false" data-toggle="offcanvas" data-target="#hotel-comment" data-canvas="#site-wrap">добавить отзыв</button>
+      </div>
     </div>
-    <div class="carousel-caption">
-      <h3 class="text-uppercase"><%= @hotel.name %></h3>
-      <em class="stars">
-        <% @hotel.stars_count.times do %>
-          <i class="glyphicon glyphicon-star active"></i>
-        <% end %>
-      </em>
-      <div class="clearfix btnset rating">~ <%= @hotel.hotel_rate %></div>
+  </div>
+</div>
+<div class="hotel-slider--wrapper">
+  <div class="container">
+    <div class="hotel-slider hidden-xs">
+      <% 9.times do %>
+        <div>
+          <div class="hotel-slide">
+            <a href="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>" class="fancybox" rel="hotel-gallery1">
+              <img src="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>"  alt="">
+              <span class="hotel-slide--zoom icons-search"></span>
+            </a>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <!-- Controls -->
-    <a class="left carousel-control hidden-xs" href="#header-slider" data-slide="prev"></a>
-    <a class="right carousel-control hidden-xs" href="#header-slider" data-slide="next"></a>
-    <!-- thumb navigation carousel -->
-    <div class="thumbs clearfix hidden-sm hidden-xs">
-      <div class="th-wrap">
-        <!-- thumb navigation carousel items -->
-        <div id="carousel-selector-0" style="background-image:url(<%= image_path('DEMO/main-slider1.jpg') %>)" class="selected"></div>
-        <div id="carousel-selector-1" style="background-image:url(<%= image_path('DEMO/main-slider2.jpg') %>)"></div>
-        <div id="carousel-selector-2" style="background-image:url(<%= image_path('DEMO/main-slider3.jpg') %>)"></div>
+    <div class="hotel-slider visible-xs">
+      <% 4.times do %>
+        <div>
+          <div class="hotel-slide">
+            <a href="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>" class="fancybox" rel="hotel-gallery1">
+              <img src="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>"  alt="">
+              <span class="hotel-slide--zoom icons-search"></span>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="hotel-info hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <div class="hotel-info--item">
+          <div class="hotel-info--img">
+            <span class="icons-hotel-beach"></span>
+          </div>
+          <div class="hotel-info--content">
+            <h3 class="hotel-info--header">Пляж</h3>
+            <p>Муниципальный, 495 м до пляжа,
+            в пешей доступности, песок,
+            оборудованный</p>
+            <p>Пусть к пляжу: через дорогу
+            Выход на море: пологий.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="hotel-info--item">
+          <div class="hotel-info--img">
+            <span class="icons-hotel-info"></span>
+          </div>
+          <div class="hotel-info--content">
+            <h3 class="hotel-info--header">Коротко об отеле</h3>
+            <p>50 номеров, 11 этажей, тип корпуса: одно здание</p>
+            <p>Год строительства: 2009</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="hotel-info--item">
+          <div class="hotel-info--img">
+            <span class="icons-hotel-pool"></span>
+          </div>
+          <div class="hotel-info--content">
+            <h3 class="hotel-info--header">Бассейны</h3>
+            <p>Открытый басейн</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,74 +200,104 @@
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
+      <div class="visible-xs">
+        <a href="#" class="tab-xs-header tab-xs-header_active">Описание и туры <span class="icon"><i class="fa fa-angle-up"></i></span></a>
+      </div>
       <div class="tab-pane fade in active" id="info">
-        <div class="xs-padding">
-          <h2 class="clearfix">???</h2>
-          <div class="row">
-            <% if @hotel.description %>
-              <div class="col-sm-9 col-md-9 col-lg-9">
-                <%= @hotel.description %>
-              </div>
-            <% else %>
-              <% if @hotel.sletat_description %>
-                <%= @hotel.sletat_description.html_safe %>
-                <script>
-                  // var src = $('#hotelDescriptionID').attr('src');
-                                    var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                    $('#hotelDescriptionID').attr('src', src);
-                                    // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                    $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
-                </script>
-              <% end %>
-            <% end %>
-            <!--<div class="col-sm-9 col-md-9 col-lg-9">
-              <p>Тур "Наследие великих цивилизаций" поражает воображение! Целых 3 дня путешествия посвящены загадочному Стамбулу. Затем Вы побываете в Чанаккале, где разворачивалось действие «Илиады», увидите культурные святыни, открытые во время раскопок Шлиманна! Вас ждут руины города Пергам, «хлопковый замок» в Памуккале, термальные ванны Клеопатры, древний город Иераполис, экскурсия по Анталии и поездка к невероятному водопаду!</p>
-              <p>В стоимость тура включены: перелёт, проживание в отелях с завтраками, трансферы на комфортабельном автобусе, экскурсии, услуги гида.</p>
-            </div>-->
-            <% if @weather %>
-              <div class="col-sm-3 col-md-3 col-lg-3 weather">
-                <div class="temp" data-operator="<%= @weather[:sign] %>" style="background-image:url(<%= image_path('weather-1.png') %>)"><%= @weather[:temp] %></div>
-                <div class="desc"><%= @weather[:desc] %></div>
-              </div>
-            <% end %>
+        <div class="search-hotel">
+          <div class="search-hotel--header">
+            <h2>
+              <span>Туры в отель <span class="hidden-xs">из</span></span>
+              <label class="x-input-dd x-text no-caret closed hidden-xs">
+                <input type="hidden" placeholder="Выбрать город" value="3">
+                <sub data-before="Из: ">Санкт Петербурга</sub>
+                <span style="display: none;">
+                  <i data-value="1">Екатеринбурга</i>
+                  <i data-value="2">Москвы</i>
+                  <i data-value="3" class="selected">Санкт Петербурга</i>
+                  <i data-value="4">Владивостока</i>
+                </span>
+              </label>
+            </h2>
+            <label class="x-input-dd x-text no-caret closed visible-xs hotel-xs-city">
+              <input type="hidden" placeholder="Выбрать город" value="3">
+              <sub data-before="Откуда: ">Санкт Петербурга</sub>
+              <span style="display: none;">
+                <i data-value="1">Екатеринбурга</i>
+                <i data-value="2">Москвы</i>
+                <i data-value="3" class="selected">Санкт Петербурга</i>
+                <i data-value="4">Владивостока</i>
+              </span>
+            </label>
           </div>
-          <% fg1 = @facilities.first %>
-          <% if fg1 %>
-            <div id="hotel-options">
-              <!-- Nav tabs -->
-              <ul class="nav">
-                <li class="active"><a href="#opt-<%= fg1[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg1[0]).name %></a></li>
-                <% @facilities.to_a[1,1000].each do |fg| %>
-                  <li><a href="#opt-<%= fg[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg[0]).name %></a></li>
-                <% end %>
-              </ul>
-              <!-- Tab panes -->
-              <div class="tab-content">
-                <div class="tab-pane active" id="opt-<%= fg1[0] %>">
-                  <% fg1[1].each do |f| %>
-                    <div class="h-opt">
-                      <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
-                      <div class="h-opt-name"><%= f.name %></div>
-                    </div>
-                  <% end %>
+          <div class="search-hotel--filter">
+            <div class="row">
+              <div class="col-md-4 col-sm-5 col-xs-12">
+                <h4 class="search-hotel--titlefield hidden-xs">Начало поездки</h4>
+                <div class="input-group date">
+                  <input type="text" class="form-control hidden-xs" placeholder="">
+                  <input type="text" class="form-control visible-xs" placeholder="Дата">
+                  <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </span>
                 </div>
-                <% @facilities.to_a[1,1000].each do |fg| %>
-                  <div class="tab-pane" id="opt-<%= fg[0] %>">
-                    <% fg[1].each do |f| %>
-                      <div class="h-opt">
-                        <div class="h-opt-icon"><%= image_tag 'hotel-opions/rest.png' %></div>
-                        <div class="h-opt-name"><%= f.name %></div>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
+                <label class="x-input-dd x-text no-caret closed search-hotel--filter_time">
+                  <input type="hidden" value="1">
+                  <sub data-before="На: ">5-7 дней</sub>
+                  <span style="display: none;">
+                    <i data-value="1">5-7 дней</i>
+                    <i data-value="2">7-12 дней</i>
+                    <i data-value="4">более 12 дней</i>
+                  </span>
+                </label>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <h4 class="search-hotel--titlefield hidden-xs">Взрослые</h4>
+                <div class="hidden-xs">
+                  <label class="count-input">
+                    <span class="pull-right minus">-</span>
+                    <span class="pull-left plus">+</span>
+                    <input type="number" step="1" min="1" max="27" value="2">
+                  </label>
+                </div>
+                <div class="col-xs-12">
+                  <label class="x-input-dd x-text no-caret closed">
+                    <input type="hidden" value="1">
+                    <sub data-before="">Все типы питания</sub>
+                    <span style="display: none;">
+                      <i data-value="1">Все типы питания</i>
+                      <i data-value="2">Обед</i>
+                      <i data-value="4">Все включено</i>
+                    </span>
+                  </label>
+                </div>
+                <div class="visible-xs col-xs-12 text-center">
+                  <label class="count-input">
+                    <span class="pull-right minus">-</span>
+                    <span class="pull-left plus">+</span>
+                    <input type="number" step="1" min="1" max="27" value="2">
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3 hidden-sm hidden-xs">
+                <div class="search-hotel--children">
+                  <label class="x-input-check">
+                    <input type="checkbox">
+                    <i><i class="fa fa-check"></i></i>
+                    <span>А также дети</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-3 col-xs-12">
+                <div class="xs-padding">
+                  <a href="#" class="btn btn-green btn-block">Найти</a>
+                </div>
               </div>
             </div>
-          <% end %>
-          <div id="filters"></div>
-          <div id="hotel-tours-info" class="hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
+          </div>
         </div>
-        <hr>
+        <div id="hotel-tours-info" class="hotel-tours-info hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
+        <hr class="hotel-hr">
         <div class="col-md-12 clearfix hidden-xs">
           <div class="col-sm-5 col-md-4 col-lg-3">Дата</div>
           <div class="col-sm-2 col-md-2 col-lg-2">Питание</div>
@@ -143,7 +308,7 @@
         <div id="tours" data-status="<%= @status %>">
           <% if @status == 'finished' %>
             <% @tours.each do |tour| %>
-              <div class="col-md-12 tour-list-item clearfix">
+              <div class="col-md-12 tour-list-item clearfix hotel-table">
                 <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
                   <div class="price pull-right text-left"><%= tour.price %><i class="fa fa-rub"></i><small>на всех</small></div>
                   <div class="btn btn-orange">Купить сейчас</div>
@@ -158,8 +323,8 @@
                   <span><%= tour.meal %></span>
                 </div>
                 <div class="hidden-xs col-sm-2 col-md-2 col-lg-3 info">
-                  <span><%= tour.room_type %><%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %>
-                  </span>
+                  <span><%= tour.room_type %><br class="hidden-lg">
+                    <%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %></span>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-2 info">
                   <span><%= tour.tour_operator %></span>
@@ -170,40 +335,174 @@
             <p class="text-center">Загрузка туров...</p>
           <% end %>
         </div>
-      </div>
-      <div class="tab-pane fade" id="comments">
-        <div class="clearfix xs-padding">
-          <h2 class="pull-left">Отзывы клиентов</h2>
-          <button class="btn pull-right">Добавить отзыв</button>
+        <div class="clearfix"></div>
+        <h2 class="clearfix">Отзывы об отеле</h2>
+        <div class="hotel-comments--list">
+          <% @hotel.reviews.first(5).each do |review| %>
+            <div class="hotel-comment--item">
+              <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                  <div class="col-xs-8">
+                    <h4 class="hotel-comment--author"><%= review.name %></h4>
+                    <span class="hotel-comment--date"><%= review.date %></span>
+                  </div>
+                  <div class="hotel-comment--rating col-xs-4"><%= review.rate %> из 10</div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="hotel-comment--text">
+                    <p><%= review.comment.html_safe %></p>
+                  </div>
+                  <a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <% @hotel.reviews.each do |review| %>
-          <div class="comment clearfix">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-              <div class="name"><%= review.name %></div>
-              <div class="date"><%= review.date %></div>
-              <a href="#" class="photos hidden-xs">Фотоотчет</a>
+        <div class="">
+          <h2 class="clearfix">???</h2>
+          <div class="row hotel-xs-padding">
+            <div class="col-sm-12 col-md-9 col-lg-9">
+              <% if @hotel.description %>
+                <%= @hotel.description %>
+              </div>
+            <% else %>
+              <%= @hotel.sletat_description.html_safe %>
+              <script>
+                // var src = $('#hotelDescriptionID').attr('src');
+                                            var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                            $('#hotelDescriptionID').attr('src', src);
+                                            // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                            $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+              </script>
+            <% end %>
+          </div>
+          <% if @weather %>
+            <div class="hidden-sm col-md-3 col-lg-3 weather">
+              <div class="temp" data-operator="<%= @weather[:sign] %>" style="background-image:url(<%= image_path('weather-1.png') %>)"><%= @weather[:temp] %></div>
+              <div class="desc"><%= @weather[:desc] %></div>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 pull-right text-right">
-              <p class="gray hidden-xs">Общая оценка:</p>
-              <div class="rating"><b><%= review.rate %></b> из 10</div>
+          <% end %>
+        </div>
+        <% fg1 = @facilities.first %>
+        <% if fg1 %>
+          <div id="hotel-options">
+            <div class="col-xs-12">
+              <div class="hotel-options-xs-select--wrapper">
+                <a href="#" class="visible-xs hotel-options-xs-select">
+                  <span class="text">Инфраструктура</span>
+                  <span class="icon"><i class="fa fa-caret-down"></i></span>
+                </a>
+                <!-- Nav tabs -->
+                <ul class="nav hotel-options-xs-select--submenu">
+                  <li class="active"><a <a href="#opt-<%= fg1[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg1[0]).name %></a></li>
+                  <% @facilities.to_a[1,1000].each do |fg| %>
+                    <li><a href="#opt-<%= fg[0] %>" data-toggle="tab"><%= FacilityGroup.find(fg[0]).name %></a></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-            <div class="visible-xs clearfix"></div>
-            <div class="visible-xs"><br>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-7">
-              <p><%= review.comment.html_safe %></p>
-              <% if review.people_number %>
-                <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="opt-<%= fg1[0] %>">
+                <ul class="hotel-options-list">
+                  <% fg1[1].each do |f| %>
+                    <li><%= f.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+              <% @facilities.to_a[1,1000].each do |fg| %>
+                <div class="tab-pane" id="opt-<%= fg[0] %>">
+                  <ul class="hotel-options-list">
+                    <% fg[1].each do |f| %>
+                      <li><%= f.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
               <% end %>
             </div>
           </div>
         <% end %>
-        <div class="more"><a href="#">Показать еще</a></div>
+        <div id="filters"></div>
       </div>
-      <div class="tab-pane fade frame-map" id="map">
+    </div>
+    <div class="visible-xs">
+      <a href="#" class="tab-xs-header">Отзывы клиентов <span class="icon"><i class="fa fa-angle-down"></i></span></a>
+    </div>
+    <div class="tab-pane fade" id="comments">
+      <div class="clearfix xs-padding">
+        <h2 class="pull-left">Отзывы клиентов</h2>
+        <button class="btn pull-right" data-recalc="false" data-toggle="offcanvas" data-target="#hotel-comment" data-canvas="#site-wrap">Добавить отзыв</button>
+      </div>
+     <% @hotel.reviews.each do |review| %>
+        <div class="comment clearfix">
+          <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="name"><%= review.name %></div>
+            <div class="date"><%= review.date %></div>
+            <a href="#" class="photos hidden-xs">Фотоотчет</a>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-2 pull-right text-right">
+            <p class="gray hidden-xs">Общая оценка:</p>
+            <div class="rating"><b><%= review.rate %></b> из 10</div>
+          </div>
+          <div class="visible-xs clearfix"></div>
+          <div class="visible-xs"><br>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-7">
+            <p><%= review.comment.html_safe %></p>
+            <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
+          </div>
+        </div>
+      <% end %>
+      <!--<div class="more"><a href="#">Показать еще</a></div>-->
+    </div>
+    <div class="visible-xs">
+      <a href="#" class="tab-xs-header">Отель на карте <span class="icon"><i class="fa fa-angle-down"></i></span></a>
+    </div>
+    <div class="tab-pane fade frame-map" id="map">
         <% iframe_url = URI.escape("https://www.google.com/maps/embed/v1/place?q=#{@hotel.latitude} #{@hotel.longitude}&key=AIzaSyAXyAnSQb2J0P9Su3OUTiFHzGg8pVNq07k") %>
         <iframe src="<%= iframe_url %>" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+  </div>
+</div>
+<div class="block-hotel-comments">
+  <div class="container">
+    <h3>ОТЗЫВЫ ОБ ОТЕЛЕ <%= @hotel.name.upcase %></h3>
+    <div class="block-hotel-comments--list row">
+      <% @hotel.reviews.first(3).each_with_index do |review, i| %>
+        <div class="col-md-4 col-sm-6 <%= 'hidden-sm' if i==3 %> <%= 'hidden-xs' if i > 1 %>">    
+            <div class="block-hotel-comments--item">
+              <div class="block-hotel-comments--header">
+                <span class="block-hotel-comments--author"><%= review.name %></span>
+                <span class="block-hotel-comments--rating"><%= review.rate %> из 10</span>
+              </div>
+              <div class="block-hotel-comments--place"><%= @hotel.name %>, <%= @hotel.resort.name %>, <%= @hotel.resort.country.name %>, <%= review.date %></div>
+              <div class="block-hotel-comments--content"><%= review.comment.html_safe %></div>
+              <a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<div class="hotel-bottom">
+  <div class="container">
+    <div class="hotel-photos">
+      <% 7.times do %>
+        <a href="DEMO/hotel<?php echo rand(1,3); ?>.jpg" class="fancybox <?php if($i>5) echo 'hidden-sm ' ?><?php if($i>4) echo 'hidden-xs' ?>" rel="hotel-gallery2"><img src="DEMO/hotel<?php echo rand(1,3); ?>.jpg" alt=""></a>
+          <% end %>
+        </div>
+        <div class="hotel-beside">
+          <h3>ОТЕЛИ РЯДОМ С <%= @hotel.name.upcase %>, <%= @hotel.resort.name.upcase %>, <%= @hotel.resort.country.name.upcase %></h3>
+          <div class="row">
+            <div class="col-md-3 col-sm-4">
+              <ul class="hotel-beside--list">
+                <li><a href="#">Barcelona 3*</a></li>
+                <li><a href="#">Ha Thanh Hotel 2*</a></li>
+                <li><a href="#">Daisy 3*</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

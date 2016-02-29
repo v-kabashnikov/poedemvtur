@@ -1,98 +1,113 @@
 <script>
   function loadMore(){
-    var requestId = $('#requestId').val();
-  	var loaded = $(".tour-block").length
-  	$.ajax({
-	  url: "/load_more",
-	  data: {
-	    loaded: loaded,
-	    requestId: requestId
-	  },
-	  success: function(data){
-	  	hotels = data["hotels"];
-	  	showHotels(hotels, requestId);
-	  	if(hotels.length + loaded == $('#total_number').html()){
-	  		$('.more').remove();
-	  	}
-	  }
-	})
-  }
-  function showHotels( hotels, requestId ){
-      var req = requestId == undefined ? "" : "?requestId=" + requestId;
-  			for(var i=0; i<hotels.length; i++){
-  				// var hotel = hotels[i];
-  				var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
-  					<div class="tour-block"> \
-  						<div class="thumb"> \
-  							<img src="' + hotels[i]['image_url'] + '"> \
-  							<a href="#" class="like"></a> \
-  							<a href="/hotel/' + hotels[i]['id'] + req + '#map" class="onmap" target="_blank">На карте</a> \
-  							<div class="stars"> \
-  								<input type="hidden" data-filled="glyphicon glyphicon-star custom-star-filled" data-empty="glyphicon glyphicon-star custom-star-empty" class="rating" data-readonly value="' + hotels[i]['stars_count'] + '"/> \
-  								<span class="rating-value">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
-  							</div> \
-  							<a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="rept" target="_blank">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
-  						</div> \
-  						<div class="sub-thumb"> \
-  							<span class="pull-right"><%= "#{l(Date.parse(params[:s_departFrom]), format: :mid)} - #{l(Date.parse(params[:s_departFrom]) + 45.days, format: :mid)}" %></span> \
-  						</div> \
-  						<div class="info"> \
-  							<h2><a href="/hotel/' + hotels[i]['id'] + req + '" target="_blank">' + hotels[i]['name'] + '</a> \
-  								<small>' + hotels[i]['position_info'] + '</small> \
-  							</h2> \
-  							<div class="price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i> \
-  								<small>на всех</small> \
-  							</div> \
-  						</div> \
-  					</div> \
-  				</div>'
-  				$('#hotels').append(hotel);
-  			}
-  			$('.stars input').rating();
-  		}
-  
-  	var intervalID = setInterval(function(){
         var requestId = $('#requestId').val();
-  		$.ajax({
-  		  url: "/check",
-  		  data: {
-  		    requestId: requestId
-  		  },
-  		  success: function(data){
-  		  	if(data["total"] > 0){
-  		  		$('#hotels').html('');
-  		  		showHotels(data["hotels"], requestId);
-  		  	}
-  		  	console.log(data["total"]);
-  		  	if(data["status"] == 'finished'){
-  		  		$('#loading').remove();
-  		  		if(data["total"] > 18){
-  		  			$('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
-  		  		}
-  		  		if(data["total"] == 0){
-  		  			$('#total').html('Ничего не найдено')
-  		  		}
-  		  		else{
-  		  			$('#total').html('Найдено <span id="total_number">'+ data["total"] + '</span> отелей')
-  		  		}
-  		  		clearInterval(intervalID);
-  		  	}
-  		  }
-  		})
-  	}, 2000)
+        var loaded = $(".tour-block").length
+        $.ajax({
+        url: "/load_more",
+        data: {
+          loaded: loaded,
+          requestId: requestId
+        },
+        success: function(data){
+          hotels = data["hotels"];
+          showHotels(hotels, requestId);
+          if(hotels.length + loaded == $('#total_number').html()){
+            $('.more').remove();
+          }
+        }
+      })
+      }
+  
+  
+      function showHotels( hotels, requestId ){
+          var req = requestId == undefined ? "" : "?requestId=" + requestId;
+            for(var i=0; i<hotels.length; i++){
+              // var hotel = hotels[i];
+              var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
+                  <div class="tour-block tour-block-new"> \
+                    <div class="tour-header row"> \
+                      <h2 class="col-md-7"><a href="/hotel/' + hotels[i]['id'] + req + '">' + hotels[i]['name'] + '</a></h2> \
+                      <div class="tour-rating col-md-5"> \
+                        <div class="tour-rating--star"><img src="img/tour-rating.png" width="59" height="12" alt=""></div> \
+                        <span class="tour-rating--num">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
+                      </div> \
+                    </div> \
+                    <div class="tour-desc">' + hotels[i]['position_info'] + '</div> \
+                    <div class="thumb"> \
+                      <img src="' + hotels[i]['image_url'] + '"> \
+                      <a href="#" class="like like-left"></a> \
+                    </div> \
+                    <div class="tour-footer"> \
+                      <div class="col-md-4"> \
+                        <div class="tour-eat"> \
+                          <span>Завтраки</span> \
+                          19 ноября на 6 ночей \
+                        </div> \
+                      </div> \
+                      <div class="col-md-3"> \
+                        <a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="tour-commentlink">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
+                      </div> \
+                      <div class="col-md-5"> \
+                        <div class="tour-price">' + hotels[i]['price'] + '<i class="fa fa-rub"></i></div> \
+                      </div> \
+                    </div> \
+                  </div> \
+                </div>'
+              $('#hotels').append(hotel);
+            }
+            $('.stars input').rating();
+          }
+  
+        var intervalID = setInterval(function(){
+            var requestId = $('#requestId').val();
+          $.ajax({
+            url: "/check",
+            data: {
+              requestId: requestId
+            },
+            success: function(data){
+              if(data["total"] > 0){
+                $('#hotels').html('');
+                showHotels(data["hotels"], requestId);
+              }
+              console.log(data["total"]);
+              if(data["status"] == 'finished'){
+                $('#loading').remove();
+                if(data["total"] > 18){
+                  $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
+                }
+                if(data["total"] == 0){
+                  $('#total').html('Ничего не найдено')
+                }
+                else{
+                  $('#total').html('Найдено <span id="total_number">'+ data["total"] + '</span> отелей')
+                }
+                clearInterval(intervalID);
+              }
+            }
+          })
+        }, 2000)
 </script>
+
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
   <h3><%= @country %></h3>
 </div>
-<div id="show-filter"><a href="#">Развернуть фильтр</a></div>
 <div class="container" id="tour-filtered">
   <div class="row">
-    <h2 class="col-xs-12 col-sm-6 col-md-6" id="total"></h2>
+    <h2 class="col-xs-12 col-sm-6 col-md-6 roboto-light" id="total"></h2>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right" id="filters">
       <div class="big">
         <span class="xs-pull-right">
           <span class="hidden-xxs">Валюта</span>
-          <span class="dropdown-text">RUB<span class="caret"></span></span>
+          <label class="x-input-dd x-text closed hidden-xs" style="color:#965738;">
+            <input type="hidden" placeholder="Выбрать город" value="3">
+            <sub data-before="Из: ">RUB</sub>
+            <span style="display: none;">
+              <i data-value="1">RUB</i>
+              <i data-value="2">EUR</i>
+              <i data-value="3" class="selected">USD</i>
+            </span>
+          </label>
         </span>
         <span class="view-change xs-pull-left"><a class="active" href="#">Плиткой</a><a href="#">Списком</a></span>
       </div>
@@ -100,7 +115,8 @@
   </div>
   <%= hidden_field_tag 'requestId', @requestId %>
   <h4 class="text-center" id="loading">Загрузка результатов...</h4>
-  <div class="row" id="hotels">    
+  <div class="row" id="hotels">
+    <div class="row">
+    </div>
   </div>
 </div>
-

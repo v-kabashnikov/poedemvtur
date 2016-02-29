@@ -452,3 +452,50 @@ if (url.match('#')) {
 	  }
 	});
 })($);
+
+(function(){
+  $(".fancybox").fancybox({
+    fitToView: false,
+    maxWidth: "90%"
+	});
+})($);
+
+(function(){
+  $('.hotel-slider').slick({
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+     responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  hotelArrows();
+  $(window).resize(hotelArrows);
+  function hotelArrows(){
+    var dots = 0;
+    $('.hotel-slider .slick-dots').find('li').each(function(){
+      dots += $(this).width()+8;
+    });
+    $('.hotel-slider .slick-prev').css({
+      'margin-right' : dots/2+20
+    });
+    $('.hotel-slider .slick-next').css({
+      'margin-left' : dots/2+20
+    });
+  }
+
+})($);

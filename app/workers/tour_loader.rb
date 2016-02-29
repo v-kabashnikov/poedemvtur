@@ -23,7 +23,9 @@ class TourLoader
               hotel = Hotel.get_or_update(hid, client)
               sr = SearchResult.where(hotel_id: hotel.id, request_id: requestId).first
               if !sr
-                SearchResult.create(hotel_id: hotel.id, request_id: requestId, min_price: min_price)
+                unless hotel.sletat_photo_url.nil?
+                  SearchResult.create(hotel_id: hotel.id, request_id: requestId, min_price: min_price)
+                end
               elsif sr.min_price > min_price
                 sr.update(min_price: min_price)
               end

@@ -3,9 +3,9 @@ class Hotel < ActiveRecord::Base
   belongs_to :resort
   belongs_to :star
   belongs_to :resort
-  has_many :search_results
-  has_many :reviews
-  has_many :tour_results
+  has_many :search_results, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :tour_results, dependent: :destroy
   has_and_belongs_to_many :facilities, uniq: true
 
   def position_info
@@ -22,9 +22,15 @@ class Hotel < ActiveRecord::Base
 
   def update_info(info_res)
     sletat_photo_url = info_res[:image_urls][:string].kind_of?(Array) ? info_res[:image_urls][:string].try(:first) : info_res[:image_urls][:string]
+    sletat_photo_url ||= "http://hotels.sletat.ru/i/f/#{sletat_id}_0.jpg"
+    resp = open(URI(sletat_photo_url))
+    if resp.meta['iis-httpstatuscode'] == '404'
+      sletat_photo_url = nil
+      puts "hotel #{id}[#{sletat_id}] no photo :("
+    end
     update(
       name: info_res[:name],
-      sletat_photo_url: sletat_photo_url || "http://hotels.sletat.ru/i/f/#{sletat_id}_0.jpg",
+      sletat_photo_url: sletat_photo_url,
       hotel_rate: info_res[:hotel_rate],
       resort_id: Resort.find_by(sletat_id: info_res[:resort_id].to_i).try(:id),
       airport_distance: info_res[:airport_distance],

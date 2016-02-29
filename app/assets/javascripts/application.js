@@ -23,3 +23,5 @@
 //= require selectize
 //= require jquery.quicksand.js
 //= require bootstrap-rating.min.js
+//= require fancybox
+//= require jquery.slick
