@@ -105,7 +105,10 @@
 .hotel-rating--star {
   display: inline-block;
   position: relative;
+  color: #F6CB1B;
+  font-size: 19px;
   top: -3px;
+  vertical-align: middle;
 }
 
 .hotel-rating--number {
@@ -719,7 +722,10 @@
 }
 
 .tour-rating--star {
+  font-size: 14px;
+  color: #F99F12;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .tour-rating--num {

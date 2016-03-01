@@ -24,13 +24,17 @@
       function showHotels( hotels, requestId ){
           var req = requestId == undefined ? "" : "?requestId=" + requestId;
             for(var i=0; i<hotels.length; i++){
+              var stars = "";
+              for(var j = 1; j < hotels[i]['stars_count']; j++){
+                stars += '<i class="glyphicon glyphicon-star active"></i>'
+              }
               // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
                   <div class="tour-block tour-block-new"> \
                     <div class="tour-header row"> \
                       <h2 class="col-md-7"><a href="/hotel/' + hotels[i]['id'] + req + '">' + hotels[i]['name'] + '</a></h2> \
                       <div class="tour-rating col-md-5"> \
-                        <div class="tour-rating--star"><img src="img/tour-rating.png" width="59" height="12" alt=""></div> \
+                        <div class="tour-rating--star">' + stars +'</div> \
                         <span class="tour-rating--num">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
                       </div> \
                     </div> \
@@ -42,15 +46,15 @@
                     <div class="tour-footer"> \
                       <div class="col-md-4"> \
                         <div class="tour-eat"> \
-                          <span>Завтраки</span> \
-                          19 ноября на 6 ночей \
+                          <span>' + hotels[i]['meal'] + '</span> \
+                          ' + hotels[i]['depart_date'] + ' на ' + hotels[i]['nights'] + ' ночей \
                         </div> \
                       </div> \
                       <div class="col-md-3"> \
                         <a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="tour-commentlink">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
                       </div> \
                       <div class="col-md-5"> \
-                        <div class="tour-price">' + hotels[i]['price'] + '<i class="fa fa-rub"></i></div> \
+                        <div class="tour-price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i></div> \
                       </div> \
                     </div> \
                   </div> \
@@ -102,16 +106,15 @@
         <span class="xs-pull-right">
           <span class="hidden-xxs">Валюта</span>
           <label class="x-input-dd x-text closed hidden-xs" style="color:#965738;">
-            <input type="hidden" placeholder="Выбрать город" value="3">
+            <input type="hidden" placeholder="Выбрать город" value="1">
             <sub data-before="Из: ">RUB</sub>
             <span style="display: none;">
-              <i data-value="1">RUB</i>
+              <i data-value="1" class="selected">RUB</i>
               <i data-value="2">EUR</i>
-              <i data-value="3" class="selected">USD</i>
+              <i data-value="3">USD</i>
             </span>
           </label>
         </span>
-        <span class="view-change xs-pull-left"><a class="active" href="#">Плиткой</a><a href="#">Списком</a></span>
       </div>
     </div>
   </div>

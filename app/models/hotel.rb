@@ -20,6 +20,10 @@ class Hotel < ActiveRecord::Base
     star.name.to_i if star
   end
 
+  def nearby_hotels
+    Hotel.where(resort_id: resort_id).order('random()').limit(3)
+  end
+
   def update_info(info_res)
     sletat_photo_url = info_res[:image_urls][:string].kind_of?(Array) ? info_res[:image_urls][:string].try(:first) : info_res[:image_urls][:string]
     sletat_photo_url ||= "http://hotels.sletat.ru/i/f/#{sletat_id}_0.jpg"
@@ -81,9 +85,10 @@ class Hotel < ActiveRecord::Base
     end
   end
 
-  def self.get_or_update(hid, client)
+  def self.get_or_update(hid)
     # hotel = find_by(sletat_id: hid)
     hotel = where(sletat_id: hid).first_or_create
+    client = hotel.soap_client 
     if (!hotel.sletat_photo_url || (Time.now - hotel.updated_at > 7.days))
       res = client.call :get_hotel_information, message: { hotel_id: hid }
       info_res = res.body[:get_hotel_information_response][:get_hotel_information_result]
@@ -122,7 +127,7 @@ class Hotel < ActiveRecord::Base
     end
   end
 
-  def parse_date_ru date
+  def self.parse_date_ru date
     monthes = {
       "января" => "01",
       "февраля" => "02",

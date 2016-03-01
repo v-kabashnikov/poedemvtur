@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204093103) do
+ActiveRecord::Schema.define(version: 20160301150539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(version: 20160204093103) do
     t.date     "date"
     t.text     "comment"
     t.integer  "people_number"
-    t.integer  "rate"
+    t.float    "rate"
     t.integer  "hotel_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -197,6 +197,9 @@ ActiveRecord::Schema.define(version: 20160204093103) do
     t.integer "hotel_id"
     t.integer "request_id"
     t.integer "min_price"
+    t.string  "meal"
+    t.string  "depart_date"
+    t.integer "nights"
   end
 
   add_index "search_results", ["hotel_id"], name: "index_search_results_on_hotel_id", using: :btree

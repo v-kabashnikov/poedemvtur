@@ -4,7 +4,10 @@ json.hotels @results do |res|
 	json.name res.hotel.name.upcase
 	json.id res.hotel.id
 	json.stars_count res.hotel.stars_count
-	json.price res.min_price
+	json.price number_with_delimiter(res.min_price, locale: :ru)
+	json.meal res.meal
+	json.depart_date res.depart_date
+	json.nights res.nights
 	json.position_info res.hotel.position_info
 	json.reviews_count res.hotel.reviews.count
 end

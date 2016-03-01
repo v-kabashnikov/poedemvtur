@@ -27,7 +27,8 @@ class HomeController < ApplicationController
     if params[:requestId]
       if LoadStatus.find_by(request_id: params[:requestId]).status == 1
         @status = 'finished'
-        @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+        @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10)
+        @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
       else
         @status = 'loading'
       end      
@@ -41,11 +42,16 @@ class HomeController < ApplicationController
     @hotel = Hotel.find(params[:id])
     if LoadStatus.find_by(request_id: requestId).status == 1
       @status = 'finished'
-      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i)
+      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10)
+      @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
     else
       @status = 'loading'
       render nothing: true
     end
+  end
+
+  def load_more_tours
+    @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10).offset(params[:offset])
   end
 
   def search
