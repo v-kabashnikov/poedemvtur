@@ -21,7 +21,8 @@ class HomeController < ApplicationController
       @weather = {
         desc: res['weather'].first['description'],
         temp: res['main']['temp'].abs.to_i,
-        sign: res['main']['temp'] > 0 ? '+' : '-'
+        sign: res['main']['temp'] > 0 ? '+' : '-',
+        icon: "weather/#{res['weather'].first['icon'][/[\d]+/]}.png"
       }
     end
     if params[:requestId]
@@ -33,6 +34,7 @@ class HomeController < ApplicationController
         @status = 'loading'
       end      
     end
+    @depart_cities = DepartCity.first(10)
     @hotel.load_facilities
     @facilities = @hotel.facilities.order(:facility_group_id).chunk(&:facility_group_id)
   end
@@ -55,26 +57,32 @@ class HomeController < ApplicationController
   end
 
   def search
-    s_nights = params["s_nights"].split('-')
-    s_departFrom = Date.parse("18.02.2016")
-    s_departTo = s_departFrom + 45.days
-    url_params = { cityFromId: params[:cityFromId], countryId: params[:countryId],
-                   s_adults: params[:s_adults], s_kids: params[:s_kids], s_nightsMin: s_nights[0], s_nightsMax: s_nights[1],
-                   s_priceMin: params[:s_priceMin], s_priceMax: params[:s_priceMax], s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
-                   s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
-                   includeDescriptions: 1, updateResult: 0 }
+    # s_nights = params["s_nights"].split('-')
+    # s_departFrom = Date.parse(params['s_departFrom'])
+    # s_departTo = s_departFrom + 45.days
+    # url_params = { cityFromId: params[:cityFromId], countryId: params[:countryId],
+    #                s_adults: params[:s_adults], s_kids: params[:s_kids], s_nightsMin: s_nights[0], s_nightsMax: s_nights[1],
+    #                s_priceMin: params[:s_priceMin], s_priceMax: params[:s_priceMax], s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
+    #                s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
+    #                includeDescriptions: 1, updateResult: 0 }
 
-    data = get_res_data 'GetTours', true, url_params
-    requestId = data["requestId"]
+    # data = get_res_data 'GetTours', true, url_params
+    # requestId = data["requestId"]
 
-    url_params[:updateResult] = 1
-    url_params[:requestId] = requestId
-    url_params[:pageSize] = 3000
+    # url_params[:updateResult] = 1
+    # url_params[:requestId] = requestId
+    # url_params[:pageSize] = 3000
 
-    TourLoader.perform_async(requestId, url_params)
+    # TourLoader.perform_async(requestId, url_params)
+    requestId = start_search(params)
 
     @country = Country.find_by(sletat_id: params[:countryId].to_i).name
     @requestId = requestId
+  end
+
+  def search_hotel
+    requestId = start_search(params)
+    redirect_to "#{hotel_path(params[:hotel_id])}?requestId=#{requestId}"
   end
 
   def check

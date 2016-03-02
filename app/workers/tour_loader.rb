@@ -38,8 +38,8 @@ class TourLoader
           if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }
             aaData = get_res_data('GetTours', true, url_params)['aaData']
             puts "is_processed #{aaData.count}"
-            hotel = Hotel.get_or_update(tour[3])
             aaData.each do |tour|
+              hotel = Hotel.get_or_update(tour[3])
               TourResult.create(
                 hotel_id: hotel.id,
                 depart_date: Date.parse(tour[12]),
@@ -60,7 +60,8 @@ class TourLoader
           sleep(1)
         end
       end
-    rescue
+    rescue => error
+      puts("000 ERROR ===>> #{error.class} and #{error.message}")
       aaData = get_res_data('GetTours', true, url_params)['aaData']
       puts "is_processed #{aaData.count}"
       aaData.each do |tour|

@@ -25,7 +25,7 @@
           var req = requestId == undefined ? "" : "?requestId=" + requestId;
             for(var i=0; i<hotels.length; i++){
               var stars = "";
-              for(var j = 1; j < hotels[i]['stars_count']; j++){
+              for(var j = 1; j <= hotels[i]['stars_count']; j++){
                 stars += '<i class="glyphicon glyphicon-star active"></i>'
               }
               // var hotel = hotels[i];

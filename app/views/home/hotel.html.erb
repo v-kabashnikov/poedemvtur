@@ -1,18 +1,18 @@
 <script>
   var intervalID = setInterval(function(){
-      var requestId = <%= params[:requestId] %>;
-      $.ajax({
-        url: "<%= check_tours_path(@hotel) %>",
-        data: {
-          requestId: requestId
-        },
-        success: function(data){
-          if(data){
-            clearInterval(intervalID);
-          }
-        }
-      });
-    }, 5000)
+          var requestId = <%= params[:requestId] %>;
+          $.ajax({
+            url: "<%= check_tours_path(@hotel) %>",
+            data: {
+              requestId: requestId
+            },
+            success: function(data){
+              if(data){
+                clearInterval(intervalID);
+              }
+            }
+          });
+        }, 5000)
 </script>
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>
@@ -125,11 +125,11 @@
 <div class="hotel-slider--wrapper">
   <div class="container">
     <div class="hotel-slider hidden-xs">
-      <% 9.times do %>
+      <% @hotel.sletat_image_urls.each do |url| %>
         <div>
           <div class="hotel-slide">
-            <a href="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>" class="fancybox" rel="hotel-gallery1">
-              <img src="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>"  alt="">
+            <a href="<%= url %>" class="fancybox" rel="hotel-gallery1">
+              <%= image_tag url %>
               <span class="hotel-slide--zoom icons-search"></span>
             </a>
           </div>
@@ -137,11 +137,11 @@
       <% end %>
     </div>
     <div class="hotel-slider visible-xs">
-      <% 4.times do %>
+      <% @hotel.sletat_image_urls.each do |url| %>
         <div>
           <div class="hotel-slide">
-            <a href="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>" class="fancybox" rel="hotel-gallery1">
-              <img src="<%= image_path("DEMO/hotel#{rand(1..3)}.jpg") %>"  alt="">
+            <a href="<%= url %>" class="fancybox" rel="hotel-gallery1">
+              <%= image_tag url %>
               <span class="hotel-slide--zoom icons-search"></span>
             </a>
           </div>
@@ -156,31 +156,23 @@
       <div class="col-md-4 col-sm-4">
         <div class="hotel-info--item">
           <div class="hotel-info--img">
-            <span class="icons-hotel-beach"></span>
-          </div>
-          <div class="hotel-info--content">
-            <h3 class="hotel-info--header">Пляж</h3>
-            <p>Муниципальный, 495 м до пляжа,
-            в пешей доступности, песок,
-            оборудованный</p>
-            <p>Пусть к пляжу: через дорогу
-            Выход на море: пологий.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="hotel-info--item">
-          <div class="hotel-info--img">
             <span class="icons-hotel-info"></span>
           </div>
           <div class="hotel-info--content">
             <h3 class="hotel-info--header">Коротко об отеле</h3>
-            <p>50 номеров, 11 этажей, тип корпуса: одно здание</p>
-            <p>Год строительства: 2009</p>
+            <% if @hotel.rooms_count && @hotel.rooms_count > 1 %>
+              <p><%= @hotel.rooms_count %> номеров</p>
+            <% end %>
+            <% if @hotel.building_date %>
+              <p>Год строительства: <%= @hotel.building_date %></p>
+            <% end %>
+            <% if @hotel.square %>
+              <p>Площадь отеля: <%= @hotel.square %> м2</p>
+            <% end %>
           </div>
         </div>
       </div>
-      <% if @hotel.facilities.where(facility_group_id: FacilityGroup.find_by_name('Отдых на воде')).count > 0 %>
+      <% if @hotel.facilities.where(facility_group: FacilityGroup.find_by_name('Отдых на воде')).count > 0 %>
         <div class="col-md-4 col-sm-4">
           <div class="hotel-info--item">
             <div class="hotel-info--img">
@@ -188,7 +180,7 @@
             </div>
             <div class="hotel-info--content">
               <h3 class="hotel-info--header">Бассейны</h3>
-              <% @hotel.facilities.where(facility_group_id: FacilityGroup.find_by_name('Отдых на воде')).each do |f| %>
+              <% @hotel.facilities.where(facility_group: FacilityGroup.find_by_name('Отдых на воде')).each do |f| %>
                 <p><%= f.name %></p>
               <% end %>
             </div>
@@ -212,98 +204,102 @@
         <a href="#" class="tab-xs-header tab-xs-header_active">Описание и туры <span class="icon"><i class="fa fa-angle-up"></i></span></a>
       </div>
       <div class="tab-pane fade in active" id="info">
-        <div class="search-hotel">
-          <div class="search-hotel--header">
-            <h2>
-              <span>Туры в отель <span class="hidden-xs">из</span></span>
-              <label class="x-input-dd x-text no-caret closed hidden-xs">
-                <input type="hidden" placeholder="Выбрать город" value="3">
-                <sub data-before="Из: ">Санкт Петербурга</sub>
-                <span style="display: none;">
-                  <i data-value="1">Екатеринбурга</i>
-                  <i data-value="2">Москвы</i>
-                  <i data-value="3" class="selected">Санкт Петербурга</i>
-                  <i data-value="4">Владивостока</i>
-                </span>
-              </label>
-            </h2>
-            <!--<label class="x-input-dd x-text no-caret closed visible-xs hotel-xs-city">
-              <input type="hidden" placeholder="Выбрать город" value="3">
-              <sub data-before="Откуда: ">Санкт Петербурга</sub>
-              <span style="display: none;">
-                <i data-value="1">Екатеринбурга</i>
-                <i data-value="2">Москвы</i>
-                <i data-value="3" class="selected">Санкт Петербурга</i>
-                <i data-value="4">Владивостока</i>
-              </span>
-            </label>-->
-          </div>
-          <div class="search-hotel--filter">
-            <div class="row">
-              <div class="col-md-4 col-sm-5 col-xs-12">
-                <h4 class="search-hotel--titlefield hidden-xs">Начало поездки</h4>
-                <div class="input-group date">
-                  <input type="text" class="form-control hidden-xs" placeholder="">
-                  <input type="text" class="form-control visible-xs" placeholder="Дата">
-                  <span class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </span>
-                </div>
-                <label class="x-input-dd x-text no-caret closed search-hotel--filter_time">
-                  <input type="hidden" value="1">
-                  <sub data-before="На: ">5-7 дней</sub>
+        <%= form_tag(search_hotel_path(@hotel)) do %>
+          <% hidden_field_tag "hotels", @hotel.sletat_id %>
+          <div class="search-hotel">
+            <div class="search-hotel--header">
+              <h2>
+                <span>Туры в отель <span class="hidden-xs">из</span></span>
+                <label class="x-input-dd x-text no-caret closed hidden-xs">
+                  <%= hidden_field_tag "cityFromId", @depart_cities.first.sletat_id, placeholder: 'Выбрать город' %>
+                  <sub data-before="Из: "><%= @depart_cities.first.name %></sub>
                   <span style="display: none;">
-                    <i data-value="1">5-7 дней</i>
-                    <i data-value="2">7-12 дней</i>
-                    <i data-value="4">более 12 дней</i>
+                    <% @depart_cities.each do |city| %>
+                      <i data-value="<%= city.sletat_id %>"><%= city.name %></i>
+                    <% end %>
                   </span>
                 </label>
-              </div>
-              <div class="col-md-3 col-sm-4 col-xs-12">
-                <h4 class="search-hotel--titlefield hidden-xs">Взрослые</h4>
-                <div class="hidden-xs">
-                  <label class="count-input">
-                    <span class="pull-right minus">-</span>
-                    <span class="pull-left plus">+</span>
-                    <input type="number" step="1" min="1" max="27" value="2">
-                  </label>
-                </div>
-                <div class="col-xs-12">
-                  <label class="x-input-dd x-text no-caret closed">
-                    <input type="hidden" value="1">
-                    <sub data-before="">Все типы питания</sub>
+              </h2>
+              <label class="x-input-dd x-text no-caret closed visible-xs hotel-xs-city">
+                <input type="hidden" placeholder="Выбрать город" value="3">
+                <sub data-before="Откуда: "><%= @depart_cities.first.name %></sub>
+                <span style="display: none;">
+                  <% @depart_cities.each do |city| %>
+                    <i data-value="<%= city.sletat_id %>"><%= city.name %></i>
+                  <% end %>
+                </span>
+              </label>
+            </div>
+            <div class="search-hotel--filter">
+              <div class="row">
+                <div class="col-md-4 col-sm-5 col-xs-12">
+                  <h4 class="search-hotel--titlefield hidden-xs">Начало поездки</h4>
+                  <div class="input-group date">
+                    <%= text_field_tag 's_departFrom', nil, class: 'form-control hidden-xs', required: true %>
+                    <%= text_field_tag 's_departFrom', nil, class: 'form-control visible-xs', required: true, placeholder: 'Дата' %>
+                    <span class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                  <label class="x-input-dd x-text no-caret closed search-hotel--filter_time">
+                    <% days = ['5-7', '7-12', '12-20'] %>
+                    <%= hidden_field_tag "s_nights", days.first %>
+                    <sub data-before="На: "><%= days.first %></sub>
                     <span style="display: none;">
-                      <i data-value="1">Все типы питания</i>
-                      <i data-value="2">Обед</i>
-                      <i data-value="4">Все включено</i>
+                      <% days.each do |day| %>
+                        <i data-value="<%= day %>"><%= day %> дней</i>
+                      <% end %>
                     </span>
                   </label>
                 </div>
-                <div class="visible-xs col-xs-12 text-center">
-                  <label class="count-input">
-                    <span class="pull-right minus">-</span>
-                    <span class="pull-left plus">+</span>
-                    <input type="number" step="1" min="1" max="27" value="2">
-                  </label>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                  <h4 class="search-hotel--titlefield hidden-xs">Взрослые</h4>
+                  <div class="hidden-xs">
+                    <label class="count-input">
+                      <span class="pull-right minus">-</span>
+                      <span class="pull-left plus">+</span>
+                      <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27 %>
+                    </label>
+                  </div>
+                  <div class="col-xs-12">
+                    <label class="x-input-dd x-text no-caret closed">
+                      <input type="hidden" value="1">
+                      <%= hidden_field_tag "meals", 0 %>
+                      <sub data-before="">Все типы питания</sub>
+                      <span style="display: none;">
+                        <i data-value="0">Все типы питания</i>
+                        <% Meal.all.each do |meal| %>
+                          <i data-value="<%= meal.sletat_id %>"><%= meal.name %></i>
+                        <% end %>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="visible-xs col-xs-12 text-center">
+                    <label class="count-input">
+                      <span class="pull-right minus">-</span>
+                      <span class="pull-left plus">+</span>
+                      <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27 %>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 hidden-sm hidden-xs">
-                <div class="search-hotel--children">
-                  <label class="x-input-check">
-                    <input type="checkbox">
-                    <i><i class="fa fa-check"></i></i>
-                    <span>А также дети</span>
-                  </label>
+                <div class="col-md-3 hidden-sm hidden-xs">
+                  <div class="search-hotel--children">
+                    <label class="x-input-check">
+                      <input type="checkbox">
+                      <i><i class="fa fa-check"></i></i>
+                      <span>А также дети</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 col-sm-3 col-xs-12">
-                <div class="xs-padding">
-                  <a href="#" class="btn btn-green btn-block">Найти</a>
+                <div class="col-md-2 col-sm-3 col-xs-12">
+                  <div class="xs-padding">
+                    <button class="btn btn-green btn-block">Найти</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
         <div id="hotel-tours-info" class="hotel-tours-info hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
         <hr class="hotel-hr">
         <div class="col-md-12 clearfix hidden-xs">
@@ -378,16 +374,16 @@
               <%= @hotel.sletat_description.html_safe %>
               <script>
                 // var src = $('#hotelDescriptionID').attr('src');
-                                  var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                  $('#hotelDescriptionID').attr('src', src);
-                                  // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                  $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                                                                  var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                                                  $('#hotelDescriptionID').attr('src', src);
+                                                                  // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                                                  $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
               </script>
             <% end %>
           </div>
           <% if @weather %>
             <div class="hidden-sm col-md-3 col-lg-3 weather">
-              <div class="temp" data-operator="<%= @weather[:sign] %>" style="background-image:url(<%= image_path('weather-1.png') %>)"><%= @weather[:temp] %></div>
+              <div class="temp" data-operator="<%= @weather[:sign] %>" style="background-image:url(<%= image_path(@weather[:icon]) %>)"><%= @weather[:temp] %></div>
               <div class="desc"><%= @weather[:desc] %></div>
             </div>
           <% end %>

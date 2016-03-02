@@ -194,6 +194,7 @@
   display: block;
   position: relative;
   overflow: hidden;
+  max-height: 250px;
 }
 .hotel-slide a:hover .hotel-slide--zoom {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);

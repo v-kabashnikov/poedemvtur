@@ -30,8 +30,9 @@ class Hotel < ActiveRecord::Base
     resp = open(URI(sletat_photo_url))
     if resp.meta['iis-httpstatuscode'] == '404'
       sletat_photo_url = nil
-      puts "hotel #{id}[#{sletat_id}] no photo :("
+      # puts "hotel #{id}[#{sletat_id}] no photo :("
     end
+    # binding.pry
     update(
       name: info_res[:name],
       sletat_photo_url: sletat_photo_url,
@@ -46,11 +47,15 @@ class Hotel < ActiveRecord::Base
       rating_service: info_res[:rating_service],
       sletat_description: info_res[:description],
       city_center_distance: info_res[:city_center_distance],
-      beach_line: info_res[:beach_line],
       district: info_res[:district],
       latitude: info_res[:latitude],
       longitude: info_res[:longitude],
-      star_id: Star.find_by(sletat_id: info_res[:star_id]).try(:id)
+      star_id: Star.find_by(sletat_id: info_res[:star_id]).try(:id),
+      sletat_image_urls: info_res[:image_urls][:string],
+      building_date: (info_res[:building_date] if info_res[:building_date]),
+      distance_to_lifts: (info_res[:distance_to_lifts].to_i if info_res[:distance_to_lifts]),
+      rooms_count: info_res[:rooms_count],
+      square: (info_res[:square].to_i if info_res[:square])
     )
   end
 
@@ -89,7 +94,7 @@ class Hotel < ActiveRecord::Base
     # hotel = find_by(sletat_id: hid)
     hotel = where(sletat_id: hid).first_or_create
     client = hotel.soap_client 
-    if (!hotel.sletat_photo_url || (Time.now - hotel.updated_at > 7.days))
+    if (!hotel.latitude || (Time.now - hotel.updated_at > 7.days))
       res = client.call :get_hotel_information, message: { hotel_id: hid }
       info_res = res.body[:get_hotel_information_response][:get_hotel_information_result]
       begin
@@ -118,7 +123,7 @@ class Hotel < ActiveRecord::Base
             hotel_id: id,
             name: review[:user_name],
             comment: review[:positive].to_s + review[:negative].to_s,
-            date: parse_date_ru(review[:create_date_formatted]),
+            date: Hotel.parse_date_ru(review[:create_date_formatted]),
             rate: review[:rate],
             sletat: true
           )
@@ -144,7 +149,7 @@ class Hotel < ActiveRecord::Base
     }
     pattern = /[а-я]+/
     if date
-      a = date.gsub(pattern, monthes[date[pattern]])
+      a = date.gsub(pattern, monthes[date[pattern]].to_s)
       Date.strptime(a, '%d %m %Y')
     end
   end

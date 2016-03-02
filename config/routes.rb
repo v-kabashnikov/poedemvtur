@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
   post '/search', to: 'home#search'
+  post '/search_hotel/:hotel_id', to: 'home#search_hotel', as: :search_hotel
   get '/check', to: 'home#check'
   get '/load_more', to: 'home#load_more'
   get '/hotel/:id', to: 'home#hotel', as: :hotel
