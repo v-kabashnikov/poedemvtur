@@ -51,7 +51,8 @@ module Sletat
     url_params[:updateResult] = 1
     url_params[:requestId] = requestId
     url_params[:pageSize] = 3000
-
+    
+    puts 'start_search'
     TourLoader.perform_async(requestId, url_params)
     requestId
   end
