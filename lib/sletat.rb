@@ -22,6 +22,7 @@ module Sletat
     uri_schema = URI(SERVICE_URL + method + '?' + auth_str + '&' + params.to_query)
     # puts uri_schema
     # binding.pry
+    puts '9'*100, uri_schema
     json = open(uri_schema).read
     res = JSON.parse(json)
   end
