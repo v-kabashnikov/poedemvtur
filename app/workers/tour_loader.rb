@@ -5,7 +5,7 @@ class TourLoader
   sidekiq_options retry: false
   def perform(requestId, url_params)
     ls = LoadStatus.create(request_id: requestId, status: 0)
-    begin
+    # begin
       Timeout::timeout(3.minute) do
         loop do
           sleep(1)
@@ -60,27 +60,27 @@ class TourLoader
           sleep(1)
         end
       end
-    rescue => error
-      puts("000 ERROR ===>> #{error.class} and #{error.message}")
-      aaData = get_res_data('GetTours', true, url_params)['aaData']
-      puts "is_processed #{aaData.count}"
-      aaData.each do |tour|
-        hotel = Hotel.get_or_update(tour[3])
-        TourResult.create(
-          hotel_id: hotel.id,
-          depart_date: Date.parse(tour[12]),
-          nights: tour[14],
-          depart_city: tour[33],
-          meal: tour[51],
-          room_type: tour[53],
-          request_id: requestId,
-          price: tour[42],
-          adults_number: tour[16],
-          children_number: tour[17],
-          tour_operator: tour[18]
-        )
-      end
-      ls.update(status: 1)
-    end
+    # rescue => error
+    #   puts("000 ERROR ===>> #{error.class} and #{error.message}")
+    #   aaData = get_res_data('GetTours', true, url_params)['aaData']
+    #   puts "is_processed #{aaData.count}"
+    #   aaData.each do |tour|
+    #     hotel = Hotel.get_or_update(tour[3])
+    #     TourResult.create(
+    #       hotel_id: hotel.id,
+    #       depart_date: Date.parse(tour[12]),
+    #       nights: tour[14],
+    #       depart_city: tour[33],
+    #       meal: tour[51],
+    #       room_type: tour[53],
+    #       request_id: requestId,
+    #       price: tour[42],
+    #       adults_number: tour[16],
+    #       children_number: tour[17],
+    #       tour_operator: tour[18]
+    #     )
+    #   end
+    #   ls.update(status: 1)
+    # end
   end
 end
