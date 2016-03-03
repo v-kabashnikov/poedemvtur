@@ -24,8 +24,6 @@ module Sletat
     # binding.pry
     json = open(uri_schema).read
     res = JSON.parse(json)
-    puts '2'*100, res
-    res
   end
 
   def get_res_data method, auth = false, params = nil
