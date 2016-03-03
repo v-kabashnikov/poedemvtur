@@ -3,7 +3,7 @@ require 'open-uri'
 namespace :dict do
   task load: :environment do
     path, url = 'tmp/Dictionaries.xml', 'http://module.sletat.ru/Dictionaries.xml'
-    # load_file(path, url)
+    load_file(path, url)
     doc = Nokogiri::XML(File.open(path))
     puts doc.xpath('dictionaries/facilities/facility')
     countries = doc.xpath('dictionaries/countries/country')
