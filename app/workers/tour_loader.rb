@@ -5,8 +5,6 @@ class TourLoader
   sidekiq_options retry: false
   def perform(requestId, url_params)
     ls = LoadStatus.create(request_id: requestId, status: 0)
-    sleep(1)
-    puts '!' * 100, get_res_data('GetTours', true, url_params)
     begin
       Timeout::timeout(3.minute) do
         loop do
