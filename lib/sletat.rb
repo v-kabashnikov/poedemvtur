@@ -20,12 +20,8 @@ module Sletat
 
   def get_data method, auth, params
     uri_schema = URI(SERVICE_URL + method + '?' + auth_str + '&' + params.to_query)
-    # puts uri_schema
-    # binding.pry
-    puts '8'*100, uri_schema
     json = open(uri_schema).read
     res = JSON.parse(json)
-    puts '9'*100, res
     res
   end
 
@@ -35,6 +31,7 @@ module Sletat
   end
 
   def start_search params
+    # puts "==== 1111 ADULTS #{params[:s_adults]}"
     s_nights = params["s_nights"].split('-')
     s_departFrom = Date.parse(params['s_departFrom'])
     s_departTo = s_departFrom + 45.days
@@ -54,10 +51,21 @@ module Sletat
     url_params[:updateResult] = 1
     url_params[:requestId] = requestId
     url_params[:pageSize] = 3000
+
+    ls = LoadStatus.create(
+      request_id: requestId,
+      status: 0,
+      country: Country.find_by_sletat_id(countryId),
+      depart_city: DepartCity.find_by_sletat_id(params[:cityFromId]),
+      depart_from: s_departFrom,
+      nights: params[:s_nights],
+      adults: params[:s_adults].to_i,
+      kids: params[:s_kids].to_i
+    )
     
-    puts 'start_search'
+    puts "start_search #{ls.id}"
     TourLoader.perform_async(requestId, url_params)
-    requestId
+    ls
   end
 
   private

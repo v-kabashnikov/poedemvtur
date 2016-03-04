@@ -272,18 +272,18 @@
 })($);
 
 //*  MAPS BLOCK SCROLL  */
-(function(){
-	$map_wrap = $('.frame-map');
+// (function(){
+// 	$map_wrap = $('.frame-map');
 
-	$map_wrap.on('click', function(){
-		$(this).find('iframe').css("pointer-events", "auto");
-	});
-	$map_wrap.on('mouseleave',function(){
-		$(this).find('iframe').css("pointer-events", "none");
-	});
+// 	$map_wrap.on('click', function(){
+// 		$(this).find('iframe').css("pointer-events", "auto");
+// 	});
+// 	$map_wrap.on('mouseleave',function(){
+// 		$(this).find('iframe').css("pointer-events", "none");
+// 	});
 
-	$map_wrap.css("pointer-events", "none");
-})($);
+// 	$map_wrap.css("pointer-events", "none");
+// })($);
 
 //*  PLUSO  */
 (function(){
@@ -294,11 +294,15 @@
 (function(){
 	$('.count-input')
 			.on('click','.plus',function(){
-		$input = $(this).parent().find('input');
+		var id = $(this).parent().attr('data-count-id');
+		$input = $('input[data-input-id=' + id + ']');
+		// $input = $(this).parent().find('input');
 		$input.val(parseInt($input.val())+1);
 	})
 			.on('click','.minus',function(){
-		$input = $(this).parent().find('input');
+		var id = $(this).parent().attr('data-count-id');
+		$input = $('input[data-input-id=' + id + ']');
+		// $input = $(this).parent().find('input');
 		$input.val(parseInt($input.val())-1);
 	});
 })($);

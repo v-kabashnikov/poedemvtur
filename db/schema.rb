@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302090344) do
+ActiveRecord::Schema.define(version: 20160304141804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,9 +159,18 @@ ActiveRecord::Schema.define(version: 20160302090344) do
   create_table "load_statuses", force: :cascade do |t|
     t.integer  "request_id"
     t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "depart_city_id"
+    t.integer  "country_id"
+    t.date     "depart_from"
+    t.integer  "adults"
+    t.integer  "kids"
+    t.string   "nights"
   end
+
+  add_index "load_statuses", ["country_id"], name: "index_load_statuses_on_country_id", using: :btree
+  add_index "load_statuses", ["depart_city_id"], name: "index_load_statuses_on_depart_city_id", using: :btree
 
   create_table "meals", force: :cascade do |t|
     t.string   "name"
@@ -278,6 +287,8 @@ ActiveRecord::Schema.define(version: 20160302090344) do
   add_foreign_key "facilities", "facility_groups"
   add_foreign_key "hotels", "resorts"
   add_foreign_key "hotels", "stars"
+  add_foreign_key "load_statuses", "countries"
+  add_foreign_key "load_statuses", "depart_cities"
   add_foreign_key "resorts", "countries"
   add_foreign_key "reviews", "hotels"
   add_foreign_key "search_results", "hotels"

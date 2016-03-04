@@ -4,7 +4,7 @@ class TourLoader
   include Sidekiq::Worker
   sidekiq_options retry: false
   def perform(requestId, url_params)
-    ls = LoadStatus.create(request_id: requestId, status: 0)
+    ls = LoadStatus.find_by(request_id: requestId)    
     begin
       Timeout::timeout(3.minute) do
         loop do

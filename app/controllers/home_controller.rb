@@ -25,16 +25,15 @@ class HomeController < ApplicationController
         icon: "weather/#{res['weather'].first['icon'][/[\d]+/]}.png"
       }
     end
-    if params[:requestId]
-      if LoadStatus.find_by(request_id: params[:requestId]).status == 1
-        @status = 'finished'
-        @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10)
-        @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
-      else
-        @status = 'loading'
+    @request = LoadStatus.find_by(request_id: params['requestId'])
+    if @request
+      if @request.status == 1
+        @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(10)
+        @total_tours = @hotel.tour_results.where(request_id: params['requestId']).count
       end      
     end
-    @depart_cities = DepartCity.first(10)
+    
+    @depart_cities = DepartCity.all
     @hotel.load_facilities
     @facilities = @hotel.facilities.order(:facility_group_id).chunk(&:facility_group_id)
   end
@@ -57,6 +56,8 @@ class HomeController < ApplicationController
   end
 
   def search
+    # puts "==== 222 ADULTS #{params[:s_adults]}"
+
     # s_nights = params["s_nights"].split('-')
     # s_departFrom = Date.parse(params['s_departFrom'])
     # s_departTo = s_departFrom + 45.days
@@ -74,15 +75,16 @@ class HomeController < ApplicationController
     # url_params[:pageSize] = 3000
 
     # TourLoader.perform_async(requestId, url_params)
-    requestId = start_search(params)
+    @request = start_search(params)
 
-    @country = Country.find_by(sletat_id: params[:countryId].to_i).name
-    @requestId = requestId
+    @country = @request.country.name
+    # @requestId = requestId
   end
 
   def search_hotel
-    requestId = start_search(params)
-    redirect_to "#{hotel_path(params[:hotel_id])}?requestId=#{requestId}"
+    puts "1111 #{params[:s_adults]}"
+    @request = start_search(params)
+    redirect_to "#{hotel_path(params[:hotel_id])}?requestId=#{@request.request_id}"
   end
 
   def check

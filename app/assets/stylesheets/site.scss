@@ -289,19 +289,20 @@ transform: scale(1.1);
 overflow:hidden;
 position:relative;
 height:225px;
+z-index:4;
 }
 .tour-block .thumb img{
 min-width:100%;
 min-height:100%;
 max-width: 120%;
 max-height: 120%;
-position: absolute;
+position: relative;
+z-index:5;
 left: 0;
 right: 0;
 top: 0;
 bottom: 0;
 margin: auto;
-z-index: -1;
 -webkit-transform: scale(1.2);
 -moz-transform: scale(1.2);
 -ms-transform: scale(1.2);
