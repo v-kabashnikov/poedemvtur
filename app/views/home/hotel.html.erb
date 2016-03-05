@@ -1,21 +1,21 @@
 <script>
   var intervalID = setInterval(function(){
-                        var requestId = '<%= params[:requestId] %>';
-                        var status = $('#tours').attr('data-status');
-                        if(requestId && status == 0){
-                          $.ajax({
-                            url: "<%= check_tours_path(@hotel) %>",
-                            data: {
-                              requestId: requestId
-                            },
-                            success: function(data){
-                              if(data){
-                                clearInterval(intervalID);
-                              }
-                            }
-                          });
-                        }
-                      }, 5000)
+    var requestId = '<%= params[:requestId] %>';
+    var status = $('#tours').attr('data-status');
+    if(requestId && status == 0){
+      $.ajax({
+        url: "<%= check_tours_path(@hotel) %>",
+        data: {
+          requestId: requestId
+        },
+        success: function(data){
+          if(data){
+            clearInterval(intervalID);
+          }
+        }
+      });
+    }
+  }, 5000)
 </script>
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>

@@ -45,6 +45,7 @@ class HomeController < ApplicationController
       @status = 'finished'
       @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(5)
       @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
+      @load_more = @total_tours > 5
     else
       @status = 'loading'
       render nothing: true
