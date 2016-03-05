@@ -291,35 +291,48 @@
 })($);
 
 //*  COUNT INPUT  */
-(function(){
-	$('.count-input')
-			.on('click','.plus',function(){
-		var id = $(this).parent().attr('data-count-id');
-		$input = $('input[data-input-id=' + id + ']');
-		// $input = $(this).parent().find('input');
-		$input.val(parseInt($input.val())+1);
-	})
-			.on('click','.minus',function(){
-		var id = $(this).parent().attr('data-count-id');
-		$input = $('input[data-input-id=' + id + ']');
-		// $input = $(this).parent().find('input');
-		$input.val(parseInt($input.val())-1);
-	});
-})($);
+// (function(){
+// 	$('.count-input')
+// 			.on('click','.plus',function(){
+// 		var id = $(this).parent().attr('data-input-id');
+// 		$input = $('input#' + id);
+// 		// $input = $(this).parent().find('input');
+// 		$input.val(parseInt($input.val())+1);
+// 	})
+// 			.on('click','.minus',function(){
+// 		var id = $(this).parent().attr('data-input-id');
+// 		$input = $('input#' + id);
+// 		// $input = $(this).parent().find('input');
+// 		$input.val(parseInt($input.val())-1);
+// 	});
+// })($);
 
 //*  X-INPUT  */
 (/* x-input-plus-minus */ function(){
-	$xPM = $('.x-input-plus-minus');
-	$xPM.on('click', '.x-plus', function () {
-		$input = $(this).parent().find('input');
+	$xPM = $('.count-input');
+	$xPM.on('click', '.plus', function () {
+		$this = $(this).closest('.count-input');
+		var id = $this.attr('data-input-id');
+		$input = $('input#' + id);
+
+		// console.log($input);
+
+		// $input = $(this).parent().find('input');
 		var newVal = parseInt($input.val()) + 1;
 		var maxVal = parseInt($input.attr('max'));
 		newVal = (maxVal > newVal) ? newVal : maxVal;
 		$input.val(newVal);
 		$input.blur();
 	});
-	$xPM.on('click', '.x-minus', function () {
-		$input = $(this).parent().find('input');
+	$xPM.on('click', '.minus', function () {
+		$this = $(this).closest('.count-input');
+		var id = $this.attr('data-input-id');
+		$input = $('input#' + id);
+
+		// var id = $(this).parent().attr('data-input-id');
+		// $input = $('input#' + id);
+
+		// $input = $(this).parent().find('input');
 		var newVal = parseInt($input.val()) - 1;
 		var minVal = parseInt($input.attr('min'));
 		newVal = (minVal < newVal) ? newVal : minVal;
@@ -375,12 +388,16 @@
 	});
 	$xDD.on('click','span i',function(){
 		var $this = $(this).closest('.x-input-dd');
+		var id = $this.attr('data-input-id');
+		console.log(id);
+  		var $input = $('input#' + id);
 		var newVal = $(this).data('value');
 		var newTxt = $(this).html();
 		$this.find('span i.selected').removeClass('selected');
 		$(this).addClass('selected');
 		$this.children('sub').html(newTxt);
-		$this.children('input').attr('value',newVal);
+		// $.children('input').attr('value',newVal);
+		$input.val(newVal);
 		$this.find('span').stop().slideUp(300);
 		$this.removeClass('opened').addClass('closed');
 
@@ -450,7 +467,7 @@ if (url.match('#')) {
 
 (function(){
 	$( "#cb-wh" ).change(function() {
-	  $( "#children_input" ).toggle();
+	  $( "#children_input" ).toggle(400);
 	  if(!this.checked) {
 	    $("#children_input #s_kids").val(0);
 	  }
@@ -518,4 +535,11 @@ $('.hotel-comment--text').readmore({
 	heightMargin: 40,
   moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
   lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
+});
+
+$('.more-tours').click(function(){
+	var page = parseInt($(this).attr('data-page'));
+	var href = $(this).find('a').attr('href');
+	$(this).find('a').attr('href', href.split('&')[0] + '&page=' + page);
+	$(this).attr('data-page', page + 1);
 });

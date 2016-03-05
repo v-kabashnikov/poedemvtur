@@ -20,6 +20,7 @@ module Sletat
 
   def get_data method, auth, params
     uri_schema = URI(SERVICE_URL + method + '?' + auth_str + '&' + params.to_query)
+    # puts uri_schema
     json = open(uri_schema).read
     res = JSON.parse(json)
     res

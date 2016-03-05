@@ -1,0 +1,4 @@
+$('<%= j render @tours %>').hide().appendTo($('#tours')).slideDown();
+<% if @loaded %>
+	$('.more-tours').remove();
+<% end %>

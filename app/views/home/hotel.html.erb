@@ -1,20 +1,21 @@
 <script>
   var intervalID = setInterval(function(){
-              var requestId = '<%= params[:requestId] %>';
-              if(requestId){
-                $.ajax({
-                  url: "<%= check_tours_path(@hotel) %>",
-                  data: {
-                    requestId: requestId
-                  },
-                  success: function(data){
-                    if(data){
-                      clearInterval(intervalID);
-                    }
-                  }
-                });
-              }
-            }, 5000)
+                        var requestId = '<%= params[:requestId] %>';
+                        var status = $('#tours').attr('data-status');
+                        if(requestId && status == 0){
+                          $.ajax({
+                            url: "<%= check_tours_path(@hotel) %>",
+                            data: {
+                              requestId: requestId
+                            },
+                            success: function(data){
+                              if(data){
+                                clearInterval(intervalID);
+                              }
+                            }
+                          });
+                        }
+                      }, 5000)
 </script>
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>
@@ -117,7 +118,7 @@
               <i class="glyphicon glyphicon-star active"></i>
             <% end %>
           </div>
-          <span class="hotel-rating--number">~ <%= @hotel.hotel_rate %></span>
+          <span class="hotel-rating--number">~ <%= @hotel.hotel_rate.round(1) %></span>
         </div>
         <button class="hotel-addcomment btn btn-yellow" data-recalc="false" data-toggle="offcanvas" data-target="#hotel-comment" data-canvas="#site-wrap">добавить отзыв</button>
       </div>
@@ -212,7 +213,7 @@
             <div class="search-hotel--header">
               <h2>
                 <span>Туры в отель <span class="hidden-xs">из</span></span>
-                <label class="x-input-dd x-text no-caret closed hidden-xs">
+                <label class="x-input-dd x-text no-caret closed hidden-xs" data-input-id="cityFromId">
                   <%= hidden_field_tag "cityFromId", (@request ? @request.depart_city.sletat_id : @depart_cities.first.sletat_id), placeholder: 'Выбрать город' %>
                   <sub data-before="Из: "><%= @request.depart_city.name if @request %></sub>
                   <span style="display: none;">
@@ -222,8 +223,8 @@
                   </span>
                 </label>
               </h2>
-              <label class="x-input-dd x-text no-caret closed visible-xs hotel-xs-city">
-                <input type="hidden" placeholder="Выбрать город" value="3">
+              <label class="x-input-dd x-text no-caret closed visible-xs hotel-xs-city" data-input-id="cityFromId">
+                <%= hidden_field_tag "cityFromId", (@request ? @request.depart_city.sletat_id : @depart_cities.first.sletat_id), placeholder: 'Выбрать город' %>
                 <sub data-before="Откуда: "><%= (@request ? @request.depart_city.name : @depart_cities.first.name) %></sub>
                 <span style="display: none;">
                   <% @depart_cities.each do |city| %>
@@ -243,7 +244,7 @@
                       <i class="fa fa-calendar"></i>
                     </span>
                   </div>
-                  <label class="x-input-dd x-text no-caret closed search-hotel--filter_time">
+                  <label class="x-input-dd x-text no-caret closed search-hotel--filter_time" data-input-id="s_nights">
                     <%= hidden_field_tag "s_nights", (@request.nights if @request) %>
                     <sub data-before="На: "><%= (@request.nights if @request) %></sub>
                     <span style="display: none;">
@@ -253,13 +254,13 @@
                     </span>
                   </label>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="col-md-2 col-sm-4 col-xs-12">
                   <h4 class="search-hotel--titlefield hidden-xs">Взрослые</h4>
                   <div class="hidden-xs">
-                    <label class="count-input" data-count-id="1">
+                    <label class="count-input" data-input-id="s_adults">
                       <span class="pull-right minus">-</span>
                       <span class="pull-left plus">+</span>
-                      <%= number_field_tag "s_adults", (@request ? @request.adults : 2), step: 1, min: 1, max: 27, "data-input-id" => "1" %>
+                      <%= number_field_tag "s_adults", (@request ? @request.adults : 2), step: 1, min: 1, max: 27 %>
                     </label>
                   </div>
                   <div class="col-xs-12">
@@ -276,17 +277,36 @@
                     </label>
                   </div>
                   <div class="visible-xs col-xs-12 text-center">
-                    <label class="count-input">
+                    <label class="count-input" data-input-id="s_adults">
                       <span class="pull-right minus">-</span>
                       <span class="pull-left plus">+</span>
-                      <%= number_field_tag "s_adults", (@request ? @request.adults : 2), step: 1, min: 1, max: 27, "data-input-id" => "1" %>
+                      <%= number_field_tag "s_adults", (@request ? @request.adults : 2), step: 1, min: 1, max: 27 %>
                     </label>
                   </div>
                 </div>
-                <div class="col-md-3 hidden-sm hidden-xs">
+                <% is_kids = @request && @request.kids != 0 %>
+                <% disp = is_kids ? 'block' : 'none' %>
+                <div class="col-md-2 col-sm-4 col-xs-12" id="children_input" style="display:<%=disp%>">
+                  <h4 class="search-hotel--titlefield hidden-xs">Дети</h4>
+                  <div class="hidden-xs">
+                    <label class="count-input" data-input-id="s_kids">
+                      <span class="pull-right minus">-</span>
+                      <span class="pull-left plus">+</span>
+                      <%= number_field_tag "s_kids", (@request ? @request.kids : 0), step: 1, min: 0, max: 27 %>
+                    </label>
+                  </div>
+                  <div class="visible-xs col-xs-12 text-center">
+                    <label class="count-input" data-input-id="s_kids">
+                      <span class="pull-right minus">-</span>
+                      <span class="pull-left plus">+</span>
+                      <%= number_field_tag "s_kids", (@request ? @request.kids : 0), step: 1, min: 0, max: 27 %>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs">
                   <div class="search-hotel--children">
                     <label class="x-input-check">
-                      <input type="checkbox">
+                      <input type="checkbox" id="cb-wh" <%= 'checked' if is_kids %>>
                       <i><i class="fa fa-check"></i></i>
                       <span>А также дети</span>
                     </label>
@@ -311,12 +331,12 @@
             <div class="hidden-sm col-md-2 col-lg-2">Туроператор</div>
             <div class="col-sm-3 col-md-2 col-lg-2">Цена</div>
           </div>
-          <div id="tours" data-status="<%= @status %>">
+          <div id="tours" data-status="<%= @request.status %>">
             <% if @request.status == 1 %>
               <% @tours.each do |tour| %>
                 <div class="col-md-12 tour-list-item clearfix hotel-table">
                   <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
-                    <div class="price pull-right text-left"><%= tour.price %><i class="fa fa-rub"></i><small>на всех</small></div>
+                    <div class="price pull-right text-left"><%= number_with_delimiter(tour.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
                     <div class="btn btn-orange">Купить сейчас</div>
                   </div>
                   <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
@@ -341,8 +361,13 @@
               <p class="text-center">Загрузка туров...</p>
             <% end %>
           </div>
-        <% end %>
+        <% end %>        
         <div class="clearfix"></div>
+        <% if @request %>
+          <div data-page="1" class="more more-tours <%= 'hidden' if @total_tours.to_i < 5 %>">
+            <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
+          </div>
+        <% end %>
         <% unless @hotel.reviews.empty? %>
           <h2 class="clearfix">Отзывы об отеле</h2>
           <div class="hotel-comments--list">
@@ -377,10 +402,10 @@
               <%= @hotel.sletat_description.html_safe %>
               <script>
                 // var src = $('#hotelDescriptionID').attr('src');
-                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                                $('#hotelDescriptionID').attr('src', src);
-                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                                                                                                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                                                                                                                                $('#hotelDescriptionID').attr('src', src);
+                                                                                                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                                                                                                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
               </script>
             <% end %>
           </div>

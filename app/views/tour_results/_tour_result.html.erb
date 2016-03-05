@@ -1,6 +1,6 @@
 <div class="col-md-12 tour-list-item clearfix hotel-table">
   <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
-    <div class="price pull-right text-left"><%= tour_result.price %><i class="fa fa-rub"></i><small>на всех</small></div>
+    <div class="price pull-right text-left"><%= number_with_delimiter(tour_result.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
     <div class="btn btn-orange">Купить сейчас</div>
   </div>
   <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">

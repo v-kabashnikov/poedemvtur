@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/load_more', to: 'home#load_more'
   get '/hotel/:id', to: 'home#hotel', as: :hotel
   get '/hotel/:id/check_tours', to: 'home#check_tours', as: :check_tours
+  get '/hotel/:id/load_more_tours', to: 'home#load_more_tours', as: :load_more_tours
 end

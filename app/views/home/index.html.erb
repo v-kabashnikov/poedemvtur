@@ -32,15 +32,15 @@
           <div class="visible-sm" style="width:100%;height:35px"></div>
           <div class="clearfix">
             <span class="label pull-left hidden-sm hidden-xs">Взрослые</span>
-            <label class="count-input" data-count-id="1">
+            <label class="count-input" data-input-id="s_adults">
               <span class="pull-right minus">-</span>
               <span class="pull-left plus">+</span>
-              <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27, "data-input-id" => "1" %>
+              <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27 %>
             </label>
           </div>
           <div class="clearfix" id="children_input" style="display: none">
             <span class="label pull-left hidden-sm hidden-xs">Дети</span>
-            <label class="count-input">
+            <label class="count-input" data-input-id="s_kids">
               <span class="pull-right minus">-</span>
               <span class="pull-left plus">+</span>
               <%= number_field_tag "s_kids", 0, step: 1, min: 0, max: 27 %>

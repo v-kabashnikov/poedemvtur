@@ -28,11 +28,11 @@ class HomeController < ApplicationController
     @request = LoadStatus.find_by(request_id: params['requestId'])
     if @request
       if @request.status == 1
-        @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(10)
+        @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(5)
         @total_tours = @hotel.tour_results.where(request_id: params['requestId']).count
-      end      
+      end
     end
-    
+
     @depart_cities = DepartCity.all
     @hotel.load_facilities
     @facilities = @hotel.facilities.order(:facility_group_id).chunk(&:facility_group_id)
@@ -43,7 +43,7 @@ class HomeController < ApplicationController
     @hotel = Hotel.find(params[:id])
     if LoadStatus.find_by(request_id: requestId).status == 1
       @status = 'finished'
-      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10)
+      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(5)
       @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
     else
       @status = 'loading'
@@ -52,7 +52,12 @@ class HomeController < ApplicationController
   end
 
   def load_more_tours
-    @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(10).offset(params[:offset])
+    per_page = 5;
+    @hotel = Hotel.find(params[:id])
+    total_tours = @hotel.tour_results.where(request_id: params['requestId']).count
+    offset = params[:page].to_i * per_page
+    @loaded = total_tours <= offset + per_page
+    @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(per_page).offset(offset)
   end
 
   def search
@@ -95,7 +100,8 @@ class HomeController < ApplicationController
     else
       @status = 'loading'
     end
-    @results = SearchResult.where(request_id: requestId).preload(hotel: [:star, resort: [:country]]).order(min_price: :asc).limit(18)
+    @results = SearchResult.where(request_id: requestId).
+      preload(hotel: [:star, resort: [:country]]).order(min_price: :asc).limit(18)
   end
 
   def load_more
