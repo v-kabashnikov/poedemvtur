@@ -23,11 +23,13 @@ module Sletat
     # puts uri_schema
     json = open(uri_schema).read
     res = JSON.parse(json)
+    puts uri_schema
     res
   end
 
   def get_res_data method, auth = false, params = nil
     data = get_data method, auth, params
+    puts data
     data["#{method}Result"]["Data"]
   end
 
