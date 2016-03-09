@@ -80,7 +80,7 @@
               if(data["status"] == 'finished'){
                 $('#loading').remove();
                 if(data["total"] > 18){
-                  $('<div class="more" onclick="loadMore()"><a href="#">Загрузить еще</a></div>').insertAfter('#hotels');
+                  $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
                 }
                 if(data["total"] == 0){
                   $('#total').html('Ничего не найдено')
