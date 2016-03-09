@@ -19,8 +19,8 @@ class TourLoader
             hotel_ids.each do |hid|
               min_price_index = aaData.find_index{ |a| a[3] == hid }
               min_price = aaData[min_price_index][42]
-              meal = aaData[min_price_index][36]
-              meal = 'Завтраки' if meal == 'Только завтрак'
+              meal = aaData[min_price_index][10]
+              # meal = 'Завтраки' if meal == 'Только завтрак'
               # [10,36,41,51,61].each{|i| puts "#{i} #{aaData[min_price_index][i]}"}
               depart_date = I18n.localize(Date.parse(aaData[min_price_index][12]), format: "%-d %B")
               nights = aaData[min_price_index][14]
