@@ -15,6 +15,7 @@ gem 'sidekiq', '~> 4.0', '>= 4.0.2'
 gem 'jbuilder', '~> 2.4'
 
 gem 'savon', '~> 2.11', '>= 2.11.1'
+gem 'rest-client', '~> 1.8'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'momentjs-rails', '>= 2.9.0'

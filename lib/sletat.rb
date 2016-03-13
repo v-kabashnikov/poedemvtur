@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'rest-client'
 
 module Sletat
   # also notice the call to 'freeze'
@@ -19,12 +20,16 @@ module Sletat
   end
 
   def get_data method, auth, params
-    uri_schema = URI(SERVICE_URL + method + '?' + auth_str + '&' + params.to_query)
+    url = SERVICE_URL + method + '?' + auth_str + '&' + params.to_query
+    uri_schema = URI(url)
     # puts uri_schema
-    json = open(uri_schema).read
-    res = JSON.parse(json)
-    puts uri_schema
-    res
+    RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
+    res = RestClient.get(url)
+
+    # json = open(uri_schema).read
+    json = JSON.parse(res.body)
+    puts url
+    json
   end
 
   def get_res_data method, auth = false, params = nil
@@ -65,7 +70,7 @@ module Sletat
       adults: params[:s_adults].to_i,
       kids: params[:s_kids].to_i
     )
-    
+
     puts "start_search #{ls.id}"
     TourLoader.perform_async(requestId, url_params)
     ls
