@@ -50,6 +50,10 @@ class HomeController < ApplicationController
       @status = 'loading'
       render nothing: true
     end
+    # ls = LoadStatus.find_by(request_id: requestId)
+    # binding.pry
+    # @results = ls.results.select{|tour| tour[3] == @hotel.sletat_id}
+    # @status = ls.status
   end
 
   def load_more_tours
@@ -62,7 +66,6 @@ class HomeController < ApplicationController
   end
 
   def search
-    # puts "==== 222 ADULTS #{params[:s_adults]}"
 
     # s_nights = params["s_nights"].split('-')
     # s_departFrom = Date.parse(params['s_departFrom'])
@@ -102,7 +105,7 @@ class HomeController < ApplicationController
       @status = 'loading'
     end
     @results = SearchResult.where(request_id: requestId).
-      preload(hotel: [:star, resort: [:country]]).order(min_price: :asc).limit(18)
+      preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(18)
   end
 
   def load_more

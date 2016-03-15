@@ -194,7 +194,6 @@
   display: block;
   position: relative;
   overflow: hidden;
-  max-height: 250px;
 }
 .hotel-slide a:hover .hotel-slide--zoom {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -203,7 +202,7 @@
 }
 .hotel-slide img {
   width: 100%;
-  height: auto;
+  height: 250px;
 }
 
 .hotel-slide--zoom {
@@ -489,15 +488,15 @@
   display: inline-block;
   width: 12.3%;
   float: left;
-  margin-right: .22%;
-  max-height: 90px;
 }
 .hotel-photos a:nth-child(8n) {
   margin-right: 0;
 }
 .hotel-photos img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  height: 90px;
+  padding: 2px;
 }
 
 .hotel-beside {
@@ -719,6 +718,15 @@
   margin: 0;
 }
 
+.tour-header h2 a:hover{
+  color: #292929;
+  text-decoration:none;
+}
+
+.tour-header h2 a{
+  color: #292929;
+}
+
 .tour-rating {
   text-align: right;
 }
@@ -786,6 +794,10 @@
   font-weight: 900;
   padding: 5px 10px;
   text-align: center;
+}
+
+.tour-price-link:hover{
+  text-decoration:none;
 }
 
 .hotel-options-list {
@@ -1136,4 +1148,8 @@
   .hotel-addcomment-form .x-input-dd {
     width: 100%;
   }
+}
+
+.page-title {
+  margin-bottom: 25px;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304141804) do
+ActiveRecord::Schema.define(version: 20160315102731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 20160304141804) do
     t.integer  "adults"
     t.integer  "kids"
     t.string   "nights"
+    t.jsonb    "results"
   end
 
   add_index "load_statuses", ["country_id"], name: "index_load_statuses_on_country_id", using: :btree

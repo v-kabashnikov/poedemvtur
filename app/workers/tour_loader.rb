@@ -34,6 +34,7 @@ class TourLoader
                 sr.update(min_price: min_price, meal: meal, depart_date: depart_date, nights: nights)
               end
             end
+            # ls.update(results: aaData)
           end
           if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }
             aaData = get_res_data('GetTours', true, url_params)['aaData']
@@ -55,6 +56,7 @@ class TourLoader
               )
             end
             ls.update(status: 1)
+            # ls.update(status: 1, results: aaData)
             break
           end
           sleep(1)
@@ -81,6 +83,7 @@ class TourLoader
         )
       end
       ls.update(status: 1)
+      # ls.update(status: 1, results: aaData)
     end
   end
 end

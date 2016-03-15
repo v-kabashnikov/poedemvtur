@@ -1,21 +1,21 @@
 <script>
   var intervalID = setInterval(function(){
-    var requestId = '<%= params[:requestId] %>';
-    var status = $('#tours').attr('data-status');
-    if(requestId && status == 0){
-      $.ajax({
-        url: "<%= check_tours_path(@hotel) %>",
-        data: {
-          requestId: requestId
-        },
-        success: function(data){
-          if(data){
-            clearInterval(intervalID);
-          }
+        var requestId = '<%= params[:requestId] %>';
+        var status = $('#tours').attr('data-status');
+        if(requestId && status == 0){
+          $.ajax({
+            url: "<%= check_tours_path(@hotel) %>",
+            data: {
+              requestId: requestId
+            },
+            success: function(data){
+              if(data){
+                clearInterval(intervalID);
+              }
+            }
+          });
         }
-      });
-    }
-  }, 5000)
+      }, 5000)
 </script>
 <% content_for :head do %>
   <%= stylesheet_link_tag    'hotel', media: 'all' %>
@@ -361,7 +361,7 @@
               <p class="text-center">Загрузка туров...</p>
             <% end %>
           </div>
-        <% end %>        
+        <% end %>
         <div class="clearfix"></div>
         <% if @request %>
           <div data-page="1" class="more more-tours <%= 'hidden' if @total_tours.to_i < 5 %>">
@@ -402,10 +402,11 @@
               <%= @hotel.sletat_description.html_safe %>
               <script>
                 // var src = $('#hotelDescriptionID').attr('src');
-                                                                                                                                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
-                                                                                                                                $('#hotelDescriptionID').attr('src', src);
-                                                                                                                                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
-                                                                                                                                $('#hotelDescriptionID').attr('class', 'col-sm-9 col-md-9 col-lg-9');
+                var src = 'http://hotels.sletat.ru/hotel_desc/?id=<%= @hotel.sletat_id %>&cssStylesheet=<%= asset_url("description.css") %>';
+                $('#hotelDescriptionID').attr('src', src);
+                // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
+                $('#hotelDescriptionID').attr('class', 'col-sm-12 col-md-12 col-lg-12');
+                $('#hotelDescriptionID').attr('style', 'height:544px;');
               </script>
             <% end %>
           </div>
@@ -437,19 +438,23 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane active" id="opt-<%= fg1[0] %>">
-                <ul class="hotel-options-list">
-                  <% fg1[1].each do |f| %>
-                    <li><%= f.name %></li>
-                  <% end %>
-                </ul>
-              </div>
-              <% @facilities.to_a[1,1000].each do |fg| %>
-                <div class="tab-pane" id="opt-<%= fg[0] %>">
+                <div>
                   <ul class="hotel-options-list">
-                    <% fg[1].each do |f| %>
+                    <% fg1[1].each do |f| %>
                       <li><%= f.name %></li>
                     <% end %>
                   </ul>
+                </div>
+              </div>
+              <% @facilities.to_a[1,1000].each do |fg| %>
+                <div class="tab-pane" id="opt-<%= fg[0] %>">
+                  <div>
+                    <ul class="hotel-options-list">
+                      <% fg[1].each do |f| %>
+                        <li><%= f.name %></li>
+                      <% end %>
+                    </ul>
+                  </div>
                 </div>
               <% end %>
             </div>

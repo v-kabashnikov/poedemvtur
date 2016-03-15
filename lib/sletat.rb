@@ -34,7 +34,7 @@ module Sletat
 
   def get_res_data method, auth = false, params = nil
     data = get_data method, auth, params
-    puts data
+    # puts data
     data["#{method}Result"]["Data"]
   end
 

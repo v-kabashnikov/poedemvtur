@@ -1,105 +1,108 @@
 <script>
   function loadMore(){
-        var requestId = $('#requestId').val();
-        var loaded = $(".tour-block").length
-        $.ajax({
-        url: "/load_more",
-        data: {
-          loaded: loaded,
-          requestId: requestId
-        },
-        success: function(data){
-          hotels = data["hotels"];
-          showHotels(hotels, requestId);
-          if(hotels.length + loaded == $('#total_number').html()){
-            $('.more').remove();
+          var requestId = $('#requestId').val();
+          var loaded = $(".tour-block").length
+          $.ajax({
+          url: "/load_more",
+          data: {
+            loaded: loaded,
+            requestId: requestId
+          },
+          success: function(data){
+            hotels = data["hotels"];
+            showHotels(hotels, requestId);
+            if(hotels.length + loaded == $('#total_number').html()){
+              $('.more').remove();
+            }
           }
+        })
         }
-      })
-      }
-      
-
-
   
-      function showHotels( hotels, requestId ){
-          var req = requestId == undefined ? "" : "?requestId=" + requestId;
-            for(var i=0; i<hotels.length; i++){
-              var stars = "";
-              for(var j = 1; j <= hotels[i]['stars_count']; j++){
-                stars += '<i class="glyphicon glyphicon-star active"></i>'
-              }
-              // var hotel = hotels[i];
-              var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
-                  <div class="tour-block tour-block-new"> \
-                    <div class="tour-header row"> \
-                      <h2 class="col-md-7"><a href="/hotel/' + hotels[i]['id'] + req + '">' + hotels[i]['name'] + '</a></h2> \
-                      <div class="tour-rating col-md-5"> \
-                        <div class="tour-rating--star">' + stars +'</div> \
-                        <span class="tour-rating--num">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
-                      </div> \
-                    </div> \
-                    <div class="tour-desc">' + hotels[i]['position_info'] + '</div> \
-                      <div class="thumb"> \
-                        <a href="/hotel/' + hotels[i]['id'] + req + '"><img src="' + hotels[i]['image_url'] + '"></a> \
-                        <a href="#" class="like like-left"></a> \
-                      </div> \
-                    <div class="tour-footer"> \
-                      <div class="col-md-4"> \
-                        <div class="tour-eat"> \
-                          <span>' + hotels[i]['meal'] + '</span> \
-                          ' + hotels[i]['depart_date'] + ' на ' + hotels[i]['nights'] + ' ночей \
+  
+  
+  
+        function showHotels( hotels, requestId ){
+            var req = requestId == undefined ? "" : "?requestId=" + requestId;
+              for(var i=0; i<hotels.length; i++){
+                var stars = "";
+                for(var j = 1; j <= hotels[i]['stars_count']; j++){
+                  stars += '<i class="glyphicon glyphicon-star active"></i>'
+                }
+                // var hotel = hotels[i];
+                var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4"> \
+                    <div class="tour-block tour-block-new"> \
+                      <div class="tour-header row"> \
+                        <h2 class="col-md-7"><a href="/hotel/' + hotels[i]['id'] + req + '">' + hotels[i]['name'] + '</a></h2> \
+                        <div class="tour-rating col-md-5"> \
+                          <div class="tour-rating--star">' + stars +'</div> \
+                          <span class="tour-rating--num">~ ' + hotels[i]['rating'].toFixed(1) + '</span> \
                         </div> \
                       </div> \
-                      <div class="col-md-3"> \
-                        <a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="tour-commentlink">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
-                      </div> \
-                      <div class="col-md-5"> \
-                        <a href="/hotel/' + hotels[i]['id'] + req + '"><div class="tour-price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i></div></a> \
+                      <div class="tour-desc">' + hotels[i]['position_info'] + '</div> \
+                        <div class="thumb"> \
+                          <a href="/hotel/' + hotels[i]['id'] + req + '"><img src="' + hotels[i]['image_url'] + '"></a> \
+                          <a href="#" class="like like-left"></a> \
+                        </div> \
+                      <div class="tour-footer"> \
+                        <div class="col-md-4"> \
+                          <div class="tour-eat"> \
+                            <span>' + hotels[i]['meal'] + '</span> \
+                            ' + hotels[i]['depart_date'] + ' на ' + hotels[i]['nights'] + ' ночей \
+                          </div> \
+                        </div> \
+                        <div class="col-md-3"> \
+                          <a href="/hotel/' + hotels[i]['id'] + req + '#comments" class="tour-commentlink">Отзывы (' + hotels[i]['reviews_count'] + ')</a> \
+                        </div> \
+                        <div class="col-md-5"> \
+                          <a class="tour-price-link" href="/hotel/' + hotels[i]['id'] + req + '"><div class="tour-price">' + hotels[i]['price'] + ' <i class="fa fa-rub"></i></div></a> \
+                        </div> \
                       </div> \
                     </div> \
-                  </div> \
-                </div>'
-              $('#hotels').append(hotel);
+                  </div>'
+                $('#hotels').append(hotel);
+              }
+              $('.stars input').rating();
             }
-            $('.stars input').rating();
-          }
   
-        var intervalID = setInterval(function(){
-            var requestId = $('#requestId').val();
-          $.ajax({
-            url: "/check",
-            data: {
-              requestId: requestId
-            },
-            success: function(data){
-              if(data["total"] > 0){
-                $('#hotels').html('');
-                showHotels(data["hotels"], requestId);
+          var intervalID = setInterval(function(){
+              var requestId = $('#requestId').val();
+            $.ajax({
+              url: "/check",
+              data: {
+                requestId: requestId
+              },
+              success: function(data){
+                if(data["total"] > 0){
+                  $('#hotels').html('');
+                  showHotels(data["hotels"], requestId);
+                  $('#loading').remove();
+                }
+                console.log(data["total"]);
+                if(data["status"] == 'finished'){
+                  // $('#loading').remove();
+                  if(data["total"] > 18){
+                    $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
+                  }
+                  if(data["total"] == 0){
+                    $('#total').html('Ничего не найдено')
+                  }
+                  else{
+                    $('#total').html('Найдено '+ data["total"] + ' отелей')
+                  }
+                  clearInterval(intervalID);
+                }
               }
-              console.log(data["total"]);
-              if(data["status"] == 'finished'){
-                $('#loading').remove();
-                if(data["total"] > 18){
-                  $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
-                }
-                if(data["total"] == 0){
-                  $('#total').html('Ничего не найдено')
-                }
-                else{
-                  $('#total').html('Найдено <span id="total_number">'+ data["total"] + '</span> отелей')
-                }
-                clearInterval(intervalID);
-              }
-            }
-          })
-        }, 2000)
+            })
+          }, 2000)
 </script>
-
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
   <h3><%= @country %></h3>
 </div>
 <div class="container" id="tour-filtered">
   <%= hidden_field_tag 'requestId', @request.request_id %>
+  <div class="row">
+    <h2 class="col-xs-12 col-sm-6 col-md-6 roboto-light page-title" id="total"></h2>
+  </div>
   <h4 class="text-center" id="loading">Загрузка результатов...</h4>
   <div class="row" id="hotels">
     <div class="row">
