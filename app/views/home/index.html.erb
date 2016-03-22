@@ -1,21 +1,20 @@
 <% content_for :body do %>
- <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
+  <%= javascript_include_tag 'jquery.min.js' %>
+  <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
   <%= javascript_include_tag 'bootstrap.min.js' %>
-   <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
-    <%= javascript_include_tag 'moment.js' %>
-     <%= javascript_include_tag 'ru.js' %>
-      <%= javascript_include_tag 'jquery.easing.js' %>
-       <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
-        <%= javascript_include_tag 'selectize.min.js' %>
-         <%= javascript_include_tag 'jquery.quicksand.js' %>
-          <%= javascript_include_tag 'slick.min.js' %>
-           <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
-            <%= javascript_include_tag 'ion.rangeSlider.js' %>
-             <%= javascript_include_tag 'jquery.scrollbar.min.js' %>
-              <%= javascript_include_tag 'datepicker.js' %>
-              <%= javascript_include_tag 'main.js' %>
-
- 
+  <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
+  <%= javascript_include_tag 'moment.js' %>
+  <%= javascript_include_tag 'ru.js' %>
+  <%= javascript_include_tag 'jquery.easing.js' %>
+  <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
+  <%= javascript_include_tag 'selectize.min.js' %>
+  <%= javascript_include_tag 'jquery.quicksand.js' %>
+  <%= javascript_include_tag 'slick.min.js' %>
+  <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
+  <%= javascript_include_tag 'ion.rangeSlider.min.js' %>
+  <%= javascript_include_tag 'jquery.scrollbar.min.js' %>
+  <%= javascript_include_tag 'datepicker.js' %>
+  <%= javascript_include_tag 'main.js' %>
 <% end %>
 <div class="main-slider">
     <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider1.jpg")%>')">
@@ -83,20 +82,6 @@
             <div class="main-roundtour-text">
               <h2>Подобрать тур</h2>
               <form class="form-roundtour">
-                <ul class="roundtour-radio">
-                <!--
-                  <li><input type="radio" class="custom-radio" name="type" checked><label>Турпутевку</label></li>
-                  <li><input type="radio" class="custom-radio" name="type"><label>Только отель</label></li>
-                -->
-                  <li>
-                    <input type="radio" class="custom-radio1" id="type1" name="type" checked>
-                    <label for="type1">Турпутевку</label>
-                  </li>
-                  <li>
-                    <input type="radio" class="custom-radio1" id="type2" name="type">
-                    <label for="type2">Только отель</label>
-                  </li>
-                </ul>
                 <div class="roundtour-city">
                   Город вылета: <a href="#" class="roundtour-city--select">Москва</a>
                   <div class="roundtour-city--submenu">
@@ -127,7 +112,7 @@
                     <div class="roundtour-place--wrapper scrollbar-inner">
                       <ul class="roundtour-place--list">
                                                 <li>
-                          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
+                         
                           <div class="roundtour-place--info">
                             <h4 class="roundtour-place--curort">Аналипси</h4>
                             <span class="roundtour-place--country">Россия</span>

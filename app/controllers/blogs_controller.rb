@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-layout 'home'	
+layout 'static'	
 	def index
 	  @blog_categories = BlogCategory.all
 	  if params[:id]

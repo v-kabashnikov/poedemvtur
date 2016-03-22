@@ -1,0 +1,239 @@
+
+#hotel{
+background:#e5dcc6 url('/img/promo-item-bg.jpg');
+overflow:hidden;
+}
+#hotel .container{
+background:#fff;
+margin:25px auto;
+padding:0;
+}
+#hotel-tabs{
+display:table;
+width:100%;
+}
+#hotel-tabs li{
+display:table-cell;
+position:relative;
+width:33.3333%;
+border:3px solid #fff;
+text-align:center;
+background:#9dc0e0;
+}
+#hotel-tabs li+li{
+border-left:none;
+}
+#hotel-tabs li.active{
+background:#7694b0;
+}
+#hotel-tabs li.active:after{
+content:'';
+border:10px solid transparent;
+border-top:5px solid #7694b0;
+position:absolute;
+left:49%;
+left:calc(50% - 10px);
+bottom:-15px;
+}
+#hotel-tabs a{
+color:#fff;
+background:transparent !important;
+font-family:'Roboto', sans-serif;
+font-size:17px;
+}
+#hotel-tabs a span{
+color:#ccc;
+}
+#hotel-tabs a:before{
+content: '';
+display: inline-block;
+width: 35px;
+height: 35px;
+margin-right: 10px;
+vertical-align: middle;
+background-position:center;
+background-repeat:no-repeat;
+}
+#hotel-tabs a[href="#info"]:before {
+background-image: url(/img/hotel-info.png);
+}
+#hotel-tabs a[href="#comments"]:before{
+background-image: url(/img/hotel-comments.png);
+}
+#hotel-tabs a[href="#map"]:before{
+background-image: url(/img/hotel-map.png);
+}
+#hotel #comments,
+#hotel #info{
+padding:40px 60px 65px;
+font-family:'Roboto', sans-serif;
+}
+#hotel h2{
+margin:0 0 20px;
+min-height: 30px;
+font-size:30px;
+font-weight:900;
+font-family:"Museo Sans",sans-serif;
+}
+#hotel #comments .btn{
+margin: 0 0 20px;
+height: 35px;
+background: #ede6aa;
+color: #737059;
+border: 0;
+border-radius: 3px;
+text-transform: uppercase;
+font-family: 'Roboto', sans-serif;
+font-size: 13px;
+font-weight: 700;
+padding: 0 25px;
+}
+#hotel #comments .comment{
+font-family:'Roboto', sans-serif;
+border:1px solid #e0d8c5;
+border-radius:3px;
+margin-bottom:17px;
+padding:25px 55px 25px 45px;
+font-size:13px;
+}
+#hotel #comments .comment .name{
+font-size:18px;
+color:#965738;
+font-weight:500;
+}
+#hotel #comments .comment .date{
+font-size:12px;
+}
+#hotel #comments .comment .photos{
+font-weight: 700;
+display: block;
+color:#9db3c8;
+margin: 15px 0 0;
+padding: 7px 0 3px 35px;
+background :url(/img/photo-report.png) no-repeat left center;
+}
+#hotel #comments .comment p{
+}
+#hotel #comments .comment .gray{
+color:#aaa;
+}
+#hotel #comments .comment .rating{
+color:#5f81a0;
+font-weight:300;
+font-size:18px;
+}
+#hotel #comments .comment .rating b{
+font-size:30px;
+font-weight:700;
+}
+
+#hotel #map{
+padding: 0 5px 5px;
+}
+
+#hotel-options{
+margin-top:10px;
+}
+#hotel-options .nav li{
+display:inline-block;
+margin-right:20px;
+padding-bottom:10px;
+border-bottom:3px solid transparent;
+}
+#hotel-options .nav li.active{
+border-bottom-color:#000;
+}
+#hotel-options .nav li a {
+padding: 0;
+color:#a06949;
+text-decoration:underline;
+background:none !important;
+}
+#hotel-options .nav li.active a {
+color:#000;
+text-decoration:none;
+}
+#hotel-options .tab-pane{
+padding:10px 0 0;
+}
+#hotel-options .h-opt{
+display:inline-block;
+width:120px;
+}
+#hotel-options .h-opt-icon {
+display: block;
+margin: 15px auto;
+border: 1px solid #aaa;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+text-align: center;
+position: relative;
+}
+#hotel-options .h-opt-icon img{
+position:absolute;
+max-width:90%;
+max-height:90%;
+left:0;
+right:0;
+top:0;
+bottom:0;
+margin:auto;
+z-index:1;
+}
+#hotel-options .h-opt-name{
+font-family:'Roboto', sans-serif;
+font-size:14px;
+text-align:center;
+color:#828282;
+font-weight:700;
+}
+
+#hotel-tours-info{
+background:url(/img/hotel-tours-info.png) left center no-repeat;
+padding:0 0 0 50px;
+font-size:13px;
+color:#959595;
+}
+
+
+
+@media (max-width :991px){
+#hotel #comments,
+#hotel #info{
+padding:40px;
+}
+#hotel #comments .comment{
+padding:25px;
+}
+}
+@media (max-width :767px){
+#hotel #comments,
+#hotel #info{
+padding:0;
+}
+#hotel .container{
+margin:0;
+}
+}
+@media (max-width :500px){
+#hotel-tabs a{
+padding: 10px 5px;
+}
+#hotel-tabs a:before{
+display:block;
+margin: 0 auto;
+}
+#hotel-options .nav{
+border: 1px solid;
+margin: 0 auto;
+width: 260px;
+}
+#hotel-options .nav li{
+display:block;
+text-align:center;
+}
+#hotel-options .nav li.active {
+border:none !important;
+}
+}
