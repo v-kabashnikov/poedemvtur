@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   include Sletat
 
   def index
+    @countries = Country.where(display: :true).limit(12)
   end
 
   def hotel

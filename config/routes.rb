@@ -12,5 +12,10 @@ Rails.application.routes.draw do
   get '/blog', to: 'blogs#index'
   get '/blog/:id', to: 'blogs#show'
   get '/blog/theme/:t_id', to: 'blogs#theme_show'
-  get 'about', to: 'blogs#about'
+  get '/about', to: 'blogs#about'
+  get '/operators', to: 'operators#index'
+  get '/operator/:id', to: 'operators#show'
+  get '/countries', to: 'countries#index'
+  get '/countries/category/:id', to: 'countries#show_region'
+
 end

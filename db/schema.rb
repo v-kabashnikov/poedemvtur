@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321222238) do
+ActiveRecord::Schema.define(version: 20160322182944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20160321222238) do
     t.integer  "sletat_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "price"
+    t.integer  "discount"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree
@@ -183,6 +185,20 @@ ActiveRecord::Schema.define(version: 20160321222238) do
     t.integer  "sletat_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "operators", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.text     "text"
+    t.string   "site"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "resorts", force: :cascade do |t|

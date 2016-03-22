@@ -1,0 +1,214 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'operator', media: 'all' %>
+<% end %>
+<% content_for :body do %>
+  <%= javascript_include_tag 'jquery.min.js' %>
+  <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
+  <%= javascript_include_tag 'bootstrap.min.js' %>
+  <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
+  <%= javascript_include_tag 'moment.js' %>
+  <%= javascript_include_tag 'ru.js' %>
+  <%= javascript_include_tag 'jquery.easing.js' %>
+  <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
+  <%= javascript_include_tag 'selectize.min.js' %>
+  <%= javascript_include_tag 'jquery.quicksand.js' %>
+  <%= javascript_include_tag 'slick.min.js' %>
+  <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
+  <%= javascript_include_tag 'datepicker.js' %>
+  <%= javascript_include_tag 'main.js' %>
+<% end %>
+<div id="sub-header" style="background-image:url('<%=asset_path("DEMO/sh-blog.jpg")%>')">
+	<h3>Конкретный туроператор</h3>
+</div>
+<div class="container">
+	<div class="breadcrumbs"><a href="/">Главная</a> - <a href="/operators">Туроператоры</a></div>
+	<a href="#" class="pull-right operator-link hidden-xs"><span class="glyphicon glyphicon-link"></span><%=@operator.site%></a>
+
+	<h1>Туроператор <%=@operator.name%></h1>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-md-4">
+			<div class="operator-logo"><%= image_tag(@operator.logo.url)%></div>
+		</div>
+		<div class="col-xs-12 col-sm-8 col-md-8">
+			<p><b>Фактический адрес:</b><br><%=@operator.address%></p>
+
+			<p><b><%=@operator.phone%></b></p>
+
+			<p><%=@operator.text%></p>
+		</div>
+		<div class="col-xs-12 text-center">
+			<a href="#" class="visible-xs-inline-block operator-link">Перейти на сайт</a>
+		</div>
+	</div>
+	<h2>Самые выгодные туры от <%=@operator.name%></h2>
+
+	<div id="filters" class="row clearfix">
+		<div class="col-md-12 big">
+			<span class="hidden-xs">Отправление из</span>
+			<span class="hidden-xs dropdown-text">Екатеринбурга</span>
+
+			<div class="btn-group visible-xs">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Откуда<span
+						class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Аквапарки</a></li>
+					<li><a href="#">Бизнес</a></li>
+					<li><a href="#">Гастротуризм</a></li>
+					<li><a href="#">Греция</a></li>
+					<li><a href="#">Дети</a></li>
+					<li><a href="#">Египет</a></li>
+					<li><a href="#">Интересное</a></li>
+				</ul>
+			</div>
+
+			<div class="btn-group country pull-right" style="width:200px">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="hidden-xs">Выберите страну</span>
+					<span class="visible-xs-inline">Куда</span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Аквапарки</a></li>
+					<li><a href="#">Бизнес</a></li>
+					<li><a href="#">Гастротуризм</a></li>
+					<li><a href="#">Греция</a></li>
+					<li><a href="#">Дети</a></li>
+					<li><a href="#">Египет</a></li>
+					<li><a href="#">Интересное</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-1.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Aktas Hotel
+						<small>Китай, Пекин, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">34&nbsp;200&nbsp;<i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-2.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Poly Plaza Hotel
+						<small>Китай, Пекин, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">146&nbsp;300&nbsp;<i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-3.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Ping An Fu
+						<small>Китай, Пекин, Средний Чаоян, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">28&nbsp;500&nbsp;<i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-4.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Poly Plaza Hotel
+						<small>Китай, Пекин, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">146&nbsp;300&nbsp;<i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-5.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Ping An Fu
+						<small>Китай, Пекин, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">34&nbsp;200&nbsp;<i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+			<div class="tour-block">
+				<div class="thumb">
+					<img src="/DEMO/tour-item-1.jpg">
+					<span class="sale" data-perc="20"></span>
+					<a href="#" class="like"></a>
+				</div>
+				<div class="sub-thumb">
+					<span class="pull-left">Завтраки</span>
+					<span class="pull-right">Вылеты 9 октября - 13 ноября</span>
+				</div>
+				<div class="info">
+					<h2>Poly Plaza Hotel
+						<small>Китай, Пекин, 25 км от аэропорта</small>
+					</h2>
+					<div class="price">34 200 <i class="fa fa-rub"></i>
+						<small>на всех</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<button class="btn-more">Все предложения</button>
+	</div>
+</div>	
