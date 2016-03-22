@@ -369,94 +369,64 @@
                   
                             </div>
                           <div class="slide">
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-32%</div>
-                   <h4 class="ready-offer--title">Португалия</h4>
-                   <span class="ready-offer--price ready-offer--price_green">от 55 500 <i class="fa fa-rub"></i></span>
+                             <%@countries[2..3].each do |country| %>
+                  <a href="#" class="ready-offer">
+                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                  <div class="ready-offer--content">
+                   <div class="ready-offer--sale"><%=country.discount%>%</div>
+                   <h4 class="ready-offer--title"><%=country.name%></h4>
+                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                  </div>
                </a>
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-4%</div>
-                   <h4 class="ready-offer--title">Япония</h4>
-                   <span class="ready-offer--price ready-offer--price_blue">от 11 100 <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
+                <%end%>
                             </div>
                           <div class="slide">
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-39%</div>
-                   <h4 class="ready-offer--title">Россия</h4>
-                   <span class="ready-offer--price ready-offer--price_red">от 19 700 <i class="fa fa-rub"></i></span>
+                                <%@countries[4..5].each do |country| %>
+                  <a href="#" class="ready-offer">
+                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                  <div class="ready-offer--content">
+                   <div class="ready-offer--sale"><%=country.discount%>%</div>
+                   <h4 class="ready-offer--title"><%=country.name%></h4>
+                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                  </div>
                </a>
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-16%</div>
-                   <h4 class="ready-offer--title">Венеция</h4>
-                   <span class="ready-offer--price ready-offer--price_green">от 98 900 <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
+                <%end%>
                             </div>
                           <div class="slide">
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-5%</div>
-                   <h4 class="ready-offer--title">Россия</h4>
-                   <span class="ready-offer--price ready-offer--price_dark">от 19 500 <i class="fa fa-rub"></i></span>
+                               <%@countries[6..7].each do |country| %>
+                  <a href="#" class="ready-offer">
+                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                  <div class="ready-offer--content">
+                   <div class="ready-offer--sale"><%=country.discount%>%</div>
+                   <h4 class="ready-offer--title"><%=country.name%></h4>
+                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                  </div>
                </a>
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-34%</div>
-                   <h4 class="ready-offer--title">Россия</h4>
-                   <span class="ready-offer--price ready-offer--price_red">от 99 700 <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
+                <%end%>
                             </div>
                           <div class="slide">
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-29%</div>
-                   <h4 class="ready-offer--title">Япония</h4>
-                   <span class="ready-offer--price ready-offer--price_pink">от 26 900 <i class="fa fa-rub"></i></span>
+                                <%@countries[8..9].each do |country| %>
+                  <a href="#" class="ready-offer">
+                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                  <div class="ready-offer--content">
+                   <div class="ready-offer--sale"><%=country.discount%>%</div>
+                   <h4 class="ready-offer--title"><%=country.name%></h4>
+                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                  </div>
                </a>
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-37%</div>
-                   <h4 class="ready-offer--title">Япония</h4>
-                   <span class="ready-offer--price ready-offer--price_blue">от 82 800 <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
+                <%end%>
                             </div>
                           <div class="slide">
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-34%</div>
-                   <h4 class="ready-offer--title">Россия</h4>
-                   <span class="ready-offer--price ready-offer--price_pink">от 1 200 <i class="fa fa-rub"></i></span>
+                               <%@countries[10..11].each do |country| %>
+                  <a href="#" class="ready-offer">
+                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                  <div class="ready-offer--content">
+                   <div class="ready-offer--sale"><%=country.discount%>%</div>
+                   <h4 class="ready-offer--title"><%=country.name%></h4>
+                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                  </div>
                </a>
-                              <a href="#" class="ready-offer">
-                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
-                 <div class="ready-offer--content">
-                   <div class="ready-offer--sale">-16%</div>
-                   <h4 class="ready-offer--title">Россия</h4>
-                   <span class="ready-offer--price ready-offer--price_dark">от 86 400 <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
+                <%end%>
                             </div>
                         </div>
          </div>
