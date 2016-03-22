@@ -1,217 +1,525 @@
 <% content_for :body do %>
-  <%= javascript_include_tag 'footer.js' %>
+ <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
+  <%= javascript_include_tag 'bootstrap.min.js' %>
+   <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
+    <%= javascript_include_tag 'moment.js' %>
+     <%= javascript_include_tag 'ru.js' %>
+      <%= javascript_include_tag 'jquery.easing.js' %>
+       <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
+        <%= javascript_include_tag 'selectize.min.js' %>
+         <%= javascript_include_tag 'jquery.quicksand.js' %>
+          <%= javascript_include_tag 'slick.min.js' %>
+           <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
+            <%= javascript_include_tag 'ion.rangeSlider.js' %>
+             <%= javascript_include_tag 'jquery.scrollbar.min.js' %>
+              <%= javascript_include_tag 'datepicker.js' %>
+              <%= javascript_include_tag 'main.js' %>
+
+ 
 <% end %>
-<div id="sub-header-slider">
-  <!--<div id="sub-header-filter" class="container-fluid" style="display:block;"> -->
-  <div id="sub-header-filter" class="container-fluid">
-    <%= form_tag('/search') do %>
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <span class="label hidden-xs">Откуда</span>
-          <%= select_tag "cityFromId", options_from_collection_for_select(DepartCity.all, "sletat_id", "name"), class: 'selectize', prompt: true, required: true %>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <span class="label hidden-xs">Куда</span>
-          <%= select_tag "countryId", options_from_collection_for_select(Country.all, "sletat_id", "name"), class: 'selectize', prompt: true, required: true %>
-        </div>
-        <div class="clearfix visible-xs" style="height:10px"></div>
-        <div class="col-sm-5 col-md-4">
-          <span class="label hidden-xs">Начало поездки</span>
-          <div class='input-group date'>
-            <%= text_field_tag 's_departFrom', nil, class: 'form-control', required: true %>
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-          </div>
-          <div class="over-right">
-            <%= select_tag "s_nights", options_for_select(LoadStatus::NIGHTS_RANGES.collect{|d| ["На #{d} дней", d]}), class: 'selectize-text' %>
+<div class="main-slider">
+    <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider1.jpg")%>')">
+    <div class="slide-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-6 col-sm-offset-7 col-sm-5">
+            <div class="slide-text">Наши цены<br>стабильные и<br>прозрачные!<br>Никаких<br>скрытых доплат!</div>
           </div>
         </div>
-        <div class="clearfix visible-lg visible-md" style="margin-bottom:20px"></div>
-        <div class="col-sm-5 col-sm-offset-2 col-md-offset-0 col-md-4">
-          <div class="visible-sm" style="width:100%;height:35px"></div>
-          <div class="clearfix">
-            <span class="label pull-left hidden-sm hidden-xs">Взрослые</span>
-            <label class="count-input" data-input-id="s_adults">
-              <span class="pull-right minus">-</span>
-              <span class="pull-left plus">+</span>
-              <%= number_field_tag "s_adults", 2, step: 1, min: 1, max: 27 %>
-            </label>
+      </div>
+    </div>
+  </div>
+    <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider2.jpg")%>')">
+    <div class="slide-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-6 col-sm-offset-7 col-sm-5">
+            <div class="slide-text">Миллионы туров от крупных туроператоров и в лучшие отели!</div>
           </div>
-          <div class="clearfix" id="children_input" style="display: none">
-            <span class="label pull-left hidden-sm hidden-xs">Дети</span>
-            <label class="count-input" data-input-id="s_kids">
-              <span class="pull-right minus">-</span>
-              <span class="pull-left plus">+</span>
-              <%= number_field_tag "s_kids", 0, step: 1, min: 0, max: 27 %>
-            </label>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider3.jpg")%>')">
+    <div class="slide-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-6 col-sm-offset-7 col-sm-5">
+            <div class="slide-text">Тысячи радостных путешественников по всему миру – благодаря нам :-)</div>
           </div>
-          <div class="hidden-sm hidden-xs">
-            <div class="checkbox pull-right">
-              <input type="checkbox" id="cb-wh">
-              <label for="cb-wh" class="label"><span class="glyphicon glyphicon-ok"></span> Так же дети</label>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider4.jpg")%>')">
+    <div class="slide-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-6 col-sm-offset-7 col-sm-5">
+            <div class="slide-text">Бонусные мили в подарок – за тур от 30 тысяч рублей</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="slide" style="background-image:url('<%=asset_path("DEMO/main-slider5.jpg")%>')">
+    <div class="slide-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-6 col-sm-offset-7 col-sm-5">
+            <div class="slide-text">Мы с Вами на связи до Вашего отдыха, во время и после!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<div class="main-content">
+  <div class="container">
+     <div class="row">
+       <div class="col-md-5 col-sm-7">
+        <div class="main-roundtour">
+          <div class="main-roundtour-content">
+            <div class="main-roundtour-text">
+              <h2>Подобрать тур</h2>
+              <form class="form-roundtour">
+                <ul class="roundtour-radio">
+                <!--
+                  <li><input type="radio" class="custom-radio" name="type" checked><label>Турпутевку</label></li>
+                  <li><input type="radio" class="custom-radio" name="type"><label>Только отель</label></li>
+                -->
+                  <li>
+                    <input type="radio" class="custom-radio1" id="type1" name="type" checked>
+                    <label for="type1">Турпутевку</label>
+                  </li>
+                  <li>
+                    <input type="radio" class="custom-radio1" id="type2" name="type">
+                    <label for="type2">Только отель</label>
+                  </li>
+                </ul>
+                <div class="roundtour-city">
+                  Город вылета: <a href="#" class="roundtour-city--select">Москва</a>
+                  <div class="roundtour-city--submenu">
+                    <input type="text" class="form-control roundtour-city--search" value="Москва">
+                    <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
+                    <div class="roundtour-city--wrapper scrollbar-inner">
+                      <ul class="roundtour-city--list">
+                        <li>Москва</li>
+                        <li>Санкт-Петербург</li>
+                        <li>Абакан</li>
+                        <li>Актау</li>
+                        <li>Актобе</li>
+                        <li>Алматы</li>
+                        <li>Анадырь</li>
+                        <li>Анапа</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group roundtour-place--container">
+                  <a href="#" class="roundtour-place">
+                    <span class="icon icons-location_orange"></span>
+                    <span class="text">Где хотите отдохнуть?</span>
+                  </a>
+                  <div class="roundtour-place--submenu">
+                    <input type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
+                    <span class="roundtour-place--searchicon icons-location_orange"></span>
+                    <div class="roundtour-place--wrapper scrollbar-inner">
+                      <ul class="roundtour-place--list">
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Аналипси</h4>
+                            <span class="roundtour-place--country">Россия</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Россия</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Россия</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Анапа</h4>
+                            <span class="roundtour-place--country">Греция</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Аналипси</h4>
+                            <span class="roundtour-place--country">Черногория Котор</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
+                            <span class="roundtour-place--country">Греция</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Греция</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
+                            <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Hostal Santa Ana</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Аналипси</h4>
+                            <span class="roundtour-place--country">Черногория Котор</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
+                            <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Apatrments Ana</h4>
+                            <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Аналипси</h4>
+                            <span class="roundtour-place--country">Россия</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-home"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
+                            <span class="roundtour-place--country">Вьетнам Фуванг</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                                <li>
+                          <div class="roundtour-place--icon"><span class="icons-location"></span></div>
+                          <div class="roundtour-place--info">
+                            <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
+                            <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
+                          </div>
+                          <div class="roundtour-place--img"><%= image_tag("DEMO/curort3.jpg?ver=1.0")%></div>
+                        </li>
+                                              </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <a href="#" class="roundtour-date">
+                    <span class="icon icons-calendar_orange"></span>
+                    <span class="text">
+                      <span class="roundtour-date--months">Выберите дату</span>
+                      <span class="roundtour-date--nights">и количество ночей</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="roundtour-people">
+                  <div class="roundtour-people--active">
+                    <ul class="roundtour-people--adults">
+                      <li>
+                        <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                        <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
+                        <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
+
+                      </li>
+                      <li>
+                        <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                        <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
+                        <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
+                      </li>
+                    </ul>
+                    <ul class="roundtour-people--childrens">
+                      <!--
+                      <li>
+                        <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                        <span class="icons-people-children_white hidden-xs hidden-sm"></span>
+                        <span class="icons-people-childrensm_white visible-sm visible-xs"></span>
+                        <div class="roundtour-people--year">2</div>
+                      </li>
+                      -->
+                    </ul>
+                  </div>
+                  <a href="#" class="roundtour-people--addadults">
+                    <span class="text icons-plus_orange"></span>
+                    <span class="icon icons-people-adult_orange hidden-xs hidden-sm"></span>
+                    <span class="icon icons-people-adultsm_orange visible-sm visible-xs"></span>
+                  </a>
+                  <div class="roundtour-people--addchildrens-wrapper">
+                    <a href="#" class="roundtour-people--addchildrens">
+                      <span class="text icons-plus_orange"></span>
+                      <span class="icon icons-people-children_orange hidden-xs hidden-sm"></span>
+                      <span class="icon icons-people-childrensm_orange visible-sm visible-xs"></span>
+                    </a>
+                    <div class="roundtour-people--years scrollbar-inner">
+                      <ul>
+                        <li>1 год</li>
+                        <li>2 года</li>
+                        <li>3 года</li>
+                        <li>4 года</li>
+                        <li>5 лет</li>
+                        <li>6 лет</li>
+                        <li>7 лет</li>
+                        <li>8 лет</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="roundtour-price--wrapper">
+                  <input type="text" class="roundtour-price" name="roundtour-price" value="" />
+                </div>
+                <div class="roundtour-button">
+                  <button class="btn btn-black btn-block">
+                    <span class="text">подобрать сейчас</span>
+                    <span class="icon icons-search_white"></span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <div class="clearfix visible-sm" style="margin-bottom:20px"></div>
-        <div class="col-sm-3 col-md-2">
-          <span class="label pull-right hidden-xs">Бюджет</span>
-          <span class="label pull-left visible-xs" style="margin-top: -23px;">Бюджет</span>
-        </div>
-        <div class="clearfix visible-xs"></div>
-        <div class="col-xs-6 col-sm-4 col-md-2">
-          <%= text_field_tag "s_priceMin", 0, class: 'form-control' %>
-          <div class="over-right hidden-xs" style="font-size:16px;margin-left:-6px;color:#ddd;">—</div>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-2">
-          <%= text_field_tag "s_priceMax", 800000, class: 'form-control' %>
-        </div>
-        <div class="clearfix" style="margin-bottom:20px"></div>
-        <div class="col-sm-6 col-md-6 text-right">
-          <button class="btn btn-black">Подобрать тур</button>
-        </div>
-        <div class="hidden-xs col-sm-6 col-md-6">
-          <input type="reset" value="Сбросить поиск" class="btn btn-cyan">
-          <!--<button class="btn btn-cyan">Сбросить поиск</button>-->
-        </div>
-      </div>
-    <% end %>
+       </div>
+       <div class="col-md-offset-1 col-md-6 col-sm-5">
+         <div class="main-offer-wrapper">
+           <h3 class="visible-xs">Готовые решения</h3>
+           <div class="main-offer-slider">
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-7%</div>
+                   <h4 class="ready-offer--title">Япония</h4>
+                   <span class="ready-offer--price ready-offer--price_blue">от 8 900 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-18%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_red">от 23 500 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-32%</div>
+                   <h4 class="ready-offer--title">Португалия</h4>
+                   <span class="ready-offer--price ready-offer--price_green">от 55 500 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-4%</div>
+                   <h4 class="ready-offer--title">Япония</h4>
+                   <span class="ready-offer--price ready-offer--price_blue">от 11 100 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-39%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_red">от 19 700 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-16%</div>
+                   <h4 class="ready-offer--title">Венеция</h4>
+                   <span class="ready-offer--price ready-offer--price_green">от 98 900 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-5%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_dark">от 19 500 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-34%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_red">от 99 700 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-29%</div>
+                   <h4 class="ready-offer--title">Япония</h4>
+                   <span class="ready-offer--price ready-offer--price_pink">от 26 900 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-37%</div>
+                   <h4 class="ready-offer--title">Япония</h4>
+                   <span class="ready-offer--price ready-offer--price_blue">от 82 800 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                          <div class="slide">
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-34%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_pink">от 1 200 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                              <a href="#" class="ready-offer">
+                 <div class="ready-offer--img"><%= image_tag("DEMO/offer1.jpg?ver=1.0")%></div>
+                 <div class="ready-offer--content">
+                   <div class="ready-offer--sale">-16%</div>
+                   <h4 class="ready-offer--title">Россия</h4>
+                   <span class="ready-offer--price ready-offer--price_dark">от 86 400 <i class="fa fa-rub"></i></span>
+                 </div>
+               </a>
+                            </div>
+                        </div>
+         </div>
+       </div>
+     </div>
   </div>
-  <div id="header-slider" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#header-slider" data-slide-to="0" class="active"></li>
-      <li data-target="#header-slider" data-slide-to="1"></li>
-      <li data-target="#header-slider" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active" style="background-image:url(<%= image_path('DEMO/main-slider1.jpg') %>)">
-        <div class="carousel-caption">
-          <h3><span>Шри-Ланка</span> <small>от</small> <span class="price">45 000 <i class="fa fa-rub"></i> </span></h3>
-          <em>Позволь себе немного больше</em>
-          <div class="clearfix btnset">
-            <a class="btn btn-white">Подробнее</a>
-            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
-          </div>
-        </div>
-      </div>
-      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider2.jpg') %>)">
-        <div class="carousel-caption">
-          <h3><span>Макади</span> <small>от</small> <span class="price">20 000 <i class="fa fa-rub"></i></span></h3>
-          <em>Позволь себе немного больше</em>
-          <div class="clearfix btnset">
-            <a class="btn btn-white">Подробнее</a>
-            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
-          </div>
-        </div>
-      </div>
-      <div class="item" style="background-image:url(<%= image_path('DEMO/main-slider3.jpg') %>)">
-        <div class="carousel-caption">
-          <h3><span>Шарм-Эль-Шейх</span> <small>от</small> <span class="price">100 000 <i class="fa fa-rub"></i></span></h3>
-          <em>Позволь себе немного больше</em>
-          <div class="clearfix btnset">
-            <a class="btn btn-white">Подробнее</a>
-            <a class="btn btn-outline" data-click="showfilter">Подобрать тур</a>
+  <div class="roundtour-date--wrapper">
+    <div class="container">
+      <div class="col-md-offset-5 col-md-7">
+        <div class="roundtour-date--content">
+          <a href="#" class="roundtour-date--close"><span class="icons-close_grey"></span></a>
+          <h4>Выберите количество ночей:</h4>
+          <ul class="roundtour-date--night">
+                        <li class="">2</li>
+                        <li class="">3</li>
+                        <li class="">4</li>
+                        <li class="">5</li>
+                        <li class="">6</li>
+                        <li class="active">7</li>
+                        <li class="">8</li>
+                        <li class="">9</li>
+                        <li class="">10</li>
+                        <li class="">11</li>
+                        <li class="">12</li>
+                        <li class="">13</li>
+                        <li class="">14</li>
+                        <li class="">15</li>
+                        <li class="">16</li>
+                        <li class="">17</li>
+                        <li class="">18</li>
+                        <li class="">19</li>
+                        <li class="">20</li>
+                        <li>более 20</li>
+          </ul>
+          <hr>
+          <h4>Выберите период отдыха:</h4>
+          <div class="roundtour-date--month"></div>
+          <input type="hidden" class="select-date" value="">
+          <div class="roundtour-date--save">
+            <a href="#" class="btn btn-black roundtour-date--save">Сохранить</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Controls -->
-    <a class="left carousel-control hidden-xs" href="#header-slider" data-slide="prev"></a>
-    <a class="right carousel-control hidden-xs" href="#header-slider" data-slide="next"></a>
   </div>
+
 </div>
-<!--<div id="sub-header" class="visible-xs"><img src="DEMO/main-slider2.jpg" style="width:100%" alt="..."></div>-->
-<div class="container-fluid main-page">
-  <div class="row items">
-    <div class="col-sm-6 col-md-4 col-lg-4 item top-gray h390 opened">
-      <div class="title-price">
-        <h2>Турция</h2>
-        <em>от <span>25 000</span> р.</em>
-      </div>
-      <div class="mobile-roll">
-        <div class="prev"><%= image_tag "DEMO/tour-item-3.jpg" %></div>
-        <div class="desc visible-xs">
-          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-        </div>
-        <a href="#" class="btn btn-outline">Подробнее</a>
-        <a href="#" class="like"></a>
-      </div>
-    </div>
-    <section class="hidden-xs col-sm-6 col-md-4 col-lg-4 inrus">
-      <div class="title-price">
-        <h2>Планируете отдых в России?</h2>
-      </div>
-      <div class="prev"><%= image_tag "DEMO/main-in-rus.jpg" %></div>
-      <a href="#" class="link">Все предложения</a>
-    </section>
-    <div class="hidden-sm col-md-4 col-lg-4 item top-gray h390">
-      <div class="title-price">
-        <h2>Египет</h2>
-        <em>от <span>35 000</span> р.</em>
-      </div>
-      <div class="mobile-roll">
-        <div class="prev"><%= image_tag "DEMO/tour-item-2.jpg" %></div>
-        <div class="desc visible-xs">
-          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-        </div>
-        <a href="#" class="btn btn-outline">Подробнее</a>
-        <a href="#" class="like"></a>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-8 col-lg-8 item wide h215">
-      <div class="title-price">
-        <h2>Камбожда</h2>
-        <em>от <span>35 000</span> р.</em>
-      </div>
-      <div class="mobile-roll">
-        <div class="prev"><%= image_tag "DEMO/tour-item-4.jpg" %></div>
-        <div class="desc visible-xs">
-          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-        </div>
-        <a href="#" class="btn btn-outline">Подробнее</a>
-        <a href="#" class="like"></a>
-      </div>
-    </div>
-    <section class="hidden-xs hidden-sm col-md-4 col-lg-4 out">
-      <h2><span>Отдых</span> за границей</h2>
-      <div class="desc">Более 20 000 000 предложений</div>
-      <span class="arr"></span>
-    </section>
-    <div class="col-sm-6 col-md-4 col-lg-4 item no-top h300">
-      <div class="title-price">
-        <h2>Хургада</h2>
-        <em>от <span>32 800</span> р.</em>
-      </div>
-      <div class="mobile-roll">
-        <div class="prev"><%= image_tag "DEMO/main-huga.jpg" %></div>
-        <div class="desc visible-xs">
-          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-        </div>
-        <a href="#" class="btn btn-outline visible-xs">Подробнее</a>
-        <a href="#" class="like"></a>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-8 col-lg-8 item top-gray lg-double h300">
-      <div class="title-price">
-        <h2>Италия</h2>
-        <em>от <span>42 000</span> р.</em>
-      </div>
-      <div class="mobile-roll">
-        <div class="prev"><%= image_tag "DEMO/main-italy.jpg" %></div>
-        <div class="desc hidden-sm">
-          <p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-          <p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-        </div>
-        <a href="#" class="btn btn-outline visible-xs">Подробнее</a>
-        <a href="#" class="like"></a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="more"><a href="#">Показать еще</a></div>
+

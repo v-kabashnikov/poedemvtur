@@ -155,3 +155,48 @@ font-weight: 900;
 src: font-url('roboto_900_italic.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: font-url('helveticaneuecyr-roman-webfont.eot');
+    src: font-url('helveticaneuecyr-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('helveticaneuecyr-roman-webfont.woff2') format('woff2'),
+         font-url('helveticaneuecyr-roman-webfont.woff') format('woff'),
+         font-url('helveticaneuecyr-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: font-url('helveticaneuecyr-bold-webfont.eot');
+    src: font-url('helveticaneuecyr-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('helveticaneuecyr-bold-webfont.woff2') format('woff2'),
+        font-url('helveticaneuecyr-bold-webfont.woff') format('woff'),
+        font-url('helveticaneuecyr-bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'helveticaneuecyr';
+   src: font-url('helveticaneuecyr-medium-webfont.eot');
+   src: font-url('helveticaneuecyr-medium-webfont.eot?#iefix') format('embedded-opentype'),
+      font-url('helveticaneuecyr-medium-webfont.woff2') format('woff2'),
+       font-url('helveticaneuecyr-medium-webfont.woff') format('woff'),
+        font-url('helveticaneuecyr-medium-webfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'helveticaneuecyr';
+   src: font-url('helveticaneuecyr-light-webfont.eot');
+   src: font-url('helveticaneuecyr-light-webfont.eot?#iefix') format('embedded-opentype'),
+        font-url('helveticaneuecyr-light-webfont.woff2') format('woff2'),
+        font-url('helveticaneuecyr-light-webfont.woff') format('woff'),
+        font-url('helveticaneuecyr-light-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+
+}
