@@ -1,0 +1,284 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'about', media: 'all' %>
+<% end %>
+<% content_for :body do %>
+  <%= javascript_include_tag 'jquery.min.js' %>
+  <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
+  <%= javascript_include_tag 'bootstrap.min.js' %>
+  <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
+  <%= javascript_include_tag 'moment.js' %>
+  <%= javascript_include_tag 'ru.js' %>
+  <%= javascript_include_tag 'jquery.easing.js' %>
+  <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
+  <%= javascript_include_tag 'selectize.min.js' %>
+  <%= javascript_include_tag 'jquery.quicksand.js' %>
+  <%= javascript_include_tag 'slick.min.js' %>
+  <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
+  <%= javascript_include_tag 'datepicker.js' %>
+  <%= javascript_include_tag 'main.js' %>
+<% end %>
+<div id="sub-header" style="background-image:url('<%=asset_path("sh-blog.jpg")%>')">
+	<h3 class="hidden-xxs">Пара слов о том, кто мы</h3>
+</div>
+
+<div class="container" id="about-page">
+	<div class="breadcrumbs"><a href="/">Главная</a> - <a href="/about">О компании</a></div>
+	<h1>О компании</h1>
+	<div class="info clearfix">
+		<p>Вместе с тем, политическое учение Локка взаимно. Политическое учение Н. Макиавелли верифицирует субъект власти. Парадигма трансформации общества, тем более в условиях социально-экономического кризиса, фактически означает онтологический политический процесс в современной России.</p>
+		<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Социализм, однако, вызывает референдум.</p>
+		<p>Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм. В данной ситуации демократия участия отражает авторитаризм, впрочем, это несколько расходится с концепцией Истона.</p>
+	</div>
+
+</div>
+<div class="container-fluid" id="about-comments">
+	<div class="row">
+		<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=asset_path("DEMO/comment-1.jpg")%>');column-span:2">
+			<div class="clearfix">
+				<h3 class="name">Иван Громов</h3>
+				<div class="stars">
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				</div>
+			</div>
+			<div class="text">
+				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
+			</div>
+			<div class="rating">9/10</div>
+		</div>
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background:#366e54">
+			<div class="clearfix">
+				<h3 class="name">Светлана</h3>
+				<div class="stars">
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				</div>
+			</div>
+			<div class="text">
+				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
+			</div>
+			<div class="rating">9/10</div>
+		</div>
+		<div class="comment col-xs-12 col-sm-6  col-md-4" style="background:#965738">
+			<div class="clearfix">
+				<h3 class="name">Ирина Панина</h3>
+				<div class="stars">
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				</div>
+			</div>
+			<div class="text">
+				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
+			</div>
+			<div class="rating">8/10</div>
+		</div>
+		<div class="comment hidden-xs col-sm-6  col-md-4" style="background-image:url('<%=asset_path("DEMO/comment-2.jpg")%>')">
+			<div class="clearfix">
+				<h3 class="name">Илья Кондратов</h3>
+				<div class="stars">
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				</div>
+			</div>
+			<div class="text">
+				<p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
+				<p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
+			</div>
+			<div class="rating">8,5/10</div>
+		</div>
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background:#3e5870">
+			<div class="clearfix">
+				<h3 class="name">Данила Козлов</h3>
+				<div class="stars">
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				</div>
+			</div>
+			<div class="text">
+				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
+			</div>
+			<div class="rating">10/10</div>
+		</div>
+	</div>
+</div>
+<div class="more"><a href="#">Показать еще отзывы</a></div>
+
+<div class="container-fluid" id="faq">
+	<h2  class="text-center">Частые вопросы</h2>
+
+	<div class="categories">
+		<div class="hidden-xxs row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+				<a href="#" class="active">В ожидании вылета</a>
+				<a href="#">До покупки</a>
+				<a href="#">На отдыхе</a>
+				<a href="#">По приезду</a>
+			</div>
+		</div>
+
+		<div class="btn-group">
+			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Все</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">В ожидании вылета</a></li>
+				<li><a href="#">До покупки</a></li>
+				<li><a href="#">На отдыхе</a></li>
+				<li><a href="#">По приезду</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="questions row">
+		<div class="item clearfix">
+				<a class="question"><div class="container">Как узнать окончательную стоимость тура?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Где вы находитесь?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Когда нужно заплатить остаток суммы, если я внес аванс 30%?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Можете ли вы прописать в договоре № рейса и аэропорт вылета?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Цена тура для иностранных граждан такая же, как на сайте?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Если я еду с ребенком, нужно ли разрешение на поездку от его родителей?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">На какой срок мне дадут визу?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">У меня изменился e-mail или телефон. Как перенести мои бонусные мили?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+		<div class="item clearfix">
+				<a class="question"><div class="container">Какой туроператор у меня и надежный ли он?</div></a>
+				<div class="container">
+				<div class="answer">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+<div class="container-fluid" id="before-footer">
+	<div class="row" style="height: 100%;">
+		<div class="col-sm-12 col-md-8 col-lg-9" id="no-results">
+			<h3>Не нашли подходящий тур?</h3>
+			<div class="info">Оставьте заявку и мы подберем для Вас самые лучшие предложения</div>
+			<div class="btn btn-blue">Заполнить</div>
+		</div>
+		<div class="hidden-xs hidden-sm col-md-4 col-lg-3 carousel slide" id="brand-slider" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#brand-slider" data-slide-to="0" class="active"></li>
+				<li data-target="#brand-slider" data-slide-to="1"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="brand">
+						<div>
+
+							<%=image_tag 'DEMO/brand-slide-1.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<span class="c-name">Название компании</span>
+							<%=image_tag 'DEMO/brand-slide-2.png' %>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<%=image_tag 'DEMO/brand-slide-3.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<%=image_tag 'DEMO/brand-slide-4.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="brand">
+						<div>
+							<%=image_tag 'DEMO/brand-slide-4.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<span class="c-name">Название компании</span>
+							<%=image_tag 'DEMO/brand-slide-2.png' %>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<%=image_tag 'DEMO/brand-slide-3.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+					<div class="brand">
+						<div>
+							<%=image_tag 'DEMO/brand-slide-4.png' %>
+							<span class="c-name">Название компании</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<a name="footer-map1" id="footer-map1" style="position: relative;top: -150px;"></a>
+<div id="footer-map" class="frame-map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34887.553538424385!2d60.47804198019409!3d56.87214799567141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c170481a7ea045%3A0x4493f72b4b5b2536!2z0JXQutCw0YLQtdGA0LjQvdCx0YPRgNCzLdCh0L7RgNGC!5e0!3m2!1sru!2sby!4v1447348957661" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen></iframe>
+</div>

@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/blog', to: 'blogs#index'
   get '/blog/:id', to: 'blogs#show'
   get '/blog/theme/:t_id', to: 'blogs#theme_show'
+  get 'about', to: 'blogs#about'
 end

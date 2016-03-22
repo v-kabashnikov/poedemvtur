@@ -12,17 +12,7 @@
 //
 //= require jquery.min.js
 //= require jquery_ujs
-//= require jquery.mobile.custom.min.js
-//= require bootstrap.min
-//= require moment
-//= require moment/ru.js
-//= require jquery.easing.js
-//= require bootstrap-datetimepicker
-//= require selectize
-//= require jquery.quicksand.js
-//= require jquery.slick
-//= require jquery.fancybox.pack
-//= require main.js
+
 
 
 $(document).ready(function () {

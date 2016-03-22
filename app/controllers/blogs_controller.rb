@@ -21,6 +21,9 @@ layout 'static'
 	  @blogs = Blog.all
 	end
 
+  def about
+  end
+
   def theme_show
   @blog_categories = BlogCategory.all
     if params[:id]
