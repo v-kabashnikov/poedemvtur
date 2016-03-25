@@ -295,7 +295,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk (~> 2)
   bootstrap-sass (~> 3.3.5)
   bootstrap3-datetimepicker-rails (~> 4.17.37)
   cancancan (~> 1.13, >= 1.13.1)
