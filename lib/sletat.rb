@@ -53,7 +53,11 @@ module Sletat
       when 'country'
         countryId = Country.find(params[:place_id]).sletat_id
     end
-    s_departFrom = Date.parse(params[:date_min])
+    if params[:date_min].empty?
+      s_departFrom = DateTime.now.to_date
+    else
+      s_departFrom = Date.parse(params[:date_min])
+    end
     s_departTo = params[:date_max].empty? ? s_departFrom :  Date.parse(params[:date_max])
     s_nightsMin = params[:nights_min]
     s_nightsMax = params[:nights_max]
