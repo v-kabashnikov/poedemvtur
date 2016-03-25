@@ -56,3 +56,23 @@ $(document).ready(function () {
 
     });
 });
+
+
+
+$(document).ready(function() {
+ $('#place1').on('keyup', function() {
+$( "#data" ).html('');
+   $.get('/ajax?p='+ $(this).val(), function( data ) {
+   $.each(data, function( index, value ) {
+     $.each(value, function (index, data) {
+       $('<li data-id='+data.id+' data-type='+data.type+'><div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+    <span class="roundtour-place--country">'+ data.country +'</span></div> \
+        <div class="roundtour-place--img"></div> \
+        </li>').appendTo( "#data" );
+    });
+     
+});
+});
+  });
+ 
+});

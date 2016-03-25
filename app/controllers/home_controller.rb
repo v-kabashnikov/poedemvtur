@@ -2,10 +2,24 @@ require 'benchmark'
 require 'open-uri'
 require 'sletat'
 class HomeController < ApplicationController
+  layout 'static', except: 'index'
+  # layout 'home', only: :index
   include Sletat
 
   def index
+    @cities = DepartCity.all
     @countries = Country.last(12)
+  end
+
+
+  def ajax
+    if params[:p].length >= 2
+    @resorts = Resort.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
+    @hotels = Hotel.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
+    @countries = Country.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
+    end
+    # render :json => @search_output
+    # render nothing: true
   end
 
   def hotel
@@ -67,6 +81,7 @@ class HomeController < ApplicationController
   end
 
   def search
+    
 
     # s_nights = params["s_nights"].split('-')
     # s_departFrom = Date.parse(params['s_departFrom'])

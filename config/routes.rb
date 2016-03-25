@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
-  post '/search', to: 'home#search'
+  get '/search', to: 'home#search'
   post '/search_hotel/:hotel_id', to: 'home#search_hotel', as: :search_hotel
   get '/check', to: 'home#check'
   get '/load_more', to: 'home#load_more'
@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get '/operator/:id', to: 'operators#show'
   get '/countries', to: 'countries#index'
   get '/countries/category/:id', to: 'countries#show_region'
+  get '/ajax', to: 'home#ajax'
 
 end

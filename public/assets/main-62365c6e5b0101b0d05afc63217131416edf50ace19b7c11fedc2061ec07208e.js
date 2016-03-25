@@ -585,11 +585,11 @@
   $(document).ready(function(){
     $(".roundtour-price").ionRangeSlider({
       min: 0,
-      max: 10000000,
+      max: 200000,
       from: 0,
-      to: 10000000,
+      to: 200000,
       type: 'double',
-      step: 1000,
+      step: 50,
       postfix: '<i class="fa fa-rub"></i>',
     });
   });
@@ -607,6 +607,7 @@
   });
   $('.roundtour-city--list li').click(function(){
     $('.roundtour-city--search').val($(this).text());
+    $('#city-id').val($(this).attr('data-city-id'));
     $('.roundtour-city--select').text($(this).text());
     $('.roundtour-city--submenu').hide(0);
     return false;
@@ -627,21 +628,27 @@
     $('.roundtour-place--search').val($(this).find('.text').text());
     return false;
   });
-  $('.roundtour-place--list li').click(function(){
-    var text = $(this).find('.roundtour-place--curort').text();
+  $('.roundtour-place--list').click('li', function(o){
+    console.log(o);
+    var text = $(o.target).find('.roundtour-place--curort').text();
+    console.log('asdasd', text);
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
+    $('#place_id').val($(o.target).attr('data-id'))
+    $('#place_type').val($(o.target).attr('data-type'))
+    // $(this).find('li').css({'display': 'none'});
     return false;
   });
   $('.roundtour-place--search').keyup(function(){
     var search = $(this).val().toLowerCase();
-    $('.roundtour-place--list li').each(function(){
-      var text = $(this).find('.roundtour-place--curort').text().toLowerCase();
+    $('.roundtour-place--list').find('li').each(function(i, el){
+      console.log(el);
+      var text = $(el).find('.roundtour-place--curort').text().toLowerCase();
       if(text.indexOf(search) + 1){
-        $(this).css({'display': 'block'});
+        $(el).css({'display': 'block'});
       }else{
-        $(this).css({'display': 'none'});
+        $(el).css({'display': 'none'});
       }
     });
   });
@@ -668,6 +675,7 @@
   });
   $('.roundtour-people--addadults').click(function(){
     $('.roundtour-people--adults').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-adult_white hidden-xs hidden-sm"></span><span class="icons-people-adultsm_white visible-sm visible-xs"></span></li>');
+    $('#adult').val($('.roundtour-people--adults li').length);
     $('.roundtour-people--adults li').last().show(200).animate({'opacity' : 1},300);
     visible('adults',this);
     return false;
@@ -697,6 +705,7 @@
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
     $('.roundtour-people--childrens').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-children_white hidden-xs hidden-sm"></span><span class="icons-people-childrensm_white visible-sm visible-xs"></span><div class="roundtour-people--year">' + year + '</div></li>');
+    $('#children').val($('.roundtour-people--year').text());
     $('.roundtour-people--childrens li').last().show(200).animate({'opacity' : 1},300);
     $('.roundtour-people--years').slideToggle(100);
     $('.roundtour-people--addchildrens').toggleClass('active');
@@ -838,20 +847,27 @@
     var nightMax = night.filter('.active').last().text();
     var nightResult;
     if(nightMin.indexOf(nightMax)){
+      $('#nights_min').val(nightMin);
+      $('#nights_max').val(nightMax);
       nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
     } else{
+      $('#nights_min').val(nightMin);
       nightResult = 'на ' + nightMin + ' ночей';
     }
 
     var month = $('.select-date').val();
+
     var arrayMonth, monthResult;
     if(month!=''){
       arrayMonth = month.replace(/\s+/g, '');
       arrayMonth = arrayMonth.split("-");
       if(arrayMonth[0]==arrayMonth[1]){
+        $('#date_min').val(arrayMonth[0]);
         monthResult = month.split("-");
         month = monthResult[0];
       }
+      $('#date_max').val(arrayMonth[1]);
+      $('#date_min').val(arrayMonth[0]);
       month = month + ', '
     }else{
       month = 'Выберите дату';
