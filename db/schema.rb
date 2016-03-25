@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322182944) do
+ActiveRecord::Schema.define(version: 20160325112811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160322182944) do
     t.datetime "updated_at",              null: false
     t.integer  "price"
     t.integer  "discount"
+    t.boolean  "hot"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree

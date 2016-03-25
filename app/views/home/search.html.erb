@@ -94,11 +94,11 @@
                 if(data["total"] > 0){
                   $('#hotels').html('');
                   showHotels(data["hotels"], requestId);
-                  $('#loading').remove();
+                  //$('#loading').remove();
                 }
                 console.log(data["total"]);
                 if(data["status"] == 'finished'){
-                  // $('#loading').remove();
+                  $('#loading').remove();
                   if(data["total"] > 18){
                     $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
                   }
@@ -122,7 +122,9 @@
   <div class="row">
     <h2 class="col-xs-12 col-sm-6 col-md-6 roboto-light page-title" id="total"></h2>
   </div>
-  <h4 class="text-center" id="loading">Загрузка результатов...</h4>
+  <div id="loading" class="progress">
+      <div class="indeterminate"></div>
+  </div>
   <div class="row" id="hotels">
     <div class="row">
     </div>

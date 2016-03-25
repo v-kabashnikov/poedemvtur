@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def index
     @cities = DepartCity.all
-    @countries = Country.last(12)
+    @countries = Country.where(:hot => true)
   end
 
 

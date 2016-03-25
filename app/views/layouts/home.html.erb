@@ -112,6 +112,21 @@
       <%= render 'home/footer' %>
     </div>
     <%= yield :body %>
+     <script>
+         $('.ready-offer--content').click(function(){
+          console.log('clicked');
+          var country = $(this).find('.ready-offer--title');
+          // var country = $(el).find('.ready-offer-input').first();
+          $('#place1').val(country.text());
+          console.log(country.attr('data-country-id'));
+          console.log(country.text());
+          console.log(country);
+          $('#place_id').val(country.attr('data-country-id'));
+          $('#place_type').val('country');
+
+
+         })
+         </script>
   <script>
   /*  FOOTER SCROLLSPY  */
   (function(){

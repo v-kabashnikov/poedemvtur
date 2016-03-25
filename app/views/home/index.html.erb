@@ -83,7 +83,7 @@
               <h2>Подобрать тур</h2>
              <%=form_tag("/search", method: "get", class: "form-roundtour") do%>
  <div class="roundtour-city">
-                  Город вылета: <a href="#" id='city' class="roundtour-city--select">Москва</a>
+                  Город вылета: <a href="#" id='city' class="roundtour-city--select value="Москва"">Москва</a>
                   <div class="roundtour-city--submenu">
                     <input type="text" name="depart_city" class="form-control roundtour-city--search" value="Москва">
                     <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
@@ -97,7 +97,7 @@
                   </div>
                 </div>
                 <div class="form-group roundtour-place--container">
-                 <input id="city-id" type="hidden" name="city_id" >
+                 <input id="city-id" type="hidden" name="city_id" value='832' >
                 <input id="place_id" type="hidden" name="place_id" >
                 <input id="place_type" type="hidden" name="place_type" >
                 <input id="nights_min" type="hidden" name="nights_min" >
@@ -208,84 +208,25 @@
        </div>
        <div class="col-md-offset-1 col-md-6 col-sm-5">
          <div class="main-offer-wrapper">
+         
            <h3 class="visible-xs">Готовые решения</h3>
-           <div class="main-offer-slider">
-              <div class="slide">
-                <%@countries[0..1].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                             
-                  
-                  
-                            </div>
-                          <div class="slide">
-                             <%@countries[2..3].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                            </div>
-                          <div class="slide">
-                                <%@countries[4..5].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                            </div>
-                          <div class="slide">
-                               <%@countries[6..7].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                            </div>
-                          <div class="slide">
-                                <%@countries[8..9].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                            </div>
-                          <div class="slide">
-                               <%@countries[10..11].each do |country| %>
-                  <a href="#" class="ready-offer">
-                  <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
-                  <div class="ready-offer--content">
-                   <div class="ready-offer--sale"><%=country.discount%>%</div>
-                   <h4 class="ready-offer--title"><%=country.name%></h4>
-                    <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
-                 </div>
-               </a>
-                <%end%>
-                            </div>
-                        </div>
+           <div id="slider" class="main-offer-slider">
+              <% @countries.each_slice(2) do |countries_pair| %>
+                <div class="slide">
+                <% countries_pair.each do |country| %>
+                  <a href="#fds" class="ready-offer">
+                    <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                    <div class="ready-offer--content">
+                     <div class="ready-offer--sale"><%=country.discount%>%</div>
+                     <input class="ready-offer-input" data-country-id="<%=country.sletat_id%>" value='<%=country.name%>' type="hidden" name="date_max" >
+                     <h4 class="ready-offer--title" data-country-id="<%=country.sletat_id%>"><%=country.name%></h4>
+                      <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
+                   </div>
+                 </a>
+                <% end %>
+               </div>
+              <% end %>
+           </div>
          </div>
        </div>
      </div>
