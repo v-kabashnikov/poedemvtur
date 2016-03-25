@@ -22,7 +22,7 @@ module Sletat
   def get_data method, auth, params
     url = SERVICE_URL + method + '?' + auth_str + '&' + params.to_query
     uri_schema = URI(url)
-    # puts uri_schema
+    puts uri_schema
     RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
     res = RestClient.get(url)
 
