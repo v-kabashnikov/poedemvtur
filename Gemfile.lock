@@ -138,6 +138,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.5)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (2.99.1)
     mimemagic (0.3.0)
@@ -308,6 +310,7 @@ DEPENDENCIES
   jbuilder (~> 2.4)
   jquery-rails
   jquery-slick-rails
+  materialize-sass
   momentjs-rails (>= 2.9.0)
   paperclip (~> 4.3)
   pg (~> 0.15)

@@ -15,6 +15,7 @@
 
 
 
+
 $(document).ready(function () {
     // when the load more link is clicked
     $('a.load-more').click(function (e) {

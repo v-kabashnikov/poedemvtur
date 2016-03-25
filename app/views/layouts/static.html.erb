@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Поедем в тур</title>
+    
     <style>
       @-webkit-keyframes square-spin {
                       25% {
@@ -90,13 +91,14 @@
       window.onload = function(){document.getElementById('preloader').style.display='none'};
                     window.onbeforeunload  = function(){document.getElementById('preloader').style.display='block'};
     </script>
-    <%= stylesheet_link_tag  'static', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-     <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <%= stylesheet_link_tag  'static', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+     <!-- Compiled and minified CSS -->
+  
           
 
     <%= csrf_meta_tags %>
