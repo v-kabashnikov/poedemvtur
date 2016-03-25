@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'rest-client'
-require 'pry'
 
 module Sletat
   # also notice the call to 'freeze'
