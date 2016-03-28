@@ -416,7 +416,7 @@
   });
 })($);
 
-//*  Ð—ÐÐ“Ð›Ð£Ð¨ÐšÐ Ð¡Ð¡Ð«Ð›ÐžÐš # */
+//*  ЗАГЛУШКА ССЫЛОК # */
 (function(){
   $('a').click(function(){
     if($(this).attr('href')=='#'){
@@ -585,11 +585,11 @@
   $(document).ready(function(){
     $(".roundtour-price").ionRangeSlider({
       min: 0,
-      max: 10000000,
+      max: 200000,
       from: 0,
-      to: 10000000,
+      to: 200000,
       type: 'double',
-      step: 1000,
+      step: 50,
       postfix: '<i class="fa fa-rub"></i>',
     });
   });
@@ -607,6 +607,7 @@
   });
   $('.roundtour-city--list li').click(function(){
     $('.roundtour-city--search').val($(this).text());
+    $('#city-id').val($(this).attr('data-city-id'));
     $('.roundtour-city--select').text($(this).text());
     $('.roundtour-city--submenu').hide(0);
     return false;
@@ -624,24 +625,47 @@
   });
   $('.roundtour-place').click(function(){
     $('.roundtour-place--submenu').show(0);
-    $('.roundtour-place--search').val($(this).find('.text').text());
+    $('.roundtour-place--search').val($(this).find('.text').text()).focus();
+     $(document).mouseup(function (e) {
+        var container = $(".roundtour-place--submenu");
+        if (container.has(e.target).length === 0){
+            hidePlaceSubmenu('');
+        }
+      });
     return false;
   });
-  $('.roundtour-place--list li').click(function(){
-    var text = $(this).find('.roundtour-place--curort').text();
+
+  $('.roundtour-place--list').click('li', function(o){
+    console.log(o);
+    var text = $(o.target).find('.roundtour-place--curort').text();
+    console.log('asdasd', text);
+    hidePlaceSubmenu(text);
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
+    $('#place_id').val($(o.target).attr('data-id'))
+    $('#place_type').val($(o.target).attr('data-type'))
+    // $(this).find('li').css({'display': 'none'});
     return false;
   });
+   function hidePlaceSubmenu(text){
+    if(text!=''){
+      $('.roundtour-place').find('.text').text(text);
+    }else{
+       $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
+    }
+    $('.roundtour-place--search').val(text);
+    $('.roundtour-place--submenu').hide(0);
+  }
   $('.roundtour-place--search').keyup(function(){
     var search = $(this).val().toLowerCase();
-    $('.roundtour-place--list li').each(function(){
-      var text = $(this).find('.roundtour-place--curort').text().toLowerCase();
+    $('.roundtour-place--list').find('li').each(function(i, el){
+      console.log(el);
+      var text = $(el).find('.roundtour-place--curort').text().toLowerCase();
       if(text.indexOf(search) + 1){
-        $(this).css({'display': 'block'});
+        $(el).css({'display': 'block'});
       }else{
-        $(this).css({'display': 'none'});
+        $(el).css({'display': 'none'});
       }
     });
   });
@@ -668,6 +692,7 @@
   });
   $('.roundtour-people--addadults').click(function(){
     $('.roundtour-people--adults').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-adult_white hidden-xs hidden-sm"></span><span class="icons-people-adultsm_white visible-sm visible-xs"></span></li>');
+    $('#adult').val($('.roundtour-people--adults li').length);
     $('.roundtour-people--adults li').last().show(200).animate({'opacity' : 1},300);
     visible('adults',this);
     return false;
@@ -697,6 +722,7 @@
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
     $('.roundtour-people--childrens').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-children_white hidden-xs hidden-sm"></span><span class="icons-people-childrensm_white visible-sm visible-xs"></span><div class="roundtour-people--year">' + year + '</div></li>');
+    $('#children').val($('.roundtour-people--year').text());
     $('.roundtour-people--childrens li').last().show(200).animate({'opacity' : 1},300);
     $('.roundtour-people--years').slideToggle(100);
     $('.roundtour-people--addchildrens').toggleClass('active');
@@ -838,23 +864,30 @@
     var nightMax = night.filter('.active').last().text();
     var nightResult;
     if(nightMin.indexOf(nightMax)){
-      nightResult = 'Ð½Ð° ' + nightMin + '-' + nightMax + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+      $('#nights_min').val(nightMin);
+      $('#nights_max').val(nightMax);
+      nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
     } else{
-      nightResult = 'Ð½Ð° ' + nightMin + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+      $('#nights_min').val(nightMin);
+      nightResult = 'на ' + nightMin + ' ночей';
     }
 
     var month = $('.select-date').val();
+
     var arrayMonth, monthResult;
     if(month!=''){
       arrayMonth = month.replace(/\s+/g, '');
       arrayMonth = arrayMonth.split("-");
       if(arrayMonth[0]==arrayMonth[1]){
+        $('#date_min').val(arrayMonth[0]);
         monthResult = month.split("-");
         month = monthResult[0];
       }
+      $('#date_max').val(arrayMonth[1]);
+      $('#date_min').val(arrayMonth[0]);
       month = month + ', '
     }else{
-      month = 'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ';
+      month = 'Выберите дату';
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
@@ -876,17 +909,17 @@
 
 
 
-// Ð—ÐÐŸÐ ÐžÐ¡ ÐÐ Ðš API
+// ЗАПРОС НА К API
 
-  // Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ð¼ ajax-Ð·Ð°Ð¿Ñ€Ð¾Ñ, ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ð¼ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ¸ ÐµÐ³Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð¸
-  // ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚ jqxhr Ð´Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ° Ð´Ð»Ñ Ð´Ð°Ð»ÑŒÐ½ÐµÐ¹ÑˆÐµÐ³Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ.
+  // Запустим ajax-запрос, установим обработчики его выполнения и
+  // сохраним объект jqxhr данного запроса для дальнейшего использования.
   var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
-  .success(function() { console.log('Ð”Ð°'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
-  .error(function() { console.log('ÐÐµÑ‚'); });
+  .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
+  .error(function() { console.log('Нет'); });
  // var jqxhr2 = $.get("http://module.sletat.ru/Main.svc/GetCountries?townFromId=1264&showcase=1&login=pr@corona.travel&password=1234567")
- //  .success(function() { console.log('Ð”Ð°'); console.log('Data', jqxhr2); })
- //  .error(function() { console.log('ÐÐµÑ‚'); });
+ //  .success(function() { console.log('Да'); console.log('Data', jqxhr2); })
+ //  .error(function() { console.log('Нет'); });
  //  var jqxhr3 = $.get("http://module.sletat.ru/Main.svc")
- //  .success(function() { console.log('Ð”Ð°'); console.log('Data', jqxhr3); })
- //  .error(function() { console.log('ÐÐµÑ‚'); });
+ //  .success(function() { console.log('Да'); console.log('Data', jqxhr3); })
+ //  .error(function() { console.log('Нет'); });
 console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))

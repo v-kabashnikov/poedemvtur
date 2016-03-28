@@ -626,20 +626,12 @@
   $('.roundtour-place').click(function(){
     $('.roundtour-place--submenu').show(0);
     $('.roundtour-place--search').val($(this).find('.text').text()).focus();
-     $(document).mouseup(function (e) {
-        var container = $(".roundtour-place--submenu");
-        if (container.has(e.target).length === 0){
-            hidePlaceSubmenu('');
-        }
-      });
     return false;
   });
-
   $('.roundtour-place--list').click('li', function(o){
     console.log(o);
     var text = $(o.target).find('.roundtour-place--curort').text();
     console.log('asdasd', text);
-    hidePlaceSubmenu(text);
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
@@ -648,15 +640,6 @@
     // $(this).find('li').css({'display': 'none'});
     return false;
   });
-   function hidePlaceSubmenu(text){
-    if(text!=''){
-      $('.roundtour-place').find('.text').text(text);
-    }else{
-       $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
-    }
-    $('.roundtour-place--search').val(text);
-    $('.roundtour-place--submenu').hide(0);
-  }
   $('.roundtour-place--search').keyup(function(){
     var search = $(this).val().toLowerCase();
     $('.roundtour-place--list').find('li').each(function(i, el){
