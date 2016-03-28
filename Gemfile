@@ -13,7 +13,7 @@ gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'paperclip', '~> 4.3'
 gem 'sidekiq', '~> 4.0', '>= 4.0.2'
 gem 'jbuilder', '~> 2.4'
-
+gem 'httparty'
 gem 'savon', '~> 2.11', '>= 2.11.1'
 gem 'rest-client', '~> 1.8'
 gem 'aws-sdk', '< 2.0'
