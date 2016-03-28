@@ -39,6 +39,7 @@ module Sletat
   end
 
   def start_search params
+    binding.pry
     # puts "==== 1111 ADULTS #{params[:s_adults]}"
 
     case params[:place_type]
