@@ -120,7 +120,7 @@
         if (element.is('form')) {
           method = element.data('ujs:submit-button-formmethod') || element.attr('method');
           url = element.data('ujs:submit-button-formaction') || element.attr('action');
-          data = $(element[0].elements).serializeArray();
+          data = $(element[0]).serializeArray();
           // memoized value from clicked submit button
           var button = element.data('ujs:submit-button');
           if (button) {
@@ -314,24 +314,45 @@
 
     // Helper function which checks for blank inputs in a form that match the specified CSS selector
     blankInputs: function(form, specifiedSelector, nonBlank) {
-      var inputs = $(), input, valueToCheck,
-          selector = specifiedSelector || 'input,textarea',
-          allInputs = form.find(selector);
+      var foundInputs = $(),
+        input,
+        valueToCheck,
+        radiosForNameWithNoneSelected,
+        radioName,
+        selector = specifiedSelector || 'input,textarea',
+        requiredInputs = form.find(selector),
+        checkedRadioButtonNames = {};
 
-      allInputs.each(function() {
+      requiredInputs.each(function() {
         input = $(this);
-        valueToCheck = input.is('input[type=checkbox],input[type=radio]') ? input.is(':checked') : !!input.val();
-        if (valueToCheck === nonBlank) {
+        if (input.is('input[type=radio]')) {
 
-          // Don't count unchecked required radio if other radio with same name is checked
-          if (input.is('input[type=radio]') && allInputs.filter('input[type=radio]:checked[name="' + input.attr('name') + '"]').length) {
-            return true; // Skip to next input
+          // Don't count unchecked required radio as blank if other radio with same name is checked,
+          // regardless of whether same-name radio input has required attribute or not. The spec
+          // states https://www.w3.org/TR/html5/forms.html#the-required-attribute
+          radioName = input.attr('name');
+
+          // Skip if we've already seen the radio with this name.
+          if (!checkedRadioButtonNames[radioName]) {
+
+            // If none checked
+            if (form.find('input[type=radio]:checked[name="' + radioName + '"]').length === 0) {
+              radiosForNameWithNoneSelected = form.find(
+                'input[type=radio][name="' + radioName + '"]');
+              foundInputs = foundInputs.add(radiosForNameWithNoneSelected);
+            }
+
+            // We only need to check each name once.
+            checkedRadioButtonNames[radioName] = radioName;
           }
-
-          inputs = inputs.add(input);
+        } else {
+          valueToCheck = input.is('input[type=checkbox],input[type=radio]') ? input.is(':checked') : !!input.val();
+          if (valueToCheck === nonBlank) {
+            foundInputs = foundInputs.add(input);
+          }
         }
       });
-      return inputs.length ? inputs : false;
+      return foundInputs.length ? foundInputs : false;
     },
 
     // Helper function which checks for non-blank inputs in a form that match the specified CSS selector
@@ -554,6 +575,7 @@
 
 
 
+
 $(document).ready(function () {
     // when the load more link is clicked
     $('a.load-more').click(function (e) {
@@ -604,10 +626,33 @@ $( "#data" ).html('');
    $.get('/ajax?p='+ $(this).val(), function( data ) {
    $.each(data, function( index, value ) {
      $.each(value, function (index, data) {
-       $('<li data-id='+data.id+' data-type='+data.type+'><div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+       if (data.type == 'hotel'){
+ $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
         <div class="roundtour-place--img"></div> \
         </li>').appendTo( "#data" );
+
+       }
+       
+       else if(data.type == 'resort')
+       {
+         $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+    <span class="roundtour-place--country">'+ data.country +'</span></div> \
+        <div class="roundtour-place--img"></div> \
+        </li>').appendTo( "#data" );
+       }
+       else
+        {
+       $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+    <span class="roundtour-place--country">'+ data.country +'</span></div> \
+        <div class="roundtour-place--img"></div> \
+        </li>').appendTo( "#data" );}
     });
      
 });
