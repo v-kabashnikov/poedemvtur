@@ -646,8 +646,8 @@
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
-    $('#place_id').val($(o.target).attr('data-id'))
-    $('#place_type').val($(o.target).attr('data-type'))
+    $('#place_id').val($thisItem.attr('data-id'))
+    $('#place_type').val($thisItem.attr('data-type'))
     // $(this).find('li').css({'display': 'none'});
     return false;
   });
