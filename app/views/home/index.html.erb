@@ -208,7 +208,7 @@
                 <div class="slide">
                 <% countries_pair.each do |country| %>
                   <a id="poisk" href="/search?utf8=✓&depart_city=Москва&city_id=832&place_id=<%=country.id%>&place_type=country&nights_min=4&nights_max=14&date_min=&date_max=&children=&adult=&arrive_place=<%=country.name%>&roundtour-price=0%3B200000" class="ready-offer">
-                    <div class="ready-offer--img"><%= image_tag country.header_img.url%></div>
+                    <div class="ready-offer--img"><%= image_tag country.header_img.url(:thumb)%></div>
                     <div class="ready-offer--content">
                      <div class="ready-offer--sale"><%=country.discount%>%</div>
                      <input class="ready-offer-input" data-country-id="<%=country.sletat_id%>" value='<%=country.name%>' type="hidden" name="date_max" >
