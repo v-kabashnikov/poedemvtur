@@ -585,9 +585,9 @@
   $(document).ready(function(){
     $(".roundtour-price").ionRangeSlider({
       min: 0,
-      max: 200000,
+      max: 300000,
       from: 0,
-      to: 200000,
+      to: 300000,
       type: 'double',
       step: 50,
       postfix: '<i class="fa fa-rub"></i>',
