@@ -11,7 +11,7 @@
  * file per style scope.
  *
 
-*= require bootstrap.min.css
+*= require bootstrap.scss
 *= require jasny-bootstrap.min.css
 *= require bootstrap-datetimepicker.css
 *= require selectize.bootstrap3.css
@@ -20,7 +20,6 @@
 *= require footer
 *= require x-input
 *= require site
-*= require font-awesome.min
 *= require slick
 *= require jquery.fancybox
 *= require new
@@ -29,3 +28,4 @@
  */
 
 @import 'font-awesome';
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
