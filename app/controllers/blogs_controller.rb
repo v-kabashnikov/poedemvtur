@@ -22,6 +22,7 @@ layout 'static'
 	end
 
   def about
+    @feedbacks = Feedback.all
   end
 
   def theme_show

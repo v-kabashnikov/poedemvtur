@@ -40,29 +40,42 @@ module Sletat
 
   def start_search params
     # puts "==== 1111 ADULTS #{params[:s_adults]}"
-
-    case params[:place_type]
-      when 'hotel'
-        hotel = Hotel.find(params[:place_id])
-        hotels = hotel.sletat_id
-        countryId = hotel.resort.country.sletat_id
-      when 'resort'
-        resort  = Resort.find(params[:place_id])
-        cities = resort.sletat_id
-        countryId = resort.country.sletat_id
-      when 'country'
-        countryId = Country.find(params[:place_id]).sletat_id
-    end
-    if params[:date_min].empty?
-      s_departFrom = DateTime.now.to_date
+    if params[:cityFromId]
+      s_kids = params[:s_kids]
+      cid = params[:cityFromId]
+      s_departFrom = params[:s_departFrom]
+      s_nightsMin = params[:s_nights].split(';')[0]
+      s_nightsMax = params[:s_nights].split(';')[1]
+      s_adults = params[:s_adults]
     else
-      s_departFrom = Date.parse(params[:date_min])
+      s_kids = params[:children]
+      cid = params[:city_id]
+      s_adults = params[:adult]
+      case params[:place_type]
+        when 'hotel'
+          hotel = Hotel.find(params[:place_id])
+          hotels = hotel.sletat_id
+          countryId = hotel.resort.country.sletat_id
+        when 'resort'
+          resort  = Resort.find(params[:place_id])
+          cities = resort.sletat_id
+          countryId = resort.country.sletat_id
+        when 'country'
+          countryId = Country.find(params[:place_id]).sletat_id
+      end
+      if params[:date_min]
+        if params[:date_min].empty?
+          s_departFrom = DateTime.now.to_date
+        else
+          s_departFrom = Date.parse(params[:date_min])
+        end
+      end
+      s_departTo = params[:date_max].empty? ? s_departFrom :  Date.parse(params[:date_max])
+      s_nightsMin = params[:nights_min]
+      s_nightsMax = params[:nights_max]
+      priceMax = params['roundtour-price'].split(';')[1]
+      priceMin = params['roundtour-price'].split(';')[0]
     end
-    s_departTo = params[:date_max].empty? ? s_departFrom :  Date.parse(params[:date_max])
-    s_nightsMin = params[:nights_min]
-    s_nightsMax = params[:nights_max]
-    priceMax = params['roundtour-price'].split(';')[1]
-    priceMin = params['roundtour-price'].split(';')[0]
 
    # s_nights = params["s_nights"].split('-')
    # s_departFrom = Date.parse(params['s_departFrom'])
@@ -71,8 +84,8 @@ module Sletat
    # hotel = Hotel.find(params[:hotel_id]) if params[:hotel_id]
    # hotels = hotel.sletat_id if hotel
    # countryId = params[:countryId] || (hotel.resort.country.sletat_id if hotel)
-    url_params = { cityFromId: params[:city_id], countryId: countryId,
-                   s_adults: params[:adult], s_kids: params[:children], s_nightsMin: s_nightsMin, s_nightsMax: s_nightsMax,
+    url_params = { cityFromId: cid, countryId: countryId,
+                   s_adults: s_adults, s_kids: s_kids, s_nightsMin: s_nightsMin, s_nightsMax: s_nightsMax,
                    s_priceMin: priceMin, s_priceMax: priceMax, s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
                    s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
                    includeDescriptions: 1, updateResult: 0, hotels: hotels, meals: meals}
@@ -88,11 +101,11 @@ module Sletat
       request_id: requestId,
       status: 0,
       country: Country.find_by_sletat_id(countryId),
-      depart_city: DepartCity.find_by_sletat_id(params[:city_id]),
+      depart_city: DepartCity.find_by_sletat_id(cid),
       depart_from: s_departFrom,
       nights: nights_string,
-      adults: params[:adult].to_i,
-      kids: params[:children].to_i
+      adults: s_adults.to_i,
+      kids: s_kids.to_i
     )
 
     puts "start_search #{ls.id}"

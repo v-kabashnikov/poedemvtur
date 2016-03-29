@@ -33,6 +33,41 @@
 </div>
 <div class="container-fluid" id="about-comments">
 	<div class="row">
+	<%@feedbacks.each do |f| %>
+<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="clearfix">
+				<h3 class="name"><%=f.name%></h3>
+				<div class="stars">
+				<%case f.rating%>
+				<%when 0..2%>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 3..4%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 5..6%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 7..8%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 9..10%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<%end%>
+				</div>
+			</div>
+			<div class="text">
+				<p><%=f.body%></p>
+			</div>
+			<div class="rating"><%=f.rating%>/10</div>
+		</div>
+	<%end%>
 		<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=asset_path("DEMO/comment-1.jpg")%>');column-span:2">
 			<div class="clearfix">
 				<h3 class="name">Иван Громов</h3>
@@ -48,55 +83,6 @@
 				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
 			</div>
 			<div class="rating">9/10</div>
-		</div>
-		<div class="comment col-xs-12 hidden-sm col-md-4" style="background:#366e54">
-			<div class="clearfix">
-				<h3 class="name">Светлана</h3>
-				<div class="stars">
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-				</div>
-			</div>
-			<div class="text">
-				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
-			</div>
-			<div class="rating">9/10</div>
-		</div>
-		<div class="comment col-xs-12 col-sm-6  col-md-4" style="background:#965738">
-			<div class="clearfix">
-				<h3 class="name">Ирина Панина</h3>
-				<div class="stars">
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				</div>
-			</div>
-			<div class="text">
-				<p>Согласно концепции М.Маклюэна, политическое манипулирование теоретически обретает элемент политического процесса. Доиндустриальный тип политической культуры, несмотря на внешние воздействия, определяет теоретический социализм.</p>
-			</div>
-			<div class="rating">8/10</div>
-		</div>
-		<div class="comment hidden-xs col-sm-6  col-md-4" style="background-image:url('<%=asset_path("DEMO/comment-2.jpg")%>')">
-			<div class="clearfix">
-				<h3 class="name">Илья Кондратов</h3>
-				<div class="stars">
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				</div>
-			</div>
-			<div class="text">
-				<p>Интегрирование по частям расточительно создает комплексный предел последовательности, что неудивительно.</p>
-				<p>Замкнутое множество, как следует из вышесказанного, накладывает стремящийся минимум</p>
-			</div>
-			<div class="rating">8,5/10</div>
 		</div>
 		<div class="comment col-xs-12 hidden-sm col-md-4" style="background:#3e5870">
 			<div class="clearfix">

@@ -625,7 +625,7 @@
   });
   $('.roundtour-place').click(function(){
     $('.roundtour-place--submenu').show(0);
-    $('.roundtour-place--search').val($(this).find('.text').text()).focus();
+      $('.roundtour-place--search').val('').focus();
      $(document).mouseup(function (e) {
         var container = $(".roundtour-place--submenu");
         if (container.has(e.target).length === 0){

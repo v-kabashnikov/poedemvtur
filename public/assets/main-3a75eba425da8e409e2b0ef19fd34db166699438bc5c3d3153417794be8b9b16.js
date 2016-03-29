@@ -625,7 +625,7 @@
   });
   $('.roundtour-place').click(function(){
     $('.roundtour-place--submenu').show(0);
-    $('.roundtour-place--search').val($(this).find('.text').text()).focus();
+      $('.roundtour-place--search').val('').focus();
      $(document).mouseup(function (e) {
         var container = $(".roundtour-place--submenu");
         if (container.has(e.target).length === 0){
@@ -646,19 +646,21 @@
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
-    $('#place_id').val($(o.target).attr('data-id'))
-    $('#place_type').val($(o.target).attr('data-type'))
+    $('#place_id').val($thisItem.attr('data-id'))
+    $('#place_type').val($thisItem.attr('data-type'))
     // $(this).find('li').css({'display': 'none'});
     return false;
   });
    function hidePlaceSubmenu(text){
-    if(text!=''){
-      $('.roundtour-place').find('.text').text(text);
-    }else{
-       $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
-    }
-    $('.roundtour-place--search').val(text);
-    $('.roundtour-place--submenu').hide(0);
+    if($('.roundtour-place--submenu').is(':visible')){
+     if(text!=''){
+       $('.roundtour-place').find('.text').text(text);
+     }else{
+        $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
+     }
+     $('.roundtour-place--search').val(text);
+     $('.roundtour-place--submenu').hide(0);
+ }
   }
   $('.roundtour-place--search').keyup(function(){
     var search = $(this).val().toLowerCase();
