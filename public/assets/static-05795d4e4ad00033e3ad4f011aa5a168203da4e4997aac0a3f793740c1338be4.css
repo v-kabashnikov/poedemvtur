@@ -13229,7 +13229,7 @@ icons-sprite, .icons-aircraft, .icons-arrow-left, .hotel-slider .slick-prev, .ic
 
 /* line 1, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/new.scss */
 .slide-content {
-  background: url("main-lines.png") center center repeat;
+  background: url(/assets/main-lines-3d26bb25558b2d17e866cba755669adcb2da339c2aea88dd7e6513d10f2975e4.png) center center repeat;
   position: absolute;
   left: 0;
   top: 0;
@@ -19801,4 +19801,216 @@ icons-sprite, .icons-aircraft, .icons-arrow-left, .hotel-slider .slick-prev, .ic
 /* line 2089, /Users/administrator/.rvm/gems/ruby-2.2.4/gems/font-awesome-rails-4.5.0.1/app/assets/stylesheets/font-awesome.css.erb */
 .fa-percent:before {
   content: "\f295";
+}
+
+/* line 33, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.hotel-slide a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+}
+
+/* line 40, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.hotel-slide img {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* line 47, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.hotel-photos a {
+  display: inline-block;
+  width: 12.3%;
+  float: left;
+  margin-right: .22%;
+  overflow: hidden;
+  height: 100px;
+  margin-bottom: 2px;
+}
+
+/* line 57, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.hotel-photos img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* line 64, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.hotel-options-list {
+  margin: 40px 0 0;
+  overflow: hidden;
+}
+
+/* line 69, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG {
+  position: relative;
+  width: 234px;
+  height: 28px;
+  margin: auto;
+}
+
+/* line 76, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+.floatBarsG {
+  position: absolute;
+  top: 0;
+  background-color: #03f5b8;
+  width: 28px;
+  height: 28px;
+  animation-name: bounce_floatBarsG;
+  -o-animation-name: bounce_floatBarsG;
+  -ms-animation-name: bounce_floatBarsG;
+  -webkit-animation-name: bounce_floatBarsG;
+  -moz-animation-name: bounce_floatBarsG;
+  animation-duration: 1.5s;
+  -o-animation-duration: 1.5s;
+  -ms-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+}
+
+/* line 109, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_1 {
+  left: 0;
+  animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  -ms-animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+}
+
+/* line 118, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_2 {
+  left: 29px;
+  animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+}
+
+/* line 127, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_3 {
+  left: 58px;
+  animation-delay: 0.9s;
+  -o-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+}
+
+/* line 136, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_4 {
+  left: 88px;
+  animation-delay: 1.05s;
+  -o-animation-delay: 1.05s;
+  -ms-animation-delay: 1.05s;
+  -webkit-animation-delay: 1.05s;
+  -moz-animation-delay: 1.05s;
+}
+
+/* line 145, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_5 {
+  left: 117px;
+  animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  -ms-animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+}
+
+/* line 154, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_6 {
+  left: 146px;
+  animation-delay: 1.35s;
+  -o-animation-delay: 1.35s;
+  -ms-animation-delay: 1.35s;
+  -webkit-animation-delay: 1.35s;
+  -moz-animation-delay: 1.35s;
+}
+
+/* line 163, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_7 {
+  left: 175px;
+  animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+}
+
+/* line 172, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/static.scss */
+#floatBarsG_8 {
+  left: 205px;
+  animation-delay: 1.64s;
+  -o-animation-delay: 1.64s;
+  -ms-animation-delay: 1.64s;
+  -webkit-animation-delay: 1.64s;
+  -moz-animation-delay: 1.64s;
+}
+
+@keyframes bounce_floatBarsG {
+  0% {
+    transform: scale(1);
+    background-color: #00a367;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: #00ccbb;
+  }
+}
+@-o-keyframes bounce_floatBarsG {
+  0% {
+    -o-transform: scale(1);
+    background-color: #00a367;
+  }
+  100% {
+    -o-transform: scale(0.3);
+    background-color: #00ccbb;
+  }
+}
+@-ms-keyframes bounce_floatBarsG {
+  0% {
+    -ms-transform: scale(1);
+    background-color: #00a367;
+  }
+  100% {
+    -ms-transform: scale(0.3);
+    background-color: #00ccbb;
+  }
+}
+@-webkit-keyframes bounce_floatBarsG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: #00a367;
+  }
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: #00ccbb;
+  }
+}
+@-moz-keyframes bounce_floatBarsG {
+  0% {
+    -moz-transform: scale(1);
+    background-color: #00a367;
+  }
+  100% {
+    -moz-transform: scale(0.3);
+    background-color: #00ccbb;
+  }
 }
