@@ -39,3 +39,31 @@
 }
 
 
+.ready-offer {
+  margin: 5px 5px 10px;
+  position: relative;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  display: block;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  height: 118px !important;
+}
+.ready-offer--img img {
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  width: auto;
+  height: auto;
+  min-height:100%;
+  min-width:100%;
+  display: block;
+}
+
+

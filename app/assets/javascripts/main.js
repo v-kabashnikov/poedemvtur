@@ -820,37 +820,44 @@
   roundDate();
   $(window).resize(roundDate);
   function roundDate(){
+    var currentDate = new Date();
+    var dateMoth = currentDate;
+    if(dateMoth.getDate()>15){
+      dateMoth.setDate(dateMoth.getDate() - 14);
+    }
+    dateMoth.setMonth(dateMoth.getMonth() + 1);
+    
     if($(window).width()>=768){
       $('.roundtour-date--month *').remove();
       $('.roundtour-date--month').DatePicker({
-      	flat: true,
-      	date: [today],
-      	current: today,
-      	calendars: 2,
-      	mode: 'range',
-      	starts: 1,
+        flat: true,
+        date: [new Date()],
+        current: dateMoth,
+        calendars: 2,
+        mode: 'range',
+        starts: 1,
         format: 'd b',
         onChange: function(formated) {
           tourDate = formated.join(' - ');
           $('.select-date').val(tourDate);
-      	}
+        }
       });
       $('.prev-month').eq(1).hide(0);
       $('.next-month').eq(0).hide(0);
     }else{
       $('.roundtour-date--month *').remove();
       $('.roundtour-date--month').DatePicker({
-      	flat: true,
-      	date: [today],
-      	current: today,
-      	calendars: 1,
-      	mode: 'range',
-      	starts: 1,
+        flat: true,
+        date: [new Date()],
+        current: dateMoth,
+        calendars: 1,
+        mode: 'range',
+        starts: 1,
         format: 'd b',
         onChange: function(formated) {
           tourDate = formated.join(' - ');
           $('.select-date').val(tourDate);
-      	}
+        }
       });
     }
   }
