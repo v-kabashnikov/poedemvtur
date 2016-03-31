@@ -49,10 +49,13 @@
 		<div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 			<div class="clearfix row-fluid" id="countries">
 				<%@countries.each do |country| %>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="/?p=hotels-in-country"><i>	<%= image_tag(country.flag.url)%></i><span><%=country.name%>       </span></a></div>
-
+				<%if country.flag_link.empty? %>
+				<%img = country.flag.url%>
+				<%else%>
+				<%img = country.flag_link %>
 				<%end%>
-				
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="/"><i><img src="<%=img%>"></i><span><%=country.name%></span></a></div>
+				<%end%>	
 			</div>
 		</div>
 	</div>
