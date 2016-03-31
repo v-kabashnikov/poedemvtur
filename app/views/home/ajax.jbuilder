@@ -7,6 +7,7 @@ end
 
 
 json.hotels @hotels do |res|
+	json.image res.sletat_image_urls.first
 	json.type "hotel"
 	json.id res.id
 	json.name res.name
