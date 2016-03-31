@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329092142) do
+ActiveRecord::Schema.define(version: 20160331143137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160329092142) do
     t.integer  "price"
     t.integer  "discount"
     t.boolean  "hot"
+    t.string   "flag_link"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree
@@ -250,6 +251,18 @@ ActiveRecord::Schema.define(version: 20160329092142) do
   end
 
   add_index "search_results", ["hotel_id"], name: "index_search_results_on_hotel_id", using: :btree
+
+  create_table "sletat_ru_hotels_base_country", force: :cascade do |t|
+    t.string  "name",                    limit: 255, null: false
+    t.string  "alias",                   limit: 255, null: false
+    t.boolean "is_visa",                             null: false
+    t.integer "rank",                                null: false
+    t.integer "unihotel_conformity_id"
+    t.boolean "conformity_need_confirm",             null: false
+    t.string  "image",                   limit: 100
+  end
+
+  add_index "sletat_ru_hotels_base_country", ["unihotel_conformity_id"], name: "sletat_ru_hotels_base_country_unihotel_conformity_id_key", unique: true, using: :btree
 
   create_table "stars", force: :cascade do |t|
     t.string   "name"
