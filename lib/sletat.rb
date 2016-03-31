@@ -88,7 +88,7 @@ module Sletat
    # hotel = Hotel.find(params[:hotel_id]) if params[:hotel_id]
    # hotels = hotel.sletat_id if hotel
    # countryId = params[:countryId] || (hotel.resort.country.sletat_id if hotel)
-    url_params = { cityFromId: cid, countryId: countryId,
+    url_params = { cityFromId: cid, countryId: countryId, cities: cities,
                    s_adults: s_adults, s_kids: s_kids, s_nightsMin: s_nightsMin, s_nightsMax: s_nightsMax,
                    s_priceMin: priceMin, s_priceMax: priceMax, s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
                    s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
