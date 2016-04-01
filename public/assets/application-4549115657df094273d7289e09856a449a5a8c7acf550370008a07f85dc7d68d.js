@@ -626,10 +626,33 @@ $( "#data" ).html('');
    $.get('/ajax?p='+ $(this).val(), function( data ) {
    $.each(data, function( index, value ) {
      $.each(value, function (index, data) {
-       $('<li data-id='+data.id+' data-type='+data.type+'><div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+       if (data.type == 'hotel'){
+ $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"></div> \
+        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.image+'"></div> \
         </li>').appendTo( "#data" );
+
+       }
+       
+       else if(data.type == 'resort')
+       {
+         $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+    <span class="roundtour-place--country">'+ data.country +'</span></div> \
+        <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
+        </li>').appendTo( "#data" );
+       }
+       else
+        {
+       $('<li data-id='+data.id+' data-type='+data.type+'>\
+         <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
+<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+    <span class="roundtour-place--country">'+ data.country +'</span></div> \
+        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
+        </li>').appendTo( "#data" );}
     });
      
 });

@@ -585,11 +585,11 @@
   $(document).ready(function(){
     $(".roundtour-price").ionRangeSlider({
       min: 0,
-      max: 300000,
+      max: 10000000,
       from: 0,
-      to: 300000,
+      to: 500000,
       type: 'double',
-      step: 50,
+      step: 50000,
       postfix: '<i class="fa fa-rub"></i>',
     });
   });
@@ -903,6 +903,14 @@
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
+    $('body').on('click','.ready-offer',function(){
+    var country = $(this).find('.ready-offer--title').text();
+    var countryId = $(this).find('.ready-offer--title').data('country-id');
+    $('#place_id').val(countryId);
+    $('#place_type').val(country);
+    roundDateShow();
+    return false;
+  });
   }
 })($);
 (function(){

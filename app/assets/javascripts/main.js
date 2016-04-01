@@ -903,6 +903,14 @@
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
+    $('body').on('click','.ready-offer',function(){
+    var country = $(this).find('.ready-offer--title').text();
+    var countryId = $(this).find('.ready-offer--title').data('country-id');
+    $('#place_id').val(countryId);
+    $('#place_type').val(country);
+    roundDateShow();
+    return false;
+  });
   }
 })($);
 (function(){
