@@ -39,11 +39,9 @@ module Sletat
   end
 
   def start_search params
-    binding.pry
     if params[:s_nights]
-      binding.pry
-      s_nightsMin = params[:s_nights].split(';')[0]
-      s_nightsMax = params[:s_nights].split(';')[1]
+      s_nightsMin = params[:s_nights].split('-')[0]
+      s_nightsMax = params[:s_nights].split('-')[1]
     end
     # puts "==== 1111 ADULTS #{params[:s_adults]}"
     if params[:cityFromId]
