@@ -231,8 +231,7 @@
   display: block;"><%= image_tag country.header_img.url(:thumb)%></div>
                     <div class="ready-offer--content">
                      <div class="ready-offer--sale"><%=country.discount%>%</div>
-                     <input class="ready-offer-input" data-country-id="<%=country.sletat_id%>" value='<%=country.name%>' type="hidden" name="date_max" >
-                     <h4 class="ready-offer--title" data-country-id="<%=country.sletat_id%>"><%=country.name%></h4>
+                     <h4 class="ready-offer--title" data-country-id="<%=country.id%>"><%=country.name%></h4>
                       <span class="ready-offer--price ready-offer--price_blue">от <%=country.price%> <i class="fa fa-rub"></i></span>
                    </div>
                  </a>

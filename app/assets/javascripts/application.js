@@ -91,7 +91,7 @@ $( "#data" ).html('');
          <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
 <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
+        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
         </li>').appendTo( "#data" );}
     });
      

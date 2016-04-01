@@ -16,6 +16,7 @@ end
 
 
 json.countries @countries do |res|
+	json.flag res.flag_link
 	json.type "country"
 	json.id res.id
 	json.name res.name

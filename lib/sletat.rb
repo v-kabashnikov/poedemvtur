@@ -39,6 +39,10 @@ module Sletat
   end
 
   def start_search params
+    if params[:s_nights]
+      s_nightsMin = params[:s_nights].split(';')[0]
+      s_nightsMax = params[:s_nights].split(';')[1]
+    end
     # puts "==== 1111 ADULTS #{params[:s_adults]}"
     if params[:cityFromId]
       s_kids = params[:s_kids]
@@ -48,8 +52,6 @@ module Sletat
       countryId = params[:countryId] || (hotel.resort.country.sletat_id if hotel)
       s_departFrom = Date.parse(params['s_departFrom'])
       s_departTo = s_departFrom + 45.days
-      s_nightsMin = params[:s_nights].split(';')[0]
-      s_nightsMax = params[:s_nights].split(';')[1]
       s_adults = params[:s_adults]
     else
       s_kids = params[:children]
