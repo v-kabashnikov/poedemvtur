@@ -585,11 +585,11 @@
   $(document).ready(function(){
     $(".roundtour-price").ionRangeSlider({
       min: 0,
-      max: 1000000,
+      max: 10000000,
       from: 0,
-      to: 1000000,
+      to: 500000,
       type: 'double',
-      step: 50,
+      step: 50000,
       postfix: '<i class="fa fa-rub"></i>',
     });
   });
