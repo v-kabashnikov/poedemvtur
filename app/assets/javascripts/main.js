@@ -903,16 +903,16 @@
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
+  }
     $('.ready-offer').on('click',function(){
     var country = $(this).find('.ready-offer--title').text();
     var countryId = $(this).find('.ready-offer--title').data('country-id');
     $('#place_id').val(countryId);
-    $('#place_type').val(country);
+    $('#place_type').val('country');
     $('#place').text(country);
     roundDateShow();
     return false;
   });
-  }
 })($);
 (function(){
   footerPosition();
