@@ -101,8 +101,11 @@ class HomeController < ApplicationController
 
     # TourLoader.perform_async(requestId, url_params)
     @request = start_search(params)
-
-    @country = @request.country.name
+    @country = @request.country.name  
+    if params[:place_type] == 'hotel'
+      redirect_to "/hotel/#{params[:place_id]}"
+    end
+    
     # @requestId = requestId
   end
 
