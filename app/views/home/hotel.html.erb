@@ -15,7 +15,9 @@
   <%= javascript_include_tag 'slick.min.js' %>
   <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
   <%= javascript_include_tag 'datepicker.js' %>
-  <%= javascript_include_tag 'main.js' %>
+  <%= javascript_include_tag 'jquery.scrollbar.min.js' %>
+  <%= javascript_include_tag 'ion.rangeSlider.min.js' %>
+  <%= javascript_include_tag 'readmore.js'%>
 <% end %>
 <script>
   var intervalID = setInterval(function(){
@@ -377,7 +379,24 @@
                 </div>
               <% end %>
             <% else %>
-              <p class="text-center">Загрузка туров...</p>
+            </br>
+</br>
+</br>
+               <div id="loading"style="">
+ <div id="floatBarsG" style="height: 20px;">
+  <div id="floatBarsG_1" class="floatBarsG"></div>
+  <div id="floatBarsG_2" class="floatBarsG"></div>
+  <div id="floatBarsG_3" class="floatBarsG"></div>
+  <div id="floatBarsG_4" class="floatBarsG"></div>
+  <div id="floatBarsG_5" class="floatBarsG"></div>
+  <div id="floatBarsG_6" class="floatBarsG"></div>
+  <div id="floatBarsG_7" class="floatBarsG"></div>
+  <div id="floatBarsG_8" class="floatBarsG"></div>
+</div>
+</div>
+</br>
+</br>
+</br>
             <% end %>
           </div>
         <% end %>
@@ -425,7 +444,7 @@
                 $('#hotelDescriptionID').attr('src', src);
                 // $('#hotelDescriptionID').attr('src', src + '&cssStylesheet=<%= asset_url("description.css") %>');
                 $('#hotelDescriptionID').attr('class', 'col-sm-12 col-md-12 col-lg-12');
-                $('#hotelDescriptionID').attr('style', 'height:544px;');
+                $('#hotelDescriptionID').attr('style', 'height:544px; border-style: none;');
               </script>
             <% end %>
           </div>

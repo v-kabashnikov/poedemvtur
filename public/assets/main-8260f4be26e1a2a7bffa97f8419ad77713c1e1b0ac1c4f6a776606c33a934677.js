@@ -903,15 +903,16 @@
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
-    $('body').on('click','.ready-offer',function(){
+  }
+    $('.ready-offer').on('click',function(){
     var country = $(this).find('.ready-offer--title').text();
     var countryId = $(this).find('.ready-offer--title').data('country-id');
     $('#place_id').val(countryId);
-    $('#place_type').val(country);
+    $('#place_type').val('country');
+    $('#place').text(country);
     roundDateShow();
     return false;
   });
-  }
 })($);
 (function(){
   footerPosition();
@@ -933,13 +934,100 @@
 
   // Запустим ajax-запрос, установим обработчики его выполнения и
   // сохраним объект jqxhr данного запроса для дальнейшего использования.
-  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
-  .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
-  .error(function() { console.log('Нет'); });
+//  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
+ // .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
+ // .error(function() { console.log('Нет'); });
  // var jqxhr2 = $.get("http://module.sletat.ru/Main.svc/GetCountries?townFromId=1264&showcase=1&login=pr@corona.travel&password=1234567")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr2); })
  //  .error(function() { console.log('Нет'); });
  //  var jqxhr3 = $.get("http://module.sletat.ru/Main.svc")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr3); })
  //  .error(function() { console.log('Нет'); });
-console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
+//console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
+
+
+
+
+
+var url = document.location.toString();
+if (url.match('#')) {
+    $('#hotel-tabs a[href="#'+url.split('#')[1]+'"]').tab('show') ;
+} 
+
+(function(){
+  $( "#cb-wh" ).change(function() {
+    $( "#children_input" ).toggle(400);
+    if(!this.checked) {
+      $("#children_input #s_kids").val(0);
+    }
+  });
+})($);
+
+(function(){
+  $(".fancybox").fancybox({
+    fitToView: false,
+    maxWidth: "90%"
+  });
+})($);
+
+(function(){
+  $('.hotel-slider').slick({
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+     responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  hotelArrows();
+  $(window).resize(hotelArrows);
+  function hotelArrows(){
+    var dots = 0;
+    $('.hotel-slider .slick-dots').find('li').each(function(){
+      dots += $(this).width()+8;
+    });
+    $('.hotel-slider .slick-prev').css({
+      'margin-right' : dots/2+20
+    });
+    $('.hotel-slider .slick-next').css({
+      'margin-left' : dots/2+20
+    });
+  }
+      $('.block-hotel-comments--content').readmore({
+        speed: 75,
+        collapsedHeight: 110,
+        heightMargin: 40,
+        moreLink: '<a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>',
+        lessLink: '<a href="#" class="block-hotel-comments--fulllink">Свернуть</a>'
+      });
+
+      $('.hotel-comment--text').readmore({
+        speed: 75,
+        collapsedHeight: 50,
+        heightMargin: 40,
+        moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
+        lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
+      });
+})($);
+
+
+$('.more-tours').click(function(){
+  var page = parseInt($(this).attr('data-page'));
+  var href = $(this).find('a').attr('href');
+  $(this).find('a').attr('href', href.split('&')[0] + '&page=' + page);
+  $(this).attr('data-page', page + 1);
+});

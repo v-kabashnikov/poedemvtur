@@ -575,7 +575,6 @@
 
 
 
-
 $(document).ready(function () {
     // when the load more link is clicked
     $('a.load-more').click(function (e) {
@@ -631,7 +630,7 @@ $( "#data" ).html('');
          <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
 <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"></div> \
+        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.image+'"></div> \
         </li>').appendTo( "#data" );
 
        }
@@ -642,7 +641,7 @@ $( "#data" ).html('');
          <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
 <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"></div> \
+        <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
         </li>').appendTo( "#data" );
        }
        else
@@ -651,7 +650,7 @@ $( "#data" ).html('');
          <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
 <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
     <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"></div> \
+        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
         </li>').appendTo( "#data" );}
     });
      
