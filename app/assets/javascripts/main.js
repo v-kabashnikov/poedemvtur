@@ -627,11 +627,13 @@
     $('.roundtour-place--submenu').show(0);
       $('.roundtour-place--search').val('').focus();
      $(document).mouseup(function (e) {
-        var container = $(".roundtour-place--submenu");
-        if (container.has(e.target).length === 0){
-            hidePlaceSubmenu('');
-        }
-      });
+    var container = $('.roundtour-people--years');
+    if (container.has(e.target).length === 0){
+      if(container.is(':visible')){
+        container.slideUp(100);
+      }
+    }
+  });
     return false;
   });
 
