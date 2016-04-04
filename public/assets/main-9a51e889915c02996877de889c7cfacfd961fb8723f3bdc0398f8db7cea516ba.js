@@ -722,7 +722,15 @@
   $('.roundtour-people--addchildrens').click(function(){
     $('.roundtour-people--years').slideToggle(100);
     $(this).toggleClass('active');
-    return false;
+    $(document).mouseup(function (e) {
+    var container = $('.roundtour-people--years');
+    if (container.has(e.target).length === 0){
+      if(container.is(':visible')){
+        container.slideUp(100);
+        $('.roundtour-people--addchildrens').toggleClass('active');
+      }
+    }
+  });
   });
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
@@ -934,16 +942,16 @@
 
   // Запустим ajax-запрос, установим обработчики его выполнения и
   // сохраним объект jqxhr данного запроса для дальнейшего использования.
-  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
-  .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
-  .error(function() { console.log('Нет'); });
+//  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
+ // .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
+ // .error(function() { console.log('Нет'); });
  // var jqxhr2 = $.get("http://module.sletat.ru/Main.svc/GetCountries?townFromId=1264&showcase=1&login=pr@corona.travel&password=1234567")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr2); })
  //  .error(function() { console.log('Нет'); });
  //  var jqxhr3 = $.get("http://module.sletat.ru/Main.svc")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr3); })
  //  .error(function() { console.log('Нет'); });
-console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
+//console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
 
 
 
@@ -1007,24 +1015,23 @@ if (url.match('#')) {
       'margin-left' : dots/2+20
     });
   }
+      $('.block-hotel-comments--content').readmore({
+        speed: 75,
+        collapsedHeight: 110,
+        heightMargin: 40,
+        moreLink: '<a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>',
+        lessLink: '<a href="#" class="block-hotel-comments--fulllink">Свернуть</a>'
+      });
 
+      $('.hotel-comment--text').readmore({
+        speed: 75,
+        collapsedHeight: 50,
+        heightMargin: 40,
+        moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
+        lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
+      });
 })($);
 
-$('.block-hotel-comments--content').readmore({
-  speed: 75,
-  collapsedHeight: 110,
-  heightMargin: 40,
-  moreLink: '<a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>',
-  lessLink: '<a href="#" class="block-hotel-comments--fulllink">Свернуть</a>'
-});
-
-$('.hotel-comment--text').readmore({
-  speed: 75,
-  collapsedHeight: 50,
-  heightMargin: 40,
-  moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
-  lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
-});
 
 $('.more-tours').click(function(){
   var page = parseInt($(this).attr('data-page'));

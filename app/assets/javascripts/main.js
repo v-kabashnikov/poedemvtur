@@ -627,13 +627,11 @@
     $('.roundtour-place--submenu').show(0);
       $('.roundtour-place--search').val('').focus();
      $(document).mouseup(function (e) {
-    var container = $('.roundtour-people--years');
-    if (container.has(e.target).length === 0){
-      if(container.is(':visible')){
-        container.slideUp(100);
-      }
-    }
-  });
+        var container = $(".roundtour-place--submenu");
+        if (container.has(e.target).length === 0){
+            hidePlaceSubmenu('');
+        }
+      });
     return false;
   });
 
@@ -724,7 +722,15 @@
   $('.roundtour-people--addchildrens').click(function(){
     $('.roundtour-people--years').slideToggle(100);
     $(this).toggleClass('active');
-    return false;
+    $(document).mouseup(function (e) {
+    var container = $('.roundtour-people--years');
+    if (container.has(e.target).length === 0){
+      if(container.is(':visible')){
+        container.slideUp(100);
+        $('.roundtour-people--addchildrens').toggleClass('active');
+      }
+    }
+  });
   });
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
