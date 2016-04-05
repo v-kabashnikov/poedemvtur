@@ -1,0 +1,326 @@
+/* line 1, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-page {
+  background: url(/assets/bg-about-8359b6f51ba0ac845fa282b5c76cb17feeefc2e7bbc1cac9b808203a37b472f7.png) right top 60px no-repeat;
+  padding: 0 120px 50px 15px;
+}
+
+@media (max-width: 767px) {
+  /* line 6, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  #about-page {
+    background: none;
+    padding: 0 20px 40px 20px;
+  }
+}
+/* line 12, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#footer-map {
+  position: relative;
+  z-index: 5;
+  height: 600px;
+  width: 100%;
+  pointer-events: all !important;
+}
+
+/* line 20, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#map {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  z-index: 4;
+}
+
+/* line 26, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon {
+  width: 588px;
+  height: 316px;
+  background: #fff;
+  margin-left: -240px;
+  margin-top: -231px;
+  position: relative;
+  background: url(/assets/ballon-bg-c7ea6860d8969fcd2b90fc2c8213dd004ec32c43087ed1b63433f24534242581.png) top center no-repeat;
+  padding: 50px 40px 100px;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+/* line 38, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-location {
+  color: #737373;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+/* line 43, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-phone {
+  font-weight: 900;
+  font-size: 30px;
+  color: #4b4b4c;
+  margin: 10px 0;
+  line-height: 120%;
+}
+
+/* line 50, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-email {
+  color: #6589ab;
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+/* line 57, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-email:hover {
+  text-decoration: none;
+}
+
+/* line 60, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-close {
+  display: inline-block;
+  position: absolute;
+  right: 32px;
+  top: 27px;
+  color: #eaeaea;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* line 69, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+.ballon-close:hover {
+  color: #b8b8b8;
+}
+
+/*noinspection CssInvalidPropertyValue*/
+/* line 74, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .row {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  align-content: stretch;
+}
+
+/* line 85, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment {
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-size:cover;*/
+  background-size: 120% auto;
+  background-position-x: -50px;
+  outline: 1px solid #fff;
+  padding: 30px 45px 30px;
+  color: #fff;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+/* line 100, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment:hover {
+  background-position-x: 0px;
+}
+
+/* line 104, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .name {
+  margin: 0 15px 0 0;
+  font-size: 36px;
+  font-weight: 900;
+  float: left;
+}
+
+/* line 110, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .text {
+  margin-top: 5px;
+}
+
+/* line 113, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .text p {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* line 118, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .stars {
+  display: inline-block;
+  margin: 13px 0 10px;
+}
+
+/* line 122, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .stars i {
+  font-size: 18px;
+  color: #fff;
+  opacity: .6;
+}
+
+/* line 127, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .stars i.active {
+  opacity: 1;
+  color: #f6de7d;
+}
+
+/* line 131, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment .rating {
+  float: right;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #f6de7d;
+}
+
+/* line 139, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq {
+  margin: 25px 0 80px;
+}
+
+/* line 142, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq h2 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+/* line 147, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  word-spacing: 0;
+  text-align: center;
+}
+
+/* line 153, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .hidden-xxs a {
+  display: inline-block;
+  padding: 2px 18px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  word-spacing: 0;
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #8b8b8b;
+  -webkit-transition: border .3s ease;
+  -moz-transition: border .3s ease;
+  -ms-transition: border .3s ease;
+  -o-transition: border .3s ease;
+  transition: border .3s ease;
+}
+
+/* line 169, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .hidden-xxs a.active {
+  color: #1e918c;
+  border-color: #1e918c;
+  font-weight: 700;
+}
+
+/* line 174, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .hidden-xxs a.active:hover {
+  text-decoration: none;
+}
+
+/* line 177, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .hidden-xxs a:not(.active):hover {
+  text-decoration: none;
+  border-color: #8b8b8b;
+}
+
+/* line 181, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .btn-group {
+  display: none;
+}
+
+/* line 184, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories button.btn {
+  float: none;
+  border-radius: 0;
+  border-color: #e5dcc6;
+  color: #b37653;
+  width: 295px;
+  background: none;
+  text-align: left;
+}
+
+/* line 193, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories button .caret {
+  float: right;
+  margin-top: 8px;
+}
+
+/* line 197, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .categories .dropdown-menu {
+  width: 100%;
+}
+
+/* line 202, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item {
+  display: block;
+  color: #3f5971;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+  margin-bottom: -1px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* line 213, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item:hover {
+  background: #3f5971;
+  color: #fff;
+  text-decoration: none;
+  border-top-color: transparent;
+  border-bottom-color: #374e63;
+}
+
+/* line 220, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item.active:hover {
+  background: none;
+  color: #3f5971;
+  border-color: #ddd;
+}
+
+/* line 225, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item .container {
+  max-width: 600px;
+}
+
+/* line 228, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item .question {
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* line 233, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item .answer {
+  display: none;
+  margin-top: 5px;
+  padding-top: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  border-top: 1px solid #ddd;
+  color: #555;
+  overflow: hidden;
+}
+
+/* line 243, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+#faq .questions .item.active .answer {
+  display: block;
+}
+
+@media (max-width: 400px) {
+  /* line 248, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  #faq .categories > a {
+    display: none;
+  }
+
+  /* line 251, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  #faq .categories .btn-group {
+    display: block;
+  }
+}
