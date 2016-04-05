@@ -149,16 +149,18 @@
 <div class="hotel-slider--wrapper">
   <div class="container">
     <div class="hotel-slider hidden-xs">
-      <% @hotel.sletat_image_urls.each do |url| %>
-        <div>
-          <div class="hotel-slide">
-            <a href="<%= url %>" class="fancybox" rel="hotel-gallery1">
-              <%= image_tag url %>
-              <span class="hotel-slide--zoom icons-search"></span>
-            </a>
+      <%if @hotel.sletat_image_urls %>
+        <% @hotel.sletat_image_urls.each do |url| %>
+          <div>
+            <div class="hotel-slide">
+              <a href="<%= url %>" class="fancybox" rel="hotel-gallery1">
+                <%= image_tag url %>
+                <span class="hotel-slide--zoom icons-search"></span>
+              </a>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      <%end%>
     </div>
     <div class="hotel-slider visible-xs">
       <% @hotel.sletat_image_urls.each do |url| %>
