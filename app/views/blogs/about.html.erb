@@ -33,12 +33,12 @@
 </div>
 <div class="container-fluid" id="about-comments">
 	<div class="row">
-	<%@feedbacks.each do |f| %>
-	<div class="comment col-xs-12 col-sm-6  col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+	<%if @feedbacks[0] %>
+	<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=@feedbacks[0].background.url%>');column-span:2">
 			<div class="clearfix">
-				<h3 class="name"><%=f.name%></h3>
+				<h3 class="name"><%=@feedbacks[0].name%></h3>
 				<div class="stars">
-				<%case f.rating%>
+				<%case @feedbacks[0].rating%>
 				<%when 0..2%>
 					<i class="glyphicon glyphicon-star active"></i>
 				<%when 3..4%>
@@ -63,10 +63,82 @@
 				</div>
 			</div>
 			<div class="text">
-				<p><%=f.body%></p>
+				<p><%=@feedbacks[0].body%></p>
 			</div>
-			<div class="rating"><%=f.rating%>/10</div>
+			<div class="rating"><%=@feedbacks[0].rating%>/10</div>
 		</div>
+	<%end%>
+	<%if @feedbacks[1] %>
+	<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=@feedbacks[1].background.url%>');column-span:2">
+			<div class="clearfix">
+				<h3 class="name"><%=@feedbacks[1].name%></h3>
+				<div class="stars">
+				<%case @feedbacks[1].rating%>
+				<%when 0..2%>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 3..4%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 5..6%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 7..8%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+				<%when 9..10%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<%end%>
+				</div>
+			</div>
+			<div class="text">
+				<p><%=@feedbacks[1].body%></p>
+			</div>
+			<div class="rating"><%=@feedbacks[1].rating%>/10</div>
+		</div>
+	<%end%>
+	<%if @feedbacks[2] %>
+		<% @feedbacks[2..@feedbacks.count].each do |f| %>
+			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+				<div class="clearfix">
+					<h3 class="name"><%=f.name%></h3>
+					<div class="stars">
+					<%case f.rating%>
+					<%when 0..2%>
+						<i class="glyphicon glyphicon-star active"></i>
+					<%when 3..4%>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+					<%when 5..6%>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+					<%when 7..8%>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+					<%when 9..10%>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<i class="glyphicon glyphicon-star active"></i>
+						<%end%>
+					</div>
+				</div>
+				<div class="text">
+					<p><%=f.body%></p>
+				</div>
+				<div class="rating"><%=f.rating%>/10</div>
+			</div>
+		<%end%>
 	<%end%>
 	</div>
 </div>
