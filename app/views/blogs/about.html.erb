@@ -1,21 +1,21 @@
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'about', media: 'all' %>
+<%= stylesheet_link_tag 'about', media: 'all' %>
 <% end %>
 <% content_for :body do %>
-  <%= javascript_include_tag 'jquery.min.js' %>
-  <%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
-  <%= javascript_include_tag 'bootstrap.min.js' %>
-  <%= javascript_include_tag 'jasny-bootstrap.min.js' %>
-  <%= javascript_include_tag 'moment.js' %>
-  <%= javascript_include_tag 'ru.js' %>
-  <%= javascript_include_tag 'jquery.easing.js' %>
-  <%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
-  <%= javascript_include_tag 'selectize.min.js' %>
-  <%= javascript_include_tag 'jquery.quicksand.js' %>
-  <%= javascript_include_tag 'slick.min.js' %>
-  <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
-  <%= javascript_include_tag 'datepicker.js' %>
-  <%= javascript_include_tag 'main.js' %>
+<%= javascript_include_tag 'jquery.min.js' %>
+<%= javascript_include_tag 'jquery.mobile.custom.min.js' %>
+<%= javascript_include_tag 'bootstrap.min.js' %>
+<%= javascript_include_tag 'jasny-bootstrap.min.js' %>
+<%= javascript_include_tag 'moment.js' %>
+<%= javascript_include_tag 'ru.js' %>
+<%= javascript_include_tag 'jquery.easing.js' %>
+<%= javascript_include_tag 'bootstrap-datetimepicker.min.js' %>
+<%= javascript_include_tag 'selectize.min.js' %>
+<%= javascript_include_tag 'jquery.quicksand.js' %>
+<%= javascript_include_tag 'slick.min.js' %>
+<%= javascript_include_tag 'jquery.fancybox.pack.js' %>
+<%= javascript_include_tag 'datepicker.js' %>
+<%= javascript_include_tag 'main.js' %>
 <% end %>
 <div id="sub-header" style="background-image:url('<%=asset_path("sh-blog.jpg")%>')">
 	<h3 class="hidden-xxs">Пара слов о том, кто мы</h3>
@@ -33,43 +33,17 @@
 </div>
 <div class="container-fluid" id="about-comments">
 	<div class="row">
-	<%if @feedbacks[0] %>
-	<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=@feedbacks[0].background.url%>');column-span:2">
+		<%if @feedbacks[0] %>
+		<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=@feedbacks[0].background.url%>');column-span:2">
 			<div class="clearfix">
 				<h3 class="name"><%=@feedbacks[0].name%></h3>
 				<div class="stars">
-				<%case @feedbacks[0].rating%>
-					<%when 0..2%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 3..4%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 5..6%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 7..8%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 9..10%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
+					<%(@feedbacks[0].rating/2.to_i).times do%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<%end%>
+					<%(5.to_i - @feedbacks[0].rating/2.to_i).times do%>
+					<i class="glyphicon glyphicon-star"></i>
+					<%end%>	
 				</div>
 			</div>
 			<div class="text">
@@ -77,44 +51,18 @@
 			</div>
 			<div class="rating"><%=@feedbacks[0].rating%>/10</div>
 		</div>
-	<%end%>
-	<%if @feedbacks[1] %>
-	<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=@feedbacks[1].background.url%>');column-span:2">
+		<%end%>
+		<%if @feedbacks[1] %>
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=@feedbacks[1].background.url%>');column-span:2">
 			<div class="clearfix">
 				<h3 class="name"><%=@feedbacks[1].name%></h3>
 				<div class="stars">
-				<%case @feedbacks[1].rating%>
-				<%when 0..2%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 3..4%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 5..6%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 7..8%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 9..10%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
+				<%(@feedbacks[1].rating/2.to_i).times do%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<%end%>
+					<%(5.to_i - @feedbacks[1].rating/2.to_i).times do%>
+					<i class="glyphicon glyphicon-star"></i>
+					<%end%>	
 				</div>
 			</div>
 			<div class="text">
@@ -122,54 +70,28 @@
 			</div>
 			<div class="rating"><%=@feedbacks[1].rating%>/10</div>
 		</div>
-	<%end%>
-	<%if @feedbacks[2] %>
+		<%end%>
+		<%if @feedbacks[2] %>
 		<% @feedbacks[2..@feedbacks.count].each do |f| %>
-			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
-				<div class="clearfix">
-					<h3 class="name"><%=f.name%></h3>
-					<div class="stars">
-					<%case f.rating%>
-					<%when 0..2%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 3..4%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 5..6%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 7..8%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star"></i>
-				<%when 9..10%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
-					<i class="glyphicon glyphicon-star active"></i>
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="clearfix">
+				<h3 class="name"><%=f.name%></h3>
+				<div class="stars">
+					<%(f.rating/2.to_i).times do%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<%end%>
-					</div>
+					<%(5.to_i - f.rating/2.to_i).times do%>
+					<i class="glyphicon glyphicon-star"></i>
+					<%end%>	
 				</div>
-				<div class="text">
-					<p><%=f.body%></p>
-				</div>
-				<div class="rating"><%=f.rating%>/10</div>
 			</div>
+			<div class="text">
+				<p><%=f.body%></p>
+			</div>
+			<div class="rating"><%=f.rating%>/10</div>
+		</div>
 		<%end%>
-	<%end%>
+		<%end%>
 	</div>
 </div>
 <div class="more"><a href="#">Показать еще отзывы</a></div>
@@ -180,31 +102,31 @@
 	<div class="categories">
 		<div class="hidden-xxs row">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-			<% @categories.each do |c|%>
-			<a href="#"><%=c.category%></a>
-			<%end%>
+				<% @categories.each do |c|%>
+				<a href="#"><%=c.category%></a>
+				<%end%>
 			</div>
 		</div>
 
 		<div class="btn-group">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Все</button>
 			<ul class="dropdown-menu">
-			<% @categories.each do |c|%>
-			<li><a href="#"><%=c.category%></a></li>
-			<%end%>
+				<% @categories.each do |c|%>
+				<li><a href="#"><%=c.category%></a></li>
+				<%end%>
 			</ul>
 		</div>
 	</div>
 
 	<div class="questions row">
-			<% @questions.each do |q|%>
-				<div class="item clearfix">
-					<a class="question"><div class="container"><%=q.head%></div></a>
-					<div class="container">
-					<div class="answer"><%=q.body%></div>
-					</div>
-				</div>
-			<%end%>
+		<% @questions.each do |q|%>
+		<div class="item clearfix">
+			<a class="question"><div class="container"><%=q.head%></div></a>
+			<div class="container">
+				<div class="answer"><%=q.body%></div>
+			</div>
+		</div>
+		<%end%>
 	</div>
 
 </div>
@@ -264,9 +186,9 @@
 <div id="footer-map" class="frame-map">
   <!--
   <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=QLHN4-YsKcxeTTeAJgGm34YMzohbIMKj&width=100%&height=600&lang=ru_RU&sourceType=constructor"></script>
-  -->
-	<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
-	<script type="text/javascript">
+-->
+<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
         ymaps.ready(init); // карта соберется после загрузки скрипта и элементов
         var myMap; // заглобалим переменную карты чтобы можно было ею вертеть из любого места
         function init () { // функция - собиралка карты и фигни
@@ -274,14 +196,14 @@
                     center: [55.7375,37.6293], // ну тут центр
                     //behaviors: ['default', 'scrollZoom'], // скроллинг колесом
                     zoom: 15 // тут масштаб
-                });
+                  });
             myMap.controls // добавим всяких кнопок, в скобках их позиции в блоке
         		.add('zoomControl', { left: 5, top: 5 }) //Масштаб
         		.add('typeSelector'); //Список типов карты
-	        /* Создаем кастомные метки */
+        		/* Создаем кастомные метки */
 	        myPlacemark0 = new ymaps.Placemark([55.7375,37.6293], { // Создаем метку с такими координатами и суем в переменную
 	                balloonContent: '<div class="ballon"><p class="ballon-location">ул. Пятницкая, д. 43, стр. 3, офис 5, г. Москва, 119017</p><div class="ballon-phone">8 800 555 35 35</div><a href="#" class="ballon-email">hello@poedenvtur.ru</a><span class="ballon-close" onclick="myMap.balloon.close()"><i class="fa fa-times"></i></span></div>' // сдесь содержимое балуна в формате html, все стили в css
-	            	}, {
+	              }, {
 	            	iconImageHref: '<%=asset_path('marker.png')%>', // картинка иконки
 	            	iconImageSize: [49, 68], // размер иконки
 	            	iconImageOffset: [-24, -68], // позиция иконки
@@ -291,60 +213,60 @@
                balloonImageSize: [588, 316], // размер картинки-бэкграунда балуна
                balloonShadow: false,
                balloonAutoPan: false // для фикса кривого выравнивания
-	                });
-	        /* Добавляем */
-	        myMap.geoObjects
-	        	.add(myPlacemark0);
+             });
+/* Добавляем */
+myMap.geoObjects
+.add(myPlacemark0);
 
-	        /* Фикс кривого выравнивания кастомных балунов */
-			myMap.geoObjects.events.add([
-		        'balloonopen'
-		    ], function (e) {
-		        var geoObject = e.get('target');
-		        myMap.panTo(geoObject.geometry.getCoordinates(), {
-		                                    delay: 0
-		                                });
-		    });
-    }
-	</script>
-  <div id="map"></div>
+/* Фикс кривого выравнивания кастомных балунов */
+myMap.geoObjects.events.add([
+	'balloonopen'
+	], function (e) {
+		var geoObject = e.get('target');
+		myMap.panTo(geoObject.geometry.getCoordinates(), {
+			delay: 0
+		});
+	});
+}
+</script>
+<div id="map"></div>
 </div>
 <nav id="selection-tour" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">
 
-<div class="hotel-addcomment-bar">
+	<div class="hotel-addcomment-bar">
 
-<h3>Заполнить форму</h3>
+		<h3>Заполнить форму</h3>
 
-<form class="hotel-addcomment-form" action="/form"> 
+		<form class="hotel-addcomment-form" action="/form"> 
 
-<div class="form-group">
+			<div class="form-group">
 
-<input type="text" class="form-control" placeholder="Имя" name="name">
+				<input type="text" class="form-control" placeholder="Имя" name="name">
 
-</div>
+			</div>
 
-<div class="form-group">
+			<div class="form-group">
 
-<input type="text" class="form-control" placeholder="E-mail" name="email">
+				<input type="text" class="form-control" placeholder="E-mail" name="email">
 
-</div>
+			</div>
 
-<div class="form-group">
+			<div class="form-group">
 
-<h4>Новости какой страны<br> хотели бы получать?</h4>
+				<h4>Новости какой страны<br> хотели бы получать?</h4>
 
-<input type="text" class="form-control" placeholder="" name="body">
+				<input type="text" class="form-control" placeholder="" name="body">
 
-</div>
+			</div>
 
-<div class="hotel-addcomment-btn">
+			<div class="hotel-addcomment-btn">
 
-<button class="btn btn-orange btn-block">Отправить</button>
+				<button class="btn btn-orange btn-block">Отправить</button>
 
-</div>
+			</div>
 
-</form>
+		</form>
 
-</div>
+	</div>
 
 </nav>
