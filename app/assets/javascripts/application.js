@@ -74,7 +74,6 @@ $( "#data" ).html('');
         </li>').appendTo( "#data" );
 
        }
-       
        else if(data.type == 'resort')
        {
          $('<li data-id='+data.id+' data-type='+data.type+'>\

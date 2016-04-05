@@ -22,6 +22,8 @@ layout 'static'
 	end
 
   def about
+    @questions = Question.all
+    @categories = QuestionCategory.all
     @feedbacks = Feedback.all
   end
 

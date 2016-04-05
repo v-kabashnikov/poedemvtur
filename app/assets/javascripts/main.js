@@ -727,7 +727,7 @@
     if (container.has(e.target).length === 0){
       if(container.is(':visible')){
         container.slideUp(100);
-        $('.roundtour-people--addchildrens').toggleClass('active');
+        $('.roundtour-people--addchildrens').removeClass('active');
       }
     }
   });

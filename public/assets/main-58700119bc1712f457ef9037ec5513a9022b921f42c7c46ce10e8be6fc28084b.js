@@ -722,7 +722,15 @@
   $('.roundtour-people--addchildrens').click(function(){
     $('.roundtour-people--years').slideToggle(100);
     $(this).toggleClass('active');
-    return false;
+    $(document).mouseup(function (e) {
+    var container = $('.roundtour-people--years');
+    if (container.has(e.target).length === 0){
+      if(container.is(':visible')){
+        container.slideUp(100);
+        $('.roundtour-people--addchildrens').removeClass('active');
+      }
+    }
+  });
   });
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
