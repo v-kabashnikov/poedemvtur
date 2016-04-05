@@ -163,6 +163,7 @@
       <%end%>
     </div>
     <div class="hotel-slider visible-xs">
+      <%if @hotel.sletat_image_urls %>
       <% @hotel.sletat_image_urls.each do |url| %>
         <div>
           <div class="hotel-slide">
@@ -173,6 +174,7 @@
           </div>
         </div>
       <% end %>
+       <% end %>
     </div>
   </div>
 </div>
@@ -567,11 +569,13 @@
 <div class="hotel-bottom">
   <div class="container">
     <div class="hotel-photos">
+     <%if @hotel.sletat_image_urls %>
       <% @hotel.sletat_image_urls.each_with_index do |url, i| %>
         <a href="<%= url %>" class="fancybox <%= 'hidden-sm ' if i>5 %><%='hidden-xs' if i>4 %>" rel="hotel-gallery2">
           <%= image_tag url %>
         </a>
       <% end %>
+      <%end%>
     </div>
     <div class="hotel-beside">
       <h3>ОТЕЛИ РЯДОМ С <%= @hotel.name.upcase %>, <%= @hotel.resort.name.upcase %>, <%= @hotel.resort.country.name.upcase %></h3>
