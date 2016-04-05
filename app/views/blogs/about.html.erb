@@ -39,20 +39,30 @@
 				<h3 class="name"><%=@feedbacks[0].name%></h3>
 				<div class="stars">
 				<%case @feedbacks[0].rating%>
-				<%when 0..2%>
+					<%when 0..2%>
 					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
 				<%when 3..4%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
 				<%when 5..6%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
 				<%when 7..8%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
 				<%when 9..10%>
 					<i class="glyphicon glyphicon-star active"></i>
 					<i class="glyphicon glyphicon-star active"></i>
@@ -121,26 +131,36 @@
 					<div class="stars">
 					<%case f.rating%>
 					<%when 0..2%>
-						<i class="glyphicon glyphicon-star active"></i>
-					<%when 3..4%>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-					<%when 5..6%>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-					<%when 7..8%>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-					<%when 9..10%>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<i class="glyphicon glyphicon-star active"></i>
-						<%end%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				<%when 3..4%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				<%when 5..6%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				<%when 7..8%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star"></i>
+				<%when 9..10%>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<i class="glyphicon glyphicon-star active"></i>
+					<%end%>
 					</div>
 				</div>
 				<div class="text">
