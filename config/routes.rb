@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get '/countries', to: 'countries#index'
   get '/countries/category/:id', to: 'countries#show_region'
   get '/ajax', to: 'home#ajax'
+  get '/form', to: 'blogs#form'
 
 end

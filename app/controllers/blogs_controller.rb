@@ -21,6 +21,11 @@ layout 'static'
 	  @blogs = Blog.all
 	end
 
+  def form
+    f = Form.create(name: params[:name], email: params[:email], body: params[:body])
+    redirect_to :back
+  end
+
   def about
     @questions = Question.all
     @categories = QuestionCategory.all

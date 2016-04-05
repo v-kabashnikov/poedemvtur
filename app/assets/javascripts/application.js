@@ -60,9 +60,10 @@ $(document).ready(function () {
 
 
 $(document).ready(function() {
- $('#place1').on('keyup', function() {
-$( "#data" ).html('');
+$('#place1').on('keyup', function() {
+
    $.get('/ajax?p='+ $(this).val(), function( data ) {
+   $( "#data" ).html('');
    $.each(data, function( index, value ) {
      $.each(value, function (index, data) {
        if (data.type == 'hotel'){
