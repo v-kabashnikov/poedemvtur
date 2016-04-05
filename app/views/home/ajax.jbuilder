@@ -11,7 +11,7 @@ json.hotels @hotels do |res|
 	json.type "hotel"
 	json.id res.id
 	json.name res.name
-	json.country res.resort.country.name if res
+	json.country res.resort.country.name if (res && res.resort)
 end
 
 
