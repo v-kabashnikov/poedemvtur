@@ -33,30 +33,31 @@ class Hotel < ActiveRecord::Base
       # puts "hotel #{id}[#{sletat_id}] no photo :("
     end
     # binding.pry
-    update(
-      name: info_res[:name],
-      sletat_photo_url: sletat_photo_url,
-      hotel_rate: info_res[:hotel_rate],
-      resort_id: Resort.find_by(sletat_id: info_res[:resort_id].to_i).try(:id),
-      airport_distance: info_res[:airport_distance],
-      old_cyrillic_name: info_res[:old_cyrillic_name],
-      old_latin_name: info_res[:old_latin_name],
-      rating_meal: info_res[:rating_meal],
-      rating_overall: info_res[:rating_overall],
-      rating_place: info_res[:rating_place],
-      rating_service: info_res[:rating_service],
-      sletat_description: info_res[:description],
-      city_center_distance: info_res[:city_center_distance],
-      district: info_res[:district],
-      latitude: info_res[:latitude],
-      longitude: info_res[:longitude],
-      star_id: Star.find_by(sletat_id: info_res[:star_id]).try(:id),
-      sletat_image_urls: info_res[:image_urls][:string],
-      building_date: (info_res[:building_date] if info_res[:building_date]),
-      distance_to_lifts: (info_res[:distance_to_lifts].to_i if info_res[:distance_to_lifts]),
-      rooms_count: info_res[:rooms_count],
-      square: (info_res[:square].to_i if info_res[:square])
-    )
+    return if info_res[:name] =∽ /Экскурс/
+      update(
+        name: info_res[:name],
+        sletat_photo_url: sletat_photo_url,
+        hotel_rate: info_res[:hotel_rate],
+        resort_id: Resort.find_by(sletat_id: info_res[:resort_id].to_i).try(:id),
+        airport_distance: info_res[:airport_distance],
+        old_cyrillic_name: info_res[:old_cyrillic_name],
+        old_latin_name: info_res[:old_latin_name],
+        rating_meal: info_res[:rating_meal],
+        rating_overall: info_res[:rating_overall],
+        rating_place: info_res[:rating_place],
+        rating_service: info_res[:rating_service],
+        sletat_description: info_res[:description],
+        city_center_distance: info_res[:city_center_distance],
+        district: info_res[:district],
+        latitude: info_res[:latitude],
+        longitude: info_res[:longitude],
+        star_id: Star.find_by(sletat_id: info_res[:star_id]).try(:id),
+        sletat_image_urls: info_res[:image_urls][:string],
+        building_date: (info_res[:building_date] if info_res[:building_date]),
+        distance_to_lifts: (info_res[:distance_to_lifts].to_i if info_res[:distance_to_lifts]),
+        rooms_count: info_res[:rooms_count],
+        square: (info_res[:square].to_i if info_res[:square])
+      )
   end
 
   def load_facilities
