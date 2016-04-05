@@ -33,65 +33,31 @@
 </div>
 <div class="container-fluid" id="about-comments">
 	<div class="row">
-		<%if @feedbacks[0] %>
-		<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=@feedbacks[0].background.url%>');column-span:2">
-			<div class="clearfix">
-				<h3 class="name"><%=@feedbacks[0].name%></h3>
-				<div class="stars">
-					<%(@feedbacks[0].rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<%end%>
-					<%(5.to_i - @feedbacks[0].rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star"></i>
-					<%end%>	
-				</div>
-			</div>
-			<div class="text">
-				<p><%=@feedbacks[0].body%></p>
-			</div>
-			<div class="rating"><%=@feedbacks[0].rating%>/10</div>
-		</div>
-		<%end%>
-		<%if @feedbacks[1] %>
-		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=@feedbacks[1].background.url%>');column-span:2">
-			<div class="clearfix">
-				<h3 class="name"><%=@feedbacks[1].name%></h3>
-				<div class="stars">
-				<%(@feedbacks[1].rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<%end%>
-					<%(5.to_i - @feedbacks[1].rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star"></i>
-					<%end%>	
-				</div>
-			</div>
-			<div class="text">
-				<p><%=@feedbacks[1].body%></p>
-			</div>
-			<div class="rating"><%=@feedbacks[1].rating%>/10</div>
-		</div>
-		<%end%>
-		<%if @feedbacks[2] %>
-		<% @feedbacks[2..@feedbacks.count].each do |f| %>
+	<%@feedbacks.each.with_index do |f, index|%>
+	<% if index%5 == 0%>
+		<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url%>');column-span:2">
+	<%elsif (index-1)%5 == 0%>
 		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
-			<div class="clearfix">
-				<h3 class="name"><%=f.name%></h3>
-				<div class="stars">
-					<%(f.rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star active"></i>
-					<%end%>
-					<%(5.to_i - f.rating/2.to_i).times do%>
-					<i class="glyphicon glyphicon-star"></i>
-					<%end%>	
-				</div>
-			</div>
-			<div class="text">
-				<p><%=f.body%></p>
-			</div>
-			<div class="rating"><%=f.rating%>/10</div>
+	<%else%>	
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+	<%end%>
+	<div class="clearfix">
+		<h3 class="name"><%=f.name%></h3>
+		<div class="stars">
+			<%(f.rating/2.to_i).times do%>
+			<i class="glyphicon glyphicon-star active"></i>
+			<%end%>
+			<%(5.to_i - f.rating/2.to_i).times do%>
+			<i class="glyphicon glyphicon-star"></i>
+			<%end%>	
 		</div>
-		<%end%>
-		<%end%>
+	</div>
+	<div class="text">
+		<p><%=f.body%></p>
+	</div>
+	<div class="rating"><%=f.rating%>/10</div>
+	</div>
+	<%end%>
 	</div>
 </div>
 <div class="more"><a href="#">Показать еще отзывы</a></div>
