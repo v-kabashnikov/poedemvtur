@@ -36,21 +36,21 @@
 	<%@feedbacks.each.with_index do |f, index|%>
 	<% if index%5 == 0%>
 		<%if index >= 5 %>
-			<div class="more-feedback comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="more-feedback comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%else%>
-			<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%end%>
 	<%elsif (index-1)%5 == 0%>
 		<%if index >= 5 %>
-			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%else%>
-			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%end%>
 	<%else%>
 		<%if index >= 5 %>	
-			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%else%>
-		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url%>');column-span:2">
+		<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
 		<%end%>
 	<%end%>
 	<div class="clearfix">
