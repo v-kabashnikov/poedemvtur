@@ -19,6 +19,28 @@ module Sletat
     Savon.client(wsdl: "http://module.sletat.ru/XmlGate.svc?singleWSDL", soap_header: SOAP_HEADER)
   end
 
+  def parse_date_ru date
+    monthes = {
+      "января" => "01",
+      "февраля" => "02",
+      "марта" => "03",
+      "апреля" => "04",
+      "мая" => "05",
+      "июня" => "06",
+      "июля" => "07",
+      "августа" => "08",
+      "сентября" => "09",
+      "октября" => "10",
+      "ноября" => "11",
+      "декабря" => "12"
+    }
+    pattern = /[а-я]+/
+    if date
+      a = date.gsub(pattern, monthes[date[pattern]].to_s)
+      Date.strptime(a, '%d %m %Y')
+    end
+  end
+
   def get_data method, auth, params
     url = SERVICE_URL + method + '?' + auth_str + '&' + params.to_query
     uri_schema = URI(url)
@@ -39,6 +61,7 @@ module Sletat
   end
 
   def start_search params
+    binding.pry
     if params[:s_nights]
       s_nightsMin = params[:s_nights].split('-')[0]
       s_nightsMax = params[:s_nights].split('-')[1]
