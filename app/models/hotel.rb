@@ -33,7 +33,7 @@ class Hotel < ActiveRecord::Base
       # puts "hotel #{id}[#{sletat_id}] no photo :("
     end
     # binding.pry
-    return if (info_res[:name] =∽ /Экскурс/)
+    return if (info_res[:name] =~ /Экскурс/)
       update(
         name: info_res[:name],
         sletat_photo_url: sletat_photo_url,
