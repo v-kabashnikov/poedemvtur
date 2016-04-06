@@ -826,11 +826,17 @@
 	text-decoration: none;
 	-webkit-border-radius: 5px;
 	-webkit-box-sizing: border-box;
+	white-space: nowrap;
+	overflow: hidden;
 }
 .roundtour-place .icon
 {
 	float: left;
 	margin: 4px 15px 0 0;
+}
+.roundtour-place .text{
+	overflow: hidden;
+	max-width:calc(100%-32px);
 }
 .roundtour-place:hover
 {
@@ -925,6 +931,7 @@
 	float: left;
 	font-family: 'helveticaneuecyr';
 	font-weight: 300;
+	max-width:145px;
 }
 .roundtour-place--curort
 {
@@ -3183,10 +3190,10 @@
 	}
 	.main-roundtour:before,.main-roundtour:after
 	{
-		-moz-transform: skewY(0deg);
-		-ms-transform: skewY(0deg);
-		transform: skewY(0deg);
-		-webkit-transform: skewY(0deg);
+		-moz-transform: skewY(0);
+		-ms-transform: skewY(0);
+		transform: skewY(0);
+		-webkit-transform: skewY(0);
 	}
 	.main-roundtour-content
 	{
@@ -3236,6 +3243,9 @@
 	.body-main footer
 	{
 		padding-top: 30px;
+	}
+	.roundtour-place--info{
+		max-width:140px;
 	}
 	.roundtour-date--wrapper
 	{
