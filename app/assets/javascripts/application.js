@@ -64,6 +64,11 @@ $(document).ready(function() {
 
      $.get('/ajax?p='+ $(this).val(), function( data ) {
          $( "#data" ).html('');
+         if ((data)['resorts'].length == 0 && (data)['hotels'].length == 0 && (data)['countries'].length == 0){
+            $('<li data-id="" data-type="">\
+               <div class="roundtour-place--info"><h4 class="roundtour-place--curort">Ничего не найдено!</h4> \
+               </li>').appendTo( "#data" );
+         }
          $.each(data, function( index, value ) {
            $.each(value, function (index, data) {
              if (data.type == 'hotel'){
