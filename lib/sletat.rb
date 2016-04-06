@@ -61,7 +61,6 @@ module Sletat
   end
 
   def start_search params
-    binding.pry
     if params[:s_nights]
       s_nightsMin = params[:s_nights].split('-')[0]
       s_nightsMax = params[:s_nights].split('-')[1]
