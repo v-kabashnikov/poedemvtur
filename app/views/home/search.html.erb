@@ -115,7 +115,7 @@
           }, 2000)
 </script>
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
-  <h3><%= @country %></h3>
+  <h3><%= @country.name %></h3>
 </div>
 <div class="container" id="tour-filtered" style="min-height:300px;">
   <%= hidden_field_tag 'requestId', @request.request_id %>
