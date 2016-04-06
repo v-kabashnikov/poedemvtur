@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405131932) do
+ActiveRecord::Schema.define(version: 20160406111321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,12 +57,16 @@ ActiveRecord::Schema.define(version: 20160405131932) do
     t.boolean  "display"
     t.integer  "country_category_id"
     t.integer  "sletat_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "price"
     t.integer  "discount"
     t.boolean  "hot"
     t.string   "flag_link"
+    t.string   "search_background_file_name"
+    t.string   "search_background_content_type"
+    t.integer  "search_background_file_size"
+    t.datetime "search_background_updated_at"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree
