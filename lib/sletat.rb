@@ -21,23 +21,23 @@ module Sletat
 
   def parse_date_ru date
     monthes = {
-      "января" => "01",
-      "февраля" => "02",
-      "марта" => "03",
-      "апреля" => "04",
-      "мая" => "05",
-      "июня" => "06",
-      "июля" => "07",
-      "августа" => "08",
-      "сентября" => "09",
-      "октября" => "10",
-      "ноября" => "11",
-      "декабря" => "12"
+      "Январь" => "01",
+      "Февраль" => "02",
+      "Март" => "03",
+      "Апрель" => "04",
+      "Май" => "05",
+      "Июнь" => "06",
+      "Июль" => "07",
+      "Август" => "08",
+      "Сентябрь" => "09",
+      "Октябрь" => "10",
+      "Ноябрь" => "11",
+      "Декабрь" => "12"
     }
-    pattern = /[а-я]+/
+    pattern = /[А-я]+/
     if date
       a = date.gsub(pattern, monthes[date[pattern]].to_s)
-      Date.strptime(a, '%d %m %Y')
+      Date.strptime(a, '%d %m')
     end
   end
 
@@ -95,10 +95,10 @@ module Sletat
         if params[:date_min].empty?
           s_departFrom = DateTime.now.to_date
         else
-          s_departFrom = Date.parse(params[:date_min])
+          s_departFrom = parse_date_ru(params[:date_min])
         end
       end
-      s_departTo = params[:date_max].empty? ? s_departFrom :  Date.parse(params[:date_max])
+      s_departTo = params[:date_max].empty? ? s_departFrom :  parse_date_ru(params[:date_max])
       s_nightsMin = params[:nights_min]
       s_nightsMax = params[:nights_max]
       priceMax = params['roundtour-price'].split(';')[1]
