@@ -60,42 +60,47 @@ $(document).ready(function () {
 
 
 $(document).ready(function() {
-$('#place1').on('keyup', function() {
+    $('#place1').on('keyup', function() {
 
-   $.get('/ajax?p='+ $(this).val(), function( data ) {
-   $( "#data" ).html('');
-   $.each(data, function( index, value ) {
-     $.each(value, function (index, data) {
-       if (data.type == 'hotel'){
- $('<li data-id='+data.id+' data-type='+data.type+'>\
-         <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
-<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
-    <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.image+'"></div> \
-        </li>').appendTo( "#data" );
+     $.get('/ajax?p='+ $(this).val(), function( data ) {
+         $( "#data" ).html('');
+         $.each(data, function( index, value ) {
+           $.each(value, function (index, data) {
+             if (data.type == 'hotel'){
+               if(data.image){
+                    var str = '<div class="roundtour-place--img"><img width="72" height="40" src="'+data.image+'"></div>';
+                }
+                else{
+                    var str = '';
+                }
+               $('<li data-id='+data.id+' data-type='+data.type+'>\
+                   <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
+                   <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+                   <span class="roundtour-place--country">'+ data.country +'</span></div>'+str+' \
+                   </li>').appendTo( "#data" );
 
-       }
-       else if(data.type == 'resort')
-       {
-         $('<li data-id='+data.id+' data-type='+data.type+'>\
-         <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
-<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
-    <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
-        </li>').appendTo( "#data" );
-       }
-       else
-        {
-       $('<li data-id='+data.id+' data-type='+data.type+'>\
-         <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
-<div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
-    <span class="roundtour-place--country">'+ data.country +'</span></div> \
-        <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
-        </li>').appendTo( "#data" );}
-    });
-     
+           }
+           else if(data.type == 'resort')
+           {
+               $('<li data-id='+data.id+' data-type='+data.type+'>\
+                   <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
+                   <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+                   <span class="roundtour-place--country">'+ data.country +'</span></div> \
+                   <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
+                   </li>').appendTo( "#data" );
+           }
+           else
+           {
+             $('<li data-id='+data.id+' data-type='+data.type+'>\
+               <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
+               <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+               <span class="roundtour-place--country">'+ data.country +'</span></div> \
+               <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
+               </li>').appendTo( "#data" );}
+         });
+
 });
 });
-  });
- 
+});
+
 });
