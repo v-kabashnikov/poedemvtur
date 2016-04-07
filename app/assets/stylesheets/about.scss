@@ -83,7 +83,7 @@ flex-wrap:wrap;
 align-content:stretch;
 }
 #about-comments .comment{
-display:none;
+display:none !important;
 background-position:center;
 background-repeat:no-repeat;
 /*background-size:cover;*/
