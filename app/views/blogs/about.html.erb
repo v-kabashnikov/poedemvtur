@@ -36,23 +36,11 @@
 	<div class="row">
 	<%@feedbacks.each.with_index do |f, index|%>
 	<% if index%5 == 0%>
-		<%if index >= 5 %>
-			<div class="more-feedback comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%else%>
 			<div class="comment hidden-xs col-sm-12 col-md-8" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%end%>
 	<%elsif (index-1)%5 == 0%>
-		<%if index >= 5 %>
-			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%else%>
 			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%end%>
 	<%else%>
-		<%if index >= 5 %>	
-			<div class="more-feedback comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%else%>
 			<div class="comment col-xs-12 hidden-sm col-md-4" style="background-image:url('<%=f.background.url(:medium)%>');column-span:2">
-		<%end%>
 	<%end%>
 	<div class="clearfix">
 		<h3 class="name"><%=f.name%></h3>
@@ -73,7 +61,10 @@
 	<%end%>
 	</div>
 </div>
-<div class="more"><a href="#">Показать еще отзывы</a></div>
+<div class="more">
+  <a href="#" class="more-link">Показать еще отзывы</a>
+</div>
+
 
 <div class="container-fluid" id="faq">
 	<h2  class="text-center">Частые вопросы</h2>
