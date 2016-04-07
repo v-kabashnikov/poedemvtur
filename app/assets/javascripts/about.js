@@ -1,14 +1,14 @@
 $(document).ready(function(){
  
- var $comment = $('#about-comments .comment');
+var $comment = $('#about-comments .comment');
   $comment.each(function(){
     if($(this).index()<=4){
-      $(this).css({'display': 'block !important'})
+      $(this).addClass('comment-visible');
     }
   });
   $('.more-link').click(function(){
     $comment.filter(':hidden').each(function(){
-       $(this).css({'display': 'block !important'})
+       $(this).addClass('comment-visible');
     })
     return false;
   });
