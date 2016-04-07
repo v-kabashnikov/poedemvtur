@@ -16,6 +16,7 @@
 <%= javascript_include_tag 'jquery.fancybox.pack.js' %>
 <%= javascript_include_tag 'datepicker.js' %>
 <%= javascript_include_tag 'main.js' %>
+<%= javascript_include_tag 'about.js' %>
 <% end %>
 <div id="sub-header" style="background-image:url('<%=asset_path("sh-blog.jpg")%>')">
 	<h3 class="hidden-xxs">Пара слов о том, кто мы</h3>
@@ -80,31 +81,28 @@
 	<div class="categories">
 		<div class="hidden-xxs row">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-				<% @categories.each do |c|%>
-				<a href="#"><%=c.category%></a>
-				<%end%>
+				<a href="#">В ожидании вылета</a>
+				<a href="#">По приезду</a>
+				<a href="#">На отдыхе</a>
+				<a href="#">До покупки</a>
 			</div>
 		</div>
 
-		<div class="btn-group">
-			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Все</button>
-			<ul class="dropdown-menu">
-				<% @categories.each do |c|%>
-				<li><a href="#"><%=c.category%></a></li>
-				<%end%>
-			</ul>
-		</div>
-	</div>
-
-	<div class="questions row">
-		<% @questions.each do |q|%>
+		<div class="questions row">
 		<div class="item clearfix">
-			<a class="question"><div class="container"><%=q.head%></div></a>
+			<a class="question"><div class="container">Как узнать окончательную стоимость тура?</div></a>
 			<div class="container">
-				<div class="answer"><%=q.body%></div>
+				<div class="answer" style="display: none;">Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура? Как узнать окончательную стоимость тура?</div>
 			</div>
 		</div>
-		<%end%>
+		<div class="item clearfix">
+			<a class="question"><div class="container">Тестовый вопрос</div></a>
+			<div class="container">
+				<div class="answer" style="display: none;">Ответ на вопрос</div>
+			</div>
+      
+		</div>
+
 	</div>
 
 </div>
