@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'blog', media: 'all' %>
+  <%= stylesheet_link_tag 'hotel', media: 'all' %>
 <% end %>
 <% content_for :body do %>
   <%= javascript_include_tag 'jquery.min.js' %>
@@ -346,7 +346,7 @@
             </div>
           </div>
         <% end %>
-        <div id="hotel-tours-info" class="hotel-tours-info hidden-xs">В тур включен перелет, проживание в отеле с выбранным типом питания, медицинская страховка, трансфер. Наша цена честная и финальная: она уже включает все необходимые сборы от туроператоров.</div>
+        <div id="hotel-tours-info" class="hotel-tours-info hidden-xs"><%=@hotel.result_description%></div>
         <hr class="hotel-hr">
         <% if @request %>
           <div class="col-md-12 clearfix hidden-xs">

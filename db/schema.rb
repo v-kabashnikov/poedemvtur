@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406111321) do
+ActiveRecord::Schema.define(version: 20160407210313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 20160406111321) do
     t.integer  "distance_to_lifts"
     t.integer  "rooms_count"
     t.integer  "square"
+    t.text     "result_description"
   end
 
   add_index "hotels", ["resort_id"], name: "index_hotels_on_resort_id", using: :btree
