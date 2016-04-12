@@ -37,9 +37,6 @@
         })
         }
   
-  
-  
-  
         function showHotels( hotels, requestId ){
             var req = requestId == undefined ? "" : "?requestId=" + requestId;
               for(var i=0; i<hotels.length; i++){
@@ -80,7 +77,6 @@
                   </div>'
                 $('#hotels').append(hotel);
               }
-              $('.stars input').rating();
             }
   
           var intervalID = setInterval(function(){
@@ -99,7 +95,7 @@
                 console.log(data["total"]);
                 if(data["status"] == 'finished'){
                   $('#loading').remove();
-                  if(data["total"] > 18){
+                  if(data["total"] > 6){
                     $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#hotels');
                   }
                   if(data["total"] == 0){
