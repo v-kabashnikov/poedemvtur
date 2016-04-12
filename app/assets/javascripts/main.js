@@ -427,7 +427,7 @@
 
 (function(){
   $('.hotel-slider').slick({
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -587,9 +587,9 @@
       min: 0,
       max: 10000000,
       from: 0,
-      to: 500000,
+      to: 10000000,
       type: 'double',
-      step: 50000,
+      step: 1000,
       postfix: '<i class="fa fa-rub"></i>',
     });
   });
@@ -607,7 +607,6 @@
   });
   $('.roundtour-city--list li').click(function(){
     $('.roundtour-city--search').val($(this).text());
-    $('#city-id').val($(this).attr('data-city-id'));
     $('.roundtour-city--select').text($(this).text());
     $('.roundtour-city--submenu').hide(0);
     return false;
@@ -625,52 +624,24 @@
   });
   $('.roundtour-place').click(function(){
     $('.roundtour-place--submenu').show(0);
-      $('.roundtour-place--search').val('').focus();
-     $(document).mouseup(function (e) {
-        var container = $(".roundtour-place--submenu");
-        if (container.has(e.target).length === 0){
-            hidePlaceSubmenu('');
-        }
-      });
+    $('.roundtour-place--search').val($(this).find('.text').text());
     return false;
   });
-
-   $('.roundtour-place--list').on('click', 'li', function(o){
-    console.log(o);
-    var $thisItem = $(o.target);
-    if(!$thisItem.is('li')){
-      $thisItem = $thisItem.closest('li');
-    }
-    var text = $thisItem.find('.roundtour-place--curort').text();
-    hidePlaceSubmenu(text);
+  $('.roundtour-place--list li').click(function(){
+    var text = $(this).find('.roundtour-place--curort').text();
     $('.roundtour-place--search').val(text);
     $('.roundtour-place').find('.text').text(text);
     $('.roundtour-place--submenu').hide(0);
-    $('#place_id').val($thisItem.attr('data-id'))
-    $('#place_type').val($thisItem.attr('data-type'))
-    // $(this).find('li').css({'display': 'none'});
     return false;
   });
-   function hidePlaceSubmenu(text){
-    if($('.roundtour-place--submenu').is(':visible')){
-     if(text!=''){
-       $('.roundtour-place').find('.text').text(text);
-     }else{
-        $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
-     }
-     $('.roundtour-place--search').val(text);
-     $('.roundtour-place--submenu').hide(0);
- }
-  }
   $('.roundtour-place--search').keyup(function(){
     var search = $(this).val().toLowerCase();
-    $('.roundtour-place--list').find('li').each(function(i, el){
-      console.log(el);
-      var text = $(el).find('.roundtour-place--curort').text().toLowerCase();
+    $('.roundtour-place--list li').each(function(){
+      var text = $(this).find('.roundtour-place--curort').text().toLowerCase();
       if(text.indexOf(search) + 1){
-        $(el).css({'display': 'block'});
+        $(this).css({'display': 'block'});
       }else{
-        $(el).css({'display': 'none'});
+        $(this).css({'display': 'none'});
       }
     });
   });
@@ -697,7 +668,6 @@
   });
   $('.roundtour-people--addadults').click(function(){
     $('.roundtour-people--adults').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-adult_white hidden-xs hidden-sm"></span><span class="icons-people-adultsm_white visible-sm visible-xs"></span></li>');
-    $('#adult').val($('.roundtour-people--adults li').length);
     $('.roundtour-people--adults li').last().show(200).animate({'opacity' : 1},300);
     visible('adults',this);
     return false;
@@ -722,20 +692,11 @@
   $('.roundtour-people--addchildrens').click(function(){
     $('.roundtour-people--years').slideToggle(100);
     $(this).toggleClass('active');
-    $(document).mouseup(function (e) {
-    var container = $('.roundtour-people--years');
-    if (container.has(e.target).length === 0){
-      if(container.is(':visible')){
-        container.slideUp(100);
-        $('.roundtour-people--addchildrens').removeClass('active');
-      }
-    }
-  });
+    return false;
   });
   $('.roundtour-people--years li').click(function(){
     var year = $(this).index()+1;
     $('.roundtour-people--childrens').append('<li style="display:none;opacity:0;"><a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a><span class="icons-people-children_white hidden-xs hidden-sm"></span><span class="icons-people-childrensm_white visible-sm visible-xs"></span><div class="roundtour-people--year">' + year + '</div></li>');
-    $('#children').val($('.roundtour-people--year').text());
     $('.roundtour-people--childrens li').last().show(200).animate({'opacity' : 1},300);
     $('.roundtour-people--years').slideToggle(100);
     $('.roundtour-people--addchildrens').toggleClass('active');
@@ -745,11 +706,13 @@
 })($);
 (function(){
   //roundDateShow();
-  function roundDateShow(){
-    var container = $('.roundtour-date--wrapper');
-    container.show(0).animate({'opacity' : 1},500);
-    $('.main-slider,.main-offer-wrapper,footer').delay(250).addClass('blur');
-    $('.main-slider .slick-dots').css({'z-index' : 2});
+  function roundDateShow(link){
+    if(link.data('open')!='noblur'){
+      var container = $('.roundtour-date--wrapper');
+      container.show(0).animate({'opacity' : 1},500);
+      $('.main-slider,.main-offer-wrapper,footer').delay(250).addClass('blur');
+      $('.main-slider .slick-dots').css({'z-index' : 2});
+    }
     //$('body').css({'height' : container.height()});
 
   }
@@ -870,7 +833,7 @@
     }
   }
   $('.roundtour-date').click(function(){
-    roundDateShow();
+    roundDateShow($(this));
     return false;
   });
   $('.roundtour-date--save').click(function(){
@@ -884,27 +847,20 @@
     var nightMax = night.filter('.active').last().text();
     var nightResult;
     if(nightMin.indexOf(nightMax)){
-      $('#nights_min').val(nightMin);
-      $('#nights_max').val(nightMax);
       nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
     } else{
-      $('#nights_min').val(nightMin);
       nightResult = 'на ' + nightMin + ' ночей';
     }
 
     var month = $('.select-date').val();
-
     var arrayMonth, monthResult;
     if(month!=''){
       arrayMonth = month.replace(/\s+/g, '');
       arrayMonth = arrayMonth.split("-");
       if(arrayMonth[0]==arrayMonth[1]){
-        $('#date_min').val(arrayMonth[0]);
         monthResult = month.split("-");
         month = monthResult[0];
       }
-      $('#date_max').val(arrayMonth[1]);
-      $('#date_min').val(arrayMonth[0]);
       month = month + ', '
     }else{
       month = 'Выберите дату';
@@ -912,15 +868,6 @@
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
   }
-    $('.ready-offer').on('click',function(){
-    var country = $(this).find('.ready-offer--title').text();
-    var countryId = $(this).find('.ready-offer--title').data('country-id');
-    $('#place_id').val(countryId);
-    $('#place_type').val('country');
-    $('#place').text(country);
-    roundDateShow();
-    return false;
-  });
 })($);
 (function(){
   footerPosition();
@@ -942,100 +889,13 @@
 
   // Запустим ajax-запрос, установим обработчики его выполнения и
   // сохраним объект jqxhr данного запроса для дальнейшего использования.
-//  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
- // .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
- // .error(function() { console.log('Нет'); });
+  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
+  .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
+  .error(function() { console.log('Нет'); });
  // var jqxhr2 = $.get("http://module.sletat.ru/Main.svc/GetCountries?townFromId=1264&showcase=1&login=pr@corona.travel&password=1234567")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr2); })
  //  .error(function() { console.log('Нет'); });
  //  var jqxhr3 = $.get("http://module.sletat.ru/Main.svc")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr3); })
  //  .error(function() { console.log('Нет'); });
-//console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
-
-
-
-
-
-var url = document.location.toString();
-if (url.match('#')) {
-    $('#hotel-tabs a[href="#'+url.split('#')[1]+'"]').tab('show') ;
-} 
-
-(function(){
-  $( "#cb-wh" ).change(function() {
-    $( "#children_input" ).toggle(400);
-    if(!this.checked) {
-      $("#children_input #s_kids").val(0);
-    }
-  });
-})($);
-
-(function(){
-  $(".fancybox").fancybox({
-    fitToView: false,
-    maxWidth: "90%"
-  });
-})($);
-
-(function(){
-  $('.hotel-slider').slick({
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-     responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          arrows: false
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
-  hotelArrows();
-  $(window).resize(hotelArrows);
-  function hotelArrows(){
-    var dots = 0;
-    $('.hotel-slider .slick-dots').find('li').each(function(){
-      dots += $(this).width()+8;
-    });
-    $('.hotel-slider .slick-prev').css({
-      'margin-right' : dots/2+20
-    });
-    $('.hotel-slider .slick-next').css({
-      'margin-left' : dots/2+20
-    });
-  }
-      $('.block-hotel-comments--content').readmore({
-        speed: 75,
-        collapsedHeight: 110,
-        heightMargin: 40,
-        moreLink: '<a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>',
-        lessLink: '<a href="#" class="block-hotel-comments--fulllink">Свернуть</a>'
-      });
-
-      $('.hotel-comment--text').readmore({
-        speed: 75,
-        collapsedHeight: 50,
-        heightMargin: 40,
-        moreLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Читать отзыв</a>',
-        lessLink: '<a href="#" class="hotel-comment--fulllink hidden-xs">Свернуть</a>'
-      });
-})($);
-
-
-$('.more-tours').click(function(){
-  var page = parseInt($(this).attr('data-page'));
-  var href = $(this).find('a').attr('href');
-  $(this).find('a').attr('href', href.split('&')[0] + '&page=' + page);
-  $(this).attr('data-page', page + 1);
-});
+console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
