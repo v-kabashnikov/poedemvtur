@@ -123,12 +123,14 @@ class HomeController < ApplicationController
     else
       @status = 'loading'
     end
+    rs = ResAmount.first.amount
     @results = SearchResult.where(request_id: requestId).
-      preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(5)
+      preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs)
   end
 
   def load_more
-    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(5).offset(params[:loaded])
+    rs = ResAmount.first.amount
+    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
     render 'check'
   end
 end

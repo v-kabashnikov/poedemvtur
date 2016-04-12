@@ -19,10 +19,14 @@
 *= require header
 *= require footer
 *= require x-input
-*= require site
+*= require site.scss
 *= require slick
 *= require jquery.fancybox
-*= require new
+*= require ion.rangeSlider
+*= require datepicker
+*= require animate.min
+*= require new.scss
+*= require bootstrap-rating
 
 
  */
