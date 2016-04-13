@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 20160412191853) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "head"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "question_category_id"
@@ -292,6 +292,18 @@ ActiveRecord::Schema.define(version: 20160412191853) do
   end
 
   add_index "search_results", ["hotel_id"], name: "index_search_results_on_hotel_id", using: :btree
+
+  create_table "sletat_ru_hotels_base_country", force: :cascade do |t|
+    t.string  "name",                    limit: 255, null: false
+    t.string  "alias",                   limit: 255, null: false
+    t.boolean "is_visa",                             null: false
+    t.integer "rank",                                null: false
+    t.integer "unihotel_conformity_id"
+    t.boolean "conformity_need_confirm",             null: false
+    t.string  "image",                   limit: 100
+  end
+
+  add_index "sletat_ru_hotels_base_country", ["unihotel_conformity_id"], name: "sletat_ru_hotels_base_country_unihotel_conformity_id_key", unique: true, using: :btree
 
   create_table "stars", force: :cascade do |t|
     t.string   "name"

@@ -120,6 +120,7 @@ $(document).ready(function(){
 		});
 		console.clear();
 		console.log(filterValue);
+		$.get( "/check", filterValue );
 	}
 	$('.tour-filter--hide').click(function(){
 		$('.tour-filter--container').stop(true).slideUp(200);
