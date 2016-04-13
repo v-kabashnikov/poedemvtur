@@ -116,10 +116,6 @@ class HomeController < ApplicationController
   end
 
   def check
-    if params[:requestId].nil?
-      @results = SearchResult.where(meal: ["BB"]).joins(hotel: [:star]).where('stars.name =?', "3*")
-      binding.pry
-    end
     requestId = params[:requestId]
     @total = SearchResult.where(request_id: requestId).count
     if LoadStatus.find_by(request_id: requestId).status == 1

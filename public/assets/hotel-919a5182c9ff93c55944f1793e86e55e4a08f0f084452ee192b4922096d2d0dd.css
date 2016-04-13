@@ -1,0 +1,345 @@
+/* line 2, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel {
+  background: #e5dcc6 url(/assets/promo-item-bg-495c8430ba74286fc5e156aa5aecc6bcbb833b16de8f907c3a110fcfa9564b22.jpg);
+  overflow: hidden;
+}
+
+/* line 6, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel .container {
+  /*background:#fff;*/
+  margin: 0px auto;
+}
+
+/* line 10, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs {
+  display: table;
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 4;
+}
+
+/* line 17, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li {
+  display: table-cell;
+  position: relative;
+  width: 33.3333%;
+  text-align: center;
+  padding-left: 2px;
+}
+
+/* line 24, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li:first-of-type {
+  padding-left: 0;
+}
+
+/* line 27, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li + li {
+  border-left: none;
+}
+
+/* line 30, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li a {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 34, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li.active a {
+  background: #f6c80d;
+  color: #303030;
+  font-weight: 700;
+}
+
+/* line 39, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  background: #2b2b2b;
+  display: block;
+}
+
+/* line 48, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a:before {
+  content: '';
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* line 58, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a span {
+  margin-left: 10px;
+}
+
+/* line 61, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a[href="#info"]:before {
+  background-image: url(/assets/hotel-info-a2db207c29ee78df29cd1e9fee95326465ec6819fccb672fbd43e76ceb4f5098.png);
+}
+
+/* line 64, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li.active a[href="#info"]:before {
+  background-image: url(/assets/hotel-info_active-3ff4c8820c5c0cc7b3a373f90f45a497978f271d1b7f8b27deb17cf4fa8c690e.png);
+}
+
+/* line 67, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a[href="#comments"]:before {
+  background-image: url(/assets/hotel-comments-ecfab163f4f01eae126630df2624a0239011aec0052c30efc4187c17e755c81c.png);
+}
+
+/* line 70, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li.active a[href="#comments"]:before {
+  background-image: url(/assets/hotel-comments_active-c6361cdc7ef9e1664875de002a11f3c131314ecc7fa4a3b813e412c64ec119cd.png);
+}
+
+/* line 73, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs a[href="#map"]:before {
+  background-image: url(/assets/hotel-map-b2aaabb333e0264b8a2338414650755f57cb94e1face7376169ae66e7dd5b974.png);
+}
+
+/* line 76, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tabs li.active a[href="#map"]:before {
+  background-image: url(/assets/hotel-map_active-7f3fec4d2c4cbd9b0a088594839b0fbfce5b656ccdb80af1e60495f45187a413.png);
+}
+
+/* line 79, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments,
+#hotel #info {
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 84, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+.container-white {
+  background: #fff;
+  padding: 30px 60px;
+}
+
+/* line 88, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel h2 {
+  margin: 0 0 20px;
+  min-height: 30px;
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Museo Sans",sans-serif;
+}
+
+/* line 95, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .btn {
+  margin: 0 0 20px;
+  height: 35px;
+  background: #ede6aa;
+  color: #737059;
+  border: 0;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 0 25px;
+}
+
+/* line 108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #e0d8c5;
+  border-radius: 3px;
+  margin-bottom: 17px;
+  padding: 25px 30px 25px 45px;
+  font-size: 13px;
+}
+
+/* line 116, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .name {
+  font-size: 18px;
+  color: #965738;
+  font-weight: 500;
+}
+
+/* line 121, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .date {
+  font-size: 12px;
+}
+
+/* line 124, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .photos {
+  font-weight: 700;
+  display: block;
+  color: #9db3c8;
+  margin: 15px 0 0;
+  padding: 7px 0 3px 35px;
+  background: url(/assets/photo-report-27792b0652b0c9534d0bdcb1b620560d3518ad286e7d0aff516fa5e81f5695a7.png) no-repeat left center;
+}
+
+/* line 134, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .gray {
+  color: #aaa;
+}
+
+/* line 137, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .rating {
+  color: #5f81a0;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+/* line 142, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #comments .comment .rating b {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* line 147, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel #map {
+  padding: 0 5px 5px;
+}
+
+/* line 151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options {
+  margin-top: 10px;
+}
+
+/* line 154, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .nav li {
+  display: inline-block;
+  margin-right: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid transparent;
+}
+
+/* line 160, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .nav li.active {
+  border-bottom-color: #000;
+}
+
+/* line 163, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .nav li a {
+  padding: 0;
+  color: #a06949;
+  text-decoration: underline;
+  background: none !important;
+}
+
+/* line 169, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .nav li.active a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .tab-pane {
+  padding: 10px 0 0;
+}
+
+/* line 176, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .h-opt {
+  display: inline-block;
+  width: 120px;
+}
+
+/* line 180, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .h-opt-icon {
+  display: block;
+  margin: 15px auto;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  position: relative;
+}
+
+/* line 190, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .h-opt-icon img {
+  position: absolute;
+  max-width: 90%;
+  max-height: 90%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+/* line 201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-options .h-opt-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: #828282;
+  font-weight: 700;
+}
+
+/* line 209, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+#hotel-tours-info {
+  background: url(/assets/hotel-tours-info-5941261b6dd4b9b3a6e80d74bac7c11a311d9074e136780c567cd005a7f0ba74.png) left center no-repeat;
+  padding: 0 0 0 50px;
+  font-size: 13px;
+  color: #959595;
+}
+
+@media (max-width: 991px) {
+  /* line 223, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel #comments .comment {
+    padding: 25px;
+  }
+
+  /* line 226, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-tabs a span {
+    margin-left: 5px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 231, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel #comments,
+  #hotel #info {
+    padding: 0;
+  }
+
+  /* line 235, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel .container {
+    margin: 0;
+  }
+
+  /* line 238, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  .container-white {
+    padding: 0;
+  }
+}
+@media (max-width: 500px) {
+  /* line 243, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-tabs a {
+    padding: 10px 5px;
+  }
+
+  /* line 246, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-tabs a:before {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* line 250, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-options .nav {
+    border: 1px solid;
+    margin: 0 auto;
+    width: 260px;
+  }
+
+  /* line 255, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-options .nav li {
+    display: block;
+    text-align: center;
+  }
+
+  /* line 259, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel.scss */
+  #hotel-options .nav li.active {
+    border: none !important;
+  }
+}

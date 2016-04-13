@@ -1,17 +1,17 @@
-/* line 1, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 1, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-page {
   background: url(/assets/bg-about-8359b6f51ba0ac845fa282b5c76cb17feeefc2e7bbc1cac9b808203a37b472f7.png) right top 60px no-repeat;
   padding: 0 120px 50px 15px;
 }
 
 @media (max-width: 767px) {
-  /* line 6, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  /* line 6, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
   #about-page {
     background: none;
     padding: 0 20px 40px 20px;
   }
 }
-/* line 12, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 12, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #footer-map {
   position: relative;
   z-index: 5;
@@ -20,7 +20,7 @@
   pointer-events: all !important;
 }
 
-/* line 20, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 20, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #map {
   width: 100%;
   height: 600px;
@@ -28,7 +28,7 @@
   z-index: 4;
 }
 
-/* line 26, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 26, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon {
   width: 588px;
   height: 316px;
@@ -42,14 +42,14 @@
   font-family: 'Roboto';
 }
 
-/* line 38, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 38, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-location {
   color: #737373;
   font-size: 16px;
   line-height: 120%;
 }
 
-/* line 43, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 43, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-phone {
   font-weight: 900;
   font-size: 30px;
@@ -58,7 +58,7 @@
   line-height: 120%;
 }
 
-/* line 50, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 50, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-email {
   color: #6589ab;
   text-decoration: underline;
@@ -67,12 +67,12 @@
   line-height: 120%;
 }
 
-/* line 57, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 57, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-email:hover {
   text-decoration: none;
 }
 
-/* line 60, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 60, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-close {
   display: inline-block;
   position: absolute;
@@ -83,13 +83,13 @@
   font-size: 20px;
 }
 
-/* line 69, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 69, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .ballon-close:hover {
   color: #b8b8b8;
 }
 
 /*noinspection CssInvalidPropertyValue*/
-/* line 74, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 74, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .row {
   display: -webkit-flex;
   display: -moz-flex;
@@ -102,7 +102,7 @@
   align-content: stretch;
 }
 
-/* line 85, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 85, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment {
   display: none !important;
   background-position: center;
@@ -120,12 +120,17 @@
   transition: all .3s ease;
 }
 
-/* line 101, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 101, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
+#about-comments .comment-visible {
+  display: block !important;
+}
+
+/* line 104, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment:hover {
   background-position-x: 0px;
 }
 
-/* line 105, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .name {
   margin: 0 15px 0 0;
   font-size: 36px;
@@ -133,38 +138,38 @@
   float: left;
 }
 
-/* line 111, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 114, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .text {
   margin-top: 5px;
 }
 
-/* line 114, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 117, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .text p {
   font-family: "Georgia", "Times New Roman", Times, serif;
   font-size: 14px;
   font-style: italic;
 }
 
-/* line 119, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 122, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .stars {
   display: inline-block;
   margin: 13px 0 10px;
 }
 
-/* line 123, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 126, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .stars i {
   font-size: 18px;
   color: #fff;
   opacity: .6;
 }
 
-/* line 128, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 131, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .stars i.active {
   opacity: 1;
   color: #f6de7d;
 }
 
-/* line 132, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 135, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #about-comments .comment .rating {
   float: right;
   font-family: "Georgia", "Times New Roman", Times, serif;
@@ -173,19 +178,19 @@
   color: #f6de7d;
 }
 
-/* line 140, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 143, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq {
   margin: 25px 0 80px;
 }
 
-/* line 143, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 146, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq h2 {
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 40px;
 }
 
-/* line 148, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories {
   margin-top: 10px;
   margin-bottom: 30px;
@@ -193,7 +198,7 @@
   text-align: center;
 }
 
-/* line 154, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 157, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .hidden-xxs a {
   display: inline-block;
   padding: 2px 18px;
@@ -211,30 +216,30 @@
   transition: border .3s ease;
 }
 
-/* line 170, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .hidden-xxs a.active {
   color: #1e918c;
   border-color: #1e918c;
   font-weight: 700;
 }
 
-/* line 175, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 178, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .hidden-xxs a.active:hover {
   text-decoration: none;
 }
 
-/* line 178, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 181, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .hidden-xxs a:not(.active):hover {
   text-decoration: none;
   border-color: #8b8b8b;
 }
 
-/* line 182, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 185, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .btn-group {
   display: none;
 }
 
-/* line 185, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 188, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories button.btn {
   float: none;
   border-radius: 0;
@@ -245,18 +250,18 @@
   text-align: left;
 }
 
-/* line 194, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 197, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories button .caret {
   float: right;
   margin-top: 8px;
 }
 
-/* line 198, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .categories .dropdown-menu {
   width: 100%;
 }
 
-/* line 203, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 206, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item {
   display: block;
   color: #3f5971;
@@ -269,7 +274,7 @@
   font-size: 16px;
 }
 
-/* line 214, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 217, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item:hover {
   background: #3f5971;
   color: #fff;
@@ -278,26 +283,26 @@
   border-bottom-color: #374e63;
 }
 
-/* line 221, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 224, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item.active:hover {
   background: none;
   color: #3f5971;
   border-color: #ddd;
 }
 
-/* line 226, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 229, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item .container {
   max-width: 600px;
 }
 
-/* line 229, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 232, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item .question {
   cursor: pointer;
   text-decoration: none !important;
   color: inherit;
 }
 
-/* line 234, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 237, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item .answer {
   display: none;
   margin-top: 5px;
@@ -309,23 +314,23 @@
   overflow: hidden;
 }
 
-/* line 244, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 247, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 #faq .questions .item.active .answer {
   display: block;
 }
 
 @media (max-width: 400px) {
-  /* line 249, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  /* line 252, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
   #faq .categories > a {
     display: none;
   }
 
-  /* line 252, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+  /* line 255, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
   #faq .categories .btn-group {
     display: block;
   }
 }
-/* line 256, /Users/administrator/Desktop/poedemvtur/poedemvtur/app/assets/stylesheets/about.scss */
+/* line 259, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/about.scss */
 .questions {
   display: none;
 }
