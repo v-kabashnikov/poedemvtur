@@ -874,6 +874,7 @@
   $('.roundtour-date').click(function(){
     roundDateShow($(this));
     return false;
+    
   });
   $('.roundtour-date--save').click(function(){
     dateSave();
