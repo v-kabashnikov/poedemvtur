@@ -115,7 +115,13 @@ class HomeController < ApplicationController
     redirect_to "#{hotel_path(params[:hotel_id])}?requestId=#{@request.request_id}"
   end
 
+  #put to helper
+  def is_true?(string)
+    ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES.include?(string)
+  end
+
   def check
+    rs = ResAmount.first.amount
     requestId = params[:requestId]
     @total = SearchResult.where(request_id: requestId).count
     if LoadStatus.find_by(request_id: requestId).status == 1
@@ -123,14 +129,38 @@ class HomeController < ApplicationController
     else
       @status = 'loading'
     end
-    rs = ResAmount.first.amount
-    @results = SearchResult.where(request_id: requestId).
-      preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs)
+    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
   end
 
   def load_more
     rs = ResAmount.first.amount
     @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
     render 'check'
+  end
+
+  def filter
+      requestId = params[:requestId]
+      rs = ResAmount.first.amount
+      
+      if LoadStatus.find_by(request_id: requestId).status == 1
+        @status = 'finished'
+      else
+        @status = 'loading'
+      end
+      p = params[:filter]
+
+      meal  = []
+      meal << "BB" if is_true?(p[:eat1])
+      meal << "HB" << "HB+" if is_true?(p[:eat2])
+      meal << "FB" <<"FB+" if is_true?(p[:eat3])
+      meal << "AL" << "UAL" if is_true?(p[:eat4])
+      meal << "RO" if is_true?(params[:eat5])
+      stars = []
+      stars << "5*" if is_true?(p[:class1])
+      stars << "4*" if is_true?(p[:class2])
+      stars << "3*" if is_true?(p[:class3])
+      @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: p[:priceMin]..p[:priceMax]).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs)   
+      @total = @results.count
+      render 'check'
   end
 end

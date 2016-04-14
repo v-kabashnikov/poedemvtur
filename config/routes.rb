@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/search', to: 'home#search'
   post '/search_hotel/:hotel_id', to: 'home#search_hotel', as: :search_hotel
   get '/check', to: 'home#check'
+  get '/filter', to: 'home#filter'
   get '/load_more', to: 'home#load_more'
   get '/hotel/:id', to: 'home#hotel', as: :hotel
   get '/hotel/:id/check_tours', to: 'home#check_tours', as: :check_tours

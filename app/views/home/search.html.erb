@@ -63,6 +63,16 @@ function meal(type)
     break;       
   }
 }
+$('.form-tourfilter input').change(function(){ 
+  $.ajax({
+    url: "/filter",
+    data: params_from_form,
+    success: function(data){
+      $('#hotels').html('');
+      showHotels(data["hotels"]);
+    }
+    })
+})
   function loadMore(){
           var requestId = $('#requestId').val();
           var loaded = $(".tour-block").length
@@ -205,7 +215,7 @@ function meal(type)
                 </li>
                 <li>
                   <label class="custom-checkbox">
-                    <input type="checkbox" checked name="eat4">
+                    <input type="checkbox" checked name="eat4" value="111">
                     <span>Всё включено</span>
                   </label>
                 </li>
