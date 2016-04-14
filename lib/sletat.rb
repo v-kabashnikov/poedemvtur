@@ -109,7 +109,6 @@ module Sletat
    # s_departFrom = Date.parse(params['s_departFrom'])
    # s_departTo = s_departFrom + 45.days
     meals = params[:meals].to_i > 0 ? params[:meals] : nil
-    stars = [402,403,404]
    # hotel = Hotel.find(params[:hotel_id]) if params[:hotel_id]
    # hotels = hotel.sletat_id if hotel
    # countryId = params[:countryId] || (hotel.resort.country.sletat_id if hotel)
