@@ -14,6 +14,10 @@ class Country < ActiveRecord::Base
     styles: { thumb: "200x200", medium: "500x500>", big: "1000x1000>" }
   validates_attachment_content_type :flag, content_type: /\Aimage\/.*\Z/
 
+   has_attached_file :banner,
+    styles: { thumb: "200x200", medium: "500x500>", big: "1000x1000>" }
+  validates_attachment_content_type :flag, content_type: /\Aimage\/.*\Z/
+
   has_attached_file :header_img,
     styles: { thumb: "442x300#", medium: "500x500>", big: "1000x1000>" }
   validates_attachment_content_type :header_img, content_type: /\Aimage\/.*\Z/

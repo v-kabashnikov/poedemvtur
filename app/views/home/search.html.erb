@@ -63,16 +63,7 @@ function meal(type)
     break;       
   }
 }
-$('.form-tourfilter input').change(function(){ 
-  $.ajax({
-    url: "/filter",
-    data: params_from_form,
-    success: function(data){
-      $('#hotels').html('');
-      showHotels(data["hotels"]);
-    }
-    })
-})
+
   function loadMore(){
           var requestId = $('#requestId').val();
           var loaded = $(".tour-block").length
@@ -163,6 +154,7 @@ $('.form-tourfilter input').change(function(){
                 }
                 console.log(data["total"]);
                 if(data["status"] == 'finished'){
+                  $('.tour-search-preload').fadeOut(50000);
                   $('#loading').remove();
                   if(data["total"] > <%=ResAmount.first.amount%>){
                     $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#tour-filtered');
@@ -179,6 +171,10 @@ $('.form-tourfilter input').change(function(){
             })
           }, 2000)
 </script>
+<%def video_code(video)%>
+<%regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/%>
+<%video.scan(regex).flatten.first if video%>
+<%end%>
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
   <h3><%= @country.name %></h3>
 </div>
@@ -342,6 +338,29 @@ $('.form-tourfilter input').change(function(){
 
 <div class="container" id="tour-filtered" style="min-height:300px;">
   <%= hidden_field_tag 'requestId', @request.request_id %>
+  <div class="tour-search-preload">
+    <div class="tour-search-preload--spinner">
+      <span class="icon"></span>
+      <span class="text">Загружаем туры на двоих</span>
+    </div>
+    <br>
+    <div class="tour-search-preload--advertising">
+    <%if @country.banner.url == "/banners/original/missing.png" %>
+      <img src='<%= asset_path("preload-banner.png")%>' alt="">
+    <%else%>
+       <%= image_tag(@country.banner.url)%>
+    <%end%>
+    </div>
+    <br>
+    <div class="tour-search-preload--advertising video">
+    <%if @country.youtube_link%>
+      <%code = video_code(@country.youtube_link) %>
+    <%else%>
+      <%code = "F9B7g9-PkB8" %>
+    <%end%>
+      <iframe src="https://www.youtube.com/embed/<%=code%>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
   <div class="row">
     <h2 class="col-xs-12 roboto-light tour-filtered--header" id="total"></h2>
   </div>
