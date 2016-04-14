@@ -100,6 +100,14 @@ class HomeController < ApplicationController
     # url_params[:pageSize] = 3000
 
     # TourLoader.perform_async(requestId, url_params)
+    @adults = params[:adult]
+    if @adults == "3"
+      @people = "троих"
+    elsif @adults == "2"
+      @people = "двоих"
+    elsif @adults == "4"
+      @people = "четверых"
+    end
     @request = start_search(params)
     @country = @request.country
     if params[:place_type] == 'hotel'

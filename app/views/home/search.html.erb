@@ -24,6 +24,15 @@
 
 <% end %>
 <script>
+<%if @country.ad_delay%>
+  <%delay = @country.ad_delay%>
+<%else%>
+  <%delay = 3000%>
+<%end%>
+setTimeout(hidePreload,<%=delay%>);
+  function hidePreload(){
+    $('.tour-search-preload--advertising').fadeOut(500);
+  }
 function meal(type)
 { 
   switch(type)
@@ -154,7 +163,7 @@ function meal(type)
                 }
                 console.log(data["total"]);
                 if(data["status"] == 'finished'){
-                  $('.tour-search-preload').fadeOut(50000);
+                  $('.tour-search-preload').fadeOut(500);
                   $('#loading').remove();
                   if(data["total"] > <%=ResAmount.first.amount%>){
                     $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#tour-filtered');
@@ -341,7 +350,7 @@ function meal(type)
   <div class="tour-search-preload">
     <div class="tour-search-preload--spinner">
       <span class="icon"></span>
-      <span class="text">Загружаем туры на двоих</span>
+      <span class="text">Загружаем туры на <%=@people%></span>
     </div>
     <br>
     <div class="tour-search-preload--advertising">
