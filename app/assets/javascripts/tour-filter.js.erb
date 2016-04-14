@@ -3,7 +3,7 @@
               for(var i=0; i<hotels.length; i++){
                 var stars = "";
                 for(var j = 1; j <= hotels[i]['stars_count']; j++){
-                  stars += '<i class="glyphicon glyphicon-star active"></i>'
+                  stars += '<img src="<%= asset_path 'star.png' %>" width="12" height="12" alt="">'
                 }
                 // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-large-4 \
