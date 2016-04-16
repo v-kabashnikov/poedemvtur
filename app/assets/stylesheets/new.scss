@@ -1,6 +1,6 @@
 /* CSS Document */
-.icons-sprite, .icons-aircraft, .icons-arrow-down_white, .icons-arrow-left, .hotel-slider .slick-prev, .icons-arrow-left_border, .prev-month, .icons-arrow-leftbig_white, .main-offer-slider .slick-prev, .icons-arrow-right, .hotel-slider .slick-next, .icons-arrow-right_border, .next-month, .icons-arrow-rightbig_white, .main-offer-slider .slick-next, .icons-calendar_orange, .icons-close_grey, .icons-close_orange, .icons-filter-beach, .icons-filter-class, .icons-filter-eat, .icons-filter-price, .icons-home, .icons-hotel-beach, .icons-hotel-info, .icons-hotel-pool, .icons-icons-left, .icons-location, .icons-location_orange, .icons-people-adult_orange, .icons-people-adult_white, .icons-people-adult_yellow, .icons-people-adultsm_orange, .icons-people-adultsm_white, .icons-people-adultsm_yellow, .icons-people-children_orange, .icons-people-children_white, .icons-people-children_yellow, .icons-people-childrensm_orange, .icons-people-childrensm_white, .icons-people-childrensm_yellow, .icons-plus_orange, .icons-plus_yellow, .icons-search, .icons-search_white, .icons-slider-filter, .tour-filter--price-slider .irs-slider, .icons-slider, .irs-slider {
-  background-image: image-url('icons-s305dd81baf.png');
+.icons-sprite, .icons-aircraft, .icons-arrow-down_grey, .icons-arrow-down_small_orange, .icons-arrow-down_white, .icons-arrow-left, .hotel-slider .slick-prev, .icons-arrow-left_border, .prev-month, .icons-arrow-leftbig_white, .main-offer-slider .slick-prev, .icons-arrow-right, .hotel-slider .slick-next, .icons-arrow-right_border, .next-month, .icons-arrow-rightbig_white, .main-offer-slider .slick-next, .icons-arrow-up_grey, .icons-arrow-up_small_blue, .icons-arrow-up_white, .icons-calendar_orange, .icons-close_grey, .icons-close_orange, .icons-filter-beach, .icons-filter-class, .icons-filter-eat, .icons-filter-price, .icons-home, .icons-hotel-beach, .icons-hotel-info, .icons-hotel-pool, .icons-icons-left, .icons-location, .icons-location_orange, .icons-people-adult_orange, .icons-people-adult_white, .icons-people-adult_yellow, .icons-people-adultsm_orange, .icons-people-adultsm_white, .icons-people-adultsm_yellow, .icons-people-children_orange, .icons-people-children_white, .icons-people-children_yellow, .icons-people-childrensm_orange, .icons-people-childrensm_white, .icons-people-childrensm_yellow, .icons-plus_orange, .icons-plus_yellow, .icons-search, .icons-search_white, .icons-slider-filter, .tour-filter--price-slider .irs-slider, .icons-slider, .irs-slider, .icons-tour-med, .icons-tour-money, .icons-tour-night, .icons-tour-stage_success, .icons-tour-transport, .icons-tourtab-1, .icons-tourtab-1_lg, .icons-tourtab-2, .icons-tourtab-2_lg, .icons-tourtab-3, .icons-tourtab-3_lg {
+  background-image: image-url('icons-s9a30cb0cd6.png');
   background-repeat: no-repeat;
 }
 
@@ -10,241 +10,337 @@
   width: 13px;
 }
 
-.icons-arrow-down_white {
+.icons-arrow-down_grey {
   background-position: 0 -14px;
+  height: 31px;
+  width: 18px;
+}
+
+.icons-arrow-down_small_orange {
+  background-position: 0 -45px;
+  height: 11px;
+  width: 7px;
+}
+
+.icons-arrow-down_white {
+  background-position: 0 -56px;
   height: 18px;
   width: 10px;
 }
 
 .icons-arrow-left, .hotel-slider .slick-prev {
-  background-position: 0 -32px;
+  background-position: 0 -74px;
   height: 17px;
   width: 30px;
 }
 
 .icons-arrow-left_border, .prev-month {
-  background-position: 0 -49px;
+  background-position: 0 -91px;
   height: 19px;
   width: 19px;
 }
 
 .icons-arrow-leftbig_white, .main-offer-slider .slick-prev {
-  background-position: 0 -68px;
+  background-position: 0 -110px;
   height: 93px;
   width: 21px;
 }
 
 .icons-arrow-right, .hotel-slider .slick-next {
-  background-position: 0 -161px;
+  background-position: 0 -203px;
   height: 17px;
   width: 30px;
 }
 
 .icons-arrow-right_border, .next-month {
-  background-position: 0 -178px;
+  background-position: 0 -220px;
   height: 19px;
   width: 19px;
 }
 
 .icons-arrow-rightbig_white, .main-offer-slider .slick-next {
-  background-position: 0 -197px;
+  background-position: 0 -239px;
   height: 93px;
   width: 21px;
 }
 
+.icons-arrow-up_grey {
+  background-position: 0 -332px;
+  height: 31px;
+  width: 18px;
+}
+
+.icons-arrow-up_small_blue {
+  background-position: 0 -363px;
+  height: 11px;
+  width: 7px;
+}
+
+.icons-arrow-up_white {
+  background-position: 0 -374px;
+  height: 24px;
+  width: 16px;
+}
+
 .icons-calendar_orange {
-  background-position: 0 -290px;
+  background-position: 0 -398px;
   height: 20px;
   width: 20px;
 }
 
 .icons-close_grey {
-  background-position: 0 -310px;
+  background-position: 0 -418px;
   height: 22px;
   width: 22px;
 }
 
 .icons-close_orange {
-  background-position: 0 -332px;
+  background-position: 0 -440px;
   height: 13px;
   width: 13px;
 }
 
 .icons-filter-beach {
-  background-position: 0 -345px;
+  background-position: 0 -453px;
   height: 13px;
   width: 24px;
 }
 
 .icons-filter-class {
-  background-position: 0 -358px;
+  background-position: 0 -466px;
   height: 20px;
   width: 14px;
 }
 
 .icons-filter-eat {
-  background-position: 0 -378px;
+  background-position: 0 -486px;
   height: 21px;
   width: 25px;
 }
 
 .icons-filter-price {
-  background-position: 0 -399px;
+  background-position: 0 -507px;
   height: 15px;
   width: 13px;
 }
 
 .icons-home {
-  background-position: 0 -414px;
+  background-position: 0 -522px;
   height: 14px;
   width: 16px;
 }
 
 .icons-hotel-beach {
-  background-position: 0 -428px;
+  background-position: 0 -536px;
   height: 45px;
   width: 46px;
 }
 
 .icons-hotel-info {
-  background-position: 0 -473px;
+  background-position: 0 -581px;
   height: 43px;
   width: 39px;
 }
 
 .icons-hotel-pool {
-  background-position: 0 -516px;
+  background-position: 0 -624px;
   height: 44px;
   width: 45px;
 }
 
 .icons-icons-left {
-  background-position: 0 -560px;
+  background-position: 0 -668px;
   height: 24px;
   width: 14px;
 }
 
 .icons-location {
-  background-position: 0 -584px;
+  background-position: 0 -692px;
   height: 13px;
   width: 10px;
 }
 
 .icons-location_orange {
-  background-position: 0 -597px;
+  background-position: 0 -705px;
   height: 17px;
   width: 17px;
 }
 
 .icons-people-adult_orange {
-  background-position: 0 -614px;
+  background-position: 0 -722px;
   height: 31px;
   width: 14px;
 }
 
 .icons-people-adult_white {
-  background-position: 0 -645px;
+  background-position: 0 -753px;
   height: 31px;
   width: 14px;
 }
 
 .icons-people-adult_yellow {
-  background-position: 0 -676px;
+  background-position: 0 -784px;
   height: 31px;
   width: 14px;
 }
 
 .icons-people-adultsm_orange {
-  background-position: 0 -707px;
+  background-position: 0 -815px;
   height: 37px;
   width: 16px;
 }
 
 .icons-people-adultsm_white {
-  background-position: 0 -744px;
+  background-position: 0 -852px;
   height: 36px;
   width: 16px;
 }
 
 .icons-people-adultsm_yellow {
-  background-position: 0 -780px;
+  background-position: 0 -888px;
   height: 37px;
   width: 16px;
 }
 
 .icons-people-children_orange {
-  background-position: 0 -817px;
+  background-position: 0 -925px;
   height: 21px;
   width: 10px;
 }
 
 .icons-people-children_white {
-  background-position: 0 -838px;
+  background-position: 0 -946px;
   height: 21px;
   width: 10px;
 }
 
 .icons-people-children_yellow {
-  background-position: 0 -859px;
+  background-position: 0 -967px;
   height: 21px;
   width: 10px;
 }
 
 .icons-people-childrensm_orange {
-  background-position: 0 -880px;
+  background-position: 0 -988px;
   height: 25px;
   width: 13px;
 }
 
 .icons-people-childrensm_white {
-  background-position: 0 -905px;
+  background-position: 0 -1013px;
   height: 26px;
   width: 13px;
 }
 
 .icons-people-childrensm_yellow {
-  background-position: 0 -931px;
+  background-position: 0 -1039px;
   height: 25px;
   width: 13px;
 }
 
 .icons-plus_orange {
-  background-position: 0 -956px;
+  background-position: 0 -1064px;
   height: 10px;
   width: 10px;
 }
 
 .icons-plus_yellow {
-  background-position: 0 -966px;
+  background-position: 0 -1074px;
   height: 10px;
   width: 10px;
 }
 
 .icons-search {
-  background-position: 0 -976px;
+  background-position: 0 -1084px;
   height: 28px;
   width: 30px;
 }
 
 .icons-search_white {
-  background-position: 0 -1004px;
+  background-position: 0 -1112px;
   height: 23px;
   width: 22px;
 }
 
 .icons-slider-filter, .tour-filter--price-slider .irs-slider {
-  background-position: 0 -1027px;
+  background-position: 0 -1135px;
   height: 31px;
   width: 31px;
 }
 
 .icons-slider, .irs-slider {
-  background-position: 0 -1058px;
+  background-position: 0 -1166px;
   height: 33px;
   width: 33px;
 }
 
-.icons-sprite, .icons-aircraft, .icons-arrow-down_white, .icons-arrow-left, .hotel-slider .slick-prev, .icons-arrow-left_border, .prev-month, .icons-arrow-leftbig_white, .main-offer-slider .slick-prev, .icons-arrow-right, .hotel-slider .slick-next, .icons-arrow-right_border, .next-month, .icons-arrow-rightbig_white, .main-offer-slider .slick-next, .icons-calendar_orange, .icons-close_grey, .icons-close_orange, .icons-filter-beach, .icons-filter-class, .icons-filter-eat, .icons-filter-price, .icons-home, .icons-hotel-beach, .icons-hotel-info, .icons-hotel-pool, .icons-icons-left, .icons-location, .icons-location_orange, .icons-people-adult_orange, .icons-people-adult_white, .icons-people-adult_yellow, .icons-people-adultsm_orange, .icons-people-adultsm_white, .icons-people-adultsm_yellow, .icons-people-children_orange, .icons-people-children_white, .icons-people-children_yellow, .icons-people-childrensm_orange, .icons-people-childrensm_white, .icons-people-childrensm_yellow, .icons-plus_orange, .icons-plus_yellow, .icons-search, .icons-search_white, .icons-slider-filter, .tour-filter--price-slider .irs-slider, .icons-slider, .irs-slider {
+.icons-tour-med {
+  background-position: 0 -1199px;
+  height: 11px;
+  width: 15px;
+}
+
+.icons-tour-money {
+  background-position: 0 -1210px;
+  height: 15px;
+  width: 15px;
+}
+
+.icons-tour-night {
+  background-position: 0 -1225px;
+  height: 14px;
+  width: 14px;
+}
+
+.icons-tour-stage_success {
+  background-position: 0 -1239px;
+  height: 11px;
+  width: 13px;
+}
+
+.icons-tour-transport {
+  background-position: 0 -1250px;
+  height: 22px;
+  width: 9px;
+}
+
+.icons-tourtab-1 {
+  background-position: 0 -1272px;
+  height: 33px;
+  width: 50px;
+}
+
+.icons-tourtab-1_lg {
+  background-position: 0 -1305px;
+  height: 40px;
+  width: 60px;
+}
+
+.icons-tourtab-2 {
+  background-position: 0 -1345px;
+  height: 39px;
+  width: 35px;
+}
+
+.icons-tourtab-2_lg {
+  background-position: 0 -1384px;
+  height: 47px;
+  width: 41px;
+}
+
+.icons-tourtab-3 {
+  background-position: 0 -1431px;
+  height: 34px;
+  width: 50px;
+}
+
+.icons-tourtab-3_lg {
+  background-position: 0 -1465px;
+  height: 40px;
+  width: 60px;
+}
+
+.icons-sprite, .icons-aircraft, .icons-arrow-down_grey, .icons-arrow-down_small_orange, .icons-arrow-down_white, .icons-arrow-left, .hotel-slider .slick-prev, .icons-arrow-left_border, .prev-month, .icons-arrow-leftbig_white, .main-offer-slider .slick-prev, .icons-arrow-right, .hotel-slider .slick-next, .icons-arrow-right_border, .next-month, .icons-arrow-rightbig_white, .main-offer-slider .slick-next, .icons-arrow-up_grey, .icons-arrow-up_small_blue, .icons-arrow-up_white, .icons-calendar_orange, .icons-close_grey, .icons-close_orange, .icons-filter-beach, .icons-filter-class, .icons-filter-eat, .icons-filter-price, .icons-home, .icons-hotel-beach, .icons-hotel-info, .icons-hotel-pool, .icons-icons-left, .icons-location, .icons-location_orange, .icons-people-adult_orange, .icons-people-adult_white, .icons-people-adult_yellow, .icons-people-adultsm_orange, .icons-people-adultsm_white, .icons-people-adultsm_yellow, .icons-people-children_orange, .icons-people-children_white, .icons-people-children_yellow, .icons-people-childrensm_orange, .icons-people-childrensm_white, .icons-people-childrensm_yellow, .icons-plus_orange, .icons-plus_yellow, .icons-search, .icons-search_white, .icons-slider-filter, .tour-filter--price-slider .irs-slider, .icons-slider, .irs-slider, .icons-tour-med, .icons-tour-money, .icons-tour-night, .icons-tour-stage_success, .icons-tour-transport, .icons-tourtab-1, .icons-tourtab-1_lg, .icons-tourtab-2, .icons-tourtab-2_lg, .icons-tourtab-3, .icons-tourtab-3_lg {
   display: inline-block;
 }
 
@@ -2427,8 +2523,9 @@
   top: 15px;
 }
 .hotel-slide img {
-  width: 100%;
-  height: auto;
+  min-width: 100%;
+  width: auto;
+  height: 100%;
 }
 
 .hotel-slide--zoom {
@@ -2959,8 +3056,28 @@
   font-size: 18px;
   font-weight: 900;
   margin: 0;
+  position: relative;
+  width: 100%;
 }
-.tour-header h2:hover, .tour-header a:hover {
+.tour-header h2 a, .tour-header a a {
+  display: block;
+  width: 100%;
+  background: #fff;
+  height: 40px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  .tour-header h2 a, .tour-header a a {
+    height: auto;
+  }
+}
+.tour-header h2 a:hover, .tour-header a a:hover {
   text-decoration: none;
 }
 

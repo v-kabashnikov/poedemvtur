@@ -42,6 +42,17 @@ to{stroke-dasharray:200;}
 	text-decoration: none;
 	font-weight:700;
 }
+#all-header .header-phone_main{
+  margin:10px 0 0;
+  display:block;
+  text-align:right;
+}
+@media (max-width:991px){
+  #all-header .header-phone_main{
+    font-size:18px;
+  }
+}
+
 #logo{color:inherit;text-decoration:none;}
 #logo a{display:block;color:inherit;text-decoration:none !important;font-size:28px;font-weight:900;line-height:31px;}
 #logo a:before,
@@ -95,6 +106,6 @@ to{stroke-dasharray:200;}
 #site-menu .nav li a:hover{}
 #site-menu .nav li a:hover:after{width:50%;}
 #site-menu .nav li span{display:inline-block;font-size:14px;font-weight:500;margin-left:15px;text-align:center;width:35px;height:35px;line-height:35px;border:1px solid #aaa;border-radius:50%;}
-#site-menu input{background-color:#111;background-image:image-url('main-menu-search.png');background-position:left 13px center;background-repeat:no-repeat;color:#fff;position:absolute;bottom:0;left:0;right:0;width:100%;border:0;padding:10px 15px 10px 45px;font-size:18px;}
+#site-menu input{background-color:#111;background-image:image-url("main-menu-search.png");background-position:left 13px center;background-repeat:no-repeat;color:#fff;position:absolute;bottom:0;left:0;right:0;width:100%;border:0;padding:10px 15px 10px 45px;font-size:18px;}
 @media (max-width:400px){#site-menu{padding-top:75px;}
 }

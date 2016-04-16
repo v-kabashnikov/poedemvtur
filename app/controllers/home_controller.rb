@@ -23,6 +23,7 @@ class HomeController < ApplicationController
   end
 
   def hotel
+    @cities = DepartCity.all
     @hotel = Hotel.find(params[:id])
     weather_url = nil
     if @hotel.latitude && @hotel.longitude
@@ -119,6 +120,7 @@ class HomeController < ApplicationController
 
   def search_hotel
     puts "1111 #{params[:s_adults]}"
+    binding.pry
     @request = start_search(params)
     redirect_to "#{hotel_path(params[:hotel_id])}?requestId=#{@request.request_id}"
   end

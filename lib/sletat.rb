@@ -101,8 +101,10 @@ module Sletat
       s_departTo = params[:date_max].empty? ? s_departFrom :  parse_date_ru(params[:date_max])
       s_nightsMin = params[:nights_min]
       s_nightsMax = params[:nights_max]
-      priceMax = params['roundtour-price'].split(';')[1]
-      priceMin = params['roundtour-price'].split(';')[0]
+      if params['roundtour-price']
+        priceMax = params['roundtour-price'].split(';')[1]
+        priceMin = params['roundtour-price'].split(';')[0]
+      end
     end
 
    # s_nights = params["s_nights"].split('-')

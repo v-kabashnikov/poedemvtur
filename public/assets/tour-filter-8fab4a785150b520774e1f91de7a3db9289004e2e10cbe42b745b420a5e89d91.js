@@ -1,9 +1,9 @@
- function showHotels( hotels, requestId ){
+function showHotels( hotels, requestId ){
             var req = requestId == undefined ? "" : "?requestId=" + requestId;
               for(var i=0; i<hotels.length; i++){
                 var stars = "";
                 for(var j = 1; j <= hotels[i]['stars_count']; j++){
-                  stars += '<i class="glyphicon glyphicon-star active"></i>'
+                  stars += '<img src="/assets/star-4226a930be3bd3b1e768b47996cd08066bfde1629c5197d05b7e2cbf354d7703.png" width="12" height="12" alt="">'
                 }
                 // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-large-4 \
@@ -99,107 +99,110 @@ $(document).ready(function(){
 				filterPrice.getPriceMax(value);
 			}
 		}
-		
+
 	};
 	var $filterSlider = $('.tour-filter-price');
-	$filterSlider.ionRangeSlider({
-		min: 0,
-		max: 15000000,
-		from: filterPrice.setPriceMin(),
-		to: filterPrice.setPriceMax(),
-		type: 'double',
-		step: 1000,
-		hide_min_max: true,
-	    hide_from_to: true,
-	    onChange : function(data){
-	    	filterPrice.getPrice(data.from, data.to);
-	    	setfilterValue();
-	    }
-    });
-    var filterSlider = $filterSlider.data("ionRangeSlider");
-
-    filterPrice.$priceMin.keyup(function(){
-    	filterPrice.inputChange($(this));
-		filterSlider.update({
-			from: filterPrice.setPriceMin()
-		});
-	});
-
-	filterPrice.$priceMax.keyup(function(){
-    	filterPrice.inputChange($(this));
-		filterSlider.update({
-			to: filterPrice.setPriceMax()
-		});
-	});
-	$('.form-tourfilter input').change(function(){
-		setfilterValue();
-	});
-	$('.form-tourfilter input').keyup(function(){
-		setfilterValue();
-	});
-	var filterValue ={};
-	function setfilterValue(){
-		filterValue = {
-			eat1 : '',
-			eat2 : '',
-			eat3 : '',
-			eat4 : '',
-			eat5 : '',
-			class1 : '',
-			class2 : '',
-			class3 : '',
-			class4 : '',
-			priceMin : '',
-			priceMax : '',
-			beach1 : '',
-			beach2 : '',
-			beach3 : ''
-		}
-		$('.form-tourfilter input').each(function(){
-			var $elem = $(this);
-			var key = $elem.attr('name');
-			var value = false;
-			if($elem.attr('type')=='checkbox'){
-				if($elem.is(':checked')){
-					value = true 
-				}
-			}
-			if($elem.attr('type')=='text'){
-				if(key=='priceMin'){
-					value = filterPrice.setPriceMin();
-				}else{
-					value = filterPrice.setPriceMax();
-				}
-			}
-			filterValue[key] = value;
-		});
-		console.clear();
-		console.log(filterValue);
-		var requestId = $('#requestId').val();
-		var params = {
-  		"filter": filterValue,
-  		"requestId": requestId
-		};
-		$.ajax({
-		    url: "/filter",
-		    data: params,
-		    success: function(data){
-		      $('#hotels').html('');
-		      showHotels(data["hotels"], requestId);
-		      $('#total').html('')
-		      $('#total').html('Найдено '+ data["total"] + ' отелей')
+	if($('input').is('.tour-filter-price')){
+		$filterSlider.ionRangeSlider({
+			min: 0,
+			max: 15000000,
+			from: filterPrice.setPriceMin(),
+			to: filterPrice.setPriceMax(),
+			type: 'double',
+			step: 1000,
+			hide_min_max: true,
+		    hide_from_to: true,
+		    onChange : function(data){
+		    	filterPrice.getPrice(data.from, data.to);
+		    	setfilterValue();
 		    }
-		    })
+	    });
+	    var filterSlider = $filterSlider.data("ionRangeSlider");
+
+	    filterPrice.$priceMin.keyup(function(){
+	    	filterPrice.inputChange($(this));
+			filterSlider.update({
+				from: filterPrice.setPriceMin()
+			});
+		});
+
+		filterPrice.$priceMax.keyup(function(){
+	    	filterPrice.inputChange($(this));
+			filterSlider.update({
+				to: filterPrice.setPriceMax()
+			});
+		});
+		$('.form-tourfilter input').change(function(){
+			setfilterValue();
+		});
+		$('.form-tourfilter input').keyup(function(){
+			setfilterValue();
+		});
+		var filterValue ={};
+		function setfilterValue(){
+			filterValue = {
+				eat1 : '',
+				eat2 : '',
+				eat3 : '',
+				eat4 : '',
+				eat5 : '',
+				class1 : '',
+				class2 : '',
+				class3 : '',
+				class4 : '',
+				priceMin : '',
+				priceMax : '',
+				beach1 : '',
+				beach2 : '',
+				beach3 : ''
 			}
-	$('.tour-filter--hide').click(function(){
-		$('.tour-filter--container').stop(true).slideUp(200);
-		$('.tour-filter--show').delay(150).stop(true).animate({'opacity' : 1},150);
-		return false;
-	});
-	$('.tour-filter--show').click(function(){
-		$('.tour-filter--container').stop(true).slideDown(200);
-		$('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
-		return false;
-	});
+			$('.form-tourfilter input').each(function(){
+				var $elem = $(this);
+				var key = $elem.attr('name');
+				var value = false;
+				if($elem.attr('type')=='checkbox'){
+					if($elem.is(':checked')){
+						value = true
+					}
+				}
+				if($elem.attr('type')=='text'){
+					if(key=='priceMin'){
+						value = filterPrice.setPriceMin();
+					}else{
+						value = filterPrice.setPriceMax();
+					}
+				}
+				filterValue[key] = value;
+			});
+			console.clear();
+			console.log(filterValue);
+			var requestId = $('#requestId').val();
+			var params = {
+	  		"filter": filterValue,
+	  		"requestId": requestId
+			};
+			$.ajax({
+			    url: "/filter",
+			    data: params,
+			    success: function(data){
+			      $('#hotels').html('');
+			      showHotels(data["hotels"], requestId);
+			      $('#total').html('');
+			      $('#total').html('Найдено '+ data["total"] + ' отелей');
+			      $('.more').html('');
+			    }
+			    })
+		}
+		$('.tour-filter--hide').click(function(){
+			$('.tour-filter--container').stop(true).slideUp(200);
+			$('.tour-filter--show').delay(150).stop(true).animate({'opacity' : 1},150);
+			return false;
+		});
+		$('.tour-filter--show').click(function(){
+			$('.tour-filter--container').stop(true).slideDown(200);
+			$('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
+			return false;
+		});
+	}
 
 });
