@@ -188,7 +188,7 @@ function meal(type)
 <%video.scan(regex).flatten.first if video%>
 <%end%>
 <div id="sub-header" style="background-image:url('<%= asset_path 'DEMO/sh-tour-filtered.jpg' %>')">
-  <h3><%= @country.name %></h3>
+  <h3><img src="<%= @country.flag_link%>" alt=""> <%= @country.name %></h3>
 </div>
 <div class="tour-filter">
   <a href="#" class="tour-filter--show"><span>Развернуть фильтр <i class="icons-arrow-down_white"></i></span></a>

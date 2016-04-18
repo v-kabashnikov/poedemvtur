@@ -77,6 +77,10 @@ p{font-family:'Roboto', sans-serif;}
 #sub-header.large{height:420px;}
 #sub-header.compact{height:130px;}
 #sub-header h3{text-align:center;text-transform:uppercase;color:#fff;font-size:36px;font-weight:900;max-width:900px;margin:120px auto 10px;}
+#sub-header h3 img{
+   display: inline-block;
+   margin:-10px 10px 0 0;
+ }
 @media (max-width:600px){#sub-header.large{height:auto;}
 }
 @media (max-width:400px){#sub-header h3{margin-top:150px;font-size:26px;}

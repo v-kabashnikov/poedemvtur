@@ -20,8 +20,8 @@ $(document).ready(function(){
 	var hotelSearch = {};
 	var city,cityId,place,placeId,placeType,date,nights,adults,cityId;
 	var children = {};
-	$('.form-hotelsearch').on('submit',function(){
-		var $form = $(this);
+	$('.form-hotelsearch').on('submit',function(e){
+		var $form = $('.form-hotelsearch');
 		city = $form.find('.roundtour-city--select').text();
 		cityId = $form.find('#city-id').val();
 		place = $form.find('.roundtour-place .text').text();
@@ -38,7 +38,7 @@ $(document).ready(function(){
 			children[$(this).index()+1] = +$(this).find('.roundtour-people--year').text();
 		});
 		hotelSearch = {
-			city : city,
+			xcity : city,
 			cityId : cityId,
 			place : place,
 			placeId : placeId,
@@ -48,7 +48,18 @@ $(document).ready(function(){
 			adults : adults,
 			children : children
 		}
-		console.log(hotelSearch);
+		$form.find('#children').val(children);
+		$form.find('#adult').val(adults);
 	});
+$('.hotel-comment--fulllink').click(function(){
+ 		if(!$(this).hasClass('open')){
+			$(this).prev().css({'max-height' : '100%'});
+			$(this).addClass('open').text('Скрыть');
+		}else{
+			$(this).prev().css({'max-height' : '50px'});
+			$(this).removeClass('open').text('Читать отзыв');
+		}
+		return false
+ 	});
 
 });
