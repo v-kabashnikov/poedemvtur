@@ -123,7 +123,7 @@ module Sletat
                    s_adults: s_adults, s_kids: s_kids, s_nightsMin: s_nightsMin, s_nightsMax: s_nightsMax,
                    s_priceMin: priceMin, s_priceMax: priceMax, s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
                    s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
-                   includeDescriptions: 1, updateResult: 0, hotels: hotels, stars: stars, meals: meals}
+                   includeDescriptions: 1, updateResult: 0, hotels: hotels, meals: meals}
     data = get_res_data 'GetTours', true, url_params
     requestId = data["requestId"]
 
