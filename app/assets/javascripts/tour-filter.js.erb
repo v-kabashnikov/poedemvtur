@@ -10,16 +10,17 @@ function showHotels( hotels, requestId ){
               tour-column"> \
       <div class="tour-block tour-block-new"> \
             <div class="tour-header row"> \
-            <h2 class="col-md-7"> \
-            <a href="/hotel/' + hotels[i]['id'] + req + '"> \
-            ' + hotels[i]['name'] + ' </a> \
-            </h2> \
+            <div class="col-md-7"> \
+            <h2><a href="/hotel/' + hotels[i]['id'] + req + '"> \
+            ' + hotels[i]['name'] + ' </a></h2> \
+            </div> \
               <div class="tour-rating col-md-5"> \
                 <div class="tour-rating--star">' + stars +'</div> \
                 <span class="tour-rating--num">~ \
                 ' + hotels[i]['rating'].toFixed(1) + '</span> \
               </div> \
             </div> \
+            <div class="clearfix"></div> \
             <div class="tour-desc">' + hotels[i]['position_info'] + ' \
             </div> \
         <div class="thumb"> \
