@@ -24,7 +24,7 @@ module Sletat
       "Январь" => "01",
       "Февраль" => "02",
       "Март" => "03",
-      "Апрель" => "04",
+      "Апр" => "04",
       "Май" => "05",
       "Июнь" => "06",
       "Июль" => "07",
@@ -37,7 +37,8 @@ module Sletat
     pattern = /[А-я]+/
     if date
       a = date.gsub(pattern, monthes[date[pattern]].to_s)
-      Date.strptime(a, '%d %m')
+      str =  a+ '/'+ monthes[date[pattern]].to_s
+      Date.parse(str)
     end
   end
 
