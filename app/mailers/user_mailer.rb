@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-	default :from => 'poedemvtur@gmail.com'
+	default :from => 'poedemvtur@app.com'
 
 	def send_signup_email(user)
     @user = user
-    mail( :to => "vania.kabashnikov@gmail.com",
-    :subject => 'Thanks for signing up for our amazing app' )
+    mail( :to => "jujava@mail.ru",
+    :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
   end
 end

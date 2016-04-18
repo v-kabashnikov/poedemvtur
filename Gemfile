@@ -26,6 +26,7 @@ gem 'fancybox2-rails', '~> 0.2.8'
 gem 'readmorejs-rails'
 gem "jquery-slick-rails"
 gem 'draper', '~> 2.1'
+gem 'simple_captcha2', require: 'simple_captcha'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 

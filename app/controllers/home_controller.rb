@@ -2,6 +2,8 @@ require 'benchmark'
 require 'open-uri'
 require 'sletat'
 class HomeController < ApplicationController
+  before_action :captcha_params, only: [:hotel, :feedback]
+  include SimpleCaptcha::ControllerHelpers
   layout 'static', except: 'index'
   # layout 'home', only: :index
   include Sletat
@@ -12,7 +14,9 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    UserMailer.send_signup_email("Loh").deliver
+    if simple_captcha_valid?
+      UserMailer.send_signup_email("Loh").deliver
+    end
      redirect_to :back
   end
 
@@ -176,5 +180,10 @@ class HomeController < ApplicationController
       @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: p[:priceMin]..p[:priceMax]).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs)   
       @total = @results.count
       render 'check'
+  end
+
+  private
+  def captcha_params
+    params.permit(:col, :id, :text, :captcha, :captcha_key)
   end
 end
