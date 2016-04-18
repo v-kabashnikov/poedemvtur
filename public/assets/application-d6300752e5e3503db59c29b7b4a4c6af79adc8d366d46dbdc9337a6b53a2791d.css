@@ -11083,35 +11083,43 @@ p {
   margin: 120px auto 10px;
 }
 
+/* line 80, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+#sub-header h3 img {
+  width: 50px;
+  height: 30px;
+  display: inline-block;
+  margin: -10px 10px 0 0;
+}
+
 @media (max-width: 600px) {
-  /* line 80, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 86, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header.large {
     height: auto;
   }
 }
 @media (max-width: 400px) {
-  /* line 82, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 88, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header h3 {
     margin-top: 150px;
     font-size: 26px;
   }
 
-  /* line 83, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 89, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header.xxs-compact {
     height: 150px;
   }
 
-  /* line 84, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 90, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header.compact {
     height: 150px;
   }
 }
-/* line 86, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 92, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-slider {
   position: relative;
 }
 
-/* line 87, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 93, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-control {
   font-family: 'Roboto', cursive;
   width: 51px !important;
@@ -11124,7 +11132,7 @@ p {
   z-index: 100;
 }
 
-/* line 88, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 94, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-control.left {
   left: 60px;
   background: url(/assets/arr-left-f173ce81c0becb8cdd6b7ac02412e3b1f2e254bcc5dea566464eac72974a607c.png) center no-repeat !important;
@@ -11135,12 +11143,12 @@ p {
   transition: left .2s ease;
 }
 
-/* line 89, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 95, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-control.left:active {
   left: 50px;
 }
 
-/* line 90, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 96, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-control.right {
   right: 60px;
   background: url(/assets/arr-right-92ed0ef194b72bb6f22a27dbd565b9f96c8a8f0eae6464deb6f2ab988a3fdab2.png) center no-repeat !important;
@@ -11151,12 +11159,12 @@ p {
   transition: right .2s ease;
 }
 
-/* line 91, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 97, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-control.right:active {
   right: 50px;
 }
 
-/* line 92, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 98, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-indicators li {
   background: #fff !important;
   width: 12px;
@@ -11165,12 +11173,12 @@ p {
   margin: 0 3px !important;
 }
 
-/* line 93, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 99, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-indicators li.active {
   opacity: 1;
 }
 
-/* line 94, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 100, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .item {
   background-position: center;
   background-repeat: no-repeat;
@@ -11185,14 +11193,14 @@ p {
   transition: all 1.7s cubic-bezier(0.75, 0, 0.25, 1) 0.2s;
 }
 
-/* line 95, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 101, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .item .carousel-caption {
   margin-bottom: 20px;
   right: 0;
   left: 0;
 }
 
-/* line 96, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 102, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption h3 {
   font-weight: 900;
   font-size: 52px;
@@ -11201,30 +11209,30 @@ p {
   position: relative;
 }
 
-/* line 97, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 103, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption h3 span {
   text-transform: uppercase;
 }
 
-/* line 98, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 104, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption h3 .price {
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* line 99, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 105, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption h3 .price i {
   font-size: 85%;
 }
 
-/* line 100, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 106, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption h3 small {
   font-size: 18px;
   font-weight: 300;
   color: #fff;
 }
 
-/* line 101, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 107, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption em {
   font-family: "Georgia", "Times New Roman", Times, serif;
   text-transform: lowercase;
@@ -11233,14 +11241,14 @@ p {
   white-space: nowrap;
 }
 
-/* line 102, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption .btnset {
   margin-top: 60px;
   margin-bottom: 60px;
   position: relative;
 }
 
-/* line 103, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 109, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption .btn {
   margin: 0 10px;
   padding-left: 0;
@@ -11248,7 +11256,7 @@ p {
   width: 210px;
 }
 
-/* line 104, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 110, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption .stars i {
   font-size: 33px;
   color: #000;
@@ -11256,13 +11264,13 @@ p {
   line-height: 50px;
 }
 
-/* line 105, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 111, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption .stars i.active {
   opacity: 1;
   color: #f6de7d;
 }
 
-/* line 106, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 112, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .carousel-caption .rating {
   font-family: 'Roboto', sans-serif;
   font-size: 36px;
@@ -11271,12 +11279,12 @@ p {
   margin: 0 0 120px;
 }
 
-/* line 107, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 113, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider > .carousel-caption {
   bottom: 100px;
 }
 
-/* line 108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 114, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .thumbs {
   margin: 0;
   position: relative;
@@ -11286,7 +11294,7 @@ p {
   z-index: 10;
 }
 
-/* line 109, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 115, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .thumbs .th-wrap {
   overflow: hidden;
   height: 100px;
@@ -11294,7 +11302,7 @@ p {
   letter-spacing: 0;
 }
 
-/* line 110, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 116, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .thumbs .th-wrap div {
   cursor: pointer;
   display: inline-block;
@@ -11308,67 +11316,67 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 111, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 117, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #header-slider .thumbs .th-wrap div:not(.selected) {
   opacity: .5;
 }
 
 @media (max-width: 991px) {
-  /* line 112, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 118, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .item {
     height: 430px;
   }
 
-  /* line 113, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 119, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .btnset {
     margin-top: 30px;
     margin-bottom: 30px;
   }
 
-  /* line 114, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 120, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption h3 {
     font-size: 43px;
   }
 
-  /* line 115, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 121, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .btn {
     width: 180px;
   }
 
-  /* line 116, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 122, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .rating {
     margin: 0 0 50px;
   }
 
-  /* line 117, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 123, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider > .carousel-caption {
     bottom: 0;
     height: 360px !important;
   }
 }
 @media (max-width: 595px) {
-  /* line 119, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 125, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .item {
     height: 460px;
   }
 
-  /* line 120, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 126, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .btnset {
     margin-top: 10px;
     margin-bottom: 0;
   }
 
-  /* line 121, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 127, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption h3 {
     font-size: 36px;
   }
 
-  /* line 122, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 128, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption em {
     font-size: 18px;
   }
 
-  /* line 123, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 129, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .btn {
     display: block;
     margin: 0 auto 10px;
@@ -11377,12 +11385,12 @@ p {
     font-size: 14px;
   }
 
-  /* line 124, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 130, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #header-slider .carousel-caption .rating {
     margin: 0 0 30px;
   }
 }
-/* line 126, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 132, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter {
   display: none;
   position: absolute;
@@ -11395,7 +11403,7 @@ p {
   background: url(/assets/bg-sub-header-filter-7574d6e7c9cdd55ab36e14d7bedd5b1df0436f9d0e2e20b327e253b1f131e831.jpg);
 }
 
-/* line 128, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 134, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .label {
   display: block;
   text-align: left;
@@ -11404,7 +11412,7 @@ p {
   padding: 7px 0 10px;
 }
 
-/* line 129, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 135, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-input {
   background: transparent;
   border: 1px solid #fff;
@@ -11412,14 +11420,14 @@ p {
   width: 100%;
 }
 
-/* line 130, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 136, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-input .caret {
   float: right;
   margin-top: 9px;
   margin-right: 3px;
 }
 
-/* line 131, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 137, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .input-group input {
   background: transparent;
   color: #fff;
@@ -11427,7 +11435,7 @@ p {
   border-right: 0;
 }
 
-/* line 132, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 138, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .input-group .input-group-addon {
   background: transparent;
   border-color: #fff;
@@ -11436,7 +11444,7 @@ p {
   padding: 0 5px;
 }
 
-/* line 133, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 139, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .over-right {
   position: absolute;
   left: 100%;
@@ -11444,7 +11452,7 @@ p {
   width: 120px;
 }
 
-/* line 134, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 140, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-text .selectize-input {
   border: 0 !important;
   min-height: 0 !important;
@@ -11452,27 +11460,27 @@ p {
   padding: 0 0 0 2px !important;
 }
 
-/* line 135, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 141, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-text .selectize-input .item {
   border-bottom: 1px dotted;
 }
 
-/* line 136, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 142, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-text .selectize-input.focus {
   box-shadow: none;
 }
 
-/* line 137, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 143, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-text .selectize-input.focus .item {
   border-bottom: 1px solid;
 }
 
-/* line 138, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 144, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .selectize-text .selectize-input:after {
   display: none;
 }
 
-/* line 139, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 145, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .count-input {
   width: 127px;
   float: right;
@@ -11482,7 +11490,7 @@ p {
   margin-left: 0;
 }
 
-/* line 140, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 146, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .count-input .plus,
 #sub-header-filter .count-input .minus {
   width: 35px;
@@ -11493,29 +11501,29 @@ p {
   font-weight: 500;
 }
 
-/* line 142, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 148, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .count-input input {
   width: 55px;
   background: transparent;
   color: #fff;
 }
 
-/* line 143, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 149, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .checkbox {
   display: inline-block;
 }
 
-/* line 144, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 150, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .checkbox input {
   display: none;
 }
 
-/* line 145, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .checkbox label {
   font-weight: 500;
 }
 
-/* line 146, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 152, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .checkbox label span {
   display: inline-block;
   width: 17px;
@@ -11527,12 +11535,12 @@ p {
   padding: 1px 1px 0;
 }
 
-/* line 147, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 153, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .checkbox input:checked + label span {
   font-size: 12px;
 }
 
-/* line 148, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 154, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #sub-header-filter .form-control {
   background: transparent;
   color: #fff;
@@ -11540,41 +11548,41 @@ p {
 }
 
 @media (max-width: 767px) {
-  /* line 149, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 155, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header-filter {
     padding-top: 110px;
   }
 
-  /* line 150, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 156, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header-filter .over-right {
     position: static;
     margin-top: 10px;
     margin-bottom: -13px;
   }
 
-  /* line 151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 157, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header-filter .btn-black {
     display: block;
     margin: 0 auto;
   }
 }
 @media (max-width: 595px) {
-  /* line 153, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 159, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #sub-header-filter {
     padding: 145px 10% 0;
   }
 }
-/* line 155, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 161, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   display: none !important;
 }
 
-/* line 156, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 162, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .pluso-list {
   padding-bottom: 10px;
 }
 
-/* line 157, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 163, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters {
   font-family: 'Roboto', sans-serif;
   color: #aaa;
@@ -11582,14 +11590,14 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   margin-bottom: 20px;
 }
 
-/* line 158, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 164, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .dropdown-text {
   color: #c77750;
   border-bottom: 1px dotted #c77750;
   margin: 0 10px;
 }
 
-/* line 159, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 165, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .big {
   font-size: 18px;
   font-weight: 600;
@@ -11597,7 +11605,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   color: #3f3f3f;
 }
 
-/* line 160, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 166, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .big .dropdown-text {
   font-size: 21px;
   font-weight: 500;
@@ -11606,13 +11614,13 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   cursor: pointer;
 }
 
-/* line 161, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 167, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text {
   border: none !important;
   vertical-align: sub;
 }
 
-/* line 162, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 168, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input {
   border: 0 !important;
   min-height: 0 !important;
@@ -11622,68 +11630,68 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   font: inherit !important;
 }
 
-/* line 163, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 169, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input .item {
   border-bottom: 1px dotted;
 }
 
-/* line 164, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 170, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input.focus {
   box-shadow: none;
 }
 
-/* line 165, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 171, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input.input-active {
   padding-right: 0 !important;
 }
 
-/* line 166, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 172, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input.focus .item {
   border-bottom: 1px solid;
 }
 
-/* line 167, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-input:after {
   display: none !important;
 }
 
-/* line 168, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 174, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text .selectize-dropdown {
   margin: 0 !important;
   font-size: 16px !important;
 }
 
-/* line 169, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 175, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text.w55 .selectize-dropdown {
   width: 55px !important;
 }
 
-/* line 170, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 176, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text.w70 .selectize-dropdown {
   width: 70px !important;
 }
 
-/* line 171, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 177, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text.w100 .selectize-dropdown {
   width: 100px !important;
 }
 
-/* line 172, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 178, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .selectize-control.dropdown-text.w200 .selectize-dropdown {
   width: 200px !important;
 }
 
-/* line 173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 179, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .intervals {
   color: #949494;
 }
 
-/* line 174, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 180, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .country {
   width: 100%;
 }
 
-/* line 175, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 181, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .country button {
   width: 100%;
   float: none;
@@ -11696,18 +11704,18 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   font-weight: 500;
 }
 
-/* line 176, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 182, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .country button:hover {
   color: #222;
 }
 
-/* line 177, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 183, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .country button .caret {
   float: right;
   margin-top: 8px;
 }
 
-/* line 178, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 184, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .count-input {
   width: 80px;
   height: 24px;
@@ -11715,7 +11723,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   margin-left: 10px;
 }
 
-/* line 179, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 185, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .count-input .plus,
 .count-input .minus {
   display: block;
@@ -11734,7 +11742,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   cursor: pointer;
 }
 
-/* line 181, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 187, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .count-input input {
   -moz-appearance: textfield;
   width: 34px;
@@ -11743,36 +11751,36 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   text-align: center;
 }
 
-/* line 182, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 188, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .count-input input::-webkit-outer-spin-button,
 .count-input input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-/* line 184, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 190, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes {
   margin-top: 20px;
   word-spacing: 20px;
   text-align: justify;
 }
 
-/* line 185, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 191, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes .element {
   display: inline-block;
   word-spacing: 0;
 }
 
-/* line 186, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 192, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes input {
   display: none;
 }
 
-/* line 187, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 193, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes label {
   font-weight: 500;
 }
 
-/* line 188, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 194, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes label span {
   display: inline-block;
   width: 17px;
@@ -11782,28 +11790,28 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   vertical-align: sub;
 }
 
-/* line 189, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 195, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes label:hover span {
   background-color: #eee;
 }
 
-/* line 190, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 196, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #filters .checkboxes input:checked + label span {
   background: url(/assets/checkbox-fcf67ac143663fd68ebbb11c8bc7f358ccd3ebe67e1deef7e131b058f55e2f3d.png) no-repeat 2px 2px;
 }
 
 @media (max-width: 991px) {
-  /* line 191, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 197, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .view-change {
     margin-left: 27px;
   }
 
-  /* line 192, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 198, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .intervals {
     text-align: right;
   }
 
-  /* line 193, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 199, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input {
     width: 195px;
     height: 32px;
@@ -11814,13 +11822,13 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     background: url(/assets/icon-mans-048f6a8924f5ed8e04933b7a60c99dfd257c3d672607fb95a41fa2d76ae00800.png) no-repeat left 5px center;
   }
 
-  /* line 194, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input .plus {
     float: right !important;
     margin: 0 1px;
   }
 
-  /* line 195, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input .plus,
   #filters .count-input .minus {
     width: 45px;
@@ -11833,7 +11841,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     font-weight: 300;
   }
 
-  /* line 197, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 203, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input input {
     width: 70px;
     height: 100%;
@@ -11842,30 +11850,30 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
   }
 }
 @media (max-width: 767px) {
-  /* line 199, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 205, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters {
     margin-top: 10px;
   }
 
-  /* line 200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 206, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters > .row > div {
     padding-left: 1px;
     padding-right: 1px;
   }
 
-  /* line 201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 207, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .people-count {
     float: none !important;
     text-align: left;
   }
 
-  /* line 202, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 208, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .btn-group {
     display: block;
     line-height: 1;
   }
 
-  /* line 203, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 209, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .btn-group button {
     width: 100%;
     float: none;
@@ -11883,12 +11891,12 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     padding-left: 20px;
   }
 
-  /* line 204, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 210, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .btn-group button:hover {
     color: #a53;
   }
 
-  /* line 205, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 211, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .btn-group button .caret {
     float: right;
     margin-top: 10px;
@@ -11896,7 +11904,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     color: #ccc;
   }
 
-  /* line 206, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 212, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input {
     float: left;
     width: 50%;
@@ -11906,12 +11914,12 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     background-position: left 20px center;
   }
 
-  /* line 207, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 213, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input input {
     float: right;
   }
 
-  /* line 208, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 214, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input .plus,
   #filters .count-input .minus {
     font-weight: 100;
@@ -11919,7 +11927,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     font-size: 40px;
   }
 
-  /* line 210, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 216, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #filters .count-input + .btn-group {
     width: 50%;
     width: calc(50% - 46px);
@@ -11928,7 +11936,7 @@ a.pluso-logo, a.pluso-go, a.pluso-market, a.pluso-promo {
     padding-left: 1px;
   }
 }
-/* line 212, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 218, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 h3.visible-xxs {
   font-size: 23px;
   text-transform: uppercase;
@@ -11936,12 +11944,12 @@ h3.visible-xxs {
   margin: 10px 5px 20px;
 }
 
-/* line 213, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 219, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .view-change {
   margin-left: 40px;
 }
 
-/* line 214, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 220, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .view-change > a {
   display: inline-block;
   padding: 2px 17px;
@@ -11955,25 +11963,25 @@ h3.visible-xxs {
   margin: 0 1px;
 }
 
-/* line 215, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 221, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .view-change > a.active {
   color: #c77750;
   border-color: #c77750;
   font-weight: 900;
 }
 
-/* line 216, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 222, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .view-change > a.active:hover {
   text-decoration: none;
 }
 
-/* line 217, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 223, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .view-change > a:not(.active):hover {
   text-decoration: none;
   border-color: #8b8b8b;
 }
 
-/* line 218, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 224, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters {
   font-family: 'Roboto', sans-serif;
   color: #aaa;
@@ -11982,55 +11990,55 @@ h3.visible-xxs {
   padding: 0;
 }
 
-/* line 219, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 225, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .big {
   font-size: 18px;
   font-weight: 600;
   color: #3f3f3f;
 }
 
-/* line 220, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 226, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .x-input-dd {
   color: #222;
   width: 100%;
 }
 
-/* line 221, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 227, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .x-input-dd.x-text {
   width: auto;
   color: #c77750;
 }
 
-/* line 222, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 228, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .big .x-input-dd.x-text {
   font-size: 21px;
   font-weight: 500;
 }
 
-/* line 223, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 229, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .x-input-check {
   margin-bottom: 5px;
 }
 
-/* line 224, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 230, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #x-filters .x-input-chk-group .x-group {
   text-align: justify;
 }
 
 @media (max-width: 767px) {
-  /* line 225, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 231, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #x-filters {
     display: flex;
     flex-wrap: wrap;
   }
 
-  /* line 226, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 232, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #x-filters > div {
     padding: 0;
     margin-bottom: -1px;
   }
 
-  /* line 227, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 233, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #x-filters .x-input-chk-group,
   #x-filters .x-input-dd {
     font-size: 14px !important;
@@ -12039,43 +12047,43 @@ h3.visible-xxs {
     border-color: #e5dcc6;
   }
 
-  /* line 229, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 235, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #x-filters .x-input-plus-minus,
   #x-filters .x-input-plus-minus .x-plus,
   #x-filters .x-input-plus-minus .x-minus {
     border-color: #e5dcc6;
   }
 
-  /* line 232, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 238, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #x-filters .x-input-plus-minus {
     width: 100%;
   }
 }
-/* line 235, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 241, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-filtered--header {
   margin: 30px 0 40px;
 }
 
 @media (max-width: 767px) {
-  /* line 238, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 244, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #tour-filtered #filters {
     text-align: left;
     margin-top: -20px;
     margin-bottom: 0;
   }
 
-  /* line 239, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 245, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #tour-filtered #filters .view-change {
     float: right;
   }
 }
-/* line 241, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 247, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #show-filter {
   background: #178a87;
   text-align: center;
 }
 
-/* line 242, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 248, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #show-filter a {
   display: inline-block;
   margin: 10px 0;
@@ -12085,12 +12093,12 @@ h3.visible-xxs {
   font-style: italic;
 }
 
-/* line 243, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 249, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #show-filter a:after {
   content: ' ↓';
 }
 
-/* line 244, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 250, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item {
   border: 1px solid #e0d8c5;
   border-radius: 3px;
@@ -12101,13 +12109,13 @@ h3.visible-xxs {
   color: #232323;
 }
 
-/* line 245, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 251, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item .date {
   color: #c77850;
   line-height: 20px;
 }
 
-/* line 246, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 252, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item .price {
   font-weight: 700;
   font-size: 24px;
@@ -12115,54 +12123,54 @@ h3.visible-xxs {
   color: #79c;
 }
 
-/* line 247, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 253, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item .price i {
   font-size: 90%;
 }
 
-/* line 248, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 254, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item .price small {
   display: block;
   font-size: 13px;
   line-height: 5px;
 }
 
-/* line 249, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 255, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item .btn {
   display: none;
 }
 
-/* line 250, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 256, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item:hover {
   background: #f1ebb5;
   border-color: #f1ebb5;
 }
 
-/* line 251, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 257, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item:hover .price {
   display: none;
 }
 
-/* line 252, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 258, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .tour-list-item:hover .btn {
   display: block;
 }
 
 @media (max-width: 767px) {
-  /* line 253, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 259, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   .tour-list-item {
     width: 100%;
     background: #f3f3f3;
     border: none;
   }
 }
-/* line 255, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 261, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .weather {
   color: #adadad;
   max-width: 225px;
 }
 
-/* line 256, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 262, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .weather .temp {
   font-size: 48px;
   font-weight: 500;
@@ -12170,7 +12178,7 @@ h3.visible-xxs {
   width: 145px;
 }
 
-/* line 257, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 263, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .weather .temp:before {
   content: attr(data-operator) " ";
   font-size: 18px;
@@ -12179,7 +12187,7 @@ h3.visible-xxs {
   line-height: 64px;
 }
 
-/* line 258, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 264, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .weather .temp:after {
   content: ' o';
   font-size: 18px;
@@ -12189,29 +12197,29 @@ h3.visible-xxs {
 }
 
 @media (min-width: 1200px) {
-  /* line 260, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 266, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   .weather .temp {
     font-size: 62px;
     width: 155px;
   }
 
-  /* line 261, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 267, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   .weather .desc {
     font-size: 16px;
   }
 }
 @media (max-width: 991px) {
-  /* line 263, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 269, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   .weather {
     max-width: 200px;
   }
 
-  /* line 264, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 270, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   .weather .temp {
     width: auto;
   }
 }
-/* line 266, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 272, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #before-footer {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -12220,7 +12228,7 @@ h3.visible-xxs {
   z-index: 2;
 }
 
-/* line 267, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 273, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #no-results {
   border-right: 1px solid #fff;
   background: #366e54 url(/assets/bg-no-results-e70b9ffef6f8b8e20b74ed7613ff2dfd0519ac11d702c6673421d6ce2870b369.jpg) center no-repeat;
@@ -12237,18 +12245,18 @@ h3.visible-xxs {
   transition: all .3s ease;
 }
 
-/* line 268, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 274, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #no-results:hover {
   background-position-x: 0px;
 }
 
-/* line 269, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 275, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #no-results h3 {
   font-size: 42px;
   font-weight: 900;
 }
 
-/* line 270, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 276, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #no-results .info {
   font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
@@ -12256,7 +12264,7 @@ h3.visible-xxs {
   margin: 10px 70px 35px;
 }
 
-/* line 271, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 277, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider {
   height: 100%;
   padding: 0;
@@ -12265,18 +12273,18 @@ h3.visible-xxs {
   background: #965738;
 }
 
-/* line 272, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 278, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .carousel-inner {
   height: 100%;
 }
 
-/* line 273, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 279, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item {
   height: 100%;
   width: 100%;
 }
 
-/* line 274, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 280, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item .brand {
   display: block;
   position: relative;
@@ -12285,7 +12293,7 @@ h3.visible-xxs {
   height: 18%;
 }
 
-/* line 275, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 281, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item .brand > div {
   display: block;
   border: 1px solid #a2694e;
@@ -12312,7 +12320,7 @@ h3.visible-xxs {
   transform: rotateX(0deg);
 }
 
-/* line 276, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 282, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item .brand img {
   max-height: 85%;
   max-width: 70%;
@@ -12329,7 +12337,7 @@ h3.visible-xxs {
   backface-visibility: hidden;
 }
 
-/* line 277, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 283, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item .brand .c-name {
   cursor: default;
   display: block;
@@ -12350,7 +12358,7 @@ h3.visible-xxs {
   transform: rotateX(180deg);
 }
 
-/* line 278, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 284, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .item .brand:hover > div {
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
@@ -12359,7 +12367,7 @@ h3.visible-xxs {
   transform: rotateX(180deg);
 }
 
-/* line 279, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 285, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .carousel-indicators li {
   width: 8px;
   height: 8px;
@@ -12367,7 +12375,7 @@ h3.visible-xxs {
   margin: 0 4px;
 }
 
-/* line 280, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 286, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 #brand-slider .carousel-indicators li.active {
   width: 14px;
   height: 14px;
@@ -12378,70 +12386,70 @@ h3.visible-xxs {
 }
 
 @media (max-width: 700px) {
-  /* line 281, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 287, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #before-footer {
     height: auto;
   }
 
-  /* line 282, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 288, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #no-results {
     background-image: url(/assets/bg-no-results-mob-97b7a676a9e2da9a37e73dee6376891267780b1767355189376a3defdfaf4400.jpg);
     padding: 50px 5% 50px;
   }
 
-  /* line 283, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 289, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #no-results h3 {
     font-size: 36px;
     font-weight: 700;
   }
 
-  /* line 284, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+  /* line 290, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
   #no-results .info {
     font-size: 16px;
     margin: 10px 10px 25px;
   }
 }
-/* line 286, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 292, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-1 {
   order: 1;
 }
 
-/* line 287, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 293, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-2 {
   order: 2;
 }
 
-/* line 288, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 294, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-3 {
   order: 3;
 }
 
-/* line 289, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 295, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-4 {
   order: 4;
 }
 
-/* line 290, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 296, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-5 {
   order: 5;
 }
 
-/* line 291, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 297, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-6 {
   order: 6;
 }
 
-/* line 292, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 298, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-7 {
   order: 7;
 }
 
-/* line 293, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 299, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-8 {
   order: 8;
 }
 
-/* line 294, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
+/* line 300, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/site.scss */
 .flex-9 {
   order: 9;
 }
@@ -23504,4 +23512,11 @@ table.datepickerViewYears tr.datepickerDoW {
   min-height: 100%;
   min-width: 100%;
   display: block;
+}
+
+/* line 71, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
+#all-header .header-phone_main {
+  margin: 10px 0 0;
+  display: block;
+  text-align: right;
 }
