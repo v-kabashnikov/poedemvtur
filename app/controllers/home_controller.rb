@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 
   def feedback
     UserMailer.send_signup_email("Loh").deliver
+     redirect_to :back
   end
 
 
