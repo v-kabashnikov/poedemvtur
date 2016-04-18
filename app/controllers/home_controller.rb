@@ -11,6 +11,10 @@ class HomeController < ApplicationController
     @countries = Country.where(:hot => true)
   end
 
+  def feedback
+    UserNotifier.send_signup_email("Loh").deliver
+  end
+
 
   def ajax
     if params[:p].length >= 2
