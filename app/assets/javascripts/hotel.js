@@ -51,7 +51,7 @@ $(document).ready(function(){
 		$form.find('#children').val(children);
 		$form.find('#adult').val(adults);
 	});
-$('.hotel-comment--fulllink').click(function(){
+$('.hotel-comment--fulllink').on('click', function(){
  		if(!$(this).hasClass('open')){
 			$(this).prev().css({'max-height' : '100%'});
 			$(this).addClass('open').text('Скрыть');
@@ -60,6 +60,16 @@ $('.hotel-comment--fulllink').click(function(){
 			$(this).removeClass('open').text('Читать отзыв');
 		}
 		return false
+ 	});
+$('.block-hotel-comments--fulllink').on('click', function(){
+ 		if(!$(this).hasClass('open')){
+ 			$(this).prev().css({'max-height' : '100%'});
+ 			$(this).addClass('open').text('Скрыть');
+ 		}else{
+ 			$(this).prev().css({'max-height' : '53px'});
+ 			$(this).removeClass('open').text('Читать отзыв');
+ 		}
+ 		return false
  	});
 
 });

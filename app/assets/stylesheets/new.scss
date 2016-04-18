@@ -2809,6 +2809,9 @@
   margin: 20px 0;
   font-weight: 300;
   font-size: 13px;
+  max-height: 53px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .block-hotel-comments--fulllink {
