@@ -45,7 +45,7 @@ module Sletat
     url = SERVICE_URL + method + '?' + auth_str + '&' + params.to_query
     uri_schema = URI(url)
     puts uri_schema
-    RestClient.proxy = ENV["QUOTAGUARDSTATIC_URL"] if ENV["QUOTAGUARDSTATIC_URL"]
+    RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
     res = RestClient.get(url)
 
     # json = open(uri_schema).read
