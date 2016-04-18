@@ -258,7 +258,7 @@ ru:
     pm: вечера
   simple_captcha:
     placeholder: "Введите значение с картинки"
-    label: "Enter the code in the box:"
+    label: "Введите код:"
     message:
       default: "Secret Code did not match with the Image"
       user: "The secret Image and code were different"

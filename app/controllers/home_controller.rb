@@ -15,6 +15,7 @@ class HomeController < ApplicationController
 
   def feedback
     if simple_captcha_valid?
+      @hotel = Hotel.find(params[:hotel_id])
       UserMailer.send_signup_email("Loh").deliver
     end
      redirect_to :back

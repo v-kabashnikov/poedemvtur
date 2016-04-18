@@ -75,6 +75,7 @@
           </label>
         </li>
       </ul>
+      <input id="date_min" type="hidden" name="hotel_id" value="<%=@hotel.id%>" >
       <div class="form-group">
         <h4>Обслуживание</h4>
         <select class="form-control">
@@ -515,6 +516,9 @@
             <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
           </div>
         <% end %>
+        <br>
+        <br>
+        <br>
          <% unless @hotel.reviews.empty? %>
           <h2 class="clearfix">Отзывы об отеле</h2>
           <div class="hotel-comments--list">
