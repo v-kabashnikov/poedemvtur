@@ -948,8 +948,8 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font-size: 18px;
-  color: #121212;
-  text-decoration: none;
+  color: #121212 !important;;
+  text-decoration: none !important;
   padding: 9px 12px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1086,8 +1086,11 @@
   color: #121212;
 }
 .roundtour-date .text {
-  display: inline-block;
+  display: block;
+  overflow: hidden;
   padding-top: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .form-roundtour .form-group {
