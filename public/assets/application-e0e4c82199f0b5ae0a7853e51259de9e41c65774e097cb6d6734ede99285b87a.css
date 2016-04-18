@@ -14124,8 +14124,8 @@ table.datepickerViewYears tr.datepickerDoW {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font-size: 18px;
-  color: #121212;
-  text-decoration: none;
+  color: #121212 !important;
+  text-decoration: none !important;
   padding: 9px 12px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -14145,7 +14145,15 @@ table.datepickerViewYears tr.datepickerDoW {
   color: #121212;
 }
 
-/* line 969, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 968, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+.roundtour-place .text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 975, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--submenu {
   position: absolute;
   top: 0;
@@ -14160,7 +14168,7 @@ table.datepickerViewYears tr.datepickerDoW {
   display: none;
 }
 
-/* line 983, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 989, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--search {
   border: none;
   -moz-border-radius: 0;
@@ -14175,27 +14183,27 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 0 15px 0 40px;
 }
 
-/* line 996, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1002, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--search:-moz-placeholder {
   color: #121212;
 }
 
-/* line 999, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1005, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--search::-moz-placeholder {
   color: #121212;
 }
 
-/* line 1002, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1008, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--search:-ms-input-placeholder {
   color: #121212;
 }
 
-/* line 1005, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1011, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--search::-webkit-input-placeholder {
   color: #121212;
 }
 
-/* line 1009, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1015, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--searchicon {
   position: absolute;
   display: inline-block;
@@ -14203,18 +14211,18 @@ table.datepickerViewYears tr.datepickerDoW {
   top: 13px;
 }
 
-/* line 1016, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1022, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--wrapper {
   height: 300px;
 }
 
-/* line 1020, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1026, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--list {
   padding: 0;
   margin: 0 20px 0 0;
 }
 
-/* line 1024, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1030, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--list li {
   list-style-type: none;
   overflow: hidden;
@@ -14222,18 +14230,18 @@ table.datepickerViewYears tr.datepickerDoW {
   cursor: pointer;
 }
 
-/* line 1030, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1036, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--list li:hover {
   background: #f5c448;
   color: #fff !important;
 }
 
-/* line 1034, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1040, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--list li:hover .roundtour-place--country {
   color: #fff;
 }
 
-/* line 1038, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1044, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--icon {
   float: left;
   width: 15px;
@@ -14241,32 +14249,39 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-right: 11px;
 }
 
-/* line 1045, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1051, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--info {
   font-family: 'helveticaneuecyr';
   float: left;
   font-weight: 300;
+  max-width: 140px;
 }
 
-/* line 1051, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+@media (min-width: 1200px) {
+  /* line 1058, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  .roundtour-place--info {
+    max-width: 220px;
+  }
+}
+/* line 1063, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--curort {
   margin: 0;
   font-weight: 300;
 }
 
-/* line 1056, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1068, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--country {
   color: #a49e9e;
   font-size: 12px;
   line-height: 90%;
 }
 
-/* line 1062, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1074, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-place--img {
   float: right;
 }
 
-/* line 1066, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1078, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date {
   display: block;
   background: #fff;
@@ -14283,37 +14298,40 @@ table.datepickerViewYears tr.datepickerDoW {
   height: 43px;
 }
 
-/* line 1081, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1093, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date .icon {
   float: left;
   margin: 2px 15px 0 0;
 }
 
-/* line 1085, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1097, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date:hover {
   text-decoration: none;
   color: #121212;
 }
 
-/* line 1089, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1101, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date .text {
-  display: inline-block;
+  display: block;
+  overflow: hidden;
   padding-top: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* line 1094, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1109, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .form-roundtour .form-group {
   margin-bottom: 10px;
 }
 
-/* line 1098, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1113, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people {
   display: inline-block;
   width: 100%;
   padding: 5px 0;
 }
 
-/* line 1104, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1119, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--active {
   float: left;
   border: 1px solid #fff;
@@ -14327,14 +14345,14 @@ table.datepickerViewYears tr.datepickerDoW {
   height: 53px;
 }
 
-/* line 1117, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1132, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults {
   float: left;
   margin: 0;
   padding: 0;
 }
 
-/* line 1122, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1137, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li {
   float: left;
   list-style-type: none;
@@ -14344,28 +14362,28 @@ table.datepickerViewYears tr.datepickerDoW {
   position: relative;
 }
 
-/* line 1130, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1145, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li:first-of-type:hover span {
   margin-top: 0 !important;
 }
 
-/* line 1133, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1148, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li:first-of-type .roundtour-people--remove {
   display: none;
 }
 
-/* line 1136, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li:hover .roundtour-people--remove {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1140, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1155, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li:hover span {
   margin-top: 7px;
 }
 
-/* line 1143, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1158, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--adults li span {
   -moz-transition: margin 0.3s ease;
   -o-transition: margin 0.3s ease;
@@ -14373,7 +14391,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: margin 0.3s ease;
 }
 
-/* line 1150, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1165, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--remove {
   color: #fff;
   text-decoration: none;
@@ -14387,20 +14405,20 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0;
 }
 
-/* line 1162, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1177, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--remove:hover {
   text-decoration: none;
   color: #fff;
 }
 
-/* line 1167, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1182, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--childrens {
   float: right;
   margin: 0 0 0 20px;
   padding: 0;
 }
 
-/* line 1172, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1187, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--childrens li {
   float: left;
   list-style-type: none;
@@ -14409,18 +14427,18 @@ table.datepickerViewYears tr.datepickerDoW {
   position: relative;
 }
 
-/* line 1179, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1194, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--childrens li:hover .roundtour-people--remove {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1183, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1198, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--childrens li:hover span {
   margin-top: 7px;
 }
 
-/* line 1186, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--childrens li span {
   -moz-transition: margin 0.3s ease;
   -o-transition: margin 0.3s ease;
@@ -14428,7 +14446,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: margin 0.3s ease;
 }
 
-/* line 1193, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1208, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--year {
   font-size: 9px;
   line-height: 100%;
@@ -14436,7 +14454,7 @@ table.datepickerViewYears tr.datepickerDoW {
   text-align: center;
 }
 
-/* line 1200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1215, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addadults {
   border: 1px solid #cb6f10;
   -moz-border-radius: 5px;
@@ -14460,7 +14478,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: opacity 0.3s ease;
 }
 
-/* line 1222, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1237, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addadults .text {
   float: left;
   margin: 20px 10px 0 0;
@@ -14472,7 +14490,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1232, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1247, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addadults .icon {
   float: right;
   margin-top: 10px;
@@ -14484,24 +14502,24 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1242, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1257, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addadults:hover {
   border-color: #a73107;
 }
 
-/* line 1245, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1260, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addadults:hover .text, .roundtour-people--addadults:hover .icon {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1250, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1265, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens-wrapper {
   display: inline-block;
   position: relative;
 }
 
-/* line 1255, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1270, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens {
   border: 1px solid #cb6f10;
   -moz-border-radius: 5px;
@@ -14525,7 +14543,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: opacity 0.3s ease;
 }
 
-/* line 1277, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1292, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens .text {
   float: left;
   margin: 20px 10px 0 0;
@@ -14537,7 +14555,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1287, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1302, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens .icon {
   float: right;
   margin-top: 14px;
@@ -14549,18 +14567,18 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1297, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1312, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens:hover {
   border-color: #a73107;
 }
 
-/* line 1300, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1315, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens:hover .text, .roundtour-people--addchildrens:hover .icon {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1304, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1319, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens.active {
   background: #f2f2f2;
   -moz-border-radius: 5px 5px 0 0;
@@ -14568,13 +14586,13 @@ table.datepickerViewYears tr.datepickerDoW {
   border-radius: 5px 5px 0 0;
 }
 
-/* line 1310, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1325, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--addchildrens.active .text, .roundtour-people--addchildrens.active .icon {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1315, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1330, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--years {
   width: 100px;
   position: absolute;
@@ -14589,13 +14607,13 @@ table.datepickerViewYears tr.datepickerDoW {
   display: none;
 }
 
-/* line 1328, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1343, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--years ul {
   margin: 0 20px 0 0;
   padding: 0;
 }
 
-/* line 1332, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1347, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--years li {
   color: #212121;
   list-style-type: none;
@@ -14603,13 +14621,13 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 5px;
 }
 
-/* line 1338, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1353, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-people--years li:hover {
   color: #fff;
   background: #f5c448;
 }
 
-/* line 1343, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1358, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-button .btn {
   font-size: 16px;
   font-weight: 700;
@@ -14618,7 +14636,7 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 23px;
 }
 
-/* line 1350, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1365, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-button .btn .icon {
   margin-left: 20px;
   display: inline-block;
@@ -14626,55 +14644,55 @@ table.datepickerViewYears tr.datepickerDoW {
   bottom: -4px;
 }
 
-/* line 1357, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1372, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-price--wrapper {
   height: 70px;
   margin: 15px 0;
 }
 
-/* line 1362, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1377, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs {
   height: 40px;
 }
 
-/* line 1366, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1381, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-with-grid {
   height: 60px;
 }
 
-/* line 1370, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1385, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-line {
   height: 1px;
   top: 52px;
   background: #000;
 }
 
-/* line 1376, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1391, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-line-left {
   height: 1px;
   background-position: 0 -30px;
 }
 
-/* line 1381, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1396, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-line-mid {
   height: 1px;
   background-position: 0 0;
 }
 
-/* line 1386, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1401, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-line-right {
   height: 1px;
   background-position: 100% -30px;
 }
 
-/* line 1391, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1406, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-bar {
   height: 12px;
   top: 25px;
   background-position: 0 -60px;
 }
 
-/* line 1397, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1412, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-bar-edge {
   top: 25px;
   height: 12px;
@@ -14682,7 +14700,7 @@ table.datepickerViewYears tr.datepickerDoW {
   background-position: 0 -90px;
 }
 
-/* line 1404, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1419, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-shadow {
   height: 3px;
   top: 34px;
@@ -14690,12 +14708,12 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0.25;
 }
 
-/* line 1411, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1426, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .lt-ie9 .irs-shadow {
   filter: alpha(opacity=25);
 }
 
-/* line 1415, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1430, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-slider {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -14704,12 +14722,12 @@ table.datepickerViewYears tr.datepickerDoW {
   cursor: pointer;
 }
 
-/* line 1423, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1438, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-min, .irs-max {
   display: none;
 }
 
-/* line 1427, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1442, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-from, .irs-to, .irs-single {
   background: #252525;
   -moz-border-radius: 3px;
@@ -14722,13 +14740,13 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 5px 10px;
 }
 
-/* line 1438, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1453, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-from .fa, .irs-to .fa, .irs-single .fa {
   margin-left: 5px;
   font-size: 16px;
 }
 
-/* line 1443, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1458, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-from:after, .irs-to:after, .irs-single:after {
   position: absolute;
   display: block;
@@ -14743,17 +14761,17 @@ table.datepickerViewYears tr.datepickerDoW {
   border-top-color: #252525;
 }
 
-/* line 1457, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1472, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-grid-pol {
   background: #e1e4e9;
 }
 
-/* line 1461, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1476, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .irs-grid-text {
   color: #999;
 }
 
-/* line 1465, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1480, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-wrapper {
   position: relative;
   margin-top: 450px;
@@ -14761,7 +14779,7 @@ table.datepickerViewYears tr.datepickerDoW {
   z-index: 1;
 }
 
-/* line 1472, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1487, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-slider {
   background: rgba(0, 0, 0, 0.41);
   -moz-border-radius: 5px;
@@ -14770,7 +14788,7 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 10px 10px 5px;
 }
 
-/* line 1479, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1494, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-slider .slick-arrow {
   position: absolute;
   top: 50%;
@@ -14782,24 +14800,24 @@ table.datepickerViewYears tr.datepickerDoW {
   outline: none;
 }
 
-/* line 1489, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1504, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-slider .slick-prev {
   right: 100%;
   margin-right: 20px;
 }
 
-/* line 1493, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1508, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-slider .slick-next {
   left: 100%;
   margin-left: 20px;
 }
 
-/* line 1497, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1512, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .main-offer-slider .slide {
   outline: none;
 }
 
-/* line 1501, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1516, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer {
   margin: 5px 5px 10px;
   position: relative;
@@ -14815,7 +14833,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1515, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1530, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer:hover .ready-offer--img img {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
@@ -14823,7 +14841,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transform: scale(1.1);
 }
 
-/* line 1522, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1537, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--img {
   width: 100%;
   -moz-border-radius: 5px;
@@ -14836,7 +14854,7 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1533, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1548, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--img img {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -14847,7 +14865,7 @@ table.datepickerViewYears tr.datepickerDoW {
   display: block;
 }
 
-/* line 1543, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1558, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--content {
   position: absolute;
   top: 0;
@@ -14857,7 +14875,7 @@ table.datepickerViewYears tr.datepickerDoW {
   font-family: 'helveticaneuecyr';
 }
 
-/* line 1552, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1567, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--sale {
   position: absolute;
   right: -30px;
@@ -14878,7 +14896,7 @@ table.datepickerViewYears tr.datepickerDoW {
   width: 80px;
 }
 
-/* line 1572, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1587, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--title {
   font-size: 18px;
   font-weight: 700;
@@ -14886,7 +14904,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin: 20px 10px 5px 20px;
 }
 
-/* line 1579, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1594, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price {
   display: inline-block;
   margin-left: 20px;
@@ -14900,49 +14918,49 @@ table.datepickerViewYears tr.datepickerDoW {
   background: #212121;
 }
 
-/* line 1591, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1606, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price .fa {
   font-size: 16px;
 }
 
-/* line 1595, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1610, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_red {
   background: #dd2220;
 }
 
-/* line 1599, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1614, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_green {
   background: #438206;
 }
 
-/* line 1603, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1618, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_pink {
   background: #d62c81;
 }
 
-/* line 1607, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1622, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_dark {
   background: #212121;
 }
 
-/* line 1611, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1626, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_blue {
   background: #254888;
 }
 
-/* line 1615, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1630, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .ready-offer--price_orange {
   background: #dd4d20;
 }
 
-/* line 1619, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1634, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .blur {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   filter: blur(5px);
 }
 
-/* line 1625, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1640, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--wrapper {
   background: rgba(0, 0, 0, 0.81);
   position: absolute;
@@ -14959,12 +14977,12 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 1440px) {
-  /* line 1640, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1655, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-date--wrapper {
     height: 1093px;
   }
 }
-/* line 1645, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1660, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--content {
   position: relative;
   top: 80px;
@@ -14972,7 +14990,7 @@ table.datepickerViewYears tr.datepickerDoW {
   font-family: 'helveticaneuecyr';
 }
 
-/* line 1651, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1666, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--content h4 {
   color: #f6d965;
   font-size: 18px;
@@ -14980,7 +14998,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin: 20px 0;
 }
 
-/* line 1657, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1672, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--content hr {
   border: none;
   border-top: 1px dotted #515558;
@@ -14989,7 +15007,7 @@ table.datepickerViewYears tr.datepickerDoW {
   display: block;
 }
 
-/* line 1665, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1680, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--close {
   position: absolute;
   left: 100%;
@@ -15003,13 +15021,13 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0.8;
 }
 
-/* line 1677, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1692, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--close:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1682, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1697, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night {
   overflow: hidden;
   margin: 0 0 0 -11px;
@@ -15020,7 +15038,7 @@ table.datepickerViewYears tr.datepickerDoW {
   -webkit-user-select: none;
 }
 
-/* line 1691, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1706, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night li {
   float: left;
   list-style-type: none;
@@ -15046,17 +15064,17 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 0 5px;
 }
 
-/* line 1715, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1730, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night li:last-of-type {
   width: auto;
 }
 
-/* line 1718, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1733, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night li.hover, .roundtour-date--night li:hover {
   border-color: #e4e4e4;
 }
 
-/* line 1721, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1736, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night .active {
   background: #f3c81a !important;
   border-color: #f3c81a !important;
@@ -15064,33 +15082,33 @@ table.datepickerViewYears tr.datepickerDoW {
   font-weight: 700;
 }
 
-/* line 1727, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1742, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night .noborder {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
 
-/* line 1732, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1747, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night .first {
   -moz-border-radius: 32px 0 0 32px;
   -webkit-border-radius: 32px;
   border-radius: 32px 0 0 32px;
 }
 
-/* line 1737, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1752, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--night .last {
   -moz-border-radius: 0 32px 32px 0;
   -webkit-border-radius: 0;
   border-radius: 0 32px 32px 0;
 }
 
-/* line 1743, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1758, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--month {
   height: 282px;
 }
 
-/* line 1747, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1762, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .datepickerViewDays {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -15098,14 +15116,14 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 1754, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1769, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .datepickerSelected a {
   background: #f3c81a !important;
   color: #141414 !important;
   font-weight: 700 !important;
 }
 
-/* line 1760, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1775, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .prev-month,
 .next-month {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
@@ -15117,26 +15135,26 @@ table.datepickerViewYears tr.datepickerDoW {
   text-decoration: none;
 }
 
-/* line 1770, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1785, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .prev-month:hover,
 .next-month:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1775, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1790, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .prev-month span,
 .next-month span {
   display: none;
 }
 
-/* line 1780, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1795, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roundtour-date--save {
   border-color: #313131;
 }
 
 @media (min-width: 1200px) {
-  /* line 1785, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1800, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-header .container,
   .hotel-slider--wrapper .container,
   .hotel-info .container,
@@ -15145,7 +15163,7 @@ table.datepickerViewYears tr.datepickerDoW {
     width: 970px;
   }
 }
-/* line 1793, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1808, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--container {
   background: url(/assets/hotel-search-bg-a986f29ebc0f75b6e5f38c2d792042dc03214243fc51159d43b4c32af2e4427f.jpg) top center no-repeat;
   background-size: cover;
@@ -15154,18 +15172,18 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1800, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1815, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--container {
     margin-bottom: 0;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 1805, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1820, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--container {
     margin: 0;
   }
 }
-/* line 1809, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1824, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form {
   background: rgba(0, 0, 0, 0.36);
   padding: 105px 0;
@@ -15173,30 +15191,30 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1815, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1830, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form {
     padding: 70px 0 30px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 1820, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1835, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form {
     padding: 15px 0;
   }
 }
-/* line 1824, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1839, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-city {
   font-size: 21px;
   font-family: 'helveticaneuecyr';
 }
 
-/* line 1828, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1843, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-city--select {
   color: #f6d344;
   border-color: #f6d344;
 }
 
-/* line 1832, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1847, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-city--submenu {
   left: 140px;
   top: -10px;
@@ -15205,42 +15223,47 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 1839, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1855, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-city--submenu {
     left: 105px;
   }
 }
-/* line 1843, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1859, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-city--close {
   top: 10px;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 1847, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1863, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-city {
     font-size: 16px;
   }
 }
-/* line 1851, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1867, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-place {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 
-/* line 1856, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1872, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-place--submenu {
   color: #212121;
 }
 
-/* line 1859, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1875, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+.hotel-search--form .roundtour-place--info {
+  max-width: 140px;
+}
+
+/* line 1878, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-date {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 
-/* line 1864, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1883, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people {
   float: left;
   padding: 0;
@@ -15248,7 +15271,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-right: 20px;
 }
 
-/* line 1870, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1889, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--active {
   height: 43px;
   padding: 4px 12px;
@@ -15258,19 +15281,19 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1878, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1897, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--active {
     height: 53px;
     padding: 6px 12px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 1884, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1903, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--active {
     float: none;
   }
 }
-/* line 1888, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1907, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
   height: 43px;
   border-color: #f6d344;
@@ -15281,13 +15304,13 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 43px;
 }
 
-/* line 1897, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1916, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--addadults .icon, .hotel-search--form .roundtour-people--addchildrens .icon {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1901, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1920, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--addadults .text, .hotel-search--form .roundtour-people--addchildrens .text {
   margin: 16px 5px 0 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -15295,48 +15318,48 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1907, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1926, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--addadults .text, .hotel-search--form .roundtour-people--addchildrens .text {
     margin: 20px 10px 0 0;
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 1912, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1931, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
     height: 53px;
     line-height: 43px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 1918, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1937, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
     margin-left: 0;
     margin-right: 10px;
   }
 }
-/* line 1923, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1942, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--addadults .icon {
   margin-top: 5px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1927, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1946, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--addadults .icon {
     margin-top: 7px;
   }
 }
-/* line 1931, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1950, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--form .roundtour-people--addchildrens .icon {
   margin-top: 10px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1935, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1954, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--form .roundtour-people--addchildrens .icon {
     margin-top: 12px;
   }
 }
-/* line 1939, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1958, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--send {
   position: absolute;
   background: #f6c80d;
@@ -15356,7 +15379,7 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1957, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 1976, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--send {
     position: relative;
     display: block;
@@ -15366,12 +15389,12 @@ table.datepickerViewYears tr.datepickerDoW {
     line-height: 100%;
   }
 }
-/* line 1966, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1985, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date {
   display: none;
 }
 
-/* line 1969, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1988, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--wrapper {
   position: relative;
   height: auto;
@@ -15382,46 +15405,46 @@ table.datepickerViewYears tr.datepickerDoW {
   background: rgba(0, 0, 0, 0.89);
 }
 
-/* line 1978, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 1997, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--content {
   top: 0;
   padding: 0;
 }
 
-/* line 1982, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2001, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--content h4 {
   margin: 0;
   font-size: 17px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 1987, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2006, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-search--date .roundtour-date--content h4 {
     margin-bottom: 20px;
   }
 }
-/* line 1991, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2010, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--top {
   background: #000;
   padding: 35px 0 30px;
 }
 
-/* line 1995, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2014, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--night {
   margin-top: -6px;
 }
 
-/* line 1998, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2017, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--days {
   padding: 40px 0;
 }
 
-/* line 2001, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2020, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-search--date .roundtour-date--save {
   margin-top: 10px;
 }
 
-/* line 2005, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2024, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--close {
   float: right;
   color: #212121;
@@ -15434,57 +15457,57 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 2017, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2036, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-selectdate--save {
     display: block;
     width: 100%;
   }
 
-  /* line 2022, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2041, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-comment--author {
     padding-left: 15px;
   }
 
-  /* line 2026, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2045, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-comment--date {
     padding-left: 15px;
   }
 }
-/* line 2030, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2049, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-list--logo {
   margin-right: 7px;
   float: left;
 }
 
-/* line 2034, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2053, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-list--logo + span {
   overflow: hidden;
 }
 
-/* line 2038, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2057, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-list-item_vip {
   background: #dbf4fa;
   border-color: #dbf4fa;
 }
 
-/* line 2043, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2062, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .form-hotelsearch {
   position: relative;
   z-index: 3;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 2049, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2068, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .no-leftpadding {
     padding-left: 0;
   }
 
-  /* line 2053, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2072, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .no-rightpadding {
     padding-right: 0;
   }
 }
-/* line 2057, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2076, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter {
   display: block;
   width: 100%;
@@ -15492,12 +15515,12 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media (min-width: 1200px) and (max-width: 1440px) {
-  /* line 2063, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2082, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-filter .container {
     width: 970px;
   }
 }
-/* line 2067, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2086, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--show {
   text-align: center;
   background: #178a87;
@@ -15521,25 +15544,25 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0;
 }
 
-/* line 2089, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--show span {
   display: inline-block;
 }
 
-/* line 2092, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2111, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--show i {
   margin-left: 10px;
   display: inline-block;
   float: right;
 }
 
-/* line 2097, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2116, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--show:hover {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 2101, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2120, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--container {
   position: relative;
   z-index: 2;
@@ -15550,12 +15573,12 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media (max-width: 767px) {
-  /* line 2110, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2129, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-filter--container {
     padding-bottom: 30px;
   }
 }
-/* line 2114, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2133, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--line {
   display: block;
   width: 100%;
@@ -15567,12 +15590,12 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media (max-width: 767px) {
-  /* line 2124, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2143, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-filter--line {
     margin-top: -13px;
   }
 }
-/* line 2128, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2147, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--hide {
   background: #fff;
   -moz-border-radius: 50%;
@@ -15592,14 +15615,14 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: background 0.3s ease;
 }
 
-/* line 2146, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2165, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--hide:hover {
   background: #f4f4f4;
   color: #adadad;
 }
 
 @media (max-width: 767px) {
-  /* line 2151, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 2170, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-filter--hide {
     width: 32px;
     height: 32px;
@@ -15607,7 +15630,7 @@ table.datepickerViewYears tr.datepickerDoW {
     line-height: 29px;
   }
 }
-/* line 2158, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2177, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header {
   color: #c0714b;
   font-size: 16px;
@@ -15620,56 +15643,56 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 100%;
 }
 
-/* line 2169, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2188, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .icon {
   float: left;
   display: inline-block;
 }
 
-/* line 2173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2192, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .icons-filter-eat {
   margin-top: -5px;
 }
 
-/* line 2176, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2195, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .icons-filter-class {
   margin-top: -2px;
 }
 
-/* line 2179, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2198, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .icons-filter-price {
   margin-top: 1px;
 }
 
-/* line 2182, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2201, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .icons-filter-beach {
   margin-top: 2px;
 }
 
-/* line 2185, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2204, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--header .text {
   margin-left: 15px;
   display: inline-block;
 }
 
-/* line 2189, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2208, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--checkboxs {
   margin: 0;
   padding: 0;
 }
 
-/* line 2193, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2212, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--checkboxs li {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 2197, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2216, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price {
   position: relative;
 }
 
-/* line 2200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2219, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price .form-control {
   font-size: 14px;
   border-color: #d1d1d1;
@@ -15681,7 +15704,7 @@ table.datepickerViewYears tr.datepickerDoW {
   font-family: 'Roboto';
 }
 
-/* line 2210, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2229, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price .sep {
   background: #aaaaaa;
   display: inline-block;
@@ -15692,7 +15715,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-top: -1px;
 }
 
-/* line 2220, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2239, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .custom-checkbox {
   position: relative;
   overflow: hidden;
@@ -15701,12 +15724,12 @@ table.datepickerViewYears tr.datepickerDoW {
   font-size: 14px;
 }
 
-/* line 2227, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2246, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .custom-checkbox input {
   display: none;
 }
 
-/* line 2230, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2249, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .custom-checkbox span {
   display: block;
   position: relative;
@@ -15715,7 +15738,7 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 19px;
 }
 
-/* line 2237, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2256, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .custom-checkbox span:before {
   content: '';
   background: url(/assets/custom-checkbox-ed4fffb0a83a5ffe3193042d22d0e0a17b159272b6f1f56ee53d16792a83c28d.png) -1px -1px no-repeat;
@@ -15739,19 +15762,19 @@ table.datepickerViewYears tr.datepickerDoW {
   overflow: hidden;
 }
 
-/* line 2259, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2278, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .custom-checkbox input:checked + span:before {
   background-position: -1px -19px;
   border-color: #178a87;
 }
 
-/* line 2264, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2283, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .filter-checkbox_class {
   color: #dbdbdb;
   font-size: 18px;
 }
 
-/* line 2268, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2287, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .filter-checkbox_class span {
   -moz-transition: color 0.3s ease;
   -o-transition: color 0.3s ease;
@@ -15759,65 +15782,65 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: color 0.3s ease;
 }
 
-/* line 2274, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2293, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .filter-checkbox_class input:checked + span {
   color: #178a87;
 }
 
-/* line 2277, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2296, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .filter-checkbox_class i {
   margin-right: 2px;
 }
 
-/* line 2281, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2300, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider {
   position: relative;
   margin: 20px 0;
 }
 
-/* line 2285, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2304, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs {
   height: 20px;
 }
 
-/* line 2288, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2307, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-with-grid {
   height: 20px;
 }
 
-/* line 2291, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2310, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-line {
   height: 1px;
   top: 15px;
   background: #696969;
 }
 
-/* line 2296, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2315, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-line-left {
   height: 1px;
   background-position: 0 -30px;
 }
 
-/* line 2300, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2319, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-line-mid {
   height: 1px;
   background-position: 0 0;
 }
 
-/* line 2304, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2323, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-line-right {
   height: 1px;
   background-position: 100% -30px;
 }
 
-/* line 2308, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2327, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-bar {
   height: 12px;
   top: 25px;
   background-position: 0 -60px;
 }
 
-/* line 2313, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2332, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-bar-edge {
   top: 25px;
   height: 12px;
@@ -15825,7 +15848,7 @@ table.datepickerViewYears tr.datepickerDoW {
   background-position: 0 -90px;
 }
 
-/* line 2319, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2338, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-shadow {
   height: 3px;
   top: 34px;
@@ -15833,12 +15856,12 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0.25;
 }
 
-/* line 2325, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2344, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .lt-ie9 .irs-shadow {
   filter: alpha(opacity=25);
 }
 
-/* line 2328, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2347, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-slider {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -15847,12 +15870,12 @@ table.datepickerViewYears tr.datepickerDoW {
   cursor: pointer;
 }
 
-/* line 2335, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2354, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-min, .tour-filter--price-slider .irs-max {
   display: none;
 }
 
-/* line 2338, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2357, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-from, .tour-filter--price-slider .irs-to, .tour-filter--price-slider .irs-single {
   background: #252525;
   -moz-border-radius: 3px;
@@ -15865,13 +15888,13 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 5px 10px;
 }
 
-/* line 2349, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2368, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-from .fa, .tour-filter--price-slider .irs-to .fa, .tour-filter--price-slider .irs-single .fa {
   margin-left: 5px;
   font-size: 16px;
 }
 
-/* line 2353, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2372, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-from:after, .tour-filter--price-slider .irs-to:after, .tour-filter--price-slider .irs-single:after {
   position: absolute;
   display: block;
@@ -15886,17 +15909,17 @@ table.datepickerViewYears tr.datepickerDoW {
   border-top-color: #252525;
 }
 
-/* line 2366, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2385, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-grid-pol {
   background: #e1e4e9;
 }
 
-/* line 2369, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2388, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-filter--price-slider .irs-grid-text {
   color: #999;
 }
 
-/* line 2373, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2392, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .design {
   background: url(/images/design-hotel.jpg) top center no-repeat;
   position: absolute;
@@ -15909,28 +15932,28 @@ table.datepickerViewYears tr.datepickerDoW {
   opacity: 0.3;
 }
 
-/* line 2385, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2404, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .sub-header_hotel {
   height: 111px !important;
 }
 
-/* line 2389, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2408, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-header {
   padding: 47px 0 27px;
 }
 
-/* line 2393, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2412, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-name {
   color: #383838;
 }
 
-/* line 2397, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2416, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-name {
   margin: 0 0 5px;
   line-height: 100%;
 }
 
-/* line 2402, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2421, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-breadcrumbs {
   overflow: hidden;
   margin: 0;
@@ -15940,43 +15963,43 @@ table.datepickerViewYears tr.datepickerDoW {
   color: #5a5a5a;
 }
 
-/* line 2410, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2429, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-breadcrumbs li {
   float: left;
   margin-right: 10px;
   list-style-type: none;
 }
 
-/* line 2415, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2434, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-breadcrumbs a {
   color: #5a5a5a;
   text-decoration: underline;
 }
 
-/* line 2419, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2438, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-breadcrumbs a:hover {
   text-decoration: none;
 }
 
-/* line 2422, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2441, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-breadcrumbs .sep {
   color: #adadad;
 }
 
-/* line 2426, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2445, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-rating {
   display: block;
   margin-bottom: 10px;
 }
 
-/* line 2431, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2450, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-rating--star {
   display: inline-block;
   position: relative;
   top: -3px;
 }
 
-/* line 2437, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2456, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-rating--number {
   font-family: 'Roboto';
   color: #363636;
@@ -15985,7 +16008,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-left: 20px;
 }
 
-/* line 2445, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2464, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .btn-yellow {
   color: #737059;
   font-size: 13px;
@@ -15998,18 +16021,18 @@ table.datepickerViewYears tr.datepickerDoW {
   border-radius: 3px;
 }
 
-/* line 2457, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2476, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment {
   text-transform: uppercase;
   padding: 10px 25px;
 }
 
-/* line 2462, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2481, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider {
   padding-bottom: 55px;
 }
 
-/* line 2465, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2484, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-dots {
   text-align: center;
   position: absolute;
@@ -16020,13 +16043,13 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 0;
 }
 
-/* line 2474, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2493, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-dots li {
   display: inline;
   margin: 0 4px;
 }
 
-/* line 2478, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2497, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-dots button {
   background: #d2d2d2;
   -moz-border-radius: 50%;
@@ -16041,13 +16064,13 @@ table.datepickerViewYears tr.datepickerDoW {
   border: none;
 }
 
-/* line 2491, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2510, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-dots .slick-active button,
 .hotel-slider .slick-dots button:hover {
   background: #858585;
 }
 
-/* line 2495, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2514, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-arrow {
   position: absolute;
   bottom: 16px;
@@ -16060,43 +16083,43 @@ table.datepickerViewYears tr.datepickerDoW {
   z-index: 2;
 }
 
-/* line 2506, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2525, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-prev {
   right: 50%;
 }
 
-/* line 2509, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2528, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slider .slick-next {
   left: 50%;
 }
 
-/* line 2513, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2532, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slide {
   margin: 0 2px;
 }
 
-/* line 2516, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2535, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slide a {
   display: block;
   position: relative;
   overflow: hidden;
 }
 
-/* line 2521, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2540, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slide a:hover .hotel-slide--zoom {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   top: 15px;
 }
 
-/* line 2526, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2545, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slide img {
   min-width: 100%;
   width: auto;
   height: 100%;
 }
 
-/* line 2532, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2551, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-slide--zoom {
   position: absolute;
   display: inline-block;
@@ -16110,32 +16133,32 @@ table.datepickerViewYears tr.datepickerDoW {
   transition: all 0.3s ease;
 }
 
-/* line 2545, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2564, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-info--item {
   overflow: hidden;
   padding: 20px 0;
 }
 
-/* line 2550, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2569, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-info--img {
   float: left;
   width: 50px;
   margin-right: 25px;
 }
 
-/* line 2556, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2575, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-info--content {
   overflow: hidden;
   font-size: 12px;
   font-family: 'Roboto';
 }
 
-/* line 2561, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2580, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-info--content p {
   margin-bottom: 15px;
 }
 
-/* line 2565, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2584, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-info--header {
   font-family: 'Roboto';
   font-weight: 700;
@@ -16143,12 +16166,12 @@ table.datepickerViewYears tr.datepickerDoW {
   margin: 2px 0 15px;
 }
 
-/* line 2572, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2591, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--header .x-text {
   color: #c77750;
 }
 
-/* line 2576, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2595, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter {
   display: inline-block;
   -moz-box-sizing: border-box;
@@ -16160,7 +16183,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 15px;
 }
 
-/* line 2586, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2605, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .x-input-dd {
   color: #95a5b4;
   font-size: 16px;
@@ -16169,12 +16192,12 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-top: 10px;
 }
 
-/* line 2593, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2612, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .input-group.date {
   margin-bottom: 5px;
 }
 
-/* line 2596, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2615, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .form-control {
   color: #4f4f4f;
   font-weight: 900;
@@ -16189,7 +16212,7 @@ table.datepickerViewYears tr.datepickerDoW {
   border-color: #dadada !important;
 }
 
-/* line 2609, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2628, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .input-group-addon {
   background: none;
   border-left: none;
@@ -16197,12 +16220,12 @@ table.datepickerViewYears tr.datepickerDoW {
   color: #939393;
 }
 
-/* line 2615, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2634, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .input-group-addon:hover {
   color: #4f4f4f;
 }
 
-/* line 2618, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2637, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .count-input {
   margin-left: 0;
   margin-bottom: 0;
@@ -16218,12 +16241,12 @@ table.datepickerViewYears tr.datepickerDoW {
   font-family: 'Museo Sans';
 }
 
-/* line 2632, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2651, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .count-input input {
   width: 48px;
 }
 
-/* line 2635, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2654, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .count-input .plus,
 .search-hotel--filter .count-input .minus {
   width: 35px;
@@ -16231,7 +16254,7 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 35px;
 }
 
-/* line 2641, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2660, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .x-input-check {
   color: #939393;
   font-size: 16px;
@@ -16239,12 +16262,12 @@ table.datepickerViewYears tr.datepickerDoW {
   font-weight: 500;
 }
 
-/* line 2647, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2666, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--filter .btn-green {
   margin-top: 33px;
 }
 
-/* line 2651, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2670, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--titlefield {
   color: #95a5b4;
   font-family: 'Museo Sans';
@@ -16253,12 +16276,12 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 15px;
 }
 
-/* line 2659, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2678, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .search-hotel--children {
   margin-top: 43px;
 }
 
-/* line 2663, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2682, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 #hotel-tours-info.hotel-tours-info {
   line-height: 100%;
   font-size: 13px;
@@ -16266,7 +16289,7 @@ table.datepickerViewYears tr.datepickerDoW {
   padding-top: 5px;
 }
 
-/* line 2670, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2689, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-hr {
   border: none;
   width: 100%;
@@ -16276,7 +16299,7 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 15px;
 }
 
-/* line 2679, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2698, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-table--header {
   color: #ababab;
   font-family: 'Roboto';
@@ -16285,32 +16308,32 @@ table.datepickerViewYears tr.datepickerDoW {
   padding-bottom: 20px;
 }
 
-/* line 2687, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2706, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-table {
   margin-bottom: 30px;
 }
 
-/* line 2690, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2709, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-table .btn-orange {
   min-width: 120px;
   float: right;
 }
 
-/* line 2695, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2714, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--item {
   overflow: hidden;
   margin: 20px 0 40px;
   font-family: 'Roboto';
 }
 
-/* line 2701, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2720, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--author {
   margin: 0;
   color: #965738;
   font-weight: 500;
 }
 
-/* line 2707, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2726, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--date {
   font-weight: 500;
   color: #434343;
@@ -16319,43 +16342,43 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 10px;
 }
 
-/* line 2715, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2734, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--rating {
   font-size: 16px;
   color: #4a4a4a;
   font-weight: 700;
 }
 
-/* line 2721, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2740, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--text {
   color: #585858;
   font-size: 13px;
 }
 
-/* line 2725, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2744, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--text p {
   margin-bottom: 15px;
 }
 
-/* line 2729, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2748, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--fulllink {
   font-size: 13px;
   text-decoration: underline;
   color: #178a87;
 }
 
-/* line 2734, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2753, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-comment--fulllink:hover {
   text-decoration: none;
 }
 
-/* line 2738, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2757, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 #hotel .container {
   position: relative;
   z-index: 2;
 }
 
-/* line 2743, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2762, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments {
   background: url(/assets/block-hotel-comments-c968f1cfcd41d4ceab208ccdfbd898f33dc183cdb877abede20662e89f0341b8.jpg) bottom center no-repeat;
   background-size: cover;
@@ -16365,13 +16388,13 @@ table.datepickerViewYears tr.datepickerDoW {
   z-index: 1;
 }
 
-/* line 2751, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2770, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments .container {
   background: transparent !important;
   margin-bottom: 0 !important;
 }
 
-/* line 2755, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2774, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments h3 {
   margin: 40px 0;
   color: #3b3b3b;
@@ -16379,68 +16402,68 @@ table.datepickerViewYears tr.datepickerDoW {
   font-weight: 500;
 }
 
-/* line 2762, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2781, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--item {
   font-family: 'Roboto';
   margin-bottom: 60px;
 }
 
-/* line 2767, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2786, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--header {
   font-size: 18px;
 }
 
-/* line 2771, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2790, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--author {
   font-weight: 700;
   color: #2a2a2a;
   margin-right: 30px;
 }
 
-/* line 2777, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2796, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--rating {
   font-weight: 500;
   color: #965738;
 }
 
-/* line 2782, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2801, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--place {
   font-size: 11px;
   color: #4d4d4d;
 }
 
-/* line 2787, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2806, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--content {
   margin: 20px 0;
   font-weight: 300;
   font-size: 13px;
 }
 
-/* line 2793, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2812, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--fulllink {
   font-weight: 500;
   text-decoration: underline;
   color: #296462;
 }
 
-/* line 2798, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2817, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .block-hotel-comments--fulllink:hover {
   text-decoration: none;
 }
 
-/* line 2802, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2821, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-bottom {
   background: #fff;
   padding: 40px 0 30px;
 }
 
-/* line 2807, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2826, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-photos {
   margin-bottom: 70px;
   overflow: hidden;
 }
 
-/* line 2811, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2830, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-photos a {
   display: inline-block;
   width: 12.3%;
@@ -16448,24 +16471,24 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-right: .22%;
 }
 
-/* line 2817, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2836, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-photos a:nth-child(8n) {
   margin-right: 0;
 }
 
-/* line 2820, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2839, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-photos img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 2825, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2844, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside {
   color: #3b3b3b;
   margin-bottom: 30px;
 }
 
-/* line 2829, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2848, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside h3 {
   font-weight: 500;
   margin: 0;
@@ -16473,13 +16496,13 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 20px;
 }
 
-/* line 2836, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2855, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside--list {
   margin: 0;
   padding: 0;
 }
 
-/* line 2840, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2859, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside--list li {
   list-style-type: none;
   margin: 7px 0;
@@ -16487,28 +16510,28 @@ table.datepickerViewYears tr.datepickerDoW {
   font-weight: 300;
 }
 
-/* line 2846, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2865, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside--list a {
   color: #3b3b3b;
   text-decoration: underline;
 }
 
-/* line 2850, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2869, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-beside--list a:hover {
   text-decoration: none;
 }
 
-/* line 2854, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2873, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 #hotel-comment {
   width: 360px;
 }
 
-/* line 2858, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2877, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-bar {
   padding: 20px 5%;
 }
 
-/* line 2861, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2880, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-bar h3 {
   font-size: 26px;
   margin: 0px 0 20px;
@@ -16516,7 +16539,7 @@ table.datepickerViewYears tr.datepickerDoW {
   text-transform: none;
 }
 
-/* line 2868, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2887, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control {
   border: 1px solid #c4c4c4;
   -moz-border-radius: 0;
@@ -16527,78 +16550,78 @@ table.datepickerViewYears tr.datepickerDoW {
   box-shadow: none;
 }
 
-/* line 2877, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2896, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control:-moz-placeholder {
   color: #878787;
 }
 
-/* line 2880, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2899, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control::-moz-placeholder {
   color: #878787;
 }
 
-/* line 2883, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2902, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control:-ms-input-placeholder {
   color: #878787;
 }
 
-/* line 2886, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2905, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control::-webkit-input-placeholder {
   color: #878787;
 }
 
-/* line 2889, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2908, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .form-control:focus {
   box-shadow: none;
 }
 
-/* line 2892, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2911, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form textarea.form-control {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 2896, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2915, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form textarea.form-control:-moz-placeholder {
   font-style: italic;
 }
 
-/* line 2899, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2918, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form textarea.form-control::-moz-placeholder {
   font-style: italic;
 }
 
-/* line 2902, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2921, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form textarea.form-control:-ms-input-placeholder {
   font-style: italic;
 }
 
-/* line 2905, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2924, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form textarea.form-control::-webkit-input-placeholder {
   font-style: italic;
 }
 
-/* line 2908, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2927, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form select.form-control:-moz-placeholder {
   font-style: italic;
 }
 
-/* line 2911, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2930, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form select.form-control::-moz-placeholder {
   font-style: italic;
 }
 
-/* line 2914, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2933, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form select.form-control:-ms-input-placeholder {
   font-style: italic;
 }
 
-/* line 2917, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2936, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form select.form-control::-webkit-input-placeholder {
   font-style: italic;
 }
 
-/* line 2920, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2939, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form select.form-control,
 .hotel-addcomment-form input.form-control {
   height: 40px;
@@ -16607,7 +16630,7 @@ table.datepickerViewYears tr.datepickerDoW {
   font-weight: 700;
 }
 
-/* line 2927, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2946, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .input-group-addon {
   background: #fff;
   border-left: none;
@@ -16618,12 +16641,12 @@ table.datepickerViewYears tr.datepickerDoW {
   color: #7a7a7a;
 }
 
-/* line 2936, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2955, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .date .form-control {
   border-right: none;
 }
 
-/* line 2939, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2958, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .input-group--checkboxs {
   width: 100%;
   overflow: hidden;
@@ -16631,7 +16654,7 @@ table.datepickerViewYears tr.datepickerDoW {
   padding: 0;
 }
 
-/* line 2945, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2964, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .input-group--checkboxs li {
   float: left;
   width: 50%;
@@ -16642,14 +16665,14 @@ table.datepickerViewYears tr.datepickerDoW {
   font-family: 'Roboto';
 }
 
-/* line 2954, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2973, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form h4 {
   color: #494949;
   font-weight: 500;
   font-family: 'Roboto';
 }
 
-/* line 2959, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2978, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .x-input-dd {
   font-size: 18px;
   font-family: 'Roboto';
@@ -16657,7 +16680,7 @@ table.datepickerViewYears tr.datepickerDoW {
   color: #965738;
 }
 
-/* line 2965, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2984, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-form .x-input-dd sub {
   display: block;
   line-height: 100%;
@@ -16666,20 +16689,20 @@ table.datepickerViewYears tr.datepickerDoW {
   overflow: visible;
 }
 
-/* line 2973, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2992, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-item {
   float: left;
   width: 31.3%;
   margin-bottom: 3%;
 }
 
-/* line 2978, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 2997, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-item:nth-child(2) {
   margin-left: 3%;
   margin-right: 3%;
 }
 
-/* line 2983, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3002, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-photo {
   width: 100%;
   height: 53px;
@@ -16694,7 +16717,7 @@ table.datepickerViewYears tr.datepickerDoW {
   cursor: pointer;
 }
 
-/* line 2996, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3015, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-photo span {
   display: block;
   background: url(/assets/camera-250b9707931ce5db571ea419d5f91adc6f93e8c33e1300d6d23ff87a435dcda5.png) center 5px no-repeat;
@@ -16705,7 +16728,7 @@ table.datepickerViewYears tr.datepickerDoW {
   line-height: 100%;
 }
 
-/* line 3006, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3025, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-addphoto {
   font-size: 10px;
   color: #965738;
@@ -16715,14 +16738,14 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 10px;
 }
 
-/* line 3014, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3033, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-addphoto:hover, .hotel-addcomment-addphoto:focus {
   text-decoration: none;
   border-color: transparent;
   color: #965738;
 }
 
-/* line 3020, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3039, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-addcomment-btn .btn {
   color: #fff;
   font-size: 16px;
@@ -16730,27 +16753,27 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media (min-width: 1200px) and (max-width: 1440px) {
-  /* line 3027, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3046, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #tour-filtered {
     width: 970px;
   }
 
-  /* line 3030, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3049, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #tour-filtered .container {
     width: 970px;
   }
 
-  /* line 3034, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3053, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-column {
     text-align: right;
   }
 
-  /* line 3037, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3056, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-column:nth-child(even) {
     text-align: left;
   }
 }
-/* line 3041, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3060, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-block {
   max-width: 480px !important;
   display: inline-block;
@@ -16758,17 +16781,17 @@ table.datepickerViewYears tr.datepickerDoW {
   text-align: left;
 }
 
-/* line 3048, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3067, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-block-new {
   margin-bottom: 20px;
 }
 
-/* line 3052, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3071, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-header {
   min-height: 42px;
 }
 
-/* line 3055, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3074, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-header h2, .tour-header a {
   color: #292929;
   font-size: 18px;
@@ -16778,7 +16801,7 @@ table.datepickerViewYears tr.datepickerDoW {
   width: 100%;
 }
 
-/* line 3063, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3082, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-header h2 a, .tour-header a a {
   display: block;
   width: 100%;
@@ -16794,27 +16817,27 @@ table.datepickerViewYears tr.datepickerDoW {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 3077, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3096, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-header h2 a, .tour-header a a {
     height: auto;
   }
 }
-/* line 3081, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3100, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-header h2 a:hover, .tour-header a a:hover {
   text-decoration: none;
 }
 
-/* line 3085, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3104, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-rating {
   text-align: right;
 }
 
-/* line 3089, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3108, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-rating--star {
   display: inline-block;
 }
 
-/* line 3093, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3112, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-rating--num {
   color: #e4a332;
   font-size: 16px;
@@ -16827,14 +16850,14 @@ table.datepickerViewYears tr.datepickerDoW {
   display: inline-block;
 }
 
-/* line 3105, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3124, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-desc {
   color: #434343;
   font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* line 3111, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3130, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-footer {
   border: 1px solid #cecece;
   border-top: none;
@@ -16843,19 +16866,19 @@ table.datepickerViewYears tr.datepickerDoW {
   background: #fff;
 }
 
-/* line 3119, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3138, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-eat {
   font-size: 13px;
   margin-top: 10px;
 }
 
-/* line 3123, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3142, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-eat span {
   color: #158a87;
   display: block;
 }
 
-/* line 3128, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3147, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-commentlink {
   color: #e39f2c;
   font-size: 13px;
@@ -16864,13 +16887,13 @@ table.datepickerViewYears tr.datepickerDoW {
   margin-bottom: 5px;
 }
 
-/* line 3135, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3154, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-commentlink:hover {
   color: #e39f2c;
   text-decoration: none;
 }
 
-/* line 3140, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3159, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-price {
   background: #158a87;
   -moz-border-radius: 5px;
@@ -16886,74 +16909,74 @@ table.datepickerViewYears tr.datepickerDoW {
   text-decoration: none;
 }
 
-/* line 3154, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3173, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .tour-price:hover {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 3159, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3178, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .hotel-options-list {
   margin: 40px 0 0;
 }
 
-/* line 3163, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3182, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .thumb .like-left {
   right: auto;
   left: 20px;
 }
 
-/* line 3168, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3187, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roboto, .roboto-light {
   font-family: 'Roboto';
 }
 
-/* line 3172, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+/* line 3191, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
 .roboto-light {
   font-weight: 300;
 }
 
 @media screen and (max-width: 1440px) {
-  /* line 3177, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3196, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .slide-text {
     font-size: 40px;
   }
 
-  /* line 3181, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-offer-wrapper {
     margin-top: 370px;
   }
 
-  /* line 3185, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3204, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main footer {
     padding-top: 0;
   }
 
-  /* line 3189, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3208, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer {
     height: 118px;
   }
 
-  /* line 3193, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3212, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider .slide {
     height: 1093px;
   }
 }
 @media (min-width: 1440px) {
-  /* line 3198, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3217, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .col-large-4 {
     width: 33.33333333%;
   }
 }
 @media screen and (max-width: 1200px) {
-  /* line 3203, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3222, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider .slick-dots {
     right: 0;
     margin-right: 15px;
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 3209, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3228, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider--wrapper .container {
     padding: 0;
     margin-left: 0;
@@ -16961,64 +16984,64 @@ table.datepickerViewYears tr.datepickerDoW {
     width: 100%;
   }
 
-  /* line 3216, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3235, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-arrow {
     display: none;
   }
 
-  /* line 3220, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3239, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-dots li {
     margin: 0 10px;
   }
 
-  /* line 3224, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3243, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-dots button {
     width: 16px;
     height: 16px;
   }
 
-  /* line 3229, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3248, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel > .container {
     margin: 0 !important;
     width: 100%;
   }
 
-  /* line 3234, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3253, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter {
     padding-left: 0;
     padding-right: 0;
     border: none;
   }
 
-  /* line 3240, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3259, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-hr {
     background: transparent;
   }
 
-  /* line 3244, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3263, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .block-hotel-comments .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
 
-  /* line 3249, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3268, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel #info {
     width: 100%;
     margin: 0 auto;
   }
 
-  /* line 3254, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3273, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-photos a {
     width: 16%;
   }
 
-  /* line 3258, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3277, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-rating {
     text-align: left;
     display: inline-block;
   }
 
-  /* line 3263, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3282, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .slide-text {
     font-size: 30px;
     margin-left: 0;
@@ -17027,36 +17050,36 @@ table.datepickerViewYears tr.datepickerDoW {
     overflow-wrap: break-word;
   }
 
-  /* line 3271, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3290, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-offer-wrapper {
     margin: 280px 0 0;
   }
 
-  /* line 3275, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3294, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer {
     height: auto;
   }
 }
 @media screen and (max-width: 991px) and (min-width: 768px) {
-  /* line 3280, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3299, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer--title {
     font-size: 12px;
     margin-left: 15px;
     margin-top: 15px;
   }
 
-  /* line 3286, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3305, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer--price {
     font-size: 12px;
     margin-left: 15px;
   }
 
-  /* line 3290, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3309, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer--price .fa {
     font-size: 10px;
   }
 
-  /* line 3294, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3313, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer--sale {
     font-size: 10px;
     right: -35px;
@@ -17064,13 +17087,13 @@ table.datepickerViewYears tr.datepickerDoW {
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 3301, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3320, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour {
     margin-top: 50px;
     z-index: 3;
   }
 
-  /* line 3306, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3325, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour-content {
     margin-top: -45px;
     padding-left: 30px;
@@ -17078,249 +17101,249 @@ table.datepickerViewYears tr.datepickerDoW {
     padding-bottom: 80px;
   }
 
-  /* line 3312, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3331, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour-content h2 {
     font-size: 24px;
   }
 
-  /* line 3316, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3335, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .irs-from, .irs-to, .irs-single {
     font-size: 14px;
   }
 
-  /* line 3319, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3338, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .irs-from .fa, .irs-to .fa, .irs-single .fa {
     font-size: 12px;
   }
 
-  /* line 3323, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3342, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-button .btn {
     font-size: 13px;
     padding: 5px;
   }
 
-  /* line 3327, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3346, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-button .btn .icon {
     bottom: -6px;
   }
 
-  /* line 3331, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3350, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-place--wrapper {
     height: 271px;
   }
 
-  /* line 3335, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3354, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--active {
     margin-bottom: 10px;
     float: left;
   }
 
-  /* line 3340, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3359, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addadults {
     margin-bottom: 10px;
     float: left;
   }
 
-  /* line 3345, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3364, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addchildrens-wrapper {
     float: left;
     margin-bottom: 10px;
   }
 
-  /* line 3350, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3369, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-price--wrapper {
     margin: 0 0 15px;
   }
 
-  /* line 3354, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3373, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider .slick-dots {
     top: 130px;
   }
 
-  /* line 3358, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3377, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--active {
     height: 63px;
     padding-top: 11px;
   }
 
-  /* line 3363, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3382, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--adults li {
     margin: 0 5px;
   }
 
-  /* line 3366, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3385, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--adults li:hover span {
     margin-top: 10px;
   }
 
-  /* line 3370, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3389, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--childrens li:hover span {
     margin-top: 10px;
   }
 
-  /* line 3374, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3393, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--remove {
     font-size: 12px;
   }
 
-  /* line 3378, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3397, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--year {
     font-size: 10px;
   }
 
-  /* line 3382, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3401, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addadults {
     height: 63px;
     padding: 0 15px;
   }
 
-  /* line 3387, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3406, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addadults .text {
     margin-top: 25px;
   }
 
-  /* line 3391, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3410, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addadults .icon {
     margin-top: 12px;
   }
 
-  /* line 3395, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3414, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addchildrens {
     height: 63px;
     padding: 0 15px;
   }
 
-  /* line 3400, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3419, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addchildrens .text {
     margin-top: 25px;
   }
 
-  /* line 3404, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3423, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-people--addchildrens .icon {
     margin-top: 17px;
   }
 
-  /* line 3408, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3427, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider .slick-dots li {
     padding: 7px;
   }
 
-  /* line 3412, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3431, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider .slick-dots button {
     width: 6px;
     height: 6px;
   }
 
-  /* line 3417, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3436, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main #all-header {
     padding-top: 8px;
     height: 60px;
   }
 
-  /* line 3422, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3441, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main #login-link {
     left: 15px;
     top: 10px;
   }
 
-  /* line 3427, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3446, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main #nav-toggle {
     right: 15px;
     top: 20px;
   }
 
-  /* line 3432, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3451, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo {
     margin-top: 0;
   }
 
-  /* line 3435, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3454, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo a {
     font-size: 22px;
     line-height: 100%;
   }
 
-  /* line 3439, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3458, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo em {
     font-size: 11px;
   }
 
-  /* line 3443, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3462, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main #all-header.fixed-theme .header-link {
     margin-top: 5px;
   }
 
-  /* line 3447, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3466, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #all-header.fixed-theme #logo {
     margin-top: 3px !important;
   }
 
-  /* line 3451, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3470, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour {
     max-width: 360px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 3456, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3475, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour {
     max-width: 100%;
   }
 
-  /* line 3460, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3479, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-header {
     padding: 25px 0;
   }
 
-  /* line 3464, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3483, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-name {
     line-height: 120%;
   }
 
-  /* line 3468, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3487, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-breadcrumbs {
     margin: 10px 0;
   }
 
-  /* line 3472, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3491, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .text-right-no-xs {
     text-align: left;
   }
 
-  /* line 3476, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3495, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider {
     padding-bottom: 0;
     margin-bottom: 10px;
   }
 
-  /* line 3481, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3500, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-dots {
     bottom: 15px;
   }
 
-  /* line 3484, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3503, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-dots button {
     background: transparent;
     border: 1px solid #0e0d0d;
   }
 
-  /* line 3488, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3507, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-slider .slick-dots .slick-active button,
   .hotel-slider .slick-dots button:hover {
     background: #3f3f3f;
     border-color: #3f3f3f;
   }
 
-  /* line 3494, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3513, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .sub-header_hotel {
     height: 160px !important;
   }
 
-  /* line 3498, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3517, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel-tabs {
     display: none !important;
   }
 
-  /* line 3502, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3521, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tab-xs-header {
     padding: 15px;
     display: block;
@@ -17332,7 +17355,7 @@ table.datepickerViewYears tr.datepickerDoW {
     overflow: hidden;
   }
 
-  /* line 3512, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3531, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tab-xs-header .icon {
     float: right;
     font-size: 22px;
@@ -17341,24 +17364,24 @@ table.datepickerViewYears tr.datepickerDoW {
     height: 16px;
   }
 
-  /* line 3519, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3538, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tab-xs-header:hover {
     color: #fff;
     text-decoration: none;
   }
 
-  /* line 3524, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3543, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tab-xs-header_active {
     background: #7e93ad;
     font-weight: 700;
   }
 
-  /* line 3529, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3548, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel .tab-pane {
     padding: 0;
   }
 
-  /* line 3533, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3552, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel .tab-pane h2 {
     font-size: 24px;
     font-weight: 700;
@@ -17366,40 +17389,40 @@ table.datepickerViewYears tr.datepickerDoW {
     padding: 0 15px;
   }
 
-  /* line 3540, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3559, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel #info {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
-  /* line 3545, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3564, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-xs-city {
     width: 100%;
   }
 
-  /* line 3548, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3567, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-xs-city sub {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
 
-  /* line 3553, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3572, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter {
     padding: 0;
   }
 
-  /* line 3556, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3575, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .row > div {
     padding: 0;
   }
 
-  /* line 3559, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3578, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .input-group.date {
     margin-bottom: 0;
     padding: 0 15px;
   }
 
-  /* line 3563, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3582, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .x-input-dd {
     margin-top: 0;
     width: 100%;
@@ -17407,48 +17430,48 @@ table.datepickerViewYears tr.datepickerDoW {
     border-top: none;
   }
 
-  /* line 3569, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3588, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .search-hotel--filter_time {
     padding: 0 15px;
   }
 
-  /* line 3572, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3591, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .x-input-dd.x-text sub {
     padding: 0 35px 0 15px;
   }
 
-  /* line 3575, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3594, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .count-input {
     margin: 10px 0;
   }
 
-  /* line 3578, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3597, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .form-control {
     border-top: none;
     color: #b37653;
   }
 
-  /* line 3582, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3601, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .form-control:-moz-placeholder {
     color: #b37653;
   }
 
-  /* line 3585, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3604, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .form-control::-moz-placeholder {
     color: #b37653;
   }
 
-  /* line 3588, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3607, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .form-control:-ms-input-placeholder {
     color: #b37653;
   }
 
-  /* line 3591, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3610, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .form-control::-webkit-input-placeholder {
     color: #b37653;
   }
 
-  /* line 3594, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3613, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .input-group-addon {
     border-top: none;
     -moz-border-radius: 0;
@@ -17456,12 +17479,12 @@ table.datepickerViewYears tr.datepickerDoW {
     border-radius: 0;
   }
 
-  /* line 3600, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3619, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .btn-green {
     margin: 0;
   }
 
-  /* line 3603, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3622, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .search-hotel--filter .xs-padding {
     padding: 0 30px !important;
     width: 100%;
@@ -17470,49 +17493,49 @@ table.datepickerViewYears tr.datepickerDoW {
     box-sizing: border-box;
   }
 
-  /* line 3611, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3630, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-table {
     margin-bottom: 3px;
   }
 
-  /* line 3614, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3633, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-table .info {
     font-style: italic;
     color: #a39d8f;
     font-family: Georgia, serif;
   }
 
-  /* line 3620, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3639, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-comment--text {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  /* line 3625, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3644, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-comment--item {
     margin: 0;
     border-top: 1px solid #e0d8c5;
     padding: 15px 0 0;
   }
 
-  /* line 3630, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3649, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-comment--item:last-of-type {
     border-bottom: 1px solid #e0d8c5;
   }
 
-  /* line 3634, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3653, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-xs-padding {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  /* line 3639, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3658, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select--wrapper {
     position: relative;
     z-index: 2;
   }
 
-  /* line 3644, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3663, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select {
     display: block;
     border: 1px solid #e2e2e2;
@@ -17524,19 +17547,19 @@ table.datepickerViewYears tr.datepickerDoW {
     font-family: 'Roboto';
   }
 
-  /* line 3654, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3673, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select .icon {
     float: right;
   }
 
-  /* line 3657, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3676, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select:hover {
     background: #e2e2e2;
     color: #424242;
     text-decoration: none;
   }
 
-  /* line 3663, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3682, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select--submenu {
     width: 100% !important;
     position: absolute;
@@ -17546,145 +17569,145 @@ table.datepickerViewYears tr.datepickerDoW {
     display: none;
   }
 
-  /* line 3671, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3690, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select--submenu li {
     text-align: left !important;
     margin-right: 0 !important;
     padding-bottom: 0 !important;
   }
 
-  /* line 3676, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3695, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-options-xs-select--submenu a {
     padding: 10px 15px !important;
     text-decoration: none !important;
     color: #616161 !important;
   }
 
-  /* line 3682, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3701, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel-options .tab-pane {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
 
-  /* line 3687, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3706, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel-options .h-opt {
     width: 49% !important;
   }
 
-  /* line 3691, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3710, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .block-hotel-comments {
     margin-top: 0;
     padding-top: 0;
     padding-bottom: 20px;
   }
 
-  /* line 3696, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3715, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .block-hotel-comments h3 {
     margin: 20px 0;
   }
 
-  /* line 3700, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3719, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .block-hotel-comments--item {
     margin-bottom: 0;
   }
 
-  /* line 3704, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3723, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-photos {
     margin-bottom: 40px;
   }
 
-  /* line 3707, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3726, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-photos a {
     width: 49%;
     margin-right: 1%;
     margin-bottom: 1%;
   }
 
-  /* line 3712, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3731, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-photos a:nth-child(2n) {
     margin-right: 0;
   }
 
-  /* line 3716, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3735, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-beside h3 {
     font-size: 20px;
   }
 
-  /* line 3720, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3739, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #hotel-comment {
     width: 300px;
   }
 
-  /* line 3724, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3743, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-addcomment-form .input-group--checkboxs li {
     float: none;
     width: 100%;
   }
 
-  /* line 3728, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3747, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .hotel-addcomment-form .x-input-dd {
     width: 100%;
   }
 
-  /* line 3732, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3751, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main #all-header {
     padding-top: 8px;
     height: 60px;
     background: #141414;
   }
 
-  /* line 3738, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3757, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #login-link {
     left: 15px;
     top: 10px !important;
   }
 
-  /* line 3743, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3762, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #nav-toggle {
     right: 15px;
     top: 20px !important;
   }
 
-  /* line 3748, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3767, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo {
     margin-top: 0;
     margin-left: 16.66666667%;
   }
 
-  /* line 3752, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3771, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo a {
     font-size: 22px;
     line-height: 100%;
   }
 
-  /* line 3756, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3775, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   #logo em {
     font-size: 11px;
   }
 
-  /* line 3760, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3779, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-slider {
     display: none;
   }
 
-  /* line 3764, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3783, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-content {
     position: relative;
   }
 
-  /* line 3768, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3787, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-content {
     padding-top: 60px;
     top: 0;
     overflow: hidden;
   }
 
-  /* line 3773, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3792, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-content .container {
     padding: 0;
   }
 
-  /* line 3777, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3796, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour {
     -moz-transform: skewY(0);
     -ms-transform: skewY(0);
@@ -17696,7 +17719,7 @@ table.datepickerViewYears tr.datepickerDoW {
     border-radius: 0;
   }
 
-  /* line 3787, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3806, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour:before, .main-roundtour:after {
     -moz-transform: skewY(0);
     -ms-transform: skewY(0);
@@ -17704,7 +17727,7 @@ table.datepickerViewYears tr.datepickerDoW {
     transform: skewY(0);
   }
 
-  /* line 3794, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3813, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour-content {
     -moz-transform: skewY(0);
     -ms-transform: skewY(0);
@@ -17716,28 +17739,28 @@ table.datepickerViewYears tr.datepickerDoW {
     z-index: 3;
   }
 
-  /* line 3804, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3823, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-roundtour-content h2 {
     margin: 10px 0 15px;
     text-align: left;
   }
 
-  /* line 3809, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3828, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-date {
     font-size: 13px;
   }
 
-  /* line 3813, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3832, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-offer-wrapper {
     margin-top: 0;
   }
 
-  /* line 3816, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3835, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-offer-wrapper h3 {
     padding-left: 15px;
   }
 
-  /* line 3820, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3839, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .main-offer-slider {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
@@ -17746,7 +17769,7 @@ table.datepickerViewYears tr.datepickerDoW {
     padding: 0;
   }
 
-  /* line 3828, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3847, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer {
     margin: 0;
     -moz-border-radius: 0;
@@ -17754,57 +17777,57 @@ table.datepickerViewYears tr.datepickerDoW {
     border-radius: 0;
   }
 
-  /* line 3835, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3854, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .ready-offer--img {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
   }
 
-  /* line 3841, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3860, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main footer {
     padding-top: 30px;
   }
 
-  /* line 3845, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3864, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-date--wrapper {
     background: #151515;
   }
 
-  /* line 3849, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3868, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-date--night {
     margin-left: 0;
     width: 100%;
   }
 
-  /* line 3854, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3873, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .roundtour-date--content hr {
     margin: 15px 0;
     width: 100%;
   }
 
-  /* line 3859, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3878, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .footer-main-top {
     display: none;
   }
 
-  /* line 3863, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3882, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main footer.fixed {
     position: relative;
   }
 
-  /* line 3867, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3886, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .body-main .footer-container {
     position: relative;
     height: 100%;
   }
 
-  /* line 3872, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3891, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-footer .text-right {
     text-align: left;
   }
 
-  /* line 3876, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
+  /* line 3895, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/new.scss */
   .tour-price {
     display: block;
     width: 100%;
@@ -19693,6 +19716,361 @@ table.datepickerViewYears tr.datepickerDoW {
   padding-bottom: 56.25%;
   overflow: hidden;
 }
+/* CSS Document */
+@media (min-width: 1200px) {
+  /* line 4, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-header .container,
+  .hotel-slider--wrapper .container,
+  .hotel-info .container,
+  #hotel .container,
+  .hotel-bottom .container {
+    width: 970px;
+  }
+}
+/* line 12, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--container {
+  background: url(/assets/hotel-search-bg-a986f29ebc0f75b6e5f38c2d792042dc03214243fc51159d43b4c32af2e4427f.jpg) top center no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin: -95px 0 20px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 19, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--container {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 24, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--container {
+    margin: 0;
+  }
+}
+/* line 28, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form {
+  background: rgba(0, 0, 0, 0.36);
+  padding: 105px 0;
+  color: #fff;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 34, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form {
+    padding: 70px 0 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 39, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form {
+    padding: 15px 0;
+  }
+}
+/* line 43, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-city {
+  font-size: 21px;
+  font-family: 'helveticaneuecyr';
+}
+
+/* line 47, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-city--select {
+  color: #f6d344;
+  border-color: #f6d344;
+}
+
+/* line 51, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-city--submenu {
+  left: 140px;
+  top: -10px;
+  font-size: 16px;
+  color: #212121;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 58, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-city--submenu {
+    left: 105px;
+  }
+}
+/* line 62, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-city--close {
+  top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 66, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-city {
+    font-size: 16px;
+  }
+}
+/* line 70, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-place {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 75, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-place--submenu {
+  color: #212121;
+}
+
+/* line 78, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-place--info {
+  max-width: 140px;
+}
+
+/* line 81, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-date {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 86, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people {
+  float: left;
+  padding: 0;
+  width: auto;
+  margin-right: 20px;
+}
+
+/* line 92, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--active {
+  height: 43px;
+  padding: 4px 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 100, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--active {
+    height: 53px;
+    padding: 6px 12px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 106, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--active {
+    float: none;
+  }
+}
+/* line 110, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
+  height: 43px;
+  border-color: #f6d344;
+  color: #f6d344;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  line-height: 43px;
+}
+
+/* line 119, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--addadults .icon, .hotel-search--form .roundtour-people--addchildrens .icon {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+/* line 123, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--addadults .text, .hotel-search--form .roundtour-people--addchildrens .text {
+  margin: 16px 5px 0 0;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+@media screen and (max-width: 991px) {
+  /* line 129, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--addadults .text, .hotel-search--form .roundtour-people--addchildrens .text {
+    margin: 20px 10px 0 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  /* line 134, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
+    height: 53px;
+    line-height: 43px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 140, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--addadults, .hotel-search--form .roundtour-people--addchildrens {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+/* line 145, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--addadults .icon {
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 149, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--addadults .icon {
+    margin-top: 7px;
+  }
+}
+/* line 153, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--form .roundtour-people--addchildrens .icon {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 157, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--form .roundtour-people--addchildrens .icon {
+    margin-top: 12px;
+  }
+}
+/* line 161, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--send {
+  position: absolute;
+  background: #f6c80d;
+  color: #303030;
+  font-family: 'Roboto';
+  font-weight: 700;
+  height: 43px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 120px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 179, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--send {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    height: auto;
+    line-height: 100%;
+  }
+}
+/* line 188, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date {
+  display: none;
+}
+
+/* line 191, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--wrapper {
+  position: relative;
+  height: auto;
+  display: block;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  margin-top: 0;
+  background: rgba(0, 0, 0, 0.89);
+}
+
+/* line 200, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--content {
+  top: 0;
+  padding: 0;
+}
+
+/* line 204, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--content h4 {
+  margin: 0;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 209, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-search--date .roundtour-date--content h4 {
+    margin-bottom: 20px;
+  }
+}
+/* line 213, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--top {
+  background: #000;
+  padding: 35px 0 30px;
+}
+
+/* line 217, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--night {
+  margin-top: -6px;
+}
+
+/* line 220, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--days {
+  padding: 40px 0;
+}
+
+/* line 223, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-search--date .roundtour-date--save {
+  margin-top: 10px;
+}
+
+/* line 227, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.hotel-comment--close {
+  float: right;
+  color: #212121;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 239, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-selectdate--save {
+    display: block;
+    width: 100%;
+  }
+
+  /* line 244, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-comment--author {
+    padding-left: 15px;
+  }
+
+  /* line 248, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .hotel-comment--date {
+    padding-left: 15px;
+  }
+}
+/* line 252, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.tour-list--logo {
+  margin-right: 7px;
+  float: left;
+}
+
+/* line 256, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.tour-list--logo + span {
+  overflow: hidden;
+}
+
+/* line 260, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.tour-list-item_vip {
+  background: #dbf4fa;
+  border-color: #dbf4fa;
+}
+
+/* line 265, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+.form-hotelsearch {
+  position: relative;
+  z-index: 3;
+}
+
+@media screen and (min-width: 992px) {
+  /* line 271, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .no-leftpadding {
+    padding-left: 0;
+  }
+
+  /* line 275, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/hotel-new.scss */
+  .no-rightpadding {
+    padding-right: 0;
+  }
+}
 /*
  * This is a manifest file that'll be compiled into application, which will include all the files
  * listed below.
@@ -19705,6 +20083,7 @@ table.datepickerViewYears tr.datepickerDoW {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
 
 
 
@@ -23088,13 +23467,13 @@ table.datepickerViewYears tr.datepickerDoW {
   content: "\f295";
 }
 
-/* line 37, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
+/* line 38, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
 .roundtour-place--wrapper {
   height: auto;
   max-height: 300px;
 }
 
-/* line 44, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
+/* line 45, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
 .ready-offer {
   margin: 5px 5px 10px;
   position: relative;
@@ -23111,7 +23490,7 @@ table.datepickerViewYears tr.datepickerDoW {
   height: 118px !important;
 }
 
-/* line 59, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
+/* line 60, /Users/administrator/Desktop/tours/poedemvtur/app/assets/stylesheets/application.scss */
 .ready-offer--img img {
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;

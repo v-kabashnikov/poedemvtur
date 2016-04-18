@@ -279,7 +279,8 @@
     <div class="tab-pane fade in active" id="info">
       <div class="hotel-search--container">
         <div class="hotel-search--form">
-          <form action="#" class="form-hotelsearch">
+        <%= form_tag(search_hotel_path(@hotel), class: "form-hotelsearch") do %>
+          
             <div class="container">
               <div class="row">
                 <div class="col-sm-12">
@@ -305,7 +306,7 @@
                       <span id='place'  class="text">Где хотите отдохнуть?</span>
                     </a>
                     <div class="roundtour-place--submenu">
-                      <input id="place1" type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
+                      <input id="place1" autocomplete="off" type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
                       <span class="roundtour-place--searchicon icons-location_orange"></span>
                       <div class="roundtour-place--wrapper scrollbar-inner">
                         <ul id="data" class="roundtour-place--list">
@@ -381,7 +382,15 @@
                 </div>
               </div>
             </div>
-          </form>
+            <input id="city-id" type="hidden" name="city_id" value='832' >
+            <input id="place_id" type="hidden" name="place_id" value='4023'>
+            <input id="place_type" type="hidden" name="place_type" value='resort' >
+            <input id="nights_min" type="hidden" name="nights_min" >
+            <input id="nights_max" type="hidden" name="nights_max" >
+            <input id="date_min" type="hidden" name="date_min" >
+            <input id="date_max" type="hidden" name="date_max" >
+            <input id="adult" type="hidden" name="adult" value="2">
+          <%end%>
         </div>
         <!-- select date -->
         <div class="hotel-search--date">
@@ -666,7 +675,7 @@
             </div>
             <div class="block-hotel-comments--place"><%= @hotel.name %>, <%= @hotel.resort.name %>, <%= @hotel.resort.country.name %>, <%= review.date %></div>
             <div class="block-hotel-comments--content"><%= review.comment.html_safe %></div>
-            <a href="#" class="block-hotel-comments--fulllink">Читаывть отзыв</a>
+            <a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>
           </div>
         </div>            
   <% end %>

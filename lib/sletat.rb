@@ -104,6 +104,9 @@ module Sletat
       if params['roundtour-price']
         priceMax = params['roundtour-price'].split(';')[1]
         priceMin = params['roundtour-price'].split(';')[0]
+      else
+        priceMax = 1000000
+        priceMin = 0
       end
     end
 
@@ -120,7 +123,6 @@ module Sletat
                    s_priceMin: priceMin, s_priceMax: priceMax, s_departFrom: s_departFrom.strftime("%d/%m/%Y"),
                    s_departTo: s_departTo.strftime("%d/%m/%Y"), s_hotelIsNotInStop: true, s_hasTickets: true,
                    includeDescriptions: 1, updateResult: 0, hotels: hotels, stars: stars, meals: meals}
-
     data = get_res_data 'GetTours', true, url_params
     requestId = data["requestId"]
 

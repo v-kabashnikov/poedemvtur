@@ -656,7 +656,7 @@
      if(text!=''){
        $('.roundtour-place').find('.text').text(text);
      }else{
-        $('.roundtour-place').find('.text').text('Ð“Ð´Ðµ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¾Ñ‚Ð´Ð¾Ñ…Ð½ÑƒÑ‚ÑŒ?');
+        $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
      }
      $('.roundtour-place--search').val(text);
      $('.roundtour-place--submenu').hide(0);
@@ -889,10 +889,10 @@
     if(nightMin.indexOf(nightMax)){
       $('#nights_min').val(nightMin);
       $('#nights_max').val(nightMax);
-      nightResult = 'Ð½Ð° ' + nightMin + '-' + nightMax + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+      nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
     } else{
       $('#nights_min').val(nightMin);
-      nightResult = 'Ð½Ð° ' + nightMin + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+       nightResult = 'на ' + nightMin + ' ночей';
     }
 
     var month = $('.select-date').val();
@@ -910,7 +910,7 @@
       $('#date_min').val(arrayMonth[0]);
       month = month + ', '
     }else{
-      month = 'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ';
+      month = 'Месяцев';
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);

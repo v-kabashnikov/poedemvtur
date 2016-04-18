@@ -18,12 +18,15 @@ $(document).ready(function(){
 		return false;
 	});
 	var hotelSearch = {};
-	var city,place,date,nights,adults;
+	var city,cityId,place,placeId,placeType,date,nights,adults,cityId;
 	var children = {};
 	$('.form-hotelsearch').on('submit',function(){
 		var $form = $(this);
 		city = $form.find('.roundtour-city--select').text();
+		cityId = $form.find('#city-id').val();
 		place = $form.find('.roundtour-place .text').text();
+		placeId = $form.find('#place_id').val();
+		placeType = $form.find('#place_type').val();
 		date = $form.find('.roundtour-date--months').text();
 		date = date.replace(',','');
 		nigths = $form.find('.roundtour-date--nights').text();
@@ -36,14 +39,16 @@ $(document).ready(function(){
 		});
 		hotelSearch = {
 			city : city,
+			cityId : cityId,
 			place : place,
+			placeId : placeId,
+			placeType : placeType,
 			date : date,
 			nights : nigths,
 			adults : adults,
 			children : children
 		}
 		console.log(hotelSearch);
-		return false;
 	});
 
 });
