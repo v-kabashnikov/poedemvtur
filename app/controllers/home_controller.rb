@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    UserNotifier.send_signup_email("Loh").deliver
+    UserMailer.send_signup_email("Loh").deliver
   end
 
 
