@@ -14,9 +14,10 @@ class HomeController < ApplicationController
   end
 
   def feedback
+    binding.pry
     if simple_captcha_valid?
       @hotel = Hotel.find(params[:hotel_id])
-      UserMailer.send_signup_email("Loh").deliver
+      UserMailer.send_signup_email("").deliver
     end
      redirect_to :back
   end
