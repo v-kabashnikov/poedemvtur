@@ -3,7 +3,7 @@ function showHotels( hotels, requestId ){
               for(var i=0; i<hotels.length; i++){
                 var stars = "";
                 for(var j = 1; j <= hotels[i]['stars_count']; j++){
-                  stars += '<img src="<%= asset_path 'star.png' %>" width="12" height="12" alt="">'
+                  stars += '<img src="/assets/star-4226a930be3bd3b1e768b47996cd08066bfde1629c5197d05b7e2cbf354d7703.png" width="12" height="12" alt="">'
                 }
                 // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-large-4 \

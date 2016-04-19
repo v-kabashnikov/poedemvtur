@@ -499,7 +499,17 @@
 })($);
 (function(){
   $('.hotel-addcomment-addphoto').click(function(){
-    $('.hotel-addcomment-photos').append($('.hotel-addcomment-linephoto').eq(0).clone());
+    var photo, photoHeader, photoFooter, photoBody;
+    function photoIndex(){
+      return $('.hotel-addcomment-item').last().index() + 1
+    }
+    photoHeader = '<div class="hotel-addcomment-item"><div class="hotel-addcomment-photo"><span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>';
+    photoFooter = '</div></div>';
+    for(var i = 0;i<3;i++){
+      photoBody = '<input type="file" name="photo' + photoIndex() + '" accept="image/*">';
+      photo = photoHeader + photoBody + photoFooter;
+      $('.hotel-addcomment-photos').append(photo);
+    }
     return false;
   });
 })($);

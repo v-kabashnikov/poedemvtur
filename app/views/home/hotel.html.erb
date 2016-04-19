@@ -128,24 +128,28 @@
         <textarea class="form-control" placeholder="Общее впечатление" rows="3"></textarea>
       </div>
       <div class="hotel-addcomment-photos">
-        <div class="hotel-addcomment-linephoto">
-                    <div class="hotel-addcomment-item">
-            <div class="hotel-addcomment-photo">
-              <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+       
+            <div class="hotel-addcomment-item">
+              <div class="hotel-addcomment-photo">
+                <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+                 <input type="file" name="photo1" accept="image/*">
+              </div>
             </div>
-          </div>
-                    <div class="hotel-addcomment-item">
-            <div class="hotel-addcomment-photo">
-              <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+             <div class="hotel-addcomment-item">
+              <div class="hotel-addcomment-photo">
+                <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+                 <input type="file" name="photo2" accept="image/*">
+              </div>
             </div>
-          </div>
-                    <div class="hotel-addcomment-item">
-            <div class="hotel-addcomment-photo">
-              <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+             <div class="hotel-addcomment-item">
+              <div class="hotel-addcomment-photo">
+                <span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>
+                 <input type="file" name="photo3" accept="image/*">
+              </div>
             </div>
-          </div>
-                  </div>
+            
       </div>
+      
       <a href="#" class="hotel-addcomment-addphoto">добавить Еще фото</a>
       <div class="hotel-addcomment-btn">
       <%= show_simple_captcha %>
@@ -628,30 +632,29 @@
             <button class="btn pull-right" data-recalc="false" data-toggle="offcanvas" data-target="#hotel-comment" data-canvas="#site-wrap">Добавить отзыв</button>
           </div>
           <% @hotel.reviews.each do |review| %>
-                    <div class="comment clearfix">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-              <div class="name"><%= review.name %></div>
-              <div class="date"><%= review.date %></div>
-              <a href="#" class="photos hidden-xs">Фотоотчет</a>
-            </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 pull-right text-right">
-              <p class="gray hidden-xs">Общая оценка:</p>
-              <div class="rating"><b><%= review.rate %></b> из 10</div>
-            </div>
-            <div class="visible-xs clearfix"></div>
-            <div class="visible-xs"><br></div>
-            <div class="col-xs-12 col-sm-6 col-md-7">
-              <p><%= review.comment.html_safe %></p>
-              <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
-            </div>
-          </div>
-                   
+            <div class="comment clearfix">
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <div class="name"><%= review.name %></div>
+                <div class="date"><%= review.date %></div>
+                <a href="#" class="photos hidden-xs">Фотоотчет</a>
+              </div>
+              <div class="col-xs-6 col-sm-3 col-md-2 pull-right text-right">
+                <p class="gray hidden-xs">Общая оценка:</p>
+                <div class="rating"><b><%= review.rate %></b> из 10</div>
+              </div>
+              <div class="visible-xs clearfix"></div>
+              <div class="visible-xs"><br></div>
+              <div class="col-xs-12 col-sm-6 col-md-7">
+                <p><%= review.comment.html_safe %></p>
+                <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
+              </div>
+            </div>            
           <%end%>
           <div class="more"><a href="#">Показать еще</a></div>
           </div>
         </div>
       </div>
-    </div>
+    
     <div class="visible-xs">
       <a href="#" class="tab-xs-header">Отель на карте <span class="icon"><i class="fa fa-angle-down"></i></span></a>
     </div>
@@ -663,6 +666,7 @@
         </div>
       </div>
     </div>
+
   </div>
   <% unless @hotel.reviews.empty? %>
   <div class="block-hotel-comments">

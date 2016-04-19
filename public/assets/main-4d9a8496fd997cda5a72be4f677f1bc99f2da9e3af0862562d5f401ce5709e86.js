@@ -499,7 +499,17 @@
 })($);
 (function(){
   $('.hotel-addcomment-addphoto').click(function(){
-    $('.hotel-addcomment-photos').append($('.hotel-addcomment-linephoto').eq(0).clone());
+    var photo, photoHeader, photoFooter, photoBody;
+    function photoIndex(){
+      return $('.hotel-addcomment-item').last().index() + 1
+    }
+    photoHeader = '<div class="hotel-addcomment-item"><div class="hotel-addcomment-photo"><span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>';
+    photoFooter = '</div></div>';
+    for(var i = 0;i<3;i++){
+      photoBody = '<input type="file" name="photo' + photoIndex() + '" accept="image/*">';
+      photo = photoHeader + photoBody + photoFooter;
+      $('.hotel-addcomment-photos').append(photo);
+    }
     return false;
   });
 })($);
@@ -656,7 +666,7 @@
      if(text!=''){
        $('.roundtour-place').find('.text').text(text);
      }else{
-        $('.roundtour-place').find('.text').text('Ð“Ð´Ðµ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¾Ñ‚Ð´Ð¾Ñ…Ð½ÑƒÑ‚ÑŒ?');
+        $('.roundtour-place').find('.text').text('Где хотите отдохнуть?');
      }
      $('.roundtour-place--search').val(text);
      $('.roundtour-place--submenu').hide(0);
@@ -889,10 +899,10 @@
     if(nightMin.indexOf(nightMax)){
       $('#nights_min').val(nightMin);
       $('#nights_max').val(nightMax);
-      nightResult = 'Ð½Ð° ' + nightMin + '-' + nightMax + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+      nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
     } else{
       $('#nights_min').val(nightMin);
-      nightResult = 'Ð½Ð° ' + nightMin + ' Ð½Ð¾Ñ‡ÐµÐ¹';
+       nightResult = 'на ' + nightMin + ' ночей';
     }
 
     var month = $('.select-date').val();
@@ -910,7 +920,7 @@
       $('#date_min').val(arrayMonth[0]);
       month = month + ', '
     }else{
-      month = 'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ';
+      month = 'Месяцев';
     }
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
@@ -921,7 +931,7 @@
     $('#place_id').val(countryId);
     $('#place_type').val('country');
     $('#place').text(country);
-    roundDateShow();
+    roundDateShow($(this));
     return false;
   });
 })($);
