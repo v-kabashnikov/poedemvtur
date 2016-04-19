@@ -1019,7 +1019,8 @@
 }
 
 .roundtour-place--wrapper {
-  height: 300px;
+ height: auto;
+ max-height: 300px;
 }
 
 .roundtour-place--list {
@@ -2076,6 +2077,17 @@
   display: block;
   width: 100%;
   min-height: 42px;
+  background: #fff;
+ }
+ .tour-filter-height {
+   display: none;
+   height: 226px;
+ }
+ .tour-filter_fixed {
+   position: fixed;
+   top: 63px;
+   left: 0;
+   z-index: 4;
 }
 @media (min-width: 1200px) and (max-width: 1440px) {
   .tour-filter .container {
