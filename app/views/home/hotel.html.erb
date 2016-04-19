@@ -282,7 +282,6 @@
       <div class="hotel-search--container">
         <div class="hotel-search--form">
         <%= form_tag(search_hotel_path(@hotel), class: "form-hotelsearch") do %>
-          
             <div class="container">
               <div class="row">
                 <div class="col-sm-12">
@@ -455,7 +454,7 @@
           <div id="hotel-tours-info" class="hotel-tours-info hidden-xs"><%=@hotel.result_description%></div>
           <hr class="hotel-hr">
           <% if @request %>
-          <div class="col-md-12 clearfix hidden-xs">
+          <div class="col-md-12 hotel-table--header clearfix hidden-xs hidden-sm">
             <div class="col-sm-5 col-md-4 col-lg-3">Дата</div>
             <div class="col-sm-2 col-md-2 col-lg-2">Питание</div>
             <div class="col-sm-2 col-md-2 col-lg-3">Номер</div>
@@ -465,7 +464,7 @@
                     <div id="tours" data-status="<%= @request.status %>">
             <% if @request.status == 1 %>
               <% @tours.each do |tour| %>
-                <div class="col-md-12 tour-list-item clearfix hotel-table">
+                <div class="col-md-12 tour-list-item clearfix hotel-table ">
                   <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
                     <div class="price pull-right text-left"><%= number_with_delimiter(tour.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
                     <div class="btn btn-orange">Купить сейчас</div>
@@ -508,9 +507,8 @@
 </br>
 </br>
             <% end %>
-          </div>
         <% end %>
-                    <div class="clearfix"></div>
+                   
                     <% if @request %>
           <div data-page="1" class="more more-tours <%= 'hidden' if @total_tours.to_i < 5 %>">
             <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
@@ -519,6 +517,7 @@
         <br>
         <br>
         <br>
+         <div class="clearfix"></div>
          <% unless @hotel.reviews.empty? %>
           <h2 class="clearfix">Отзывы об отеле</h2>
           <div class="hotel-comments--list">
@@ -549,7 +548,7 @@
             <h2 class="clearfix"><%= @hotel.name %></h2>
             <div class="row hotel-xs-padding">
               <div class="col-sm-12 col-md-9 col-lg-9">
-                    <% if @hotel.description %>
+              <% if @hotel.description %>
                 <%= @hotel.description %>
               </div>
             <% else %>
@@ -671,7 +670,7 @@
       <h3>ОТЗЫВЫ ОБ ОТЕЛЕ <%= @hotel.name.upcase %></h3>
       <div class="block-hotel-comments--list row">
       <% @hotel.reviews.first(3).each_with_index do |review, i| %>
-                <div class="col-md-4 col-sm-6  <%= 'hidden-sm' if i==3 %> <%= 'hidden-xs' if i > 1 %>">
+                <div class="col-md-4 col-sm-6  <%= '' if i==3 %> <%= 'hidden-xs' if i > 1 %>">
           <div class="block-hotel-comments--item">
             <div class="block-hotel-comments--header">
               <span class="block-hotel-comments--author"><%= review.name %></span>
@@ -685,6 +684,7 @@
   <% end %>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
 <div class="hotel-bottom">
@@ -708,21 +708,8 @@
             <% end %>
           </ul>
         </div>
-              <div class="col-md-3 col-sm-4">
-          <ul class="hotel-beside--list">
-            <li><a href="#">Barcelona 3*</a></li>
-            <li><a href="#">Ha Thanh Hotel 2*</a></li>
-            <li><a href="#">Daisy 3*</a></li>
-          </ul>
-        </div>
-              <div class="col-md-3 col-sm-4">
-          <ul class="hotel-beside--list">
-            <li><a href="#">Barcelona 3*</a></li>
-            <li><a href="#">Ha Thanh Hotel 2*</a></li>
-            <li><a href="#">Daisy 3*</a></li>
-          </ul>
-        </div>
             </div>
     </div>
   </div>
 </div>
+
