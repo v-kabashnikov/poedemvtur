@@ -89,7 +89,7 @@ $(document).ready(function() {
            else if(data.type == 'resort')
            {
                $('<li data-id='+data.id+' data-type='+data.type+'>\
-                   <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>\
+                   <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
                    <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
                    <span class="roundtour-place--country">'+ data.country +'</span></div> \
                    <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \

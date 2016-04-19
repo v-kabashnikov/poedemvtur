@@ -458,7 +458,7 @@
       </div>
       <div class="container">
         <div class="container-white">
-         <% if @hotel.result_description.empty?%>
+         <% if @hotel.result_description%>
            <div id="hotel-tours-info" class="hotel-tours-info hidden-xs"><%=@hotel.result_description%></div>
          <%else%>
           <div id="hotel-tours-info" class="hotel-tours-info hidden-xs">Текст, который можно поменять в админке</div>
