@@ -163,7 +163,7 @@ function meal(type)
               },
               success: function(data){
                 if(data["total"] > 0){
-                  //$('#hotels').html('');
+                  $('#hotels').html('');
                   showHotels(data["hotels"], requestId);
                   //$('#loading').remove();
                 }
