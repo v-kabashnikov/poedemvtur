@@ -921,7 +921,7 @@
     $('#place_id').val(countryId);
     $('#place_type').val('country');
     $('#place').text(country);
-    roundDateShow();
+    roundDateShow($(this));
     return false;
   });
 })($);

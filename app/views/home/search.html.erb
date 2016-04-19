@@ -154,6 +154,8 @@ function meal(type)
   
           var intervalID = setInterval(function(){
               var requestId = $('#requestId').val();
+              $('.tour-filter--container').stop(true).slideUp(200);
+              $('.tour-filter--show').delay(150).stop(true).animate({'opacity' : 1},150);
             $.ajax({
               url: "/check",
               data: {
@@ -166,12 +168,13 @@ function meal(type)
                   //$('#loading').remove();
                 }
                 console.log(data["total"]);
+                
                 if(data["status"] == 'finished'){
                   $('.tour-search-preload').fadeOut(500);
                   $('#loading').remove();
-                  if(data["total"] > <%=ResAmount.first.amount%>){
-                    $('<div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#tour-filtered');
-                  }
+                  $('.tour-filter--container').stop(true).slideDown(200);
+                  $('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
+                  
                   if(data["total"] == 0){
                     $('#total').html('Ничего не найдено')
                   }
@@ -379,7 +382,6 @@ function meal(type)
   </div>
   <div class="row" id="hotels">
   </div>
- 
   </br>
   </br>
   <div class="row" id="hotels">
@@ -387,3 +389,4 @@ function meal(type)
     </div>
   </div>
 </div>
+  <div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>
