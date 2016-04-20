@@ -152,40 +152,9 @@ function meal(type)
               }
             }
   
-          var intervalID = setInterval(function(){
-              var requestId = $('#requestId').val();
-              $('.tour-filter--container').stop(true).slideUp(200);
-              $('.tour-filter--show').delay(150).stop(true).animate({'opacity' : 1},150);
-            $.ajax({
-              url: "/check",
-              data: {
-                requestId: requestId
-              },
-              success: function(data){
-                if(data["total"] > 0){
-                  $('#hotels').html('');
-                  showHotels(data["hotels"], requestId);
-                  //$('#loading').remove();
-                }
-                console.log(data["total"]);
-                
-                if(data["status"] == 'finished'){
-                  $('.tour-search-preload').fadeOut(500);
-                  $('#loading').remove();
-                  $('.tour-filter--container').stop(true).slideDown(200);
-                  $('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
-                  
-                  if(data["total"] == 0){
-                    $('#total').html('Ничего не найдено')
-                  }
-                  else{
-                    $('#total').html('Найдено '+ data["total"] + ' отелей')
-                  }
-                  clearInterval(intervalID);
-                }
-              }
-            })
-          }, 2000)
+              //$('.tour-filter--container').stop(true).slideUp(200);
+              //$('.tour-filter--show').delay(150).stop(true).animate({'opacity' : 1},150);
+            
 </script>
 <%def video_code(video)%>
 <%regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/%>
@@ -394,3 +363,34 @@ function meal(type)
   </div>
 </div>
   <div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>
+  <script>
+    alert($('#requestId').val());
+          setTimeout($.ajax({
+
+              url: "/check",
+              data: {
+              requestId: $('#requestId').val()
+              },
+              success: function(data){
+                if(data["total"] > 0){
+                 // $('#hotels').html('');
+                  showHotels(data["hotels"], $('#requestId').val());
+                  //$('#loading').remove();
+                }
+                console.log(data["total"]);
+                
+                  $('.tour-search-preload').fadeOut(500);
+                  $('#loading').remove();
+                  $('.tour-filter--container').stop(true).slideDown(200);
+                  $('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
+                  
+                  if(data["total"] == 0){
+                    $('#total').html('Ничего не найдено')
+                  }
+                  else{
+                    $('#total').html('Найдено '+ data["total"] + ' отелей')
+                  }
+                
+              }
+            }), 60000);
+</script>
