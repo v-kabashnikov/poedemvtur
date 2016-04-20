@@ -87,6 +87,7 @@ function meal(type)
           success: function(data){
             hotels = data["hotels"];
             showHotels(hotels, requestId);
+            $('#total').html('Найдено '+ data["total"] + ' отелей')
             if(hotels.length + loaded == $('#total_number').html()){
               $('.more').remove();
             }
@@ -364,36 +365,56 @@ function meal(type)
 </div>
   <div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>
   <script>
-          setTimeout($.ajax({
 
+
+
+          setTimeout(function(){
+              var $result;
+              var $total = 0;
+              var $status;
+              $.ajax({
               url: "/check",
               data: {
               requestId: $('#requestId').val()
               },
               success: function(data){
-                if(data["total"] > 0){
+                $result = data;
+                $total = data["total"];
+                $status = data["status"];
+                while ($total == 0 && $status!= "finished"){
+                  setTimeout(function(){
+                    $.ajax({
+                    url: "/check",
+                    data: {
+                    requestId: $('#requestId').val()
+                    },
+                    success: function(data){
+                      $result = data;
+                      $total = data["total"];
+                      $status = data["status"];
+                
+                    }
+                  })   
+                  },2000)
+
+                }
+
                  // $('#hotels').html('');
                   showHotels(data["hotels"], $('#requestId').val());
                   //$('#loading').remove();
-                }
-                console.log(data["total"]);
+                
+                
                 
                   $('.tour-search-preload').fadeOut(500);
-                  $('#loading').remove();
-                  $('.tour-filter--container').stop(true).slideDown(200);
-                  $('.tour-filter--show').stop(true).animate({'opacity' : 0},150);
-                  
-                  if(data["total"] == 0){
-                    $('#total').html('Ничего не найдено')
-                  }
-                  else{
-                    $('#total').html('Найдено '+ data["total"] + ' отелей')
-                  }
+                
                 
               }
-            }), 100000);
+            })
 
 
+            }, 2000);
+
+            var intervalID = setInterval(loadMore(), 2000)
 
 
 
