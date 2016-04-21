@@ -87,9 +87,6 @@ function meal(type)
           success: function(data){
             hotels = data["hotels"];
             showHotels(hotels, requestId);
-            alert(hotels.length + loaded);
-            alert(data["total"]);
-            alert(data["status"]);
             $('#total').html('Найдено '+ data["total"] + ' отелей')
             if(hotels.length + loaded == data["total"] && data["status"] == "finished"){
               $('.more').remove();
