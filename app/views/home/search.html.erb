@@ -394,8 +394,9 @@ function meal(type)
             })   
           }
           else{
-            showHotels(data["hotels"], $('#requestId').val());
+            showHotels($result["hotels"], $('#requestId').val());
             $('.tour-search-preload').fadeOut(500);
+            $('#total').html('Найдено '+ $result["total"] + ' отелей')
             clearInterval(intervalID);
           }
 
@@ -405,6 +406,9 @@ function meal(type)
       
     })  
      }, 2000)
+
+
+
 
 
 
