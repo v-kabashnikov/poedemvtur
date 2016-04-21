@@ -364,55 +364,47 @@ function meal(type)
   </div>
 </div>
   <div class="more" onclick="loadMore()"><a>Загрузить еще</a></div>
-  <script>
-
-
-
-          setTimeout(function(){
-              var $result;
-              var $total = 0;
-              var $status;
-              $.ajax({
+<script>
+  setTimeout(function(){
+    var $result;
+    var $total = 0;
+    var $status;
+    $.ajax({
+      url: "/check",
+      data: {
+        requestId: $('#requestId').val()
+      },
+      success: function(data){
+        $result = data;
+        $total = data["total"];
+        $status = data["status"];
+        var intervalID = setInterval(function(){
+          if ($total == 0 && $status!= "finished"){
+            $.ajax({
               url: "/check",
               data: {
-              requestId: $('#requestId').val()
+                requestId: $('#requestId').val()
               },
               success: function(data){
                 $result = data;
                 $total = data["total"];
                 $status = data["status"];
-                while ($total == 0 && $status!= "finished"){
-                  setTimeout(function(){
-                    $.ajax({
-                    url: "/check",
-                    data: {
-                    requestId: $('#requestId').val()
-                    },
-                    success: function(data){
-                      $result = data;
-                      $total = data["total"];
-                      $status = data["status"];
-                
-                    }
-                  })   
-                  },2000)
-
-                }
-
-                 // $('#hotels').html('');
-                  showHotels(data["hotels"], $('#requestId').val());
-                  //$('#loading').remove();
-                
-                
-                
-                  $('.tour-search-preload').fadeOut(500);
-                
                 
               }
-            })
+            })   
+          }
+          else{
+            showHotels(data["hotels"], $('#requestId').val());
+            $('.tour-search-preload').fadeOut(500);
+            clearInterval(intervalID);
+          }
 
+        },4000)
 
-            }, 2000)
+      }
+      
+    })  
+     }, 2000)
 
 
 

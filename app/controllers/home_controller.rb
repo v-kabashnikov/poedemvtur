@@ -154,6 +154,7 @@ class HomeController < ApplicationController
   end
 
   def load_more
+    @total = SearchResult.where(request_id: requestId).count
     rs = ResAmount.first.amount
     @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
     render 'check'
