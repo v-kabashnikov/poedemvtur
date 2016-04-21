@@ -157,7 +157,7 @@ class HomeController < ApplicationController
     @total = SearchResult.where(request_id: params[:requestId]).count
     rs = ResAmount.first.amount
     @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
-    if LoadStatus.find_by(request_id: requestId).status == 1
+    if LoadStatus.find_by(request_id: params[:requestId]).status == 1
       @status = 'finished'
     else
       @status = 'loading'
