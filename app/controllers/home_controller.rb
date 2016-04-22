@@ -33,6 +33,18 @@ class HomeController < ApplicationController
   end
 
   def hotel
+    @depart_city = params[:depart_city]
+    @city_id = params[:city_id]
+    @place_id = params[:place_id]
+    @place_type = params[:place_type]
+    @nights_min = params[:nights_min]
+    @nights_max = params[:nights_max]
+    @date_min = params[:date_min]
+    @date_max = params[:date_max]
+    @children = params[:children]
+    @arrive_place = params[:arrive_place]
+    @price = params["roundtour-price"]
+    @adults = params[:adult]
     @cities = DepartCity.all
     @hotel = Hotel.find(params[:id])
     weather_url = nil
@@ -93,7 +105,7 @@ class HomeController < ApplicationController
 
   def search
     
-
+    
     # s_nights = params["s_nights"].split('-')
     # s_departFrom = Date.parse(params['s_departFrom'])
     # s_departTo = s_departFrom + 45.days
@@ -111,7 +123,17 @@ class HomeController < ApplicationController
     # url_params[:pageSize] = 3000
 
     # TourLoader.perform_async(requestId, url_params)
-    
+    @depart_city = params[:depart_city]
+    @city_id = params[:city_id]
+    @place_id = params[:place_id]
+    @place_type = params[:place_type]
+    @nights_min = params[:nights_min]
+    @nights_max = params[:nights_max]
+    @date_min = params[:date_min]
+    @date_max = params[:date_max]
+    @children = params[:children]
+    @arrive_place = params[:arrive_place]
+    @price = params["roundtour-price"]
     @adults = params[:adult]
     if @adults == "3"
       @people = "троих"
@@ -122,9 +144,8 @@ class HomeController < ApplicationController
     end
     @request = start_search(params)
     @country = @request.country
-
     if params[:place_type] == 'hotel'
-      redirect_to "/hotel/#{params[:place_id]}"
+      redirect_to "/hotel/#{params[:place_id]}?requestId=#{@requestId}&depart_city=#{@depart_city}&city_id=#{@city_id}&place_id=#{@place_id}&place_type=#{@place_type}&nights_min=#{@nights_min}&nights_max=#{@nights_max}&children=#{@children}&arrive_place=#{@arrive_place}&adults=#{@adults}"
     end
     
     # @requestId = requestId
