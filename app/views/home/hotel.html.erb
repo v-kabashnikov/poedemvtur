@@ -293,7 +293,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="roundtour-city">
-                  Город вылета: <a href="#" class="roundtour-city--select"><%=@depart_city%></a>
+                  Город вылета: <a href="#" class="roundtour-city--select"><%=@depart_city ? @depart_city : "Москва"%></a>
                   <div class="roundtour-city--submenu">
                     <input type="text" class="form-control roundtour-city--search" value="Москва">
                     <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
@@ -311,7 +311,7 @@
                 <div class="form-group roundtour-place--container">
                   <a href="#" class="roundtour-place">
                     <span class="icon icons-location_orange"></span>
-                    <span id='place'  class="text"><%=@arrive_place%></span>
+                    <span id='place'  class="text"><%=@arrive_place ? @arrive_place : "Где хотите отдохнуть" %></span>
                   </a>
                   <div class="roundtour-place--submenu">
                     <input id="place1" autocomplete="off" type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
@@ -390,14 +390,14 @@
               </div>
             </div>
           </div>
-          <input id="city-id" type="hidden" name="city_id" value='<%=@city_id%>' >
-          <input id="place_id" type="hidden" name="place_id" value='<%=@place_id%>'>
-          <input id="place_type" type="hidden" name="place_type" value='<%=@place_type%>'>
-          <input id="nights_min" type="hidden" name="nights_min" value='<%=@nights_min%>' >
-          <input id="nights_max" type="hidden" name="nights_max" value='<%=@nights_max%>' >
-          <input id="date_min" type="hidden" name="date_min" value='<%=@date_min%>' >
-          <input id="date_max" type="hidden" name="date_max" value='<%=@date_max%>' >
-          <input id="adult" type="hidden" name="adult" value='<%=@adults%>' >
+          <input id="city-id" type="hidden" name="city_id" value='<%=@city_id ? @city_id : ''%>' >
+          <input id="place_id" type="hidden" name="place_id" value='<%=@place_id ? @place_id : ''%>'>
+          <input id="place_type" type="hidden" name="place_type" value='<%=@place_type ? @place_type : ''%>'>
+          <input id="nights_min" type="hidden" name="nights_min" value='<%=@nights_min ? @nights_min : ''%>' >
+          <input id="nights_max" type="hidden" name="nights_max" value='<%=@nights_max ? @nights_max : ''%>' >
+          <input id="date_min" type="hidden" name="date_min" value='<%=@date_min ? @date_min : ''%>' >
+          <input id="date_max" type="hidden" name="date_max" value='<%=@date_max ? @date_max : ''%>' >
+          <input id="adult" type="hidden" name="adult" value='<%=@adults ? @adults : ''%>' >
           <%end%>
         </div>
         <!-- select date -->
