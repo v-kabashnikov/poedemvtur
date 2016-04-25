@@ -2706,16 +2706,20 @@
   margin-bottom: 15px;
 }
 
-.hotel-table--header {
-  color: #ababab;
+.hotel-table--header{
+  color:#ababab;
   font-family: 'Roboto';
-  font-weight: 700;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-weight:700;
+  padding-top:20px;
+  padding-bottom:20px;
 }
+.hotel-table{
+  margin-bottom:30px;
+  .btn-orange{
+    min-width:120px;
+    float:right;
+  }
 
-.hotel-table {
-  margin-bottom: 30px;
 }
 .hotel-table .btn-orange {
   min-width: 120px;

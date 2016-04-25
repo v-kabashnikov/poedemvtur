@@ -499,9 +499,56 @@
 })($);
 (function(){
   $('.hotel-addcomment-addphoto').click(function(){
-    $('.hotel-addcomment-photos').append($('.hotel-addcomment-linephoto').eq(0).clone());
+    var photo, photoHeader, photoFooter, photoBody;
+    function photoIndex(){
+      return $('.hotel-addcomment-item').last().index() + 1
+    }
+    photoHeader = '<div class="hotel-addcomment-item"><div class="hotel-addcomment-photo"><a href="#" class="hotel-addcomment-photo--remove"><i class="fa fa-times" aria-hidden="true"></i></a><span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>';
+    photoFooter = '</div></div>';
+    for(var i = 0;i<3;i++){
+      photoBody = '<input type="file" class="hotel-addcomment-photo--input" name="review[img' + photoIndex() + ']" accept="image/*">';
+      photo = photoHeader + photoBody + photoFooter;
+      $('.hotel-addcomment-photos').append(photo);
+    }
     return false;
   });
+  $(document).on('change', '.hotel-addcomment-photo--input', function(){
+     commentPhotoLoad($(this));
+   });
+   $('.hotel-addcomment-photo--remove').on('click', function(){
+     commentPhotoRemove($(this));
+     return false;
+   });
+   $(document).on('click', '.hotel-addcomment-photo--remove', function(){
+     commentPhotoRemove($(this));
+     return false;
+   });
+   function commentPhotoLoad(input){
+     var $photo = input.closest('.hotel-addcomment-photo');
+     readURL(input,$photo);
+   }
+   function commentPhotoRemove(link){
+     var $photo = link.closest('.hotel-addcomment-photo');
+     $photo.find('.hotel-addcomment-photo--remove').fadeOut(50);
+     $photo.find('.hotel-addcomment-photo--text').fadeIn(100);
+     $photo.find('input').val('');
+     $photo.find('img').remove();
+   }
+   function readURL(input,$photo) {
+     var input = input[0];
+     var $photo = $photo;
+     if (input.files && input.files[0]) {
+       var reader = new FileReader();
+ 
+       reader.onload = function (e) {
+           $photo.append('<img src="' + e.target.result + '">');
+           $photo.find('.hotel-addcomment-photo--remove').fadeIn(100);
+           $photo.find('.hotel-addcomment-photo--text').fadeOut(50);
+       }
+ 
+       reader.readAsDataURL(input.files[0]);
+     }
+   }
 })($);
 (function(){
 
