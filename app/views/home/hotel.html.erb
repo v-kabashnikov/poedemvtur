@@ -475,28 +475,28 @@
           <div id="tours" data-status="<%= @request.status %>">
             <% if @request.status == 1 %>
             <% @tours.each do |tour| %>
-           <div class="col-md-12 tour-list-item clearfix hotel-table ">
+            <div class="col-md-12 tour-list-item clearfix hotel-table ">
               <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
-                <div class="price pull-right text-left">28&nbsp;500&nbsp;<i class="fa fa-rub"></i><small>на всех</small></div>
+                <div class="price pull-right text-left"><%= number_with_delimiter(tour.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
                 <div class="btn btn-orange">Купить сейчас</div>
               </div>
               <div class="col-xs-6 col-sm-5 col-md-4 no-rightpadding">
-                <div class="xs-pull-left"><span class="date">10.12</span>&nbsp;<span class="hidden-xs"> вылет из Екатеринбурга</span></div>
-                <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b>16.12</span>&nbsp;<span class="hidden-xs"> вылет обратно, 7 ночей</span></div>
+                <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs" style="display: inline!important;"> вылет из <%= tour.depart_city %></span></div>
+                <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span style="display: inline!important;" class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
                 <div class="visible-xs clearfix"></div>
-                <div class="visible-xs">7 ночей</div>
+                <div class="visible-xs"><%= tour.nights %> ночей</div>
               </div>
               <div class="col-xs-6 col-sm-2 col-md-2 info">
-                <span>Завтраки</span>
+                <span><%= tour.meal %></span>
               </div>
               <div class="hidden-xs col-sm-2 col-md-2 info">
-                <span>Номер Стандартный.<br class="hidden-lg"> 2 взрослых</span>
+                <span><%= tour.room_type %><br class="hidden-lg">
+                  <%= ", #{tour.adults_number} взрослых" %><%= ", #{tour.children_number} детей" if tour.children_number > 0 %></span>
+                </div>
+                <div class="hidden-xs hidden-sm col-md-2 info">
+                  <span><%= tour.tour_operator %></span>
+                </div>
               </div>
-              <div class="hidden-xs hidden-sm col-md-2 info">
-                                <span>Веди тур</span>
-              </div>
-            </div>
-
               <% end %>
               <% else %>
             <br>
@@ -522,8 +522,8 @@
 <% end %>
 
 <% if @request %>
-<div data-page="1" class="col-md-12 tour-list-item clearfix hotel-table <%= 'hidden' if @total_tours.to_i < 5 %>">
-  <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1",style: "height:0px;", remote: true %>
+<div data-page="1" class="more col-md-12 clearfix hotel-table <%= 'hidden' if @total_tours.to_i < 5 %>">
+  <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
 </div>
 <% end %>
 <br>
@@ -658,7 +658,6 @@
         </div>
       </div>            
       <%end%>
-      <div class="more"><a href="#">Показать еще</a></div>
     </div>
   </div>
 </div>
