@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   get '/countries/category/:id', to: 'countries#show_region'
   get '/ajax', to: 'home#ajax'
   get '/form', to: 'blogs#form'
-  get 'feedback', to: 'home#feedback'
+  post '/feedback', to: 'home#feedback', as: :reviews
 end

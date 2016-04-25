@@ -506,7 +506,7 @@
     photoHeader = '<div class="hotel-addcomment-item"><div class="hotel-addcomment-photo"><a href="#" class="hotel-addcomment-photo--remove"><i class="fa fa-times" aria-hidden="true"></i></a><span class="hotel-addcomment-photo--text">Загрузить<br>фото</span>';
     photoFooter = '</div></div>';
     for(var i = 0;i<3;i++){
-      photoBody = '<input type="file" class="hotel-addcomment-photo--input" name="photo' + photoIndex() + '" accept="image/*">';
+      photoBody = '<input type="file" class="hotel-addcomment-photo--input" name="review[img' + photoIndex() + ']" accept="image/*">';
       photo = photoHeader + photoBody + photoFooter;
       $('.hotel-addcomment-photos').append(photo);
     }

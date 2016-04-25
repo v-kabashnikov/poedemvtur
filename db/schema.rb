@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418194150) do
+ActiveRecord::Schema.define(version: 20160425094448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -288,6 +288,30 @@ ActiveRecord::Schema.define(version: 20160418194150) do
 
   add_index "reviews", ["hotel_id"], name: "index_reviews_on_hotel_id", using: :btree
 
+  create_table "revimg", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "review_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "revimg", ["review_id"], name: "index_revimg_on_review_id", using: :btree
+
+  create_table "revimgs", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "review_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "revimgs", ["review_id"], name: "index_revimgs_on_review_id", using: :btree
+
   create_table "search_results", force: :cascade do |t|
     t.integer "hotel_id"
     t.integer "request_id"
@@ -393,6 +417,8 @@ ActiveRecord::Schema.define(version: 20160418194150) do
   add_foreign_key "load_statuses", "depart_cities"
   add_foreign_key "resorts", "countries"
   add_foreign_key "reviews", "hotels"
+  add_foreign_key "revimg", "reviews"
+  add_foreign_key "revimgs", "reviews"
   add_foreign_key "search_results", "hotels"
   add_foreign_key "tour_results", "hotels"
 end

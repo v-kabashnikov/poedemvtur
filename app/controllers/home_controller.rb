@@ -15,6 +15,16 @@ class HomeController < ApplicationController
 
   def feedback
     if simple_captcha_valid?
+      params[:family] ? people = 3 : people  = 1
+      params[:date].empty? ? date = DateTime.now : date = Date.parse(params[:date]) 
+      rate = ((params[:meal].to_i+params[:service].to_i)/2)
+      @review = Review.create(name: params[:name], date: date, comment: params[:opinion], people_number: people ,rate: rate, hotel_id: params[:hotel_id])
+      params[:review].each do |image|
+        @revimg = Revimg.new
+        @revimg.image = image[1]
+        @revimg.review_id = @review.id
+        @revimg.save
+      end
       @hotel = Hotel.find(params[:hotel_id])
       UserMailer.send_signup_email("").deliver
     end
@@ -33,6 +43,8 @@ class HomeController < ApplicationController
   end
 
   def hotel
+    @review = Review.new
+    @revimg = Revimg.create(review_id: @review.id)
     @depart_city = params[:depart_city]
     @city_id = params[:city_id]
     @place_id = params[:place_id]
