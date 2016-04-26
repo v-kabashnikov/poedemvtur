@@ -522,7 +522,7 @@
 <% end %>
 
 <% if @request %>
-<div data-page="1" class="more col-md-12 clearfix hotel-table  <%= 'hidden' if @total_tours.to_i < 5 %>">
+<div data-page="1" class="more col-md-12 clearfix hotel-table  <%= 'hidden' if @total_tours.to_i < 6 %>">
   <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
 </div>
 <% end %>

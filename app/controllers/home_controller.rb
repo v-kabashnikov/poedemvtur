@@ -16,10 +16,12 @@ class HomeController < ApplicationController
   def tour
     @hotel = Hotel.find(params[:id])
     @tour = @hotel.tour_results.find(params[:tour])
+    @link = "/tournex/#{@hotel.id}?tour=#{@tour.id}"
   end
 
   def tournext
     @hotel = Hotel.find(params[:id])
+    @tour = @hotel.tour_results.find(params[:tour])
   end
 
   def feedback
