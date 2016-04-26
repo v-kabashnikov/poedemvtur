@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get '/ajax', to: 'home#ajax'
   get '/form', to: 'blogs#form'
   post '/feedback', to: 'home#feedback', as: :reviews
+  get '/tour/:id', to: 'home#tour'
+  get '/tour-2/:id', to: 'home#tournext'
 end

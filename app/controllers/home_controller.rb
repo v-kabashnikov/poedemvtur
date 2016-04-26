@@ -13,6 +13,15 @@ class HomeController < ApplicationController
     @countries = Country.where(:hot => true)
   end
 
+  def tour
+    @hotel = Hotel.find(params[:id])
+    @tour = @hotel.tour_results.find(params[:tour])
+  end
+
+  def tournext
+    @hotel = Hotel.find(params[:id])
+  end
+
   def feedback
     if simple_captcha_valid?
       params[:family] ? people = 3 : people  = 1
