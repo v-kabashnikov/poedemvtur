@@ -1,4 +1,5 @@
 require 'sletat'
+require 'pry'
 class TourLoader
   include Sletat
   include Sidekiq::Worker
@@ -37,10 +38,21 @@ class TourLoader
             # ls.update(results: aaData)
           end
           if load_state.map{ |i| i["IsProcessed"] }.reduce(true){ |res,i| res && i }
-            aaData = get_res_data('GetTours', true, url_params)['aaData']
+            mainData = get_res_data('GetTours', true, url_params)
+            aaData = mainData['aaData']
             puts "is_processed #{aaData.count}"
+            #puts mainData["oilTaxes"]
+            #puts mainData["visa"]
             aaData.each do |tour|
               hotel = Hotel.get_or_update(tour[3])
+              if !tour[4].empty?
+                Flight.create(
+                  time: tour[4].split(" ")[1],
+                  date: tour[4].split(" ")[0],
+                  hotel_id: hotel.id,
+                  operator: tour[6]
+                )
+              end
               TourResult.create(
                 hotel_id: hotel.id,
                 depart_date: Date.parse(tour[12]),

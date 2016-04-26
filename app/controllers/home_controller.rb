@@ -17,6 +17,7 @@ class HomeController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @tour = @hotel.tour_results.find(params[:tour])
     @link = "/tournext/#{@hotel.id}?tour=#{@tour.id}"
+    @flights = Flight.where(hotel_id: @hotel.id)
   end
 
   def tournext
@@ -188,7 +189,6 @@ class HomeController < ApplicationController
   def check
     rs = ResAmount.first.amount
     requestId = params[:requestId]
-    #wtf
     @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc)
     @total = SearchResult.where(request_id: requestId).count
     if LoadStatus.find_by(request_id: requestId).status == 1

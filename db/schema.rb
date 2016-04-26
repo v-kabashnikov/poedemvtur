@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425094448) do
+ActiveRecord::Schema.define(version: 20160426200757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,17 @@ ActiveRecord::Schema.define(version: 20160425094448) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "flights", force: :cascade do |t|
+    t.string   "date"
+    t.string   "time"
+    t.string   "operator"
+    t.integer  "hotel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "flights", ["hotel_id"], name: "index_flights_on_hotel_id", using: :btree
 
   create_table "forms", force: :cascade do |t|
     t.string   "name"
@@ -387,6 +398,7 @@ ActiveRecord::Schema.define(version: 20160425094448) do
   add_foreign_key "countries", "country_categories"
   add_foreign_key "depart_cities", "countries"
   add_foreign_key "facilities", "facility_groups"
+  add_foreign_key "flights", "hotels"
   add_foreign_key "hotels", "resorts"
   add_foreign_key "hotels", "stars"
   add_foreign_key "load_statuses", "countries"

@@ -136,13 +136,16 @@
               </div>
               <div class="col-md-8">
                 <ul class="tour-page-includes-air--list">
+                <%@flights.each do |f|%>
                   <li>
                     <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
                     <div class="content">
-                      <h5>04 января эконом, Finnair</h5>
-                      <p>06:35 Екатеринбург, Кольцово — 06:50 Вантаа, Хельсинки-Вантаа</p>
+                      <h5><%=f.date%></h5>
+                      <p><%=f.time%> <%=f.operator%></p>
                     </div>
                   </li>
+                <%end%>
+                  
                   <li>
                     <div class="icon"><span class="icons-arrow-down_small_orange"></span></div>
                     <div class="content">
