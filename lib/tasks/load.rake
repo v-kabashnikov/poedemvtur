@@ -51,15 +51,15 @@ namespace :dict do
       puts "resort #{i+1}/#{resorts.count}"
     end
 
-    # hotels = doc.xpath('dictionaries/hotels/hotel')
-    # hotels.each_with_index do |hotel, i|
-    #   Hotel.where(name: hotel['name']).first_or_create do |c|
-    #     c.sletat_id = hotel['id']
-    #     c.resort_id = Resort.find_by(sletat_id: hotel['resortId']).try(:id)
-    #     c.star_id = Star.find_by(sletat_id: hotel['starId']).try(:id)
-    #   end
-    #   puts "hotel #{i+1}/#{hotels.count}"
-    # end
+     hotels = doc.xpath('dictionaries/hotels/hotel')
+     hotels.each_with_index do |hotel, i|
+       Hotel.where(name: hotel['name']).first_or_create do |c|
+         c.sletat_id = hotel['id']
+         c.resort_id = Resort.find_by(sletat_id: hotel['resortId']).try(:id)
+         c.star_id = Star.find_by(sletat_id: hotel['starId']).try(:id)
+       end
+       puts "hotel #{i+1}/#{hotels.count}"
+     end
 
   end
 
