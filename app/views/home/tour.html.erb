@@ -179,7 +179,14 @@
           </div>
           <div class="tab-item">
             <%@oil_taxes.each do |oil|%>
-              <%=oil%>
+              <%=oil.start_date%>
+              <br>
+              <%=oil.finish_date%>
+              <br>
+              <%=oil.amount%>
+              <br>
+              <%=oil.currency%>
+              <br>
             <%end%>
           </div>
         </div>
