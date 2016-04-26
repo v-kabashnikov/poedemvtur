@@ -34,13 +34,11 @@
           <div class="col-md-4 text-right no-rightpadding hidden-sm">
             <div class="tour-page--rating">
               <ul class="stars">
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <% @hotel.stars_count.times do %>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <% end %>
               </ul>
-              <span class="number">~ 4,7</span>
+              <span class="number">~ <%= @hotel.hotel_rate.round(1) %></span>
             </div>
           </div>
         </div>

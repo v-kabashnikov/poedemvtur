@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get '/form', to: 'blogs#form'
   post '/feedback', to: 'home#feedback', as: :reviews
   get '/tour/:id', to: 'home#tour'
-  get '/tour-2/:id', to: 'home#tournext'
+  get '/tournext/:id', to: 'home#tournext'
 end
