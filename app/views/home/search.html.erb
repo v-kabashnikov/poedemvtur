@@ -658,7 +658,7 @@ $(document).ready(function(){
         $total = data["total"];
         $status = data["status"];
         var intervalID = setInterval(function(){
-          if ($total == 0 && $status!= "finished"){
+          if ($status!= "finished"){
             $.ajax({
               url: "/check",
               data: {
