@@ -1,5 +1,4 @@
 require 'sletat'
-require 'pry'
 class TourLoader
   include Sletat
   include Sidekiq::Worker
