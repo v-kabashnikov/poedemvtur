@@ -188,6 +188,7 @@ class HomeController < ApplicationController
   def check
     rs = ResAmount.first.amount
     requestId = params[:requestId]
+    #wtf
     @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc)
     @total = SearchResult.where(request_id: requestId).count
     if LoadStatus.find_by(request_id: requestId).status == 1
