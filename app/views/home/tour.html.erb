@@ -56,7 +56,16 @@
           <div class="tour-page-price--info">
             <div class="tour-page-price--info-content">
               <span class="price"><%= number_with_delimiter(@tour.price, locale: :ru) %> <i class="fa fa-rub" aria-hidden="true"></i></span>
-              <div class="tour-page--textincludes">Вы можете оплатить сегодня <strong>26 639</strong> руб., а остальную часть — в течение 3 дней.</div>
+              <div class="tour-page--textincludes">Вы можете оплатить сегодня 
+               <% if (@tour.depart_date - DateTime.now).to_i > 30  %>
+                  <% a = ((@tour.price.to_i)*0.3).ceil%>
+               <% elsif (@tour.depart_date - DateTime.now).to_i > 14 && (@tour.depart_date - DateTime.now).to_i < 29%>
+                  <% a = ((@tour.price.to_i)*0.5).ceil%>
+                <%else%>
+                  <% a = @tour.price %>
+                  <%b = 1%>
+                <%end%>
+              <strong><%=a%></strong> <%="руб., а остальную часть — в течение 3 дней." if !b%></div>
             </div>
             <div class="tour-page-price--info-button hidden-xs">
               <a href="<%=@link%>" class="btn btn-lg btn-green tour-page-buy">купить тур</a>
@@ -136,32 +145,42 @@
               </div>
               <div class="col-md-8">
                 <ul class="tour-page-includes-air--list">
-                <%@flights.each do |f|%>
-                  <li>
-                    <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
-                    <div class="content">
-                      <h5><%=f.date%></h5>
-                      <p><%=f.time%> <%=f.operator%></p>
-                    </div>
-                  </li>
+                <%if !@flights.empty?%>
+                  <%@flights.each do |f|%>
+                    <li>
+                      <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
+                      <div class="content">
+                        <h5><%=f.date%></h5>
+                        <p><%=f.time%> <%=f.operator%></p>
+                      </div>
+                    </li>
+                  <%end%>
+                <%else%>
+                  <li><p>Информация отсутствует</p></li>
                 <%end%>
-                  
-                  <li>
-                    <div class="icon"><span class="icons-arrow-down_small_orange"></span></div>
-                    <div class="content">
-                      <h5>08 января эконом, Finnair</h5>
-                      <p>23:45 Вантаа, Хельсинки-Вантаа — 05:45 Екатеринбург, Кольцово</p>
-                    </div>
-                  </li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="tab-item">
-            проживание в отеле
+            <%= @hotel.name.upcase %>
+            <br>
+            <%= @tour.depart_date %>
+            <br>
+            <%= @tour.nights %> ночей
+            <br>
+            номер: <%= @tour.room_type %> 
+            <br>
+            питание: <%= @tour.meal %>
+            <br>
+            взрослых: <%= @tour.adults_number %>
+            <br>
+            детей: <%= @tour.children_number %>
           </div>
           <div class="tab-item">
-            а также
+            <%@oil_taxes.each do |oil|%>
+              <%=oil%>
+            <%end%>
           </div>
         </div>
       </div>
@@ -216,27 +235,12 @@
   </div>
   <div class="tour-page-more">
     <div class="container">
-      <h4 class="tour-page-partheader">вы можете заказать дополнительно</h4>
-      <ul class="tour-page-more-checkboxs">
-        <li>
-          <label class="custom-checkbox_big">
-            <input type="checkbox">
-            <span class="text">Страховка от невыезда: 7 552 рублей за всех</span>
-          </label>
-        </li>
-        <li>
-          <label class="custom-checkbox_big">
-            <input type="checkbox">
-            <span class="text">Путеводитель по Пекину: 499 руб.</span>
-          </label>
-        </li>
-      </ul>
       <div class="tour-page-price">
         <h6 class="tour-page-price--header">Итого цена тура:</h6>
         <div class="tour-page-price--info">
           <div class="tour-page-price--info-content">
-            <span class="price">43 352 <i class="fa fa-rub" aria-hidden="true"></i></span>
-            <div class="tour-page--textincludes">Вы можете оплатить сегодня <strong>26 639</strong> руб., а остальную часть — в течение 3 дней.</div>
+            <span class="price"><%=@tour.price%> <i class="fa fa-rub" aria-hidden="true"></i></span>
+            <div class="tour-page--textincludes">Вы можете оплатить сегодня <strong><%=a%></strong> <%="руб., а остальную часть — в течение 3 дней." if !b%></div>
           </div>
           <div class="tour-page-price--info-button">
             <a href="<%=@link%>" class="btn btn-lg btn-green tour-page-buy">купить тур</a>
@@ -246,3 +250,5 @@
     </div>
   </div>
 </div>
+
+

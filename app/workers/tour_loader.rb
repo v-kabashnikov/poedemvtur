@@ -40,14 +40,27 @@ class TourLoader
             mainData = get_res_data('GetTours', true, url_params)
             aaData = mainData['aaData']
             puts "is_processed #{aaData.count}"
-            #puts mainData["oilTaxes"]
+
             #puts mainData["visa"]
             aaData.each do |tour|
               hotel = Hotel.get_or_update(tour[3])
-              if !tour[4].empty?
+              mainData["oilTaxes"].each do |oil|
+              OilTax.create(
+                start_date: oil[1], 
+                finish_date: oil[2],
+                amount: oil[3],
+                currency: oil[4],
+                hotel_id: hotel.id
+                )
+            end
+              if !tour[6].empty?
+                if tour[4]
+                  time = tour[4].split(" ")[1]
+                  date = tour[4].split(" ")[0]
+                end
                 Flight.create(
-                  time: tour[4].split(" ")[1],
-                  date: tour[4].split(" ")[0],
+                  time: time,
+                  date: date,
                   hotel_id: hotel.id,
                   operator: tour[6]
                 )

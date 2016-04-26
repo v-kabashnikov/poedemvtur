@@ -4,6 +4,7 @@ class Hotel < ActiveRecord::Base
   belongs_to :star
   belongs_to :resort
   has_many :flights
+  has_many :oil_taxes
   has_many :search_results, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :tour_results, dependent: :destroy

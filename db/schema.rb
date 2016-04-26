@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426200757) do
+ActiveRecord::Schema.define(version: 20160426224612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,18 @@ ActiveRecord::Schema.define(version: 20160426200757) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "oil_taxes", force: :cascade do |t|
+    t.string   "start_date"
+    t.string   "finish_date"
+    t.string   "amount"
+    t.string   "currency"
+    t.integer  "hotel_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "oil_taxes", ["hotel_id"], name: "index_oil_taxes_on_hotel_id", using: :btree
+
   create_table "operators", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -403,6 +415,7 @@ ActiveRecord::Schema.define(version: 20160426200757) do
   add_foreign_key "hotels", "stars"
   add_foreign_key "load_statuses", "countries"
   add_foreign_key "load_statuses", "depart_cities"
+  add_foreign_key "oil_taxes", "hotels"
   add_foreign_key "resorts", "countries"
   add_foreign_key "reviews", "hotels"
   add_foreign_key "revimgs", "reviews"

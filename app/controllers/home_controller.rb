@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     @tour = @hotel.tour_results.find(params[:tour])
     @link = "/tournext/#{@hotel.id}?tour=#{@tour.id}"
     @flights = Flight.where(hotel_id: @hotel.id)
+    @oil_taxes = OilTax.where(hotel_id: @hotel.id)
   end
 
   def tournext
