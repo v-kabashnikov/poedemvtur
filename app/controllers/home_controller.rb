@@ -229,7 +229,6 @@ class HomeController < ApplicationController
       @people = "четверых"
     end
     @request = start_search(params)
-    binding.pry
     @country = @request.country
     if params[:place_type] == 'hotel'
       redirect_to "/hotel/#{params[:place_id]}?requestId=#{@request.request_id}&depart_city=#{@depart_city}&city_id=#{@city_id}&place_id=#{@place_id}&place_type=#{@place_type}&nights_min=#{@nights_min}&nights_max=#{@nights_max}&children=#{@children}&arrive_place=#{@arrive_place}&adults=#{@adults}"
