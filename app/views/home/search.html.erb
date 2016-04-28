@@ -675,7 +675,7 @@ $(document).ready(function(){
           else{
             showHotels($result["hotels"], $('#requestId').val());
             $('.tour-search-preload').fadeOut(500);
-            $('#total').html('Найдено '+ $result["total"] + ' отелей')
+            //$('#total').html('Найдено '+ $result["total"] + ' отелей')
             clearInterval(intervalID);
           }
 
@@ -686,7 +686,43 @@ $(document).ready(function(){
     })  
      }, 15000)
 
+ var $result;
+    var $total = 0;
+    var $status;
+    $.ajax({
+      url: "/check",
+      data: {
+        requestId: $('#requestId').val()
+      },
+      success: function(data){
+        $result = data;
+        $total = data["total"];
+        $status = data["status"];
+        var intervalID = setInterval(function(){
+          if ($status!= "finished"){
+            $.ajax({
+              url: "/check",
+              data: {
+                requestId: $('#requestId').val()
+              },
+              success: function(data){
+                $result = data;
+                $total = data["total"];
+                $status = data["status"];
+                
+              }
+            })   
+          }
+          else{
+            $('#total').html('Найдено '+ $result["total"] + ' отелей')
+            clearInterval(intervalID);
+          }
 
+        },4000)
+
+      }
+      
+    })
 
 
 
