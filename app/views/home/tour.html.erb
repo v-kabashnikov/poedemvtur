@@ -168,7 +168,7 @@
                         <br>
                          <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]+" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
                         <h5><%f.date%></h5>
-                        <p><%=f.arrival_airport%> <%=f.operator%> <%=f.flight_number%></p>
+                        <p><%=f.arrival_airport%><%=f.flight_number%></p>
                       </div>
                     </li>
                   <%end%>
