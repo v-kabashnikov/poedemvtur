@@ -20,6 +20,20 @@
 <%= javascript_include_tag 'tour-filter.js'%>
 <%= javascript_include_tag 'tour-page.js'%>
 <% end %>
+<%monthes = {
+  "01" => "Января",
+  "02" => "Февраля",
+  "03" => "Марта",
+  "04" => "Апреля",
+  "05" => "Мая",
+  "06" => "Июня",
+  "07" => "Июля",
+  "08" => "Августа",
+  "09" => "Сентября",
+  "10" => "Октября",
+  "11" => "Ноября",
+  "12" => "Декабря"
+}%>
 <div id="sub-header" class="sub-header_hotel xxs-compact" style="background-image:url('<%= asset_path("bg-sub-header-hotel.jpg") %>')">
 </div>
 <div class="tour-page tour-page_2">
@@ -58,7 +72,7 @@
                 </div>
               </div>
               <div class="tour-page-form">
-                <form action="#" class="form-tourpage">
+                <form action="<%=@link%>" method="get" class="form-tourpage" id="payform">
                   <fieldset>
                     <h5 style="display: -webkit-box;" class="form-tourpage--header">
                       Турист #1. <span class="hidden-xs">На него мы оформляем договор</span>
@@ -71,7 +85,7 @@
                           <label class="control-label">Фамилия</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="Ivanov">
+                          <input name="surname" type="text" class="form-control" placeholder="Ivanov">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -79,7 +93,7 @@
                           <label class="control-label">Имя</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="Ivan">
+                          <input name="name" type="text" class="form-control" placeholder="Ivan">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -87,7 +101,7 @@
                           <label class="control-label">Электронная почта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="email" class="form-control" placeholder="info@mail.ru">
+                          <input name="email" type="email" class="form-control" placeholder="info@mail.ru">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -95,7 +109,7 @@
                           <label class="control-label">Номер телефона</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="+7 (...)...—..—..">
+                          <input name="phone" type="text" class="form-control" placeholder="+7 (...)...—..—..">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -103,7 +117,7 @@
                           <label class="control-label">Номер загранпаспорта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="71 3354587">
+                          <input name="passnum" type="text" class="form-control" placeholder="71 3354587">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -111,7 +125,7 @@
                           <label class="control-label">Кем выдан</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="ФМС 78008">
+                          <input name="issued" type="text" class="form-control" placeholder="ФМС 78008">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -119,7 +133,7 @@
                           <label class="control-label">Дата выдачи</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="date" class="form-control" placeholder="09.10.2011">
+                          <input name="issue_date" type="date" class="form-control" placeholder="09.10.2011">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -127,11 +141,13 @@
                           <label class="control-label">Действителен до</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="date" class="form-control" placeholder="">
+                          <input name="valid_until" type="date" class="form-control" placeholder="">
                         </div>
                       </div>
                     </div>
                   </fieldset>
+                  <input name="additional_number"  type="hidden" value="<%=@tour.adults_number.to_i - 1%>">
+                  <input name="tour_id"  type="hidden" value="<%=@tour.id%>">
                   <%(@tour.adults_number.to_i - 1).times do |i|%> 
                     <fieldset>
                     <h5 class="form-tourpage--header">
@@ -139,12 +155,13 @@
                       <a href="#" class="form-tourpage--header-toggle"><span class="icons-arrow-up_white"></span></a>
                     </h5>
                     <div class="inputs-container">
+                      <span class="visible-xs">На него мы оформляем договор</span>
                       <div class="form-group row">
                         <div class="col-sm-4 col-sm-offset-1 hidden-xs">
                           <label class="control-label">Фамилия</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="Ivanov">
+                          <input name="surname<%=i+1%>" type="text" class="form-control" placeholder="Ivanov">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -152,7 +169,23 @@
                           <label class="control-label">Имя</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="Ivan">
+                          <input name="name<%=i+1%>" type="text" class="form-control" placeholder="Ivan">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-1 hidden-xs">
+                          <label class="control-label">Электронная почта</label>
+                        </div>
+                        <div class="col-sm-7">
+                          <input name="email<%=i+1%>" type="email" class="form-control" placeholder="info@mail.ru">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-1 hidden-xs">
+                          <label class="control-label">Номер телефона</label>
+                        </div>
+                        <div class="col-sm-7">
+                          <input name="phone<%=i+1%>" type="text" class="form-control" placeholder="+7 (...)...—..—..">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -160,7 +193,7 @@
                           <label class="control-label">Номер загранпаспорта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="71 3354587">
+                          <input name="passnum<%=i+1%>" type="text" class="form-control" placeholder="71 3354587">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -168,7 +201,7 @@
                           <label class="control-label">Кем выдан</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="text" class="form-control" placeholder="ФМС 78008">
+                          <input name="issued<%=i+1%>" type="text" class="form-control" placeholder="ФМС 78008">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -176,7 +209,7 @@
                           <label class="control-label">Дата выдачи</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="date" class="form-control" placeholder="09.10.2011">
+                          <input name="issue_date<%=i+1%>" type="date" class="form-control" placeholder="09.10.2011">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -184,9 +217,11 @@
                           <label class="control-label">Действителен до</label>
                         </div>
                         <div class="col-sm-7">
-                          <input type="date" class="form-control" placeholder="">
+                          <input name="valid_until<%=i+1%>" type="date" class="form-control" placeholder="">
                         </div>
                       </div>
+    
+                      <%end%>
                       <br>
                       <div class="form-group row">
                         <div class="col-sm-11 col-sm-offset-1">
@@ -202,12 +237,13 @@
                       </div>
                     </div>
                   </fieldset>
-                  <%end%>
+                  
                   
                   <div class="visible-xs visible-sm">
                     <div class="row">
                       <div class="col-sm-11 col-sm-offset-1">
-                        <button class="btn btn-green tour-page-buy">перейти к оплате</button>
+                     
+                       
                       </div>
                     </div>
                   </div>
@@ -224,15 +260,11 @@
             <ul class="tour-page_2-price--list">
               <li>
                 <div class="icon"><span class="icons-tour-night"></span></div>
-                <div class="content">9 ночей / 10 дней<br> 2 взрослых</div>
+                <div class="content"><%=@tour.nights%> ночей<br> <%= @tour.adults_number %> взрослых</div>
               </li>
               <li>
                 <div class="icon"><span class="icons-tour-transport"></span></div>
-                <div class="content">04 января эконом, Finnair<br> 08 января эконом</div>
-              </li>
-              <li>
-                <div class="icon"><span class="icons-tour-med"></span></div>
-                <div class="content">Медицинская Страховка Групповой трансфер Страховка от невыезда</div>
+                <div class="content"><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%><br> <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></div>
               </li>
             </ul>
             <div class="tour-page_2-price--price">
@@ -240,8 +272,7 @@
               <span><%= number_with_delimiter(@tour.price, locale: :ru) %> <i class="fa fa-rub"></i></span>
             </div>
           </div>
-
-          <a href="#" class="btn btn-green tour-page-buy">перейти к оплате</a>
+           <button type="submit" form="payform" value="submit" class="btn btn-green tour-page-buy">перейти к оплате</button>
         </div>
       </div>
     </div>

@@ -13,17 +13,74 @@ class HomeController < ApplicationController
     @countries = Country.where(:hot => true)
   end
 
+  def buytour
+    TourRequest.create(
+      surname: params[:surname],
+      name: params[:name],
+      email: params[:email],
+      phone: params[:phone],
+      passnum: params[:passnum],
+      issued: params[:issued],
+      issue_date: params[:issue_date],
+      valid_until: params[:valid_until],
+      hotel_id: params[:id],
+      tour_id: params[:tour_id],
+      guest: false
+      )
+    if !params[:additional_number].empty?
+      params[:additional_number].to_i.times do |i|
+        TourRequest.create(
+          surname: params["surname#{i+1}"],
+          name: params["name#{i+1}"],
+          email: params["email#{i+1}"],
+          phone: params["phone#{i+1}"],
+          passnum: params["passnum#{i+1}"],
+          issued: params["issued#{i+1}"],
+          issue_date: params["issue_date#{i+1}"],
+          valid_until: params["valid_until#{i+1}"],
+          hotel_id: params[:id],
+          tour_id: params[:tour_id],
+          guest: true
+        )
+      end
+    end
+    UserMailer.buy_notification(params[:email]).deliver
+    UserMailer.buy_notification("jujava@mail").deliver
+    redirect_to :back
+  end
+
   def tour
     @hotel = Hotel.find(params[:id])
     @tour = @hotel.tour_results.find(params[:tour])
-    @link = "/tournext/#{@hotel.id}?tour=#{@tour.id}"
-    @flights = Flight.where(hotel_id: @hotel.id)
+    countryId = @hotel.resort.country.sletat_id
+    requestId = @tour.request_id
+    parameters = { sourceId: @tour.source_id, offerId: @tour.offer_id, currencyAlias: "RUB", requestId: requestId, countryId: countryId }
+    flight_data = get_res_data 'ActualizePrice', true, parameters
+    flight_data["oilTaxes"].each do |f|
+      OilTax.find_or_create_by(
+        start_date: f[5], 
+        finish_date: f[6],
+        amount: f[0],
+        currency: f[1],
+        hotel_id: @hotel.id
+      )
+      Flight.find_or_create_by(
+        date: flight_data["data"][4],
+        hotel_id: @hotel.id,
+        operator: f[2],
+        arrival_airport: f[8],
+        flight_number: f[9]
+      )
+    end
     @oil_taxes = OilTax.where(hotel_id: @hotel.id)
+    @flights = Flight.where(hotel_id: @hotel.id)
+    @link = "/tournext/#{@hotel.id}?tour=#{@tour.id}"
   end
 
   def tournext
     @hotel = Hotel.find(params[:id])
     @tour = @hotel.tour_results.find(params[:tour])
+    @link = "/buytour/#{@hotel.id}"
   end
 
   def feedback

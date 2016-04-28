@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426224612) do
+ActiveRecord::Schema.define(version: 20160428015426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,8 +144,10 @@ ActiveRecord::Schema.define(version: 20160426224612) do
     t.string   "time"
     t.string   "operator"
     t.integer  "hotel_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "arrival_airport"
+    t.string   "flight_number"
   end
 
   add_index "flights", ["hotel_id"], name: "index_flights_on_hotel_id", using: :btree
@@ -370,6 +372,22 @@ ActiveRecord::Schema.define(version: 20160426224612) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "tour_requests", force: :cascade do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "passnum"
+    t.string   "issued"
+    t.string   "issue_date"
+    t.string   "valid_until"
+    t.string   "hotel_id"
+    t.string   "tour_id"
+    t.boolean  "guest"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tour_results", force: :cascade do |t|
     t.integer  "hotel_id"
     t.date     "depart_date"
@@ -383,8 +401,10 @@ ActiveRecord::Schema.define(version: 20160426224612) do
     t.integer  "adults_number"
     t.integer  "children_number"
     t.string   "sletat_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "offer_id"
+    t.string   "source_id"
   end
 
   add_index "tour_results", ["hotel_id"], name: "index_tour_results_on_hotel_id", using: :btree

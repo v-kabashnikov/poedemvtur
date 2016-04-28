@@ -2,8 +2,14 @@ class UserMailer < ApplicationMailer
 	default :from => 'poedemvtur@app.com'
 
 	def send_signup_email(user)
-    @user = user
-    mail( :to => "jujava@mail.ru",
-    :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
-  end
+   	 @user = user
+     mail( :to => "jujava@mail.ru",
+     :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
+  	end
+
+  	def buy_notification(mail)
+  		@mail = mail
+  		mail( :to => @mail,
+     	:subject => 'Заявка на покупку тура оставлена' )
+  	end
 end

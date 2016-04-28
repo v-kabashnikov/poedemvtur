@@ -20,6 +20,20 @@
 <%= javascript_include_tag 'tour-filter.js'%>
 <%= javascript_include_tag 'tour-page.js'%>
 <% end %>
+<%monthes = {
+  "01" => "Января",
+  "02" => "Февраля",
+  "03" => "Марта",
+  "04" => "Апреля",
+  "05" => "Мая",
+  "06" => "Июня",
+  "07" => "Июля",
+  "08" => "Августа",
+  "09" => "Сентября",
+  "10" => "Октября",
+  "11" => "Ноября",
+  "12" => "Декабря"
+}%>
 <div id="sub-header" class="sub-header_hotel xxs-compact" style="background-image:url('<%= asset_path("bg-sub-header-hotel.jpg") %>')">
 </div>
 <div class="tour-page">
@@ -150,8 +164,11 @@
                     <li>
                       <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
                       <div class="content">
-                        <h5><%=f.date%></h5>
-                        <p><%=f.time%> <%=f.operator%></p>
+                        <%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+" "+@tour.depart_city+" -> "+@hotel.resort.country.name%>
+                        <br>
+                         <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]+" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
+                        <h5><%f.date%></h5>
+                        <p><%=f.arrival_airport%> <%=f.operator%> <%=f.flight_number%></p>
                       </div>
                     </li>
                   <%end%>
@@ -163,9 +180,9 @@
             </div>
           </div>
           <div class="tab-item">
-            <%= @hotel.name.upcase %>
+            Проживание в отеле <%= @hotel.name.upcase %>
             <br>
-            <%= @tour.depart_date %>
+            <%= @tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+"-"+(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]] %>
             <br>
             <%= @tour.nights %> ночей
             <br>
@@ -179,13 +196,13 @@
           </div>
           <div class="tab-item">
             <%@oil_taxes.each do |oil|%>
-              <%=oil.start_date%>
+              <%="начало действия сборов "+oil.start_date if oil.start_date%>
               <br>
-              <%=oil.finish_date%>
+              <%="конец действия сборов "+oil.finish_date if oil.finish_date%>
               <br>
-              <%=oil.amount%>
+              <%="сумма "+oil.amount if oil.amount%>
               <br>
-              <%=oil.currency%>
+              <%="валюта "+oil.currency if oil.currency%>
               <br>
             <%end%>
           </div>

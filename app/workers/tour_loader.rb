@@ -6,7 +6,7 @@ class TourLoader
   def perform(requestId, url_params)
     ls = LoadStatus.find_by(request_id: requestId)    
     begin
-      Timeout::timeout(3.minute) do
+      Timeout::timeout(4.minute) do
         loop do
           sleep(1)
           load_state = get_res_data('GetLoadState', false, { requestId: requestId })
@@ -42,42 +42,14 @@ class TourLoader
             puts "is_processed #{aaData.count}"
 
             #puts mainData["visa"]
-            aaData.each do |tour|
-              hotel = Hotel.get_or_update(tour[3])
-              mainData["oilTaxes"].each do |oil|
-              OilTax.create(
-                start_date: oil[1], 
-                finish_date: oil[2],
-                amount: oil[3],
-                currency: oil[4],
-                hotel_id: hotel.id
-                )
-            end
-              if !tour[6].empty?
-                if tour[4]
-                  time = tour[4].split(" ")[1]
-                  date = tour[4].split(" ")[0]
-                end
-                Flight.create(
-                  time: time,
-                  date: date,
-                  hotel_id: hotel.id,
-                  operator: tour[6]
-                )
+            TourResult.transaction do
+              aaData.each_with_index do |tour, i|
+                p i
+                hotel = Hotel.where(sletat_id: tour[3]).first
+                #parameters = { sourceId: tour[1], offerId: tour[0], currencyAlias: "RUB", requestId: requestId, countryId: countryId }
+                #flight_data = get_res_data 'ActualizePrice', true, parameters
+                TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel.id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")
               end
-              TourResult.create(
-                hotel_id: hotel.id,
-                depart_date: Date.parse(tour[12]),
-                nights: tour[14],
-                depart_city: tour[33],
-                meal: tour[51],
-                room_type: tour[53],
-                request_id: requestId,
-                price: tour[42],
-                adults_number: tour[16],
-                children_number: tour[17],
-                tour_operator: tour[18]
-              )
             end
             ls.update(status: 1)
             # ls.update(status: 1, results: aaData)
@@ -93,6 +65,8 @@ class TourLoader
       aaData.each do |tour|
         hotel = Hotel.get_or_update(tour[3])
         TourResult.create(
+          offerId: tour[0],
+          sourceId: tour[1],
           hotel_id: hotel.id,
           depart_date: Date.parse(tour[12]),
           nights: tour[14],
