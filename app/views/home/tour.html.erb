@@ -159,22 +159,14 @@
               </div>
               <div class="col-md-8">
                 <ul class="tour-page-includes-air--list">
-                <%if !@flights.empty?%>
-                  <%@flights.each do |f|%>
                     <li>
                       <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
                       <div class="content">
                         <%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+" "+@tour.depart_city+" -> "+@hotel.resort.country.name%>
                         <br>
                          <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]+" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
-                        <h5><%f.date%></h5>
-                        <p><%=f.arrival_airport%><%=f.flight_number%></p>
                       </div>
-                    </li>
-                  <%end%>
-                <%else%>
-                  <li><p>Информация отсутствует</p></li>
-                <%end%>
+                    </li>                  
                 </ul>
               </div>
             </div>
@@ -196,6 +188,7 @@
           </div>
           <div class="tab-item">
             <%@oil_taxes.each do |oil|%>
+            <%if Date.parse(oil.start_date) == @tour.depart_date%>
               <%="начало действия сборов "+oil.start_date if oil.start_date%>
               <br>
               <%="конец действия сборов "+oil.finish_date if oil.finish_date%>
@@ -204,6 +197,7 @@
               <br>
               <%="валюта "+oil.currency if oil.currency%>
               <br>
+              <%end%>
             <%end%>
           </div>
         </div>
