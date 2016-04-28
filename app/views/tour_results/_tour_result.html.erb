@@ -1,7 +1,8 @@
+<%meals ={"BB" => "ЗАВТРАКИ", "HB/HB+" => "ДВУХРАЗОВОЕ","HB" => "ДВУХРАЗОВОЕ", "HB+" => "ДВУХРАЗОВОЕ", "FB" => "ТРЕХРАЗОВОЕ", "FB+" => "ТРЕХРАЗОВОЕ", "AL" => "ВСЕ ВКЛЮЧЕНО", "AL/UAL" => "ВСЕ ВКЛЮЧЕНО", "RO" => "БЕЗ ПИТАНИЯ", "AI" => "ВСЕ ВКЛЮЧЕНО", "UAL" => "УЛЬТРА ВСЕ ВКЛЮЧЕНО"}%>
 <div class="col-md-12 tour-list-item clearfix hotel-table" id="more-tours">
   <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px; padding-left: 0;">
     <div class="price pull-right text-left"><%= number_with_delimiter(tour_result.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
-    <div class="btn btn-orange"><a href="/tour/<%=@hotel.id%>?tour=<%=tour_result.id%>">Купить сейчас</a></div>
+    <div class="btn btn-orange"><a style="text-decoration: none;" href="/tour/<%=@hotel.id%>?tour=<%=tour_result.id%>">Купить сейчас</a></div>
   </div>
    <div class="col-xs-6 col-sm-5 col-md-4 no-rightpadding">
     <div class="xs-pull-left"><span class="date"><%= tour_result.depart_date.strftime("%d.%m") %></span>&nbsp;<span style="display: inline!important;" class="hidden-xs"> вылет из <%= tour_result.depart_city %></span></div>
@@ -10,7 +11,7 @@
     <div class="visible-xs"><%= tour_result.nights %> ночей</div>
   </div>
   <div class="col-xs-6 col-sm-2 col-md-2 info">
-    <span><%= tour_result.meal %></span>
+    <span><%= meals[tour_result.meal.upcase] %></span>
   </div>
   <div class="hidden-xs col-sm-2 col-md-2 info">
     <span><%= tour_result.room_type %><br class="hidden-lg">

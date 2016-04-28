@@ -93,11 +93,13 @@ class HomeController < ApplicationController
       params[:date].empty? ? date = DateTime.now : date = Date.parse(params[:date]) 
       rate = ((params[:meal].to_i+params[:service].to_i)/2)
       @review = Review.create(name: params[:name], date: date, comment: params[:opinion], people_number: people ,rate: rate, hotel_id: params[:hotel_id])
-      params[:review].each do |image|
-        @revimg = Revimg.new
-        @revimg.image = image[1]
-        @revimg.review_id = @review.id
-        @revimg.save
+      if params[:review]
+        params[:review].each do |image|
+          @revimg = Revimg.new
+          @revimg.image = image[1]
+          @revimg.review_id = @review.id
+          @revimg.save
+        end
       end
       @hotel = Hotel.find(params[:hotel_id])
       UserMailer.send_signup_email("").deliver

@@ -23,7 +23,7 @@ class Hotel < ActiveRecord::Base
   end
 
   def nearby_hotels
-    Hotel.where(resort_id: resort_id).order('random()').limit(3)
+    Hotel.where(resort_id: resort_id).order('random()').limit(9)
   end
 
   def update_info(info_res)
