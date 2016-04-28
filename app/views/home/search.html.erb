@@ -363,7 +363,9 @@ function meal(type)
     </div>
   </div>
 </div>
-  <div class="more" style="cursor: pointer;" onclick="loadMore()"><a>Загрузить еще</a></div>
+<div id="here">
+</div>
+  
 <script>
 function showHotels( hotels, requestId ){
             var params = '&depart_city=<%=@depart_city%>&city_id=<%=@city_id%>&place_id=<%=@place_id%>&place_type=<%=@place_type%>&nights_min=<%=@nights_min%>&nights_max=<%=@nights_max%>&children=<%=@children%>&arrive_place=<%=@arrive_place%>&adults=<%=@adults%>'
@@ -675,6 +677,7 @@ $(document).ready(function(){
           else{
             showHotels($result["hotels"], $('#requestId').val());
             $('.tour-search-preload').fadeOut(500);
+            $(' <div class="more" style="cursor: pointer;" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#here');
             //$('#total').html('Найдено '+ $result["total"] + ' отелей')
             clearInterval(intervalID);
           }
