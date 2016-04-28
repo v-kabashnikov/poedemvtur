@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   get '/tour/:id', to: 'home#tour'
   get '/tournext/:id', to: 'home#tournext'
   get '/buytour/:id', to: 'home#buytour'
+  get '/thanks/:id', to: 'home#thanks'
 end

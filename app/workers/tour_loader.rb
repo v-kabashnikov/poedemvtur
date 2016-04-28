@@ -28,6 +28,7 @@ class TourLoader
               sr = SearchResult.where(hotel_id: hotel.id, request_id: requestId).first
               if !sr
                 unless hotel.sletat_photo_url.nil?
+                  p "11111111111111111111111111"
                   SearchResult.create(hotel_id: hotel.id, request_id: requestId, min_price: min_price, meal: meal, depart_date: depart_date, nights: nights)
                 end
               elsif sr.min_price > min_price
@@ -45,10 +46,10 @@ class TourLoader
             TourResult.transaction do
               aaData.each_with_index do |tour, i|
                 p i
-                hotel = Hotel.where(sletat_id: tour[3]).first
+                hotel_id = Hotel.connection.execute("select hotels.* from hotels where hotels.sletat_id = '#{tour[3]}'")[0]["id"]
                 #parameters = { sourceId: tour[1], offerId: tour[0], currencyAlias: "RUB", requestId: requestId, countryId: countryId }
                 #flight_data = get_res_data 'ActualizePrice', true, parameters
-                TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel.id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")
+                TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel_id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")
               end
             end
             ls.update(status: 1)
@@ -63,22 +64,11 @@ class TourLoader
       aaData = get_res_data('GetTours', true, url_params)['aaData']
       puts "is_processed #{aaData.count}"
       aaData.each do |tour|
-        hotel = Hotel.get_or_update(tour[3])
-        TourResult.create(
-          offerId: tour[0],
-          sourceId: tour[1],
-          hotel_id: hotel.id,
-          depart_date: Date.parse(tour[12]),
-          nights: tour[14],
-          depart_city: tour[33],
-          meal: tour[51],
-          room_type: tour[53],
-          request_id: requestId,
-          price: tour[42],
-          adults_number: tour[16],
-          children_number: tour[17],
-          tour_operator: tour[18]
-        )
+        p i
+        hotel_id = Hotel.connection.execute("select hotels.* from hotels where hotels.sletat_id = '#{tour[3]}'")[0]["id"]
+        #parameters = { sourceId: tour[1], offerId: tour[0], currencyAlias: "RUB", requestId: requestId, countryId: countryId }
+        #flight_data = get_res_data 'ActualizePrice', true, parameters
+        TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel_id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")
       end
       ls.update(status: 1)
       # ls.update(status: 1, results: aaData)

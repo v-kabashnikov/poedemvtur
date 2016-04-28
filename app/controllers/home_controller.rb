@@ -13,6 +13,10 @@ class HomeController < ApplicationController
     @countries = Country.where(:hot => true)
   end
 
+  def thanks
+    @hotel = Hotel.find(params[:id])
+  end
+
   def buytour
     TourRequest.create(
       surname: params[:surname],
@@ -46,7 +50,7 @@ class HomeController < ApplicationController
     end
     UserMailer.buy_notification(params[:email]).deliver
     UserMailer.buy_notification("jujava@mail").deliver
-    redirect_to :back
+    redirect_to "/thanks/#{params[:id]}"
   end
 
   def tour
@@ -163,7 +167,7 @@ class HomeController < ApplicationController
     @hotel = Hotel.find(params[:id])
     if LoadStatus.find_by(request_id: requestId).status == 1
       @status = 'finished'
-      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(5)
+      @tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).limit(5).order(price: :asc )
       @total_tours = @hotel.tour_results.where(request_id: params['requestId'].to_i).count
       @load_more = @total_tours > 5
     else
@@ -182,7 +186,7 @@ class HomeController < ApplicationController
     total_tours = @hotel.tour_results.where(request_id: params['requestId']).count
     offset = params[:page].to_i * per_page
     @loaded = total_tours <= offset + per_page
-    @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(per_page).offset(offset)
+    @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(per_page).order(price: :asc ).offset(offset)
   end
 
   def search
@@ -225,9 +229,10 @@ class HomeController < ApplicationController
       @people = "четверых"
     end
     @request = start_search(params)
+    binding.pry
     @country = @request.country
     if params[:place_type] == 'hotel'
-      redirect_to "/hotel/#{params[:place_id]}?requestId=#{@requestId}&depart_city=#{@depart_city}&city_id=#{@city_id}&place_id=#{@place_id}&place_type=#{@place_type}&nights_min=#{@nights_min}&nights_max=#{@nights_max}&children=#{@children}&arrive_place=#{@arrive_place}&adults=#{@adults}"
+      redirect_to "/hotel/#{params[:place_id]}?requestId=#{@request.request_id}&depart_city=#{@depart_city}&city_id=#{@city_id}&place_id=#{@place_id}&place_type=#{@place_type}&nights_min=#{@nights_min}&nights_max=#{@nights_max}&children=#{@children}&arrive_place=#{@arrive_place}&adults=#{@adults}"
     end
     
     # @requestId = requestId

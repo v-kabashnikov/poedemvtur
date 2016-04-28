@@ -85,7 +85,7 @@
                           <label class="control-label">Фамилия</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="surname" type="text" class="form-control" placeholder="Ivanov">
+                          <input  name="surname" type="text" class="form-control" placeholder="Ivanov" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -93,7 +93,7 @@
                           <label class="control-label">Имя</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="name" type="text" class="form-control" placeholder="Ivan">
+                          <input name="name" type="text" class="form-control" placeholder="Ivan" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -101,7 +101,7 @@
                           <label class="control-label">Электронная почта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="email" type="email" class="form-control" placeholder="info@mail.ru">
+                          <input name="email" type="email" class="form-control" placeholder="info@mail.ru" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -109,7 +109,7 @@
                           <label class="control-label">Номер телефона</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="phone" type="text" class="form-control" placeholder="+7 (...)...—..—..">
+                          <input name="phone" type="text" class="form-control" placeholder="+7 (...)...—..—.." required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -117,7 +117,7 @@
                           <label class="control-label">Номер загранпаспорта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="passnum" type="text" class="form-control" placeholder="71 3354587">
+                          <input name="passnum" type="text" class="form-control" placeholder="71 3354587" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -125,7 +125,7 @@
                           <label class="control-label">Кем выдан</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="issued" type="text" class="form-control" placeholder="ФМС 78008">
+                          <input name="issued" type="text" class="form-control" placeholder="ФМС 78008" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -133,7 +133,7 @@
                           <label class="control-label">Дата выдачи</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="issue_date" type="date" class="form-control" placeholder="09.10.2011">
+                          <input name="issue_date" type="date" class="form-control" placeholder="09.10.2011" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -141,7 +141,7 @@
                           <label class="control-label">Действителен до</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="valid_until" type="date" class="form-control" placeholder="">
+                          <input name="valid_until" type="date" class="form-control" placeholder="" required>
                         </div>
                       </div>
                     </div>
@@ -155,13 +155,12 @@
                       <a href="#" class="form-tourpage--header-toggle"><span class="icons-arrow-up_white"></span></a>
                     </h5>
                     <div class="inputs-container">
-                      <span class="visible-xs">На него мы оформляем договор</span>
                       <div class="form-group row">
                         <div class="col-sm-4 col-sm-offset-1 hidden-xs">
                           <label class="control-label">Фамилия</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="surname<%=i+1%>" type="text" class="form-control" placeholder="Ivanov">
+                          <input name="surname<%=i+1%>" type="text" class="form-control" placeholder="Ivanov" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -169,7 +168,7 @@
                           <label class="control-label">Имя</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="name<%=i+1%>" type="text" class="form-control" placeholder="Ivan">
+                          <input name="name<%=i+1%>" type="text" class="form-control" placeholder="Ivan" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -177,7 +176,7 @@
                           <label class="control-label">Электронная почта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="email<%=i+1%>" type="email" class="form-control" placeholder="info@mail.ru">
+                          <input name="email<%=i+1%>" type="email" class="form-control" placeholder="info@mail.ru" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -185,7 +184,7 @@
                           <label class="control-label">Номер телефона</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="phone<%=i+1%>" type="text" class="form-control" placeholder="+7 (...)...—..—..">
+                          <input name="phone<%=i+1%>" type="text" class="form-control" placeholder="+7 (...)...—..—.." required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -193,7 +192,7 @@
                           <label class="control-label">Номер загранпаспорта</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="passnum<%=i+1%>" type="text" class="form-control" placeholder="71 3354587">
+                          <input name="passnum<%=i+1%>" type="text" class="form-control" placeholder="71 3354587" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -201,7 +200,7 @@
                           <label class="control-label">Кем выдан</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="issued<%=i+1%>" type="text" class="form-control" placeholder="ФМС 78008">
+                          <input name="issued<%=i+1%>" type="text" class="form-control" placeholder="ФМС 78008" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -209,7 +208,7 @@
                           <label class="control-label">Дата выдачи</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="issue_date<%=i+1%>" type="date" class="form-control" placeholder="09.10.2011">
+                          <input name="issue_date<%=i+1%>" type="date" class="form-control" placeholder="09.10.2011" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -217,7 +216,7 @@
                           <label class="control-label">Действителен до</label>
                         </div>
                         <div class="col-sm-7">
-                          <input name="valid_until<%=i+1%>" type="date" class="form-control" placeholder="">
+                          <input name="valid_until<%=i+1%>" type="date" class="form-control" placeholder="" required>
                         </div>
                       </div>
     
@@ -226,7 +225,7 @@
                       <div class="form-group row">
                         <div class="col-sm-11 col-sm-offset-1">
                           <label class="custom-checkbox_grey">
-                            <input type="checkbox">
+                            <input type="checkbox" required>
                             <span></span>
                             <div>
                               <p>Совершая действия по оплате туристского продукта, я подтверждаю, что ознакомлен и согласен со всеми положениями <a href="#">договора-оферты</a>. Совершение действий по оплате признаю безоговорочным акцептом договора-оферты. Я выражаю свое письменное согласие на обработку персональных данных, которые будут сообщены мной при заключении или в ходе исполнения договора. </p>

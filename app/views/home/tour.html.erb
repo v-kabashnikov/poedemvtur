@@ -197,7 +197,7 @@
               <br>
               <%="валюта "+oil.currency if oil.currency%>
               <br>
-              <%end%>
+            <%end%>
             <%end%>
           </div>
         </div>
@@ -217,15 +217,9 @@
             <li>
               <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
               <div class="content">
-                <h5>04 января эконом, Finnair</h5>
-                <p>06:35 Екатеринбург, Кольцово — 06:50 Вантаа, Хельсинки-Вантаа</p>
-              </div>
-            </li>
-            <li>
-              <div class="icon"><span class="icons-arrow-down_small_orange"></span></div>
-              <div class="content">
-                <h5>08 января эконом, Finnair</h5>
-                <p>23:45 Вантаа, Хельсинки-Вантаа — 05:45 Екатеринбург, Кольцово</p>
+                <%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+" "+@tour.depart_city+" -> "+@hotel.resort.country.name%>
+                <br>
+                <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]+" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
               </div>
             </li>
           </ul>
@@ -238,7 +232,20 @@
         <span class="icon"><i class="fa"></i></span>
       </a>
       <div class="tour-page-includesxs--content">
-        <div class="container">проживание</div>
+        <div class="container">
+         Проживание в отеле <%= @hotel.name.upcase %>
+            <br>
+            <%= @tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+"-"+(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]] %>
+            <br>
+            <%= @tour.nights %> ночей
+            <br>
+            номер: <%= @tour.room_type %> 
+            <br>
+            питание: <%= @tour.meal %>
+            <br>
+            взрослых: <%= @tour.adults_number %>
+            <br>
+            детей: <%= @tour.children_number %></div>
       </div>
     </div>
     <div class="tour-page-includesxs--item">
@@ -247,7 +254,20 @@
         <span class="icon"><i class="fa"></i></span>
       </a>
       <div class="tour-page-includesxs--content">
-        <div class="container">а также</div>
+        <div class="container">
+            <%@oil_taxes.each do |oil|%>
+              <%if Date.parse(oil.start_date) == @tour.depart_date%>
+                <%="начало действия сборов "+oil.start_date if oil.start_date%>
+                <br>
+                <%="конец действия сборов "+oil.finish_date if oil.finish_date%>
+                <br>
+                <%="сумма "+oil.amount if oil.amount%>
+                <br>
+                <%="валюта "+oil.currency if oil.currency%>
+                <br>
+              <%end%>
+            <%end%>
+          </div>
       </div>
     </div>
   </div>

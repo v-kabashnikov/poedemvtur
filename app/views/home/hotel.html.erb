@@ -33,12 +33,22 @@
         },
         success: function(data){
           if(data){
+            $('#more-button').removeClass('hidden')
             clearInterval(intervalID);
+            $('#super-more-tours').removeClass('hidden');
           }
         }
       });
     }
   }, 5000)
+  $(document).ready(function(){
+    var $i = 2;
+    $('#super-more-tours').on('click', '#more-button', function(){      
+        $('#more-button').attr('href', '<%=load_more_tours_path%>?requestId=<%=@request.request_id%>&page=' + $i);
+        $i = $i +1;
+    });
+
+    });
 </script>
 <% content_for :head do %>
 <%= stylesheet_link_tag    'hotel', media: 'all' %>
@@ -476,7 +486,7 @@
             <% if @request.status == 1 %>
             <% @tours.each do |tour| %>
             <div class="col-md-12 tour-list-item clearfix hotel-table ">
-              <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px;">
+              <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px, padding-left: 0;;">
                 <div class="price pull-right text-left"><%= number_with_delimiter(tour.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
                 <div class="btn btn-orange"><a href="/tour/<%=@hotel.id%>?tour=<%=tour.id%>">Купить сейчас</a></div>
               </div>
@@ -522,8 +532,8 @@
 <% end %>
 
 <% if @request %>
-<div data-page="1" class="more col-md-12 clearfix hotel-table">
-  <%= link_to 'Загрузить еще', "#{load_more_tours_path}?requestId=#{@request.request_id}&page=1", remote: true %>
+<div data-page="1" class="more col-md-12 clearfix hotel-table hidden " id="super-more-tours">
+<a id="more-button" data-remote="true" href="<%=load_more_tours_path%>?requestId=<%=@request.request_id%>&page=1">Загрузить еще</a>
 </div>
 <% end %>
 <br>
