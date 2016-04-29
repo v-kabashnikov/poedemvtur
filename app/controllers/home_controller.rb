@@ -251,9 +251,12 @@ class HomeController < ApplicationController
   end
 
   def check
+    meal  = ["BB", "HB", "HB+", "FB", "FB+", "AL", "UAL"]
+    stars = ["5*", "4*", "3*"]
     rs = ResAmount.first.amount
     requestId = params[:requestId]
-    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs)
+    @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: 10000..15000000).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs)
+    #@results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs)
     @total = SearchResult.where(request_id: requestId).count
     if LoadStatus.find_by(request_id: requestId).status == 1
       @status = 'finished'
@@ -263,9 +266,11 @@ class HomeController < ApplicationController
   end
 
   def load_more
+    meal  = ["BB", "HB", "HB+", "FB", "FB+", "AL", "UAL"]
+    stars = ["5*", "4*", "3*"]
     @total = SearchResult.where(request_id: params[:requestId]).count
     rs = ResAmount.first.amount
-    @results = SearchResult.where(request_id: params[:requestId]).preload(hotel: [:reviews, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
+    @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: 10000..15000000).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc).limit(rs).offset(params[:loaded])
     if LoadStatus.find_by(request_id: params[:requestId]).status == 1
       @status = 'finished'
     else
@@ -288,14 +293,13 @@ class HomeController < ApplicationController
       meal  = []
       meal << "BB" if is_true?(p[:eat1])
       meal << "HB" << "HB+" if is_true?(p[:eat2])
-      meal << "FB" <<"FB+" if is_true?(p[:eat3])
+      meal << "FB" << "FB+" if is_true?(p[:eat3])
       meal << "AL" << "UAL" if is_true?(p[:eat4])
       meal << "RO" if is_true?(params[:eat5])
       stars = []
       stars << "5*" if is_true?(p[:class1])
       stars << "4*" if is_true?(p[:class2])
       stars << "3*" if is_true?(p[:class3])
-      stars << "Apts" << "Villas" << "HV-1" << "HV-2" if is_true?(p[:class4])
       @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: p[:priceMin]..p[:priceMax]).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc) 
       @total = @results.count
       render 'check'
