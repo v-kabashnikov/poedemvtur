@@ -356,7 +356,15 @@
                     <span class="text">
                     <%asd = DateTime.now.to_s[8..9]+"-"+(DateTime.now.to_s[8..9].to_i + 3).to_s+" "+monthes[DateTime.now.to_s[5..6]]%>
                       <span class="roundtour-date--months"><%=@date_min ? @date_min : asd%> <%=(' - ') if @date_max%> <%=@date_max%></span>
-                      <span class="roundtour-date--nights"><%=@nights_min%><%=(' - ') if @nights_max%><%=@nights_max+"ночей" if @nights_max%></span>
+                      <span class="roundtour-date--nights">
+                      <%if @nights_min%>
+                      <%if !@nights_min.empty?%>
+                      <%=@nights_min%><%=(' - ') if @nights_max%><%=@nights_max+"ночей" if @nights_max%>
+                      <%else%>
+                      3 ночи
+                      <%end%>
+                      <%end%>
+                      </span>
                     </span>
                   </a>
                 </div>

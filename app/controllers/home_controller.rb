@@ -295,6 +295,7 @@ class HomeController < ApplicationController
       stars << "5*" if is_true?(p[:class1])
       stars << "4*" if is_true?(p[:class2])
       stars << "3*" if is_true?(p[:class3])
+      stars << "Apts" << "Villas" << "HV-1" << "HV-2" if is_true?(p[:class4])
       @results = SearchResult.where(request_id: params[:requestId]).where(meal: meal, min_price: p[:priceMin]..p[:priceMax]).joins(hotel: [:star]).where('stars.name' => stars).preload(hotel: [:reviews, :star, resort: [:country]]).order(min_price: :asc) 
       @total = @results.count
       render 'check'

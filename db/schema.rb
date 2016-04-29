@@ -273,7 +273,7 @@ ActiveRecord::Schema.define(version: 20160428015426) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "head"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "question_category_id"
@@ -313,6 +313,18 @@ ActiveRecord::Schema.define(version: 20160428015426) do
 
   add_index "reviews", ["hotel_id"], name: "index_reviews_on_hotel_id", using: :btree
 
+  create_table "revimg", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "review_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "revimg", ["review_id"], name: "index_revimg_on_review_id", using: :btree
+
   create_table "revimgs", force: :cascade do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -344,6 +356,18 @@ ActiveRecord::Schema.define(version: 20160428015426) do
   end
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
+
+  create_table "sletat_ru_hotels_base_country", force: :cascade do |t|
+    t.string  "name",                    limit: 255, null: false
+    t.string  "alias",                   limit: 255, null: false
+    t.boolean "is_visa",                             null: false
+    t.integer "rank",                                null: false
+    t.integer "unihotel_conformity_id"
+    t.boolean "conformity_need_confirm",             null: false
+    t.string  "image",                   limit: 100
+  end
+
+  add_index "sletat_ru_hotels_base_country", ["unihotel_conformity_id"], name: "sletat_ru_hotels_base_country_unihotel_conformity_id_key", unique: true, using: :btree
 
   create_table "stars", force: :cascade do |t|
     t.string   "name"
@@ -438,6 +462,7 @@ ActiveRecord::Schema.define(version: 20160428015426) do
   add_foreign_key "oil_taxes", "hotels"
   add_foreign_key "resorts", "countries"
   add_foreign_key "reviews", "hotels"
+  add_foreign_key "revimg", "reviews"
   add_foreign_key "revimgs", "reviews"
   add_foreign_key "search_results", "hotels"
   add_foreign_key "tour_results", "hotels"
