@@ -251,7 +251,7 @@ class HomeController < ApplicationController
   end
 
   def check
-    meal  = ["BB", "HB", "HB+", "FB", "FB+", "AL", "UAL"]
+    meal  = ["BB", "HB", "HB+", "FB", "FB+", "AL", "UAL", "RO"]
     stars = ["5*", "4*", "3*"]
     rs = ResAmount.first.amount
     requestId = params[:requestId]
