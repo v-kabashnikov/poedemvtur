@@ -669,7 +669,9 @@ $(document).ready(function(){
           else{
             showHotels($result["hotels"], $('#requestId').val());
             $('.tour-search-preload').fadeOut(500);
-            $(' <div class="more" style="cursor: pointer;" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#here');
+            if ($total!=0){
+              $(' <div class="more" style="cursor: pointer;" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#here');
+            }
             //$('#total').html('Найдено '+ $result["total"] + ' отелей')
             clearInterval(intervalID);
           }
@@ -709,7 +711,14 @@ $(document).ready(function(){
             })   
           }
           else{
+            if($total>0)
+            {
             $('#total').html('Найдено '+ $result["total"] + ' отелей')
+            }
+            else
+            {
+             $('#total').html('Мы не нашли туры в <%=country.name%> c вылетом из Вашего города в указанную дату. Попробуйте изменить параметры поиска или перезвонить нам по телефону 8 800 500 53 16') 
+            }
             clearInterval(intervalID);
           }
 
