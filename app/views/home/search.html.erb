@@ -620,7 +620,7 @@ $(document).ready(function(){
             $('#hotels').html('');
             showHotels(data["hotels"], requestId);
             $('#total').html('');
-            //$('#total').html('Найдено '+ data["total"] + ' отелей');
+            $('#total').html('Найдено '+ data["total"] + ' отелей');
             $('.more').html('');
           }
           })
@@ -713,7 +713,7 @@ $(document).ready(function(){
           else{
             if($total>0)
             {
-            $('#total').html('Все отели найдены')
+            $('#total').html('Все отели')
             }
             else
             {
