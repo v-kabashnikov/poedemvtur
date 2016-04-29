@@ -88,7 +88,7 @@ function meal(type)
             hotels = data["hotels"];
             showHotels(hotels, requestId);
             //$('#total').html('Найдено '+ data["total"] + ' отелей')
-            if(hotels.length + loaded == data["total"] && data["hotels"].length == 0){
+            if(hotels.length + loaded == data["total"] || data["hotels"].length == 0){
               $('.more').remove();
             }
           }
@@ -713,7 +713,7 @@ $(document).ready(function(){
           else{
             if($total>0)
             {
-            $('#total').html('Все отели')
+            $('#total').html('Все отели найдены')
             }
             else
             {
