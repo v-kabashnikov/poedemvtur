@@ -23,10 +23,12 @@
 <div class="container-fluid text-center" id="continent-list">
 	<div class="hidden-sm hidden-xs hidden-xxs row">
 		<div class="col-lg-10 col-lg-offset-1">
+			<a href="/countries/">Все страны</a>
 			<%@categories.each do |category| %>
-			  <a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a>
+				 <%if category.name != "Все страны"%>
+				  	<a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a>
+				  <%end%>
 			<%end%>
-			
 		</div>
 	</div>
 
@@ -34,8 +36,11 @@
 		<div class="btn-group col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Европпа</button>
 			<ul class="dropdown-menu">
+			<li><a href="/countries/">Все страны</a></li>
 			<%@categories.each do |category| %>
-			<li><a href="#"><%=category.name%></a></li>
+				 <%if category.name != "Все страны"%>
+				  	<li><a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a></li>
+				  <%end%>
 			<%end%>
 			</ul>
 		</div>
