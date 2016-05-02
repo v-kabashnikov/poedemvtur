@@ -23,8 +23,11 @@
 <div class="container-fluid text-center" id="continent-list">
 	<div class="hidden-sm hidden-xs hidden-xxs row">
 		<div class="col-lg-10 col-lg-offset-1">
+			<a class="active" href="/countries/category/6">Все страны</a>
 			<%@categories.each do |category| %>
-			  <a href="/countries/category/<%=category.id%>"><%=category.name%></a>
+			  <%if category.name != "Все страны"%>
+			  	<a href="/countries/category/<%=category.id%>"><%=category.name%></a>
+			  <%end%>
 			<%end%>
 			
 		</div>
