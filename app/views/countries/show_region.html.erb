@@ -24,7 +24,7 @@
 	<div class="hidden-sm hidden-xs hidden-xxs row">
 		<div class="col-lg-10 col-lg-offset-1">
 			<%@categories.each do |category| %>
-			  <a class="<%=active if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a>
+			  <a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a>
 			<%end%>
 			
 		</div>
