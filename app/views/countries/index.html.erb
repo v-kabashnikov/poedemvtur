@@ -55,7 +55,12 @@
 		<div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 			<div class="clearfix row-fluid" id="countries">
 				<%@countries.each do |country| %>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="/search?utf8=✓&depart_city=Москва&city_id=832&place_id=<%=country.id%>&place_type=country&nights_min=4&nights_max=14&date_min=&date_max=&children=&adult=&arrive_place=<%=country.name%>&roundtour-price=0%3B200000"><i>	<img src="<%=country.flag_link%>"></i><span><%=country.name%>       </span></a></div>
+				<%if country.flag_link.empty? %>
+				<%img = country.flag.url%>
+				<%else%>
+				<%img = country.flag_link %>
+				<%end%>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="/search?utf8=✓&depart_city=Москва&city_id=832&place_id=<%=country.id%>&place_type=country&nights_min=4&nights_max=14&date_min=&date_max=&children=&adult=&arrive_place=<%=country.name%>&roundtour-price=0%3B200000"><i>	<img src="<%=img%>"></i><span><%=country.name%></span></a></div>
 
 				<%end%>
 				
