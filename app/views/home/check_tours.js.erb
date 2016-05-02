@@ -4,6 +4,5 @@ $('#tours').attr('data-status', '<%= @status %>')
 	$('.more-tours').removeClass('hidden');
 <% end %>
 <% if @tours.count == 0%>
-	$('#more-tours').addClass('hidden');
-	$('#tours').html('adasdds');
+	$('#more-button').addClass('hidden');
 <%end%>
