@@ -20,6 +20,7 @@
 <%= javascript_include_tag 'tour-filter.js'%>
 <%= javascript_include_tag 'tour-page.js'%>
 <% end %>
+<%meals ={"BB" => "ЗАВТРАКИ", "HB/HB+" => "ДВУХРАЗОВОЕ","HB" => "ДВУХРАЗОВОЕ", "HB+" => "ДВУХРАЗОВОЕ", "FB" => "ТРЕХРАЗОВОЕ", "FB+" => "ТРЕХРАЗОВОЕ", "AL" => "ВСЕ ВКЛЮЧЕНО", "AL/UAL" => "ВСЕ ВКЛЮЧЕНО", "RO" => "БЕЗ ПИТАНИЯ", "AI" => "ВСЕ ВКЛЮЧЕНО", "UAL" => "УЛЬТРА ВСЕ ВКЛЮЧЕНО"}%>
 <%monthes = {
   "01" => "Января",
   "02" => "Февраля",
@@ -182,7 +183,7 @@
             <br>
             <b>Номер:</b> <%= @tour.room_type %> 
             <br>
-            <b>Питание:</b> <%= @tour.meal %>
+            <b>Питание:</b> <%= meals[@tour.meal.upcase] %>
             <br>
             Взрослых: <%= @tour.adults_number %>
             <br>
@@ -235,19 +236,21 @@
       </a>
       <div class="tour-page-includesxs--content">
         <div class="container">
-         Проживание в отеле <%= @hotel.name.upcase %>
+         <b>Туроператор: <%= @tour.tour_operator%> </b>
+            <br>
+            <b>Проживание в отеле <%= @hotel.name.upcase %></b>
             <br>
             <%= @tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+"-"+(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]] %>
             <br>
             <%= @tour.nights %> ночей
             <br>
-            номер: <%= @tour.room_type %> 
+            <b>Номер:</b> <%= @tour.room_type %> 
             <br>
-            питание: <%= @tour.meal %>
+            <b>Питание:</b> <%= meals[@tour.meal.upcase] %>
             <br>
-            взрослых: <%= @tour.adults_number %>
+            Взрослых: <%= @tour.adults_number %>
             <br>
-            детей: <%= @tour.children_number %></div>
+            Детей: <%= @tour.children_number %></div>
       </div>
     </div>
     <div class="tour-page-includesxs--item">
