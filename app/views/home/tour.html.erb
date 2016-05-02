@@ -173,6 +173,7 @@
           </div>
           <div class="tab-item">
             <b>Туроператор: <%= @tour.tour_operator%> </b>
+            <br>
             <b>Проживание в отеле <%= @hotel.name.upcase %></b>
             <br>
             <%= @tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]+"-"+(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]] %>
