@@ -154,7 +154,7 @@ class HomeController < ApplicationController
     @request = LoadStatus.find_by(request_id: params['requestId'])
     if @request
       if @request.status == 1
-        @tours = @hotel.tour_results.where(request_id: params['requestId']).limit(5)
+        @tours = @hotel.tour_results.where(request_id: params['requestId']).order(min_price: :asc).limit(5)
         @total_tours = @hotel.tour_results.where(request_id: params['requestId']).count
       end
     end
