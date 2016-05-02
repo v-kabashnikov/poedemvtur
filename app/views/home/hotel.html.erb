@@ -557,7 +557,7 @@
 <% end %>
 
 <% if @request %>
-<div data-page="1" class="more col-md-12 clearfix hotel-table <%="hidden" if @request.status!=1%> " id="super-more-tours">
+<div data-page="1" class="more col-md-12 clearfix hotel-table <%="hidden" if @request.status!=1 || @total_tours.to_i < 5%> " id="super-more-tours">
 <a id="more-button" data-remote="true" href="<%=load_more_tours_path%>?requestId=<%=@request.request_id%>&page=1">Загрузить еще</a>
 </div>
 <% end %>
