@@ -513,11 +513,11 @@
             <div class="col-md-12 tour-list-item clearfix hotel-table ">
               <div class="col-xs-6 col-sm-3 col-md-2 pull-right" style="min-height:50px; padding-left: 0;">
                 <div class="price pull-right text-left"><%= number_with_delimiter(tour.price, locale: :ru) %> <i class="fa fa-rub"></i><small>на всех</small></div>
-                <div class="btn btn-orange"><a href="/tour/<%=@hotel.id%>?tour=<%=tour.id%>">Купить сейчас</a></div>
+                <a class="btn btn-orange" href="/tour/<%=@hotel.id%>?tour=<%=tour.id%>">Купить сейчас</a>
               </div>
               <div class="col-xs-6 col-sm-5 col-md-4 no-rightpadding">
-                <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs" style="display: inline!important;"> вылет из <%= tour.depart_city %></span></div>
-                <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span style="display: inline!important;" class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
+                <div class="xs-pull-left"><span class="date"><%= tour.depart_date.strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет из <%= tour.depart_city %></span></div>
+                <div class="xs-pull-left"><span class="date"><b class="visible-xs-inline-block">- </b><%= (tour.depart_date + tour.nights.days).strftime("%d.%m") %></span>&nbsp;<span class="hidden-xs"> вылет обратно, <%= tour.nights %> ночей</span></div>
                 <div class="visible-xs clearfix"></div>
                 <div class="visible-xs"><%= tour.nights %> ночей</div>
               </div>
@@ -716,7 +716,7 @@
     <h3>ОТЗЫВЫ ОБ ОТЕЛЕ <%= @hotel.name.upcase %></h3>
     <div class="block-hotel-comments--list row">
       <% @hotel.reviews.order(date: :desc).first(3).each_with_index do |review, i| %>
-      <div class="col-md-4 col-sm-6  <%= '' if i==3 %> <%= 'hidden-xs' if i > 1 %>">
+      <div class="col-md-4 col-sm-6  <%= 'hidden-sm' if i==2 %> <%= 'hidden-xs' if i > 0 %>">
         <div class="block-hotel-comments--item">
           <div class="block-hotel-comments--header">
             <span class="block-hotel-comments--author"><%= review.name %></span>
