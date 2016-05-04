@@ -1,18 +1,19 @@
 $(document).ready(function(){
-  var $comment = $('#about-comments .comment');
+ 
+var $comment = $('#about-comments .comment');
   $comment.each(function(){
     if($(this).index()<=4){
-      $(this).fadeIn(0);
+      $(this).addClass('comment-visible');
     }
   });
   $('.more-link').click(function(){
     $comment.filter(':hidden').each(function(){
-      $(this).fadeIn(100);
+       $(this).addClass('comment-visible');
     })
+    $(this).fadeOut(100);
     return false;
   });
-
-
+  
   $('.questions').first().fadeIn(0);
   $('.categories a').click(function(){
     if(!$(this).hasClass('active')){

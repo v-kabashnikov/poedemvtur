@@ -10,7 +10,6 @@ var $comment = $('#about-comments .comment');
     $comment.filter(':hidden').each(function(){
        $(this).addClass('comment-visible');
     })
-    alert('sdsd');
     $(this).fadeOut(100);
     return false;
   });

@@ -83,8 +83,8 @@
 		<div class="btn-group">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Все</button>
 			<ul class="dropdown-menu">
-				<% @categories.each do |c|%>
-				<li><a href="#"><%=c.category%></a></li>
+				<% @categories.each_with_index do |c, i|%>
+				<li><a class="<%='active' if i==0%>" href="#"><%=c.category%></a></li>
 				<%end%>
 			</ul>
 		</div>
