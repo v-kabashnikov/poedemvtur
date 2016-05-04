@@ -15,9 +15,9 @@ json.hotels @results do |res|
 	elsif res.hotel.beach_line == "3"
 		json.position_info "Третья береговая линия"
 	elsif res.hotel.beach_line == "0"
-		json.position_info "Нет информации"
+		json.position_info res.hotel.position_info
 	else
-		json.position_info "  "
+		json.position_info res.hotel.position_info
 	end
 	json.reviews_count res.hotel.reviews.count
 end
