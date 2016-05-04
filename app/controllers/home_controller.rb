@@ -109,7 +109,7 @@ class HomeController < ApplicationController
 
 
   def ajax
-    if params[:p].length >= 2
+    if params[:p].length >= 3
     @resorts = Resort.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
     @hotels = Hotel.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
     @countries = Country.where("lower(name) LIKE lower(?)", "%#{params[:p]}%")
