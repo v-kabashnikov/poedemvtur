@@ -49,7 +49,6 @@ class TourLoader
               aaData.each do |tour|
                 hotel_id = Hotel.connection.execute("select hotels.* from hotels where hotels.sletat_id = '#{tour[3]}'")[0]["id"]
                 Hotel.find(hotel_id).update_columns(beach_line: tour[87])
-                puts tour[87]
                 #parameters = { sourceId: tour[1], offerId: tour[0], currencyAlias: "RUB", requestId: requestId, countryId: countryId }
                 #flight_data = get_res_data 'ActualizePrice', true, parameters
                 TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel_id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")
@@ -70,7 +69,6 @@ class TourLoader
         aaData.each do |tour|
           hotel_id = Hotel.connection.execute("select hotels.* from hotels where hotels.sletat_id = '#{tour[3]}'")[0]["id"]
           Hotel.find(hotel_id).update_columns(beach_line: tour[87])
-          puts tour[87]
           #parameters = { sourceId: tour[1], offerId: tour[0], currencyAlias: "RUB", requestId: requestId, countryId: countryId }
           #flight_data = get_res_data 'ActualizePrice', true, parameters
           TourResult.connection.execute("INSERT INTO tour_results (offer_id, source_id, hotel_id, depart_date, nights, depart_city, meal, room_type, request_id, price, adults_number, children_number, tour_operator) VALUES ( '#{tour[0]}', '#{tour[1]}', '#{hotel_id}', '#{Date.parse(tour[12])}', '#{tour[14]}', '#{tour[33]}', '#{tour[51]}', '#{tour[53]}', '#{requestId}', '#{tour[42]}', '#{tour[16]}', '#{tour[17]}', '#{tour[18]}')")

@@ -261,6 +261,9 @@
           </div>
           <div class="hotel-info--content">
             <h3 class="hotel-info--header">Пляж</h3>
+            <p><%="Первая береговая линия" if @hotel.beach_line ==1%></p>
+            <p><%="Вторая береговая линия" if @hotel.beach_line ==2%></p>
+            <p><%="Третья береговая линия" if @hotel.beach_line ==3%></p>
           </div>
         </div>
       </div>
