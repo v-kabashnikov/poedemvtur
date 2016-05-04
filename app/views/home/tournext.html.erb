@@ -146,6 +146,9 @@
                       </div>
                     </div>
                   </fieldset>
+                  <input name="hotel_name"  type="hidden" value="<%=@hotel.name%>">
+                  <input name="depart_date"  type="hidden" value="<%=@tour.depart_date.to_s[8..9]+' '+monthes[@tour.depart_date.to_s[5..6]]%>">
+                  <input name="arrive_date"  type="hidden" value="<%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+' '+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%>">
                   <input name="additional_number"  type="hidden" value="<%=@tour.adults_number.to_i - 1%>">
                   <input name="tour_id"  type="hidden" value="<%=@tour.id%>">
                   <%(@tour.adults_number.to_i - 1).times do |i|%> 
@@ -241,7 +244,7 @@
                   <div class="visible-xs visible-sm">
                     <div class="row">
                       <div class="col-sm-11 col-sm-offset-1">
-                        <button type="submit" form="payform" value="submit" class="btn btn-green tour-page-buy">перейти к оплате</button>
+                        <button type="submit" form="payform" value="submit" class="btn btn-green tour-page-buy">Оформить тур</button>
                        
                       </div>
                     </div>
