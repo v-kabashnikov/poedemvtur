@@ -20,7 +20,7 @@
 <%= javascript_include_tag 'tour-filter.js'%>
 <%= javascript_include_tag 'tour-page.js'%>
 <% end %>
-<%meals ={"BB" => "ЗАВТРАКИ", "HB/HB+" => "ДВУХРАЗОВОЕ","HB" => "ДВУХРАЗОВОЕ", "HB+" => "ДВУХРАЗОВОЕ", "FB" => "ТРЕХРАЗОВОЕ", "FB+" => "ТРЕХРАЗОВОЕ", "AL" => "ВСЕ ВКЛЮЧЕНО", "AL/UAL" => "ВСЕ ВКЛЮЧЕНО", "RO" => "БЕЗ ПИТАНИЯ", "AI" => "ВСЕ ВКЛЮЧЕНО", "UAL" => "УЛЬТРА ВСЕ ВКЛЮЧЕНО"}%>
+<%meals ={"Завтрак" => "ЗАВТРАКИ", "BB" => "ЗАВТРАКИ", "HB/HB+" => "ДВУХРАЗОВОЕ","HB" => "ДВУХРАЗОВОЕ", "HB+" => "ДВУХРАЗОВОЕ", "FB" => "ТРЕХРАЗОВОЕ", "FB+" => "ТРЕХРАЗОВОЕ", "AL" => "ВСЕ ВКЛЮЧЕНО", "AL/UAL" => "ВСЕ ВКЛЮЧЕНО", "RO" => "БЕЗ ПИТАНИЯ", "AI" => "ВСЕ ВКЛЮЧЕНО", "UAL" => "УЛЬТРА ВСЕ ВКЛЮЧЕНО"}%>
 <%monthes = {
   "01" => "Января",
   "02" => "Февраля",
@@ -529,7 +529,7 @@
                 <div class="visible-xs"><%= tour.nights %> ночей</div>
               </div>
               <div class="col-xs-6 col-sm-2 col-md-2 info">
-                <span><%= tour.meal.upcase %></span>
+                <span><%= meals[tour.meal.upcase] %></span>
               </div>
               <div class="hidden-xs col-sm-2 col-md-2 info">
                 <span><%= tour.room_type %><br class="hidden-lg">
