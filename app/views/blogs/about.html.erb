@@ -48,10 +48,9 @@
 		<h3 class="name"><%=f.name%></h3>
 		<div class="stars">
 			<%(f.rating/2.to_i).times do%>
-			<i class="glyphicon glyphicon-star active"></i>
+			 <img src="<%= asset_path 'hotel_star.png' %>" width="18" height="18" alt="">
 			<%end%>
 			<%(5.to_i - f.rating/2.to_i).times do%>
-			<i class="glyphicon glyphicon-star"></i>
 			<%end%>	
 		</div>
 	</div>
