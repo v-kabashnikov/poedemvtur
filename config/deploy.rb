@@ -4,7 +4,7 @@ set :repo_url, "git@github.com:digitalshop24/#{app_name}.git"
 set :application, app_name
 application = app_name
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.1'
+set :rvm_ruby_version, '2.3.0'
 set :deploy_to, "/var/www/apps/#{app_name}"
 
 lock '3.4.0'

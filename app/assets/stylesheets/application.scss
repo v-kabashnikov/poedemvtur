@@ -12,19 +12,19 @@
  *
 
 *= require bootstrap.scss
-*= require jasny-bootstrap.min.css
-*= require bootstrap-datetimepicker.css
-*= require selectize.bootstrap3.css
-*= require fonts
-*= require header
-*= require footer
-*= require x-input
-*= require site
-*= require slick
-*= require lib/jquery.fancybox
-*= require ion.rangeSlider
-*= require datepicker
-*= require animate.min
+*= require jasny-bootstrap.min.scss
+*= require bootstrap-datetimepicker.scss
+*= require selectize.bootstrap3.scss
+*= require fonts.scss
+*= require header.scss
+*= require footer.scss
+*= require x-input.scss
+*= require site.scss
+*= require slick.scss
+*= require lib/jquery.fancybox.scss
+*= require ion.rangeSlider.scss
+*= require datepicker.scss
+*= require animate.min.scss
 *= require new.scss
 *= require tour-page.scss
 *= require tour-search-preload.scss
