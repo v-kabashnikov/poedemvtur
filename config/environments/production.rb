@@ -73,7 +73,8 @@ Rails.application.configure do
   :domain => 'www.poedemvtour.ru',
   :address => 'smtp.mail.ru',
   :port => 465,
-  :authentication => :login
+  :authentication => :login,
+  :enable_starttls_auto => true
   }
 
   # Send deprecation notices to registered listeners.
