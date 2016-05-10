@@ -150,6 +150,12 @@
                   <input name="depart_date"  type="hidden" value="<%=@tour.depart_date.to_s[8..9]+' '+monthes[@tour.depart_date.to_s[5..6]]%>">
                   <input name="arrive_date"  type="hidden" value="<%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+' '+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%>">
                   <input name="additional_number"  type="hidden" value="<%=@tour.adults_number.to_i - 1%>">
+                  
+
+                  <input name="search_request_id"  type="hidden" value="<%=@tour.request_id%>">
+                  <input name="offer_id"  type="hidden" value="<%=@tour.offer_id%>">
+                  <input name="source_id"  type="hidden" value="<%=@tour.source_id%>">
+
                   <input name="tour_id"  type="hidden" value="<%=@tour.id%>">
                   <%(@tour.adults_number.to_i - 1).times do |i|%> 
                     <fieldset>
