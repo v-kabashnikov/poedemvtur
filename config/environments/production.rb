@@ -74,6 +74,7 @@ Rails.application.configure do
   :address => 'smtp.mail.ru',
   :port => 465,
   :authentication => :login,
+  :ssl => true,
   :enable_starttls_auto => true
   }
 
