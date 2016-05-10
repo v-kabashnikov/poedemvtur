@@ -70,12 +70,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   :user_name => 'zakaz@poedemvtour.ru',
   :password => 'Silena15',
-  :domain => 'poedemvtour.ru',
+  :domain => 'www.poedemvtour.ru',
   :address => 'smtp.mail.ru',
   :port => 465,
-  :authentication => :plain,
-  :tls => true,
-  :enable_starttls_auto => true
+  :authentication => :login
   }
 
   # Send deprecation notices to registered listeners.
