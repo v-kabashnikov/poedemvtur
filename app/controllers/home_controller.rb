@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     @offer_id = params[:offer_id]
     @source_id = params[:source_id]
     @hotel = Hotel.find(params[:id])
-    parameters = { sourceId: @source_id, offerId: @offer_id, currencyAlias: "RUB", searchRequestId: @search_request_id, user: params[:surname], email: params[:email], phone: params[:phone], countryName: @hotel.resort.country, cityFromName: @tour.depart_city}
+    parameters = { sourceId: @source_id, offerId: @offer_id, currencyAlias: "RUB", searchRequestId: @search_request_id, user: params[:surname], email: params[:email], phone: params[:phone], countryName: @hotel.resort.country, cityFromName: params[:depart_city]}
     get_res_data 'SaveTourOrder ', false, parameters
     TourRequest.create(
       surname: params[:surname],
