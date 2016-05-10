@@ -70,11 +70,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   :user_name => 'zakaz@poedemvtour.ru',
   :password => 'Silena15',
-  :domain => 'www.poedemvtour.ru',
+  :domain => 'mail.ru',
   :address => 'smtp.mail.ru',
   :port => 465,
   :authentication => :login,
-  :ssl => true,
+  :tls => true,
   :enable_starttls_auto => true
   }
 
