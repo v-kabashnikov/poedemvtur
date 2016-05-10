@@ -68,14 +68,14 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
   config.action_mailer.smtp_settings = {
-  :user_name => 'zakaz@poedemvtour.ru',
-  :password => 'Silena15',
-  :domain => 'mail.ru',
-  :address => 'smtp.mail.ru',
-  :port => 465,
-  :authentication => :login,
-  :tls => true,
-  :enable_starttls_auto => true
+  address: "smtp.mail.ru",
+  port: 465,
+  domain: "www.poedemvtur.ru",
+  authentication: :login,
+  tls: true,
+  user_name: 'zakaz@poedemvtour.ru',
+  password: 'Silena15',
+  enable_starttls_auto: true
   }
 
   # Send deprecation notices to registered listeners.
