@@ -25,9 +25,9 @@
 <% end %>
 <script>
 <%if @country.ad_delay%>
-  <%delay = @country.ad_delay%>
+  <%delay = @country.ad_delay +15000%>
 <%else%>
-  <%delay = 3000%>
+  <%delay = 18000%>
 <%end%>
 setTimeout(hidePreload,<%=delay%>);
   function hidePreload(){
