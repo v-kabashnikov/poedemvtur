@@ -44,7 +44,7 @@
         <h1 class="tour-page--title"><%= @hotel.name.upcase %></h1>
         <div class="tour-page-info row">
           <div class="col-md-8">
-            <h5 class="tour-page--location"><%= @hotel.resort.country.name %>, <%= @hotel.airport_distance %> км от аэропорта</h5>
+            <h5 class="tour-page--location"><%= @hotel.resort.country.name %>, <%= @hotel.resort.name %> </h5>
           </div>
           <div class="col-md-4 text-right no-rightpadding hidden-sm">
             <div class="tour-page--rating">
@@ -163,13 +163,13 @@
                      <li>
               <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
               <div class="content">
-              <b><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%></b><%=" "+@tour.depart_city+" -> "+@hotel.resort.country.name%>
+              <b><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%></b><%=" "+@tour.depart_city+" -> "+@hotel.resort.name%>
               </div>
             </li>
               <li>
               <div class="icon"><span class="icons-arrow-down_small_orange"></span></div>
               <div class="content">
-               <b><%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></b><%=" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
+               <b><%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></b><%=" "+@hotel.resort.name+" -> "+@tour.depart_city%>
               </div>
             </li>        
                 </ul>
@@ -224,13 +224,13 @@
             <li>
               <div class="icon"><span class="icons-arrow-up_small_blue"></span></div>
               <div class="content">
-              <b><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%></b><%=" "+@tour.depart_city+" -> "+@hotel.resort.country.name%>
+              <b><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%></b><%=" "+@tour.depart_city+" -> "+@hotel.resort.name%>
               </div>
             </li>
               <li>
               <div class="icon"><span class="icons-arrow-down_small_orange"></span></div>
               <div class="content">
-               <b><%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></b><%=" "+@hotel.resort.country.name+" -> "+@tour.depart_city%>
+               <b><%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></b><%=" "+@hotel.resort.name+" -> "+@tour.depart_city%>
               </div>
             </li>
           </ul>
