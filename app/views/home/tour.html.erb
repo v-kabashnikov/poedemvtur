@@ -195,16 +195,18 @@
           </div>
           <div class="tab-item">
             <%@oil_taxes.each do |oil|%>
-            <%if Date.parse(oil.start_date) == @tour.depart_date%>
-              <%="начало действия сборов "+oil.start_date if oil.start_date%>
-              <br>
-              <%="конец действия сборов "+oil.finish_date if oil.finish_date%>
-              <br>
-              <%="сумма "+oil.amount if oil.amount%>
-              <br>
-              <%="валюта "+oil.currency if oil.currency%>
-              <br>
-            <%end%>
+                <%if oil.start_date%>
+                  <p><b>Начало действия топливных сборов:</b> <%=oil.start_date%> </p>
+                <%end%>
+                 <%if oil.finish_date%>
+                  <p><b>Конец действия топливных сборов:</b> <%=oil.finish_date%> </p>
+                <%end%>
+                 <%if oil.amount%>
+                  <p><b>Сумма:</b> <%=oil.amount%> </p> 
+                <%end%>
+                 <%if oil.currency%>
+                  <p><b>Валюта: </b> <%=oil.currency%> </p>
+                <%end%>
             <%end%>
           </div>
         </div>
@@ -269,16 +271,18 @@
       <div class="tour-page-includesxs--content">
         <div class="container">
             <%@oil_taxes.each do |oil|%>
-              <%if Date.parse(oil.start_date) == @tour.depart_date%>
-                <%="начало действия сборов "+oil.start_date if oil.start_date%>
-                <br>
-                <%="конец действия сборов "+oil.finish_date if oil.finish_date%>
-                <br>
-                <%="сумма "+oil.amount if oil.amount%>
-                <br>
-                <%="валюта "+oil.currency if oil.currency%>
-                <br>
-              <%end%>
+                <%if oil.start_date%>
+                  <p><b>Начало действия топливных сборов:</b> <%=oil.start_date%> </p>
+                <%end%>
+                 <%if oil.finish_date%>
+                  <p><b>Конец действия топливных сборов:</b> <%=oil.finish_date%> </p>
+                <%end%>
+                 <%if oil.amount%>
+                  <p><b>Сумма:</b> <%=oil.amount%> </p> 
+                <%end%>
+                 <%if oil.currency%>
+                  <p><b>Валюта: </b> <%=oil.currency%> </p>
+                <%end%>
             <%end%>
           </div>
       </div>
