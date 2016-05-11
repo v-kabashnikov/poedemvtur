@@ -25,7 +25,7 @@
 <% end %>
 <script>
 <%if @country.ad_delay%>
-  <%delay = @country.ad_delay +15000%>
+  <%delay = @country.ad_delay.to_i + 15000%>
 <%else%>
   <%delay = 18000%>
 <%end%>
