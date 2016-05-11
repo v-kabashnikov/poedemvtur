@@ -66,7 +66,6 @@ class HomeController < ApplicationController
     requestId = @tour.request_id
     parameters = { sourceId: @tour.source_id, offerId: @tour.offer_id, currencyAlias: "RUB", requestId: requestId, countryId: countryId }
     flight_data = get_res_data 'ActualizePrice', true, parameters
-    binding.pry
     flight_data["oilTaxes"].each do |f|
       OilTax.find_or_create_by(
         start_date: f[5], 
