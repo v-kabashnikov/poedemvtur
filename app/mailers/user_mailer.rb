@@ -3,9 +3,7 @@ class UserMailer < ApplicationMailer
 
 	def send_signup_email(link)
    	 @link = link
-     mail( 
-     :from => "webmaster@poedemvtour.ru",
-     :to => "admin@poedemvtour.ru",
+     mail( :to => "admin@poedemvtour.ru",
      :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
   	end
 
