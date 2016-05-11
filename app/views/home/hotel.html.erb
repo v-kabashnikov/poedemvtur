@@ -578,6 +578,7 @@
 <h2 class="clearfix">Отзывы об отеле</h2>
 <div class="hotel-comments--list">
   <% @hotel.reviews.order(date: :desc).first(5).each do |review| %>
+  <%if review.moderated%>
   <div class="hotel-comment--item">
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-12">
@@ -598,6 +599,7 @@
     </div>
   </div>
   <% end %>
+  <%end%>
 </div>
 <% end %>
 <div class="" style="overflow: hidden;">
@@ -684,6 +686,7 @@
         <button class="btn pull-right" data-recalc="false" data-toggle="offcanvas" data-target="#hotel-comment" data-canvas="#site-wrap">Добавить отзыв</button>
       </div>
       <% @hotel.reviews.order(date: :desc).each do |review| %>
+      <%if review.moderated%>
       <div class="comment clearfix">
         <div class="col-xs-6 col-sm-3 col-md-3">
           <div class="name"><%= review.name %></div>
@@ -701,6 +704,7 @@
           <p class="gray hidden-xs">Отдыхал: <%= review.people_number %></p>
         </div>
       </div>            
+      <%end%>
       <%end%>
     </div>
   </div>
@@ -725,6 +729,7 @@
     <h3>ОТЗЫВЫ ОБ ОТЕЛЕ <%= @hotel.name.upcase %></h3>
     <div class="block-hotel-comments--list row">
       <% @hotel.reviews.order(date: :desc).first(3).each_with_index do |review, i| %>
+      <%if review.moderated%>
       <div class="col-md-4 col-sm-6  <%= 'hidden-sm' if i==2 %> <%= 'hidden-xs' if i > 0 %>">
         <div class="block-hotel-comments--item">
           <div class="block-hotel-comments--header">
@@ -736,6 +741,7 @@
           <a href="#" class="block-hotel-comments--fulllink">Читать отзыв</a>
         </div>
       </div>            
+      <% end %>
       <% end %>
     </div>
   </div>

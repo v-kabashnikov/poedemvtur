@@ -99,7 +99,7 @@ class HomeController < ApplicationController
       params[:family] ? people = 3 : people  = 1
       params[:date].empty? ? date = DateTime.now : date = Date.parse(params[:date]) 
       rate = ((params[:meal].to_i+params[:service].to_i)/2)
-      @review = Review.create(name: params[:name], date: date, comment: params[:opinion], people_number: people ,rate: rate, hotel_id: params[:hotel_id])
+      @review = Review.create(name: params[:name], date: date, comment: params[:opinion], people_number: people ,rate: rate, hotel_id: params[:hotel_id], moderated: false)
       if params[:review]
         params[:review].each do |image|
           @revimg = Revimg.new
@@ -109,7 +109,7 @@ class HomeController < ApplicationController
         end
       end
       @hotel = Hotel.find(params[:hotel_id])
-      UserMailer.send_signup_email("").deliver
+      UserMailer.send_signup_email("poedemvtour.ru/admin/review/#{@review.id}/edit").deliver
     end
      redirect_to :back
   end
