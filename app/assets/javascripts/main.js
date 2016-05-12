@@ -634,7 +634,7 @@
       min: 0,
       max: 10000000,
       from: 0,
-      to: 500000,
+      to: 9000000,
       type: 'double',
       step: 50000,
       postfix: '<i class="fa fa-rub"></i>',
