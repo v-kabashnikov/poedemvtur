@@ -336,11 +336,12 @@ function meal(type)
     <br>
     <div class="tour-search-preload--advertising video">
     <%if @country.youtube_link%>
+    <%if !@country.youtube_link.empty?%>
       <%code = video_code(@country.youtube_link) %>
-    <%else%>
-      <%code = "F9B7g9-PkB8" %>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=code%>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
     <%end%>
-      <iframe src="https://www.youtube.com/embed/<%=code%>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <%end%>
+      
     </div>
   </div>
   <div class="row">
