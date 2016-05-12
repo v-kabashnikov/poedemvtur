@@ -43,7 +43,14 @@
   height:280px;
 }
 
-
+.fixing {
+  padding-left: 63px;
+}
+@media only screen and (max-width : 991px) {
+ .fixing {
+  padding-left:0 !important;
+ }
+}
 
 .hotel-photos a {
   display: inline-block;

@@ -23,6 +23,17 @@
   <%= javascript_include_tag 'tour-filter.js' %>
 
 <% end %>
+<style>
+.hotel-photos a {
+ width: 19.3%;
+}
+.hotel-photos img {
+ height: auto;
+ min-width: 100%;
+ min-height: 0%;
+}
+
+</style>
 <script>
 <%if @country.ad_delay%>
   <%delay = @country.ad_delay.to_i + 15000%>
