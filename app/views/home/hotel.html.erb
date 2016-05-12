@@ -35,6 +35,17 @@
   "11" => "Ноября",
   "12" => "Декабря"
 }%>
+<style>
+.hotel-photos a {
+ width: 19.3%;
+}
+.hotel-photos img {
+ height: auto;
+ min-width: 100%;
+ min-height: 0%;
+}
+
+</style>
 <script>
   var intervalID = setInterval(function(){
     var requestId = '<%= params[:requestId] %>';
