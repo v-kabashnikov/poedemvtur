@@ -1,0 +1,733 @@
+
+<nav id="country-map" class="navmenu navmenu-default navmenu-fixed-right offcanvas country-map-wrapper" role="navigation">
+  <button class="country-map-close" data-target="#country-map" data-toggle="offcanvas" data-canvas="#site-wrap"><span class="icons-close_grey"></span></button>
+  <div class="country-map" id="countryMap"></div>
+</nav>
+
+<div id="sub-header" class="sub-header
+  <?
+    if(isset($_GET['p']) && file_exists($_GET['p'].'.php')){
+      echo 'sub-header_' . $_GET['p'];
+    }
+  ?>
+  xxs-compact" style="background:#f4f4f4;">
+</div>
+
+<!-- country begin -->
+<div class="country">
+  <!-- country header begin -->
+  <div class="country-header">
+    <div class="country-header-top">
+      <div class="container">
+        <h1 class="hotel-name">ТУРЫ ВО ВЬЕТНАМ</h1>
+        <ul class="hotel-breadcrumbs">
+          <li><a href="#">Все страны</a></li>
+          <li class="sep">/</li>
+          <li>Вьетнам — поиск тура</li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+    <div class="country-header-search">
+      <div class="hotel-search--container">
+        <div class="hotel-search--form">
+          <form action="#" class="form-hotelsearch">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="roundtour-city">
+                    Город вылета: <a href="#" class="roundtour-city--select">Москва</a>
+                    <div class="roundtour-city--submenu">
+                      <input type="text" class="form-control roundtour-city--search" value="Москва">
+                      <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
+                      <div class="roundtour-city--wrapper scrollbar-inner">
+                        <ul class="roundtour-city--list">
+                          <li>Москва</li>
+                          <li>Санкт-Петербург</li>
+                          <li>Абакан</li>
+                          <li>Актау</li>
+                          <li>Актобе</li>
+                          <li>Алматы</li>
+                          <li>Анадырь</li>
+                          <li>Анапа</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group roundtour-place--container">
+                    <a href="#" class="roundtour-place">
+                      <span class="icon icons-location_orange"></span>
+                      <span class="text">Где хотите отдохнуть?</span>
+                    </a>
+                    <div class="roundtour-place--submenu">
+                      <input type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
+                      <span class="roundtour-place--searchicon icons-location_orange"></span>
+                      <div class="roundtour-place--wrapper scrollbar-inner">
+                        <ul class="roundtour-place--list">
+                          <?php
+                          $icons = array('','home','location','aircraft');
+                          $curort = array('','Анапа','Аналипси','Evason Ana Mandara','Hostal Santa Ana Hostal Santa Ana','Ana Mandara Hue','Apatrments Ana');
+                          $curortCountry = array('','Россия','Греция','Испания ЛЛарет-де-Мар','Вьетнам Фуванг','Черногория Котор');
+                          for($i=1;$i<=20;$i++){ ?>
+                          <li>
+                            <div class="roundtour-place--icon"><span class="icons-<?php echo $icons[rand(1,3)]; ?>"></span></div>
+                            <div class="roundtour-place--info">
+                              <h4 class="roundtour-place--curort"><?php echo $curort[rand(1,6)]; ?></h4>
+                              <span class="roundtour-place--country"><?php echo $curortCountry[rand(1,5)]; ?></span>
+                            </div>
+                            <div class="roundtour-place--img"><img src="DEMO/curort<?php echo rand(1,3); ?>.jpg?ver=1.0" alt=""></div>
+                          </li>
+                          <?php } ?>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 no-leftpadding" >
+                  <div class="form-group">
+                    <a href="#" class="roundtour-date hotel-roundtour-date--open" data-open="noblur">
+                      <span class="icon icons-calendar_orange"></span>
+                      <span class="text">
+                        <span class="roundtour-date--months">Выберите дату</span>
+                        <span class="roundtour-date--nights">и количество ночей</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-12 no-leftpadding">
+                  <div class="roundtour-people">
+                    <div class="roundtour-people--active">
+                      <ul class="roundtour-people--adults">
+                        <li>
+                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                          <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
+                          <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
+
+                        </li>
+                        <li>
+                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                          <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
+                          <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
+                        </li>
+                      </ul>
+                      <ul class="roundtour-people--childrens">
+                        <!--
+                        <li>
+                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
+                          <span class="icons-people-children_white hidden-xs hidden-sm"></span>
+                          <span class="icons-people-childrensm_white visible-sm visible-xs"></span>
+                          <div class="roundtour-people--year">2</div>
+                        </li>
+                        -->
+                      </ul>
+                    </div>
+                    <a href="#" class="roundtour-people--addadults">
+                      <span class="text icons-plus_yellow"></span>
+                      <span class="icon icons-people-adult_yellow hidden-xs hidden-sm"></span>
+                      <span class="icon icons-people-adultsm_yellow visible-sm visible-xs"></span>
+                    </a>
+                    <div class="roundtour-people--addchildrens-wrapper">
+                      <a href="#" class="roundtour-people--addchildrens">
+                        <span class="text icons-plus_yellow"></span>
+                        <span class="icon icons-people-children_yellow hidden-xs hidden-sm"></span>
+                        <span class="icon icons-people-childrensm_yellow visible-sm visible-xs"></span>
+                      </a>
+                      <div class="roundtour-people--years scrollbar-inner">
+                        <ul>
+                          <li>1 год</li>
+                          <li>2 года</li>
+                          <li>3 года</li>
+                          <li>4 года</li>
+                          <li>5 лет</li>
+                          <li>6 лет</li>
+                          <li>7 лет</li>
+                          <li>8 лет</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn hotel-search--send">Найти тур</button>
+                </div>
+              </div>
+            </div>
+            <input id="city-id" type="hidden" name="city_id" value='832' >
+            <input id="place_id" type="hidden" name="place_id" value='4023'>
+            <input id="place_type" type="hidden" name="place_type" value='resort' >
+            <input id="nights_min" type="hidden" name="nights_min" >
+            <input id="nights_max" type="hidden" name="nights_max" >
+            <input id="date_min" type="hidden" name="date_min" >
+            <input id="date_max" type="hidden" name="date_max" >
+            <input id="children" type="hidden" name="children" >
+            <input id="adult" type="hidden" name="adult" value="2">
+          </form>
+        </div>
+        <!-- select date -->
+        <div class="select-date-nobutton country-search--date hotel-search--date">
+          <div class="roundtour-date--wrapper">
+            <div class="roundtour-date--content">
+              <div class="roundtour-date--top">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3 no-rightpadding"><h4>Выберите количество ночей:</h4></div>
+                    <div class="col-md-8 no-rightpadding">
+                      <ul class="roundtour-date--night">
+                        <?php for($i=2;$i<=20;$i++){ ?>
+                        <li class="<?php if($i==7) {echo 'active';} ?>"><?php echo $i ?></li>
+                        <?php } ?>
+                        <li>более 20</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="roundtour-date--days">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3"><h4>Выберите период отдыха:</h4></div>
+                    <div class="col-md-8">
+                      <div class="roundtour-date--month"></div>
+                      <input type="hidden" class="select-date" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+    </div>
+  </div>
+  <!-- country header end -->
+
+  <!-- country chart begin -->
+  <div class="country-chart">
+    <div class="container">
+      <h3 class="country-part-header">ГОРЯЩИЕ ТУРЫ И ПУТЕВКИ ВО ВЬЕТНАМ</h3>
+      <h5 class="country-part-desc">
+        <a href="#" class="country-chart-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        График цен по месяцам
+        <a href="#" class="country-chart-next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </h5>
+      <div class="country-chart-slider">
+        <div class="country-chart-list">
+          <div class="row">
+            <div class="col-xs-1">
+              <a href="#" class="country-chart-list_active">
+                <span class="line">
+                  <em class="percent" style="height:66%;"></em>
+                </span>
+                <span class="text">Май</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:80%;"></em>
+                </span>
+                <span class="text">Июнь</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:90%;"></em>
+                </span>
+                <span class="text">Июль</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:100%;"></em>
+                </span>
+                <span class="text">Авг</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:75%;"></em>
+                </span>
+                <span class="text">Сент.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:65%;"></em>
+                </span>
+                <span class="text">Окт.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:50%;"></em>
+                </span>
+                <span class="text">Нояб.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:10%;"></em>
+                </span>
+                <span class="text">Дек.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:10%;"></em>
+                </span>
+                <span class="text">Янв.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:10%;"></em>
+                </span>
+                <span class="text">Февр.</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:20%;"></em>
+                </span>
+                <span class="text">Март</span>
+              </a>
+            </div>
+            <div class="col-xs-1">
+              <a href="#">
+                <span class="line">
+                  <em class="percent" style="height:30%;"></em>
+                </span>
+                <span class="text">Апр.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- country chart end -->
+
+  <!-- country resorts popular begin -->
+  <div class="country-resorts country-resorts_popular">
+    <div class="container">
+      <h3 class="country-part-header">Популярные курорты вьетнама</h3>
+      <div class="country-resorts-list">
+        <?php
+          for($i=1;$i<=5;$i++){
+        ?>
+        <div class="country-resorts-item country-resorts-item_popular">
+          <a href="#">
+            <div class="country-resorts-item-img hidden-xs">
+              <img src="DEMO/country-reports<?php echo rand(1,2);?>.jpg" alt="">
+            </div>
+            <div class="country-resorts-item-content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                      <?php
+                        if(rand(0,1)){
+                          $title = 'Нячанг';
+                        }else{
+                          $title = 'ADLER CLUBRESIDENCE Lorem ipsum dolor sit amet, consectetur';
+                        }
+                      ?>
+                      <h3 class="country-resorts-item-header" title="<?php echo $title; ?>">
+                      <?php echo $title; ?>
+                      </h3>
+                      <h6 class="country-resorts-item-country">Вьетнам</h6>
+                    </div>
+                    <div class="country-resorts-item-img visible-xs">
+                      <img src="DEMO/country-reports<?php echo rand(1,2);?>.jpg" alt="">
+                    </div>
+                    <div class="col-sm-6 visible-sm text-right">
+                      <div class="country-resorts-item-buttons">
+                        <button class="btn btn_brown country-resorts-item-price">
+                          <span>4 849 400</span> <i class="fa fa-rub" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 no-rightpadding">
+                      <ul class="country-resorts-item-info">
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_weather">
+                          <span class="strong">Погода:</span> 25°C до 32°C
+                        </li>
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_water">
+                          Вода — 29°C
+                        </li>
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_beach">
+                          <span class="strong">Пляж:</span> &nbsp;Песок, Оборудованный, Каменистый/скалистый<br>
+                          <span class="strong">Сезон:</span> февраль - август
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 hidden-sm">
+                  <div class="country-resorts-item-buttons">
+                    <button class="btn btn_brown country-resorts-item-price
+                    <?php
+                    if(rand(0,1)){
+                      $class = 'country-resorts-item-price_learn';
+                      $text = 'Узнать цену';
+                    } else{
+                      $class = '';
+                      $text = '<span>4 849 400</span> <i class="fa fa-rub" aria-hidden="true"></i>';
+                    }
+                    echo $class;
+                    ?>">
+                    <?php echo $text; ?>
+                    </button>
+                    <button class="btn btn_black country-resorts-item-aboutbtn">О курорте</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <?php
+          }
+        ?>
+      </div>
+      <div class="country-resorts-button">
+        <a href="#" class="btn btn_transparent country-resorts-showmore">показать еще</a>
+      </div>
+    </div>
+  </div>
+  <!-- country resorts popular end -->
+
+  <!-- country resorts begin -->
+  <div class="country-resorts">
+    <div class="container">
+      <h3 class="country-part-header">сезон в этих курортах еще не начался</h3>
+      <div class="country-resorts-list">
+        <?php
+          for($i=1;$i<=3;$i++){
+        ?>
+        <div class="country-resorts-item">
+          <a href="#">
+            <div class="country-resorts-item-img hidden-xs">
+              <img src="DEMO/country-reports<?php echo rand(1,2);?>.jpg" alt="">
+            </div>
+            <div class="country-resorts-item-content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                      <?php
+                        if(rand(0,1)){
+                          $title = 'Нячанг';
+                        }else{
+                          $title = 'ADLER CLUBRESIDENCE Lorem ipsum dolor sit amet, consectetur';
+                        }
+                      ?>
+                      <h3 class="country-resorts-item-header" title="<?php echo $title; ?>">
+                      <?php echo $title; ?>
+                      </h3>
+                      <h6 class="country-resorts-item-country">Вьетнам</h6>
+                    </div>
+                    <div class="country-resorts-item-img visible-xs">
+                      <img src="DEMO/country-reports<?php echo rand(1,2);?>.jpg" alt="">
+                    </div>
+                    <div class="col-sm-6 visible-sm text-right">
+                      <div class="country-resorts-item-buttons">
+                        <button class="btn btn_brown country-resorts-item-price">
+                          <span>4 849 400</span> <i class="fa fa-rub" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 no-rightpadding">
+                      <ul class="country-resorts-item-info">
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_weather">
+                          <span class="strong">Погода:</span> 25°C до 32°C
+                        </li>
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_water">
+                          Вода — 29°C
+                        </li>
+                        <li class="country-resorts-item-info--item country-resorts-item-info--item_beach">
+                          <span class="strong">Пляж:</span> &nbsp;Песок, Оборудованный, Каменистый/скалистый<br>
+                          <span class="strong">Сезон:</span> февраль - август
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 hidden-sm">
+                  <div class="country-resorts-item-buttons">
+                    <button class="btn btn_brown country-resorts-item-price
+                    <?php
+                    if(rand(0,1)){
+                      $class = 'country-resorts-item-price_learn';
+                      $text = 'Узнать цену';
+                    } else{
+                      $class = '';
+                      $text = '<span>4 849 400</span> <i class="fa fa-rub" aria-hidden="true"></i>';
+                    }
+                    echo $class;
+                    ?>">
+                    <?php echo $text; ?>
+                    </button>
+                    <button class="btn btn_black country-resorts-item-aboutbtn">О курорте</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <?php
+          }
+        ?>
+      </div>
+    </div>
+  </div>
+  <!-- country resorts eng -->
+
+  <!-- country info begin -->
+  <div class="country-info">
+    <div class="container">
+      <h2 class="country-info-header">Подробнее о Вьетнаме</h2>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="country-info-text">
+            <p>Удивительный, свежий, неиспорченный капризами отдыхающих Вьетнам радушно раскрывает свои резные врата, приглашая в чудесные сады, напоенные ароматом жасмина, торжественные древние храмы, на бескрайние золотистые пляжи, окутанные легкой утренней дымкой.</p>
+            <p>А толчея пестрых многолюдных улиц его городов заставляет улыбнуться и проникнуться этой жизнерадостной суетой разноязыких торговцев, паломников и просто искателей счастья, приехавших из разных уголков мира.</p>
+            <h6>Где отдохнуть во Вьетнаме?</h6>
+            <p>Вьетнам - вторая по популярности азиатская страна у российских туристов после Таиланда. Цены на проживание и питание здесь очень низкие, но общая относительно высокая стоимость тура формируется из-за дальности расстояния, а следовательно, дороговизны перелета.</p>
+            <p>Несмотря на это, бесчисленные экзотические достопримечательности Вьетнама – культовые храмы, музеи, знаменитые пещеры, удивительные природные красоты и развитая туристическая инфраструктура делают ее чрезвычайно притягательной для туристов.</p>
+            <p>Здесь есть идеальные уголки для романтического уединения и тихого семейного отдыха с маленькими детьми вдали от больших городов. Мягкий, удивительно благоприятный климат, без жары и высокой влажности подходит и для пожилых людей, и для самых маленьких путешественников.</p>
+            <p>Найти занятие по душе здесь сможет каждый – от изучения богатого культурного и исторического наследия до дегустации гастрономических изысков вьетнамской кухни с диетическим рисом и разнообразием морепродуктов.</p>
+            <h6>Пляжный отдых</h6>
+            <p>Вьетнамские курорты имеют отчетливый флер Европы – все же когда-то эта страна была французской колонией, поэтому и уровень сервиса здесь вполне европейский. Лучшие места для пляжного одыха – Хойан, Фантьет и Ньячанг расположены в центре и на юге страны. Эти места часто называют «Вьетнамскими Гавайями» за бесконечные песчаные пляжи, кристально прозрачное море и безупречное качество обслуживания отдыхающих. Здесь созданы отличные условия для занятий водными видами спорта, оборудованы поля для игры в гольф.</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-right hidden-xs">
+          <div class="country-info-main">
+            <div class="country-info-hotels">
+              <a href="#country-map" data-recalc="false" data-toggle="offcanvas" data-canvas="#site-wrap">
+                <div class="country-info-hotels-img hidden-sm hidden-xs">
+                  <img src="img/country-info-hotels.png" alt="">
+                </div>
+                <div href="#" class="country-info-hotels-location">
+                  <span class="icons-location_white_big icon-white"></span>
+                  <span class="icons-location_black_big icon-black"></span>
+                </div>
+                <div class="country-info-hotels-numbers">
+                  340 <span>отелей</span> <span class="name">Вьетнама</span>
+                </div>
+              </a>
+            </div>
+            <div class="hidden-sm hidden-xs">
+              <div class="country-info-select">
+                <select class="form-control" name="city">
+                  <option>Муйне</option>
+                  <option>Муйне</option>
+                </select>
+                <select class="form-control" name="month">
+                  <option>Март</option>
+                  <option>Апрель</option>
+                </select>
+              </div>
+              <div class="country-info-weather">
+                <span class="day">+25°C</span>
+                <span class="night">+20°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- country info end -->
+
+  <!-- country photo begin -->
+  <div class="country-photo hidden-xs">
+    <div class="container">
+      <div class="country-photo-slider">
+        <div class="item">
+          <a href="DEMO/sh-tour-filtered.jpg" class="fancybox" rel="country-gallery">
+            <img src="DEMO/sh-tour-filtered.jpg" alt="">
+            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="DEMO/tour-item-5.jpg" class="fancybox" rel="country-gallery">
+            <img src="DEMO/tour-item-5.jpg" alt="">
+            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
+          </a>
+        </div>
+        <?php for($i=1;$i<=8;$i++){ ?>
+        <div class="item">
+          <a href="DEMO/country-photo<?php echo rand(1,4); ?>.jpg" class="fancybox" rel="country-gallery">
+            <img src="DEMO/country-photo<?php echo rand(1,4); ?>.jpg" alt="">
+            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
+          </a>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+  <!-- country photo end -->
+
+  <!-- country video begin -->
+  <div class="country-video hidden-xs">
+    <div class="container">
+      <a href="http://www.youtube.com/watch?v=yqVgDLXHUV4" data-rel="media" class="country-video-link fancybox">
+        <div class="country-video-content">
+          <h3 class="country-video-name">Вьетнам</h3>
+          <h5 class="country-video-helptext">Презентационный ролик</h5>
+          <span class="country-video-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- country video end -->
+
+  <!-- country resorts links begin -->
+  <div class="country-resorts-links">
+    <div class="container">
+      <h3 class="country-part-header">популярные курорты вьетнама</h3>
+      <div class="country-resorts-links-list">
+        <div class="row">
+          <div class="col-md-3 col-sm-4">
+            <ul class="country-resorts-links-menu">
+              <li>
+                <a href="#">Пунта-канна</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Пляж Баваро</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Санто-доминго</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Самана</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Кап-каппа</a>
+                <span class="balls">8.2</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4 hidden-xs">
+            <ul class="country-resorts-links-menu">
+              <li>
+                <a href="#">Пунта-канна</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Пляж Баваро</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Санто-доминго</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Самана</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Кап-каппа</a>
+                <span class="balls">8.2</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4 hidden-xs">
+            <ul class="country-resorts-links-menu">
+              <li>
+                <a href="#">Пунта-канна</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Пляж Баваро</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Санто-доминго</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Самана</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Кап-каппа</a>
+                <span class="balls">8.2</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 hidden-sm hidden-xs">
+            <ul class="country-resorts-links-menu">
+              <li>
+                <a href="#">Пунта-канна</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Пляж Баваро</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Санто-доминго</a>
+                <span class="balls">6.0</span>
+              </li>
+              <li>
+                <a href="#">Самана</a>
+                <span class="balls">8.4</span>
+              </li>
+              <li>
+                <a href="#">Кап-каппа</a>
+                <span class="balls">8.2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- country resorts links end -->
+
+  <!-- country notfound begin -->
+  <div class="country-notfound">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-7">
+          <h2 class="country-notfound-header"><strong>Не нашли</strong> что искали?</h2>
+          <p class="country-notfound-text">Мы с радостью ответим на все ваши вопросы.<br> Просто оставьте номер Вашего телефона.</p>
+        </div>
+        <div class="col-md-4 col-sm-5">
+          <form class="country-notfound-form">
+            <input type="text" class="form-control phone-mask" placeholder="+7 (___) ___ __ __">
+            <button class="form-send btn btn_black">
+              <span class="text1">Ок</span>
+              <span class="text2"><i class="fa fa-check" aria-hidden="true"></i></span>
+            </button>
+
+          </form>
+          <p class="country-notfound-call">
+            <span class="text1">Перезвоним за <strong>25 секунд</strong></span>
+            <span class="text2">Спасибо. Ваша заявка принята</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- country notfound end -->
+
+</div>
+<!-- country end -->
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

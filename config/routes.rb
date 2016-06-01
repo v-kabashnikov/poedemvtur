@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get '/about', to: 'blogs#about'
   get '/operators', to: 'operators#index'
   get '/operator/:id', to: 'operators#show'
-  get '/countries', to: 'countries#index'
   get '/countries/category/:id', to: 'countries#show_region'
   get '/ajax', to: 'home#ajax'
   get '/form', to: 'blogs#form'
@@ -25,4 +24,6 @@ Rails.application.routes.draw do
   get '/tournext/:id', to: 'home#tournext'
   get '/buytour/:id', to: 'home#buytour'
   get '/thanks/:id', to: 'home#thanks'
+
+  resources :countries, only: [:index, :show]
 end
