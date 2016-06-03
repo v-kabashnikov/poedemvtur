@@ -55,7 +55,7 @@ class HomeController < ApplicationController
       end
     end
     UserMailer.buy_notification(params[:email], params: params).deliver
-    UserMailer.buy_notification("jujava@mail.ru", params[:hotel_name], params[:depart_date], params[:arrive_date]).deliver
+    UserMailer.buy_notification("jujava@mail.ru", params: params).deliver
     redirect_to "/thanks/#{params[:id]}"
   end
 
