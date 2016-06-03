@@ -1,0 +1,209 @@
+@font-face {
+font-family: 'Museo Sans';
+font-style: normal;
+font-weight: 100;
+src: url('../fonts/museosanscyrl_100.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_100.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_100.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_100.ttf?ver=1.0') format('truetype'),
+url('../fonts/museosanscyrl_100.otf?ver=1.0') format('opentype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: normal;
+font-weight: 300;
+src: url('../fonts/museosanscyrl_300.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_300.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_300.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_300.ttf?ver=1.0') format('truetype'),
+url('../fonts/museosanscyrl_300.otf?ver=1.0') format('opentype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: normal;
+font-weight: 500;
+src: url('../fonts/museosanscyrl_500.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_500.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_500.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_500.ttf?ver=1.0') format('truetype'),
+url('../fonts/museosanscyrl_500.otf?ver=1.0') format('opentype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: italic;
+font-weight: 100;
+src: url('../fonts/museosanscyrl_100_italic.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_100_italic.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_100_italic.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_100_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: italic;
+font-weight: 300;
+src: url('../fonts/museosanscyrl_300_italic.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_300_italic.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_300_italic.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_300_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: italic;
+font-weight: 500;
+src: url('../fonts/museosanscyrl_500_italic.eot?ver=1.0') format('eot'),
+url('../fonts/museosanscyrl_500_italic.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_500_italic.woff2?ver=1.0') format('woff2'),
+url('../fonts/museosanscyrl_500_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: normal;
+font-weight: 700;
+src: url('../fonts/museosanscyrl_700.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_700.otf?ver=1.0') format('opentype');
+}
+@font-face {
+font-family: 'Museo Sans';
+font-style: normal;
+font-weight: 900;
+src: url('../fonts/museosanscyrl_900.woff?ver=1.0') format('woff'),
+url('../fonts/museosanscyrl_900.otf?ver=1.0') format('opentype');
+}
+
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 100;
+src: url('../fonts/roboto_100.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 100;
+src: url('../fonts/roboto_100_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+src: url('../fonts/roboto_300.eot?ver=1.0') format('eot'),
+url('../fonts/roboto_300.woff?ver=1.0') format('woff'),
+url('../fonts/roboto_300.ttf?ver=1.0') format('truetype'),
+url('../fonts/roboto_300.svg#RobotoLight?ver=1.0') format('svg');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 300;
+src:url('../fonts/roboto_300_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+src: url('../fonts/roboto_400.eot?ver=1.0') format('eot'),
+url('../fonts/roboto_400.woff?ver=1.0') format('woff'),
+url('../fonts/roboto_400.ttf?ver=1.0') format('truetype'),
+url('../fonts/roboto_400.svg#RobotoRegular?ver=1.0') format('svg');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 400;
+src: url('../fonts/roboto_400_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+src: url('../fonts/roboto_500.eot?ver=1.0') format('eot'),
+url('../fonts/roboto_500.woff?ver=1.0') format('woff'),
+url('../fonts/roboto_500.ttf?ver=1.0') format('truetype'),
+url('../fonts/roboto_500.svg#RobotoMedium?ver=1.0') format('svg');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 500;
+src: url('../fonts/roboto_500_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+src: url('../fonts/roboto_700.eot?ver=1.0') format('eot'),
+url('../fonts/roboto_700.woff?ver=1.0') format('woff'),
+url('../fonts/roboto_700.ttf?ver=1.0') format('truetype'),
+url('../fonts/roboto_700.svg#RobotoBold?ver=1.0') format('svg');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 700;
+src: url('../fonts/roboto_700_italic.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 900;
+src: url('../fonts/roboto_900.ttf?ver=1.0') format('truetype');
+}
+@font-face {
+font-family: 'Roboto';
+font-style: italic;
+font-weight: 900;
+src: url('../fonts/roboto_900_italic.ttf?ver=1.0') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: url('../fonts/helveticaneuecyr-roman-webfont.eot?ver=1.0');
+    src: url('../fonts/helveticaneuecyr-roman-webfont.eot?#iefix?ver=1.0') format('embedded-opentype'),
+         url('../fonts/helveticaneuecyr-roman-webfont.woff2?ver=1.0') format('woff2'),
+         url('../fonts/helveticaneuecyr-roman-webfont.woff?ver=1.0') format('woff'),
+         url('../fonts/helveticaneuecyr-roman-webfont.ttf?ver=1.0') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: url('../fonts/helveticaneuecyr-bold-webfont.eot?ver=1.0');
+    src: url('../fonts/helveticaneuecyr-bold-webfont.eot?#iefix?ver=1.0') format('embedded-opentype'),
+         url('../fonts/helveticaneuecyr-bold-webfont.woff2?ver=1.0') format('woff2'),
+         url('../fonts/helveticaneuecyr-bold-webfont.woff?ver=1.0') format('woff'),
+         url('../fonts/helveticaneuecyr-bold-webfont.ttf?ver=1.0') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: url('../fonts/helveticaneuecyr-medium-webfont.eot?ver=1.0');
+    src: url('../fonts/helveticaneuecyr-medium-webfont.eot?#iefix?ver=1.0') format('embedded-opentype'),
+         url('../fonts/helveticaneuecyr-medium-webfont.woff2?ver=1.0') format('woff2'),
+         url('../fonts/helveticaneuecyr-medium-webfont.woff?ver=1.0') format('woff'),
+         url('../fonts/helveticaneuecyr-medium-webfont.ttf?ver=1.0') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'helveticaneuecyr';
+    src: url('../fonts/helveticaneuecyr-light-webfont.eot?ver=1.0');
+    src: url('../fonts/helveticaneuecyr-light-webfont.eot?#iefix?ver=1.0') format('embedded-opentype'),
+         url('../fonts/helveticaneuecyr-light-webfont.woff2?ver=1.0') format('woff2'),
+         url('../fonts/helveticaneuecyr-light-webfont.woff?ver=1.0') format('woff'),
+         url('../fonts/helveticaneuecyr-light-webfont.ttf?ver=1.0') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+
+
+
+
+

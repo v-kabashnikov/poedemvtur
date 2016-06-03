@@ -1,0 +1,240 @@
+@media (min-width:1200px){
+	.hotel-header,
+	.hotel-slider--wrapper,
+	.hotel-info,
+	#hotel,
+	.hotel-bottom{
+		.container{
+			width:970px;
+		}
+	}
+}
+.hotel-search{
+	&--container{
+		background:url('../img/hotel-search-bg.jpg') top center no-repeat;
+		background-size:cover;
+		width:100%;
+		margin:-95px 0 20px;
+		@media screen and (max-width:991px){
+			margin-bottom:0;
+		}
+		@media screen and (max-width:767px){
+			margin:0;
+		}
+	}
+	&--form{
+		background:rgba(0,0,0,0.36);
+		padding:105px 0;
+		color:#fff;
+		@media screen and (max-width:991px){
+			padding:70px 0 30px;
+		}
+		@media screen and (max-width:767px){
+			padding:15px 0;
+		}
+		.roundtour-city{
+			font-size:21px;
+			font-family: 'helveticaneuecyr';
+			&--select{
+				color:#f6d344;
+				border-color:#f6d344;
+			}
+			&--submenu{
+				left:140px;
+				top:-10px;
+				font-size:16px;
+				color:#212121;
+				@media screen and (max-width:767px){
+					left:105px;
+				}
+			}
+			&--close{
+				top:10px;
+			}
+			@media screen and (max-width:767px){
+				font-size:16px;
+			}
+		}
+		.roundtour-place{
+			@include border-radius(3px);
+			&--submenu{
+				color:#212121;
+			}
+			&--info{
+				max-width:140px;
+			}
+		}
+		.roundtour-date{
+			@include border-radius(3px);
+		}
+		.roundtour-people{
+			float:left;
+			padding:0;
+			width:auto;
+			margin-right:20px;
+			&--active{
+				height:43px;
+				padding:4px 12px;
+				@include border-radius(3px);
+				@media screen and (max-width:991px){
+					height:53px;
+					padding:6px 12px;
+				}
+				@media screen and (max-width:767px){
+					float:none;
+				}
+			}
+			&--addadults,
+			&--addchildrens{
+				height:43px;
+				border-color:#f6d344;
+				color:#f6d344;
+				@include border-radius(3px);
+				line-height:43px;
+				.icon{
+					@include opacity(1);
+				}
+				.text{
+					margin:16px 5px 0 0;
+					@include opacity(1);
+					@media screen and (max-width:991px){
+						margin:20px 10px 0 0;
+					}
+				}
+				@media screen and (max-width:991px){
+					height:53px;
+					line-height:43px;
+				}
+				@media screen and (max-width:767px){
+					margin-left:0;
+					margin-right:10px;
+				}
+			}
+			&--addadults{
+
+				.icon{
+					margin-top:5px;
+					@media screen and (max-width:991px){
+						margin-top:7px;
+					}
+				}
+			}
+			&--addchildrens{
+				.icon{
+					margin-top:10px;
+					@media screen and (max-width:991px){
+						margin-top:12px;
+					}
+				}
+			}
+		}
+	}
+	&--send{
+		position: absolute;
+		background:#f6c80d;
+		color:#303030;
+		font-family: 'Roboto';
+		font-weight:700;
+		height:43px;
+		line-height: 40px;
+		text-align: center;
+		padding:0 10px;
+		@include box-sizing;
+		min-width:120px;
+		font-size:16px;
+		display: inline-block;
+		@media screen and (max-width:991px){
+			position: relative;
+			display: block;
+			width:100%;
+			padding:15px;
+			height:auto;
+			line-height:100%;
+		}
+	}
+	&--date{
+		display: none;
+		.roundtour-date{
+			&--wrapper{
+				position: relative;
+				height:auto;
+				display: block;
+				@include opacity(1);
+				margin-top:0;
+				background:rgba(0,0,0,0.89);
+			}
+			&--content{
+				top:0;
+				padding:0;
+				h4{
+					margin:0;
+					font-size:17px;
+					@media screen and (max-width:991px){
+						margin-bottom:20px;
+					}
+				}
+			}
+			&--top{
+				background:#000;
+				padding:35px 0 30px;
+			}
+			&--night{
+				margin-top:-6px;
+			}
+			&--days{
+				padding:40px 0;
+			}
+			&--save{
+				margin-top:10px;
+			}
+		}
+	}
+}
+.hotel-comment--close{
+	float:right;
+	color:#212121;
+	background:transparent;
+	cursor: pointer;
+	border:none;
+	box-shadow: none;
+	padding:0;
+	outline: none;
+}
+@media screen and (max-width:767px){
+	.hotel-selectdate--save{
+		display: block;
+		width:100%;
+	}
+	.hotel-comment--author{
+		padding-left:15px;
+	}
+	.hotel-comment--date{
+		padding-left:15px;
+	}
+}
+.tour-list--logo{
+	margin-right:7px;
+	float:left;
+	& + span{
+		overflow: hidden;
+	}
+}
+.tour-list-item_vip{
+	background:#dbf4fa;
+	border-color:#dbf4fa;
+}
+.form-hotelsearch{
+	position: relative;
+	z-index:3;
+}
+@media screen and (min-width:992px){
+	.no-leftpadding{
+		padding-left:0;
+	}
+	.no-rightpadding{
+		padding-right:0;
+	}
+}
+@media screen and (max-width:992px){
+
+}

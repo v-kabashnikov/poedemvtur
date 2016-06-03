@@ -44,7 +44,7 @@ $(document).ready(function(){
 		if($('div').is('.tour-page_2-price')){
 			var scroll = $(document).scrollTop();
 			if(scroll > 100){
-				var top = scroll-100;
+				var top = scroll-100;a
 				var marginTop = parseFloat($('footer').offset().top) - parseFloat($('.tour-page_2-price').innerHeight()) - 230;
 				console.log('top='+ top);
 				console.log('marginTop=' + marginTop);

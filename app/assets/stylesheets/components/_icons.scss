@@ -1,0 +1,13 @@
+$icons-sprite-dimensions:true;
+@import "icons/*.png";
+@include all-icons-sprites;
+
+.icons-sprite{
+  display: inline-block;
+}
+.hotel-slider .slick-prev{
+  @extend .icons-arrow-left;
+}
+.hotel-slider .slick-next{
+  @extend .icons-arrow-right;
+}

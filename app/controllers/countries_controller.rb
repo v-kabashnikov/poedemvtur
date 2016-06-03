@@ -1,13 +1,15 @@
 class CountriesController < ApplicationController
-  layout 'static'	
+  layout 'static'
 
   def index
 	  @countries = Country.all
 	  @categories = CountryCategory.all
 	end
-  
+
   def show
     @country = Country.find(params[:id])
+
+    render layout: false
   end
 
   def show_region
