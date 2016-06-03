@@ -41,6 +41,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'letter_opener'
 end
 
 group :production do

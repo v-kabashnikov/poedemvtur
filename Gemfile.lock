@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     akami (1.3.1)
       gyoku (>= 0.4.0)
       nokogiri
@@ -137,6 +138,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -317,6 +322,7 @@ DEPENDENCIES
   jbuilder (~> 2.4)
   jquery-rails
   jquery-slick-rails
+  letter_opener
   materialize-sass
   momentjs-rails (>= 2.9.0)
   paperclip (~> 4.3)
@@ -337,6 +343,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn (~> 4.9)
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.6

@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     @hotel = Hotel.find(params[:id])
     parameters = { sourceId: @source_id, offerId: @offer_id, currencyAlias: "RUB", searchRequestId: @search_request_id, user: params[:surname], email: params[:email], phone: params[:phone], countryName: @hotel.resort.country, cityFromName: params[:depart_city]}
     get_res_data 'SaveTourOrder', false, parameters
-    TourRequest.create(
+    tour_request = TourRequest.create(
       surname: params[:surname],
       name: params[:name],
       email: params[:email],
@@ -54,7 +54,7 @@ class HomeController < ApplicationController
         )
       end
     end
-    UserMailer.buy_notification(params[:email], params[:hotel_name], params[:depart_date], params[:arrive_date]).deliver
+    UserMailer.buy_notification(params[:email], params: params).deliver
     UserMailer.buy_notification("jujava@mail.ru", params[:hotel_name], params[:depart_date], params[:arrive_date]).deliver
     redirect_to "/thanks/#{params[:id]}"
   end

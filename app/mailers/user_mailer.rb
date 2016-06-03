@@ -7,12 +7,11 @@ class UserMailer < ApplicationMailer
      :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
   	end
 
-  	def buy_notification(mail, hotel, depart_date, arrive_date)
-  		@mail = mail
-      @hotel = hotel
-      @depart_date = depart_date
-      @arrive_date = arrive_date
-  		mail( :to => @mail,
-     	:subject => 'Заявка на покупку тура оставлена' )
+  	def buy_notification(email, options = {})
+      email_template = EmailTemplate.find_by_slug('create_order')
+
+      @content = MailContentParser.new(email_template, options).call
+
+      mail(to: email, subject: email_template.subject)
   	end
 end
