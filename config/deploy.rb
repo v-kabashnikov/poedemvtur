@@ -1,6 +1,6 @@
 app_name = 'poedemvtur'
 
-set :repo_url, "git@github.com:digitalshop24/#{app_name}.git"
+#set :repo_url, "git@github.com:digitalshop24/#{app_name}.git"
 set :application, app_name
 application = app_name
 set :rvm_type, :user

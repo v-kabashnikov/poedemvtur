@@ -7,11 +7,19 @@ class UserMailer < ApplicationMailer
      :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
   	end
 
-  	def buy_notification(email, options = {})
-      email_template = EmailTemplate.find_by_slug('create_order')
+  def buy_notification(email, options = {})
+    email_template = EmailTemplate.find_by_slug('create_order')
 
-      @content = MailContentParser.new(email_template, options).call
+    @content = MailContentParser.new(email_template, options).call
 
-      mail(to: email, subject: email_template.subject)
-  	end
+    mail(to: email, subject: email_template.subject)
+	end
+
+  def buy_notification_manager(email, options = {})
+    email_template = EmailTemplate.find_by_slug('create_order_manager')
+
+    @content = MailContentParser.new(email_template, options).call
+
+    mail(to: emails, subject: email_template.subject)
+  end
 end

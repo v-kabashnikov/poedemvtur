@@ -14,6 +14,12 @@ class CreateEmailTemplates < ActiveRecord::Migration
       slug: 'create_order',
       subject: 'Создан новый заказ'
     )
+
+    EmailTemplate.create(
+      title: 'Создан новый заказ для менеджера',
+      slug: 'create_order_manager',
+      subject: 'Создан новый заказ для менеджера'
+    )
   end
 
   def down

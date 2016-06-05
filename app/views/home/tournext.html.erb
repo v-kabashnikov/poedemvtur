@@ -276,7 +276,7 @@
               </li>
               <li>
                 <div class="icon"><span class="icons-tour-transport"></span></div>
-                <div class="content"><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%><br> <%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+" "+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%></div>
+                <div class="content"><%=@tour.depart_date.to_s[8..9]+" "+monthes[@tour.depart_date.to_s[5..6]]%><br> <%=(@tour.date_end).to_s[8..9]+" "+monthes[(@tour.date_end).to_s[5..6]]%></div>
               </li>
             </ul>
             <div class="tour-page_2-price--price">
