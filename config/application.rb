@@ -29,7 +29,7 @@ module Poedemvtur
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # config.autoload_paths += Dir["#{config.root}/lib/sletat"]
     # config.autoload_paths += Dir[Rails.root.join('lib/sletat', '*.rb').to_s]
     # config.autoload_paths += %W(#{config.root}/lib)
