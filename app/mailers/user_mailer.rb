@@ -1,10 +1,14 @@
 class UserMailer < ApplicationMailer
-	default :from => 'zakaz@poedemvtour.ru'
+	default from: 'zakaz@poedemvtour.ru'
 
 	def send_signup_email(link)
    	 @link = link
-     mail( :to => "admin@poedemvtour.ru",
-     :subject => 'Пользователь оставил отзыв на сайте poedemvtur' )
+
+     mail(
+      from: 'webmaster@poedemvtour.ru'
+      to: 'admin@poedemvtour.ru',
+      subject: 'Пользователь оставил отзыв на сайте poedemvtur.ru'
+    )
   	end
 
   def buy_notification(email, options = {})

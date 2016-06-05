@@ -108,7 +108,7 @@ class HomeController < ApplicationController
         end
       end
       @hotel = Hotel.find(params[:hotel_id])
-      UserMailer.send_signup_email("poedemvtour.ru/admin/review/#{@review.id}/edit").deliver
+      UserMailer.send_signup_email("https://poedemvtour.ru/admin/review/#{@review.id}/edit").deliver
     end
      redirect_to :back
   end
