@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: <%= ENV['database_username'] %>
-  host: localhost
+  password: <%= ENV['database_password'] %>
   pool: 5
 
 development:
