@@ -148,7 +148,7 @@
                   </fieldset>
                   <input name="hotel_name"  type="hidden" value="<%=@hotel.name%>">
                   <input name="depart_date"  type="hidden" value="<%=@tour.depart_date.to_s[8..9]+' '+monthes[@tour.depart_date.to_s[5..6]]%>">
-                  <input name="arrive_date"  type="hidden" value="<%=(@tour.depart_date+@tour.nights.days).to_s[8..9]+' '+monthes[(@tour.depart_date+@tour.nights.days).to_s[5..6]]%>">
+                  <input name="arrive_date"  type="hidden" value="<%=(@tour.date_end).to_s[8..9]+' '+monthes[(@tour.date_end).to_s[5..6]]%>">
                   <input name="additional_number"  type="hidden" value="<%=@tour.adults_number.to_i - 1%>">
                   
 
