@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
    	 @link = link
 
      mail(
-      from: 'webmaster@poedemvtour.ru'
+      from: 'webmaster@poedemvtour.ru',
       to: 'admin@poedemvtour.ru',
       subject: 'Пользователь оставил отзыв на сайте poedemvtur.ru'
     )
