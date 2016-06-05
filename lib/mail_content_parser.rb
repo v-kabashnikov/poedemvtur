@@ -23,5 +23,7 @@ class MailContentParser
     content.gsub!('{TotalPrice}', "#{tour.price} Р")
     content.gsub!('{CurrentDate}', date.strftime('%d.%m.%Y'))
     content.gsub!('{CurrentTime}', date.strftime('%H:%M'))
+
+    content
   end
 end
