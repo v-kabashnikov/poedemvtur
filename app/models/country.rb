@@ -34,4 +34,12 @@ class Country < ActiveRecord::Base
       end
     end
   end
+
+  rails_admin do
+    edit do
+      include_all_fields
+
+      field :description, :ck_editor
+    end
+  end
 end

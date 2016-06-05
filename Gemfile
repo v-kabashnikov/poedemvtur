@@ -27,8 +27,8 @@ gem 'readmorejs-rails'
 gem "jquery-slick-rails"
 gem 'draper', '~> 2.1'
 gem 'simple_captcha2', require: 'simple_captcha'
-
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'pry', '~> 0.10.3'

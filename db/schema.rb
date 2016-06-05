@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603181655) do
+ActiveRecord::Schema.define(version: 20160606002612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 20160603181655) do
 
   add_index "blogs", ["blog_category_id"], name: "index_blogs_on_blog_category_id", using: :btree
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.string   "alias"
@@ -73,6 +89,10 @@ ActiveRecord::Schema.define(version: 20160603181655) do
     t.datetime "banner_updated_at"
     t.integer  "ad_delay"
     t.string   "youtube_link"
+    t.string   "case_1"
+    t.string   "case_2"
+    t.string   "case_3"
+    t.text     "description"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree
@@ -336,12 +356,14 @@ ActiveRecord::Schema.define(version: 20160603181655) do
   add_index "revimgs", ["review_id"], name: "index_revimgs_on_review_id", using: :btree
 
   create_table "search_results", force: :cascade do |t|
-    t.integer "hotel_id"
-    t.integer "request_id"
-    t.integer "min_price"
-    t.string  "meal"
-    t.string  "depart_date"
-    t.integer "nights"
+    t.integer  "hotel_id"
+    t.integer  "request_id"
+    t.integer  "min_price"
+    t.string   "meal"
+    t.string   "depart_date"
+    t.integer  "nights"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "search_results", ["hotel_id"], name: "index_search_results_on_hotel_id", using: :btree

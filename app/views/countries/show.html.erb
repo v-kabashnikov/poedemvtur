@@ -173,21 +173,27 @@
   <div class="country-map" id="countryMap"></div>
 </nav>
 
-<div id="sub-header" class="sub-header
-  sub-header_country  xxs-compact" style="background:#f4f4f4;">
+
+<div id="sub-header" class="sub-header sub-header_country xxs-compact" style="background:#f4f4f4;">
 </div>
 
 <!-- country begin -->
 <div class="country">
   <!-- country header begin -->
-  <div class="country-header">
+
+  <% if @country.header_img.url == "/header_imgs/original/missing.png" %>
+    <div class="country-header">
+  <% else %>
+    <div class="country-header" style="background: url(<%= image_path @country.header_img.url %>) top center no-repeat;">
+  <% end %>
+
     <div class="country-header-top">
       <div class="container">
-        <h1 class="hotel-name">ТУРЫ ВО ВЬЕТНАМ</h1>
+        <h1 class="hotel-name">ТУРЫ <%= @country.case_1 %></h1>
         <ul class="hotel-breadcrumbs">
-          <li><a href="#">Все страны</a></li>
+          <li><a href="/countries">Все страны</a></li>
           <li class="sep">/</li>
-          <li>Вьетнам — поиск тура</li>
+          <li><%= @country.name %> — поиск тура</li>
         </ul>
         <hr>
       </div>
@@ -195,25 +201,20 @@
     <div class="country-header-search">
       <div class="hotel-search--container">
         <div class="hotel-search--form">
-          <form action="#" class="form-hotelsearch">
+          <%= form_tag("/search", method: "get", class: "form-hotelsearch") do %>
             <div class="container">
               <div class="row">
                 <div class="col-sm-12">
                   <div class="roundtour-city">
-                    Город вылета: <a href="#" class="roundtour-city--select">Москва</a>
+                    Город вылета: <a href="#" id="city" class="roundtour-city--select">Москва</a>
                     <div class="roundtour-city--submenu">
-                      <input type="text" class="form-control roundtour-city--search" value="Москва">
+                      <input type="text" name="depart_city" class="form-control roundtour-city--search" value="Москва">
                       <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
                       <div class="roundtour-city--wrapper scrollbar-inner">
                         <ul class="roundtour-city--list">
-                          <li>Москва</li>
-                          <li>Санкт-Петербург</li>
-                          <li>Абакан</li>
-                          <li>Актау</li>
-                          <li>Актобе</li>
-                          <li>Алматы</li>
-                          <li>Анадырь</li>
-                          <li>Анапа</li>
+                          <% DepartCity.all.each do |city| %>
+                            <li data-city-id='<%= city.sletat_id %>'><%= city.name %></li>
+                          <% end %>
                         </ul>
                       </div>
                     </div>
@@ -471,7 +472,7 @@
             <input id="date_max" type="hidden" name="date_max" >
             <input id="children" type="hidden" name="children" >
             <input id="adult" type="hidden" name="adult" value="2">
-          </form>
+          <% end %>
         </div>
         <!-- select date -->
         <div class="select-date-nobutton country-search--date hotel-search--date">
@@ -531,7 +532,7 @@
   <!-- country chart begin -->
   <div class="country-chart">
     <div class="container">
-      <h3 class="country-part-header">ГОРЯЩИЕ ТУРЫ И ПУТЕВКИ ВО ВЬЕТНАМ</h3>
+      <h3 class="country-part-header">ГОРЯЩИЕ ТУРЫ И ПУТЕВКИ <%= @country.case_1 %></h3>
       <h5 class="country-part-desc">
         <a href="#" class="country-chart-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         График цен по месяцам
@@ -646,7 +647,7 @@
   <!-- country resorts popular begin -->
   <div class="country-resorts country-resorts_popular">
     <div class="container">
-      <h3 class="country-part-header">Популярные курорты вьетнама</h3>
+      <h3 class="country-part-header">Популярные курорты <%= @country.case_2 %></h3>
       <div class="country-resorts-list">
                 <div class="country-resorts-item country-resorts-item_popular">
           <a href="#">
@@ -1085,19 +1086,11 @@
   <!-- country info begin -->
   <div class="country-info">
     <div class="container">
-      <h2 class="country-info-header">Подробнее о Вьетнаме</h2>
+      <h2 class="country-info-header">Подробнее <%= @country.case_3 %></h2>
       <div class="row">
         <div class="col-md-8">
           <div class="country-info-text">
-            <p>Удивительный, свежий, неиспорченный капризами отдыхающих Вьетнам радушно раскрывает свои резные врата, приглашая в чудесные сады, напоенные ароматом жасмина, торжественные древние храмы, на бескрайние золотистые пляжи, окутанные легкой утренней дымкой.</p>
-            <p>А толчея пестрых многолюдных улиц его городов заставляет улыбнуться и проникнуться этой жизнерадостной суетой разноязыких торговцев, паломников и просто искателей счастья, приехавших из разных уголков мира.</p>
-            <h6>Где отдохнуть во Вьетнаме?</h6>
-            <p>Вьетнам - вторая по популярности азиатская страна у российских туристов после Таиланда. Цены на проживание и питание здесь очень низкие, но общая относительно высокая стоимость тура формируется из-за дальности расстояния, а следовательно, дороговизны перелета.</p>
-            <p>Несмотря на это, бесчисленные экзотические достопримечательности Вьетнама – культовые храмы, музеи, знаменитые пещеры, удивительные природные красоты и развитая туристическая инфраструктура делают ее чрезвычайно притягательной для туристов.</p>
-            <p>Здесь есть идеальные уголки для романтического уединения и тихого семейного отдыха с маленькими детьми вдали от больших городов. Мягкий, удивительно благоприятный климат, без жары и высокой влажности подходит и для пожилых людей, и для самых маленьких путешественников.</p>
-            <p>Найти занятие по душе здесь сможет каждый – от изучения богатого культурного и исторического наследия до дегустации гастрономических изысков вьетнамской кухни с диетическим рисом и разнообразием морепродуктов.</p>
-            <h6>Пляжный отдых</h6>
-            <p>Вьетнамские курорты имеют отчетливый флер Европы – все же когда-то эта страна была французской колонией, поэтому и уровень сервиса здесь вполне европейский. Лучшие места для пляжного одыха – Хойан, Фантьет и Ньячанг расположены в центре и на юге страны. Эти места часто называют «Вьетнамскими Гавайями» за бесконечные песчаные пляжи, кристально прозрачное море и безупречное качество обслуживания отдыхающих. Здесь созданы отличные условия для занятий водными видами спорта, оборудованы поля для игры в гольф.</p>
+            <%= raw @country.description %>
           </div>
         </div>
         <div class="col-md-4 text-right hidden-xs">
@@ -1112,7 +1105,7 @@
                   <span class="icons-location_black_big icon-black"></span>
                 </div>
                 <div class="country-info-hotels-numbers">
-                  340 <span>отелей</span> <span class="name">Вьетнама</span>
+                  340 <span>отелей</span> <span class="name"><%= @country.case_2 %></span>
                 </div>
               </a>
             </div>
@@ -1211,9 +1204,9 @@
   <!-- country video begin -->
   <div class="country-video hidden-xs">
     <div class="container">
-      <a href="http://www.youtube.com/watch?v=yqVgDLXHUV4" data-rel="media" class="country-video-link fancybox">
+      <a href="<%= @country.youtube_link %>" data-rel="media" class="country-video-link fancybox">
         <div class="country-video-content">
-          <h3 class="country-video-name">Вьетнам</h3>
+          <h3 class="country-video-name"><%= @country.name %></h3>
           <h5 class="country-video-helptext">Презентационный ролик</h5>
           <span class="country-video-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
         </div>
@@ -1225,7 +1218,7 @@
   <!-- country resorts links begin -->
   <div class="country-resorts-links">
     <div class="container">
-      <h3 class="country-part-header">популярные курорты вьетнама</h3>
+      <h3 class="country-part-header">популярные курорты <%= @country.case_2 %></h3>
       <div class="country-resorts-links-list">
         <div class="row">
           <div class="col-md-3 col-sm-4">

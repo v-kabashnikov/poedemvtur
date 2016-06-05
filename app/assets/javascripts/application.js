@@ -12,7 +12,7 @@
 //
 //= require jquery.min.js
 //= require jquery_ujs
- //= require bootstrap-rating.min.js
+//= require bootstrap-rating.min.js
 
 
 
