@@ -873,7 +873,7 @@
 
   // Запустим ajax-запрос, установим обработчики его выполнения и
   // сохраним объект jqxhr данного запроса для дальнейшего использования.
-  var jqxhr = $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
+  var jqxhr = $.get("https://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567")
   .success(function() { console.log('Да'); console.log('Data', jqxhr); console.log('Data.templateName', jqxhr.templateName); })
   .error(function() { console.log('Нет'); });
  // var jqxhr2 = $.get("http://module.sletat.ru/Main.svc/GetCountries?townFromId=1264&showcase=1&login=pr@corona.travel&password=1234567")
@@ -882,4 +882,4 @@
  //  var jqxhr3 = $.get("http://module.sletat.ru/Main.svc")
  //  .success(function() { console.log('Да'); console.log('Data', jqxhr3); })
  //  .error(function() { console.log('Нет'); });
-console.log('DDD', $.get("http://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))
+console.log('DDD', $.get("https://module.sletat.ru/Main.svc/GetTemplates?templatesList=all&login=pr@corona.travel&password=1234567"))

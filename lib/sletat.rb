@@ -16,7 +16,7 @@ module Sletat
   }
 
   def soap_client
-    Savon.client(wsdl: "http://module.sletat.ru/XmlGate.svc?singleWSDL", soap_header: SOAP_HEADER)
+    Savon.client(wsdl: "https://module.sletat.ru/XmlGate.svc?singleWSDL", soap_header: SOAP_HEADER)
   end
 
   def parse_date_ru date
