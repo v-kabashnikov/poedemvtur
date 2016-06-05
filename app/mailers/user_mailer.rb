@@ -20,6 +20,6 @@ class UserMailer < ApplicationMailer
 
     @content = MailContentParser.new(email_template, options).call
 
-    mail(to: emails, subject: email_template.subject)
+    mail(to: email, subject: email_template.subject)
   end
 end
