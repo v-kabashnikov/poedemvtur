@@ -3,7 +3,7 @@ class MailContentParser
 
   def initialize(email_template, options = {})
   	@email_template = email_template
-  	@params = @options.fetch(:params, {})
+  	@params = options.fetch(:params, {})
   end
 
   def call
