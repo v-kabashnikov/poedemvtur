@@ -3,7 +3,6 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(hotel-new.scss base.js tour-page.js tour-page.scss hotel.js tour-filter.js about.js readmore.js hotels-by-country.css operator.css operators.css about.css static.scss main.css jquery.min.js new2.css jquery.mobile.custom.min.js bootstrap.min.js jasny-bootstrap.min.js moment.js ru.js jquery.easing.js bootstrap-datetimepicker.min.js selectize.min.js jquery.quicksand.js slick.min.js jquery.fancybox.pack.js ion.rangeSlider.min.js jquery.scrollbar.min.js datepicker.js blog.css blog-item.css main.js hotel.css description.css footer.js )
-Rails.application.config.assets.precompile += %w(jquery.maskedinput.min.js country.js bootstrap.min.css jasny-bootstrap.min.css bootstrap-datetimepicker.css selectize.bootstrap3.css jquery.fancybox.css ion.rangeSlider.css slick.css datepicker.css style.css)
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
