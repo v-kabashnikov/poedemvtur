@@ -17,7 +17,7 @@ class MailContentParser
     content.gsub!('{TouristEMail}', params[:email])
     content.gsub!('{TouristPhone}', params[:phone])
     content.gsub!('{TourOperatorName}', tour.tour_operator)
-    content.gsub!('{HotelRang}', hotel.stars_count)
+    content.gsub!('{HotelRang}', hotel.stars_count.to_s)
     content.gsub!('{StartDate}', tour.depart_date.strftime('%d.%m.%Y'))
     content.gsub!('{EndDate}', tour.end_date.strftime('%d.%m.%Y'))
     content.gsub!('{TotalPrice}', "#{tour.price} Р")
