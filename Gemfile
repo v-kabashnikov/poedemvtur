@@ -31,7 +31,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'ckeditor'
 gem 'russian'
 gem 'dropzonejs-rails'
-gem 'rails_admin_multiple_upload', path: 'lib/rails_admin_multiple_upload'
+gem 'rails_admin_multiple_upload', git: 'git@github.com:luizpicolo/rails_admin_multiple_upload.git'
 gem 'haml'
 
 group :development, :test do

@@ -1,5 +1,6 @@
-PATH
-  remote: lib/rails_admin_multiple_upload
+GIT
+  remote: git@github.com:luizpicolo/rails_admin_multiple_upload.git
+  revision: 8373d3127822b36acdda46f5f9df451af468cfc3
   specs:
     rails_admin_multiple_upload (0.0.1)
       rails (~> 4.2.4)
