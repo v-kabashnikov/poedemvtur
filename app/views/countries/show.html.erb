@@ -201,278 +201,7 @@
     <div class="country-header-search">
       <div class="hotel-search--container">
         <div class="hotel-search--form">
-          <%= form_tag("/search", method: "get", class: "form-hotelsearch") do %>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="roundtour-city">
-                    Город вылета: <a href="#" id="city" class="roundtour-city--select">Москва</a>
-                    <div class="roundtour-city--submenu">
-                      <input type="text" name="depart_city" class="form-control roundtour-city--search" value="Москва">
-                      <a href="#" class="roundtour-city--close"><span class="icons-close_orange"></span></a>
-                      <div class="roundtour-city--wrapper scrollbar-inner">
-                        <ul class="roundtour-city--list">
-                          <% DepartCity.all.each do |city| %>
-                            <li data-city-id='<%= city.sletat_id %>'><%= city.name %></li>
-                          <% end %>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                  <div class="form-group roundtour-place--container">
-                    <a href="#" class="roundtour-place">
-                      <span class="icon icons-location_orange"></span>
-                      <span class="text">Где хотите отдохнуть?</span>
-                    </a>
-                    <div class="roundtour-place--submenu">
-                      <input type="text" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
-                      <span class="roundtour-place--searchicon icons-location_orange"></span>
-                      <div class="roundtour-place--wrapper scrollbar-inner">
-                        <ul class="roundtour-place--list">
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Apatrments Ana</h4>
-                              <span class="roundtour-place--country">Вьетнам Фуванг</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
-                              <span class="roundtour-place--country">Греция</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Hostal Santa Ana Hostal Santa Ana</h4>
-                              <span class="roundtour-place--country">Черногория Котор</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Анапа</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Hostal Santa Ana Hostal Santa Ana</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Apatrments Ana</h4>
-                              <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Hostal Santa Ana Hostal Santa Ana</h4>
-                              <span class="roundtour-place--country">Испания ЛЛарет-де-Мар</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Аналипси</h4>
-                              <span class="roundtour-place--country">Греция</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Hostal Santa Ana Hostal Santa Ana</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Анапа</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Анапа</h4>
-                              <span class="roundtour-place--country">Вьетнам Фуванг</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort1.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
-                              <span class="roundtour-place--country">Россия</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Анапа</h4>
-                              <span class="roundtour-place--country">Черногория Котор</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Evason Ana Mandara</h4>
-                              <span class="roundtour-place--country">Вьетнам Фуванг</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Анапа</h4>
-                              <span class="roundtour-place--country">Греция</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-location"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Hostal Santa Ana Hostal Santa Ana</h4>
-                              <span class="roundtour-place--country">Вьетнам Фуванг</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-home"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
-                              <span class="roundtour-place--country">Вьетнам Фуванг</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort2.jpg') %>" alt=""></div>
-                          </li>
-                                                    <li>
-                            <div class="roundtour-place--icon"><span class="icons-aircraft"></span></div>
-                            <div class="roundtour-place--info">
-                              <h4 class="roundtour-place--curort">Ana Mandara Hue</h4>
-                              <span class="roundtour-place--country">Черногория Котор</span>
-                            </div>
-                            <div class="roundtour-place--img"><img src="<%= image_path('DEMO/curort3.jpg') %>" alt=""></div>
-                          </li>
-                                                  </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-sm-6 no-leftpadding" >
-                  <div class="form-group">
-                    <a href="#" class="roundtour-date hotel-roundtour-date--open" data-open="noblur">
-                      <span class="icon icons-calendar_orange"></span>
-                      <span class="text">
-                        <span class="roundtour-date--months">Выберите дату</span>
-                        <span class="roundtour-date--nights">и количество ночей</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-5 col-sm-12 no-leftpadding">
-                  <div class="roundtour-people">
-                    <div class="roundtour-people--active">
-                      <ul class="roundtour-people--adults">
-                        <li>
-                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
-                          <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
-                          <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
-
-                        </li>
-                        <li>
-                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
-                          <span class="icons-people-adult_white hidden-xs hidden-sm"></span>
-                          <span class="icons-people-adultsm_white visible-sm visible-xs"></span>
-                        </li>
-                      </ul>
-                      <ul class="roundtour-people--childrens">
-                        <!--
-                        <li>
-                          <a href="#" class="roundtour-people--remove"><i class="fa fa-times"></i></a>
-                          <span class="icons-people-children_white hidden-xs hidden-sm"></span>
-                          <span class="icons-people-childrensm_white visible-sm visible-xs"></span>
-                          <div class="roundtour-people--year">2</div>
-                        </li>
-                        -->
-                      </ul>
-                    </div>
-                    <a href="#" class="roundtour-people--addadults">
-                      <span class="text icons-plus_yellow"></span>
-                      <span class="icon icons-people-adult_yellow hidden-xs hidden-sm"></span>
-                      <span class="icon icons-people-adultsm_yellow visible-sm visible-xs"></span>
-                    </a>
-                    <div class="roundtour-people--addchildrens-wrapper">
-                      <a href="#" class="roundtour-people--addchildrens">
-                        <span class="text icons-plus_yellow"></span>
-                        <span class="icon icons-people-children_yellow hidden-xs hidden-sm"></span>
-                        <span class="icon icons-people-childrensm_yellow visible-sm visible-xs"></span>
-                      </a>
-                      <div class="roundtour-people--years scrollbar-inner">
-                        <ul>
-                          <li>1 год</li>
-                          <li>2 года</li>
-                          <li>3 года</li>
-                          <li>4 года</li>
-                          <li>5 лет</li>
-                          <li>6 лет</li>
-                          <li>7 лет</li>
-                          <li>8 лет</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="btn hotel-search--send">Найти тур</button>
-                </div>
-              </div>
-            </div>
-            <input id="city-id" type="hidden" name="city_id" value='832' >
-            <input id="place_id" type="hidden" name="place_id" value='4023'>
-            <input id="place_type" type="hidden" name="place_type" value='resort' >
-            <input id="nights_min" type="hidden" name="nights_min" >
-            <input id="nights_max" type="hidden" name="nights_max" >
-            <input id="date_min" type="hidden" name="date_min" >
-            <input id="date_max" type="hidden" name="date_max" >
-            <input id="children" type="hidden" name="children" >
-            <input id="adult" type="hidden" name="adult" value="2">
-          <% end %>
+          <%= render 'form' %>
         </div>
         <!-- select date -->
         <div class="select-date-nobutton country-search--date hotel-search--date">
@@ -1105,11 +834,11 @@
                   <span class="icons-location_black_big icon-black"></span>
                 </div>
                 <div class="country-info-hotels-numbers">
-                  340 <span>отелей</span> <span class="name"><%= @country.case_2 %></span>
+                  <%= @hotels.count %> <span><%= Russian.p(@hotels.count, "отель", "отели", "отелей") %></span> <span class="name"><%= @country.case_2 %></span>
                 </div>
               </a>
             </div>
-            <div class="hidden-sm hidden-xs">
+            <!--<div class="hidden-sm hidden-xs">
               <div class="country-info-select">
                 <select class="form-control" name="city">
                   <option>Муйне</option>
@@ -1124,7 +853,7 @@
                 <span class="day">+25°C</span>
                 <span class="night">+20°C</span>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -1136,67 +865,15 @@
   <div class="country-photo hidden-xs">
     <div class="container">
       <div class="country-photo-slider">
-        <div class="item">
-          <a href="<%= image_path('DEMO/sh-tour-filtered.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/sh-tour-filtered.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="<%= image_path('DEMO/tour-item-5.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/tour-item-5.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo4.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo4.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo3.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo3.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo2.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo2.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo4.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo4.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo1.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo1.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo3.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo3.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo4.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo4.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-                <div class="item">
-          <a href="<%= image_path('DEMO/country-photo4.jpg') %>" class="fancybox" rel="country-gallery">
-            <img src="<%= image_path('DEMO/country-photo4.jpg') %>" alt="">
-            <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
-          </a>
-        </div>
-              </div>
+        <% @country.images.each do |image| %>
+          <div class="item">
+            <a href="<%= image.file.url(:original) %>" class="fancybox" rel="country-gallery">
+              <img src="<%= image.file.url(:thumb) %>" alt="">
+              <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
+            </a>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <!-- country photo end -->
@@ -1425,26 +1102,115 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<%= javascript_include_tag 'jquery.mobile.custom.min-country.js' %>
-<%= javascript_include_tag 'bootstrap.min-country.js' %>
-<%= javascript_include_tag 'jasny-bootstrap.min-country.js' %>
-<%= javascript_include_tag 'moment-country.js' %>
-<%= javascript_include_tag 'ru-country.js' %>
-<%= javascript_include_tag 'jquery.easing-country.js' %>
-<%= javascript_include_tag 'bootstrap-datetimepicker.min-country.js' %>
-<%= javascript_include_tag 'selectize.min-country.js' %>
-<%= javascript_include_tag 'jquery.quicksand-country.js' %>
-<%= javascript_include_tag 'slick.min-country.js' %>
-<%= javascript_include_tag 'jquery.fancybox.pack-country.js' %>
-<%= javascript_include_tag 'ion.rangeSlider.min-country.js' %>
-<%= javascript_include_tag 'jquery.scrollbar.min-country.js' %>
-<%= javascript_include_tag 'datepicker-country.js' %>
-<%= javascript_include_tag 'jquery.maskedinput.min-country.js' %>
-<%= javascript_include_tag 'base-country.js' %>
-<%= javascript_include_tag 'hotel-country.js' %>
-<%= javascript_include_tag 'main-country.js' %>
-<%= javascript_include_tag 'tour-filter-country.js' %>
-<%= javascript_include_tag 'tour-page-country.js' %>
 <%= javascript_include_tag 'country.js' %>
+
+<script>
+  $(document).ready(function() {
+    $('#place').click(function() {
+      $(this).text('');
+    });
+
+    $('.roundtour-place--list').click(function() {
+      $li = $(this).find('li');
+
+      $('#place_id').val($li.data('id'));
+      $('#place_type').val($li.data('type'));
+      $('.roundtour-place--submenu').css('display', 'none');
+      $('#place').text($('.roundtour-place--curort').html());
+    });
+
+    $('.roundtour-city--list li').click(function() {
+      $('#city-id').val($(this).attr('data-city-id'));
+    });
+
+    $('.roundtour-people--addadults').click(function() {
+      $adult_count = $('.roundtour-people--adults li').size();
+
+      $('#adult').val($adult_count);
+    });
+
+    $('#place1').on('keyup', function() {
+      $.get('/ajax?p='+ $(this).val(), function( data ) {
+         $( "#data" ).html('');
+         if ((data)['resorts'].length == 0 && (data)['hotels'].length == 0 && (data)['countries'].length == 0){
+            $('<li data-id="" data-type="">\
+               <div class="roundtour-place--info"><h4 class="roundtour-place--curort">Ничего не найдено!</h4> \
+               </li>').appendTo( "#data" );
+         }
+         $.each(data, function( index, value ) {
+           $.each(value, function (index, data) {
+             if (data.type == 'hotel'){
+               if(data.image){
+                    var str = '<div class="roundtour-place--img"><img width="72" height="40" src="'+data.image+'"></div>';
+                }
+                else{
+                    var str = '';
+                }
+               $('<li data-id='+data.id+' data-type='+data.type+'>\
+                   <div class="roundtour-place--icon"><span class="icons-home"></span></div>\
+                   <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+                   <span class="roundtour-place--country">'+ data.country +'</span></div>'+str+' \
+                   </li>').appendTo( "#data" );
+
+           }
+           else if(data.type == 'resort')
+           {
+               $('<li data-id='+data.id+' data-type='+data.type+'>\
+                   <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
+                   <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+                   <span class="roundtour-place--country">'+ data.country +'</span></div> \
+                   <div class="roundtour-place--img"><img src="https://maps.googleapis.com/maps/api/staticmap?center='+data.name+'+&zoom=13&size=72x40&key=AIzaSyDHpsDau54dGzGPOwFZvwfbf5Z_FzW2D0k"></div> \
+                   </li>').appendTo( "#data" );
+           }
+           else
+           {
+             $('<li data-id='+data.id+' data-type='+data.type+'>\
+               <div class="roundtour-place--icon"><span class="icons-location"></span></div>\
+               <div class="roundtour-place--info"><h4 class="roundtour-place--curort">'+ data.name +'</h4> \
+               <span class="roundtour-place--country">'+ data.country +'</span></div> \
+               <div class="roundtour-place--img"><img width="72" height="40" src="'+data.flag+'"></div> \
+               </li>').appendTo( "#data" );}
+          });
+        });
+      });
+    });
+  });
+
+  function dateSave(){
+    var night = $('.roundtour-date--night li');
+    var nightMin = night.filter('.active').first().text();
+    var nightMax = night.filter('.active').last().text();
+    var nightResult;
+    if(nightMin.indexOf(nightMax)){
+      $('#nights_min').val(nightMin);
+      $('#nights_max').val(nightMax);
+      nightResult = 'на ' + nightMin + '-' + nightMax + ' ночей';
+    } else{
+      $('#nights_min').val(nightMin);
+       nightResult = 'на ' + nightMin + ' ночей';
+    }
+
+    var month = $('.select-date').val();
+
+    var arrayMonth, monthResult;
+    if(month!=''){
+      arrayMonth = month.replace(/\s+/g, '');
+      arrayMonth = arrayMonth.split("-");
+      if(arrayMonth[0]==arrayMonth[1]){
+        $('#date_min').val(arrayMonth[0]);
+        monthResult = month.split("-");
+        month = monthResult[0];
+      }
+      $('#date_max').val(arrayMonth[1]);
+      $('#date_min').val(arrayMonth[0]);
+      month = month + ', '
+    }else{
+      month = 'Месяцев';
+    }
+    $('.roundtour-date--months').text(month);
+    $('.roundtour-date--nights').text(nightResult);
+  }
+</script>
+
 </body>
 </html>

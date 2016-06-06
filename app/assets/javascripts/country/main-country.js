@@ -609,7 +609,6 @@
     $('.roundtour-city--search').val($(this).text());
     $('.roundtour-city--select').text($(this).text());
     $('.roundtour-city--submenu').hide(0);
-    $('#city-id').val($(this).attr('data-city-id'));
     return false;
   });
   $('.roundtour-city--search').keyup(function(){

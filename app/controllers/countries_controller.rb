@@ -8,6 +8,7 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
+    @hotels = @country.hotels
 
     render layout: false
   end

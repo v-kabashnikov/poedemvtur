@@ -5,6 +5,10 @@ class Country < ActiveRecord::Base
   belongs_to :country_category
   has_many :depart_cities
   has_many :resorts, dependent: :destroy
+  has_many :hotels, through: :resorts
+
+  has_many :images, as: :imageable
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   has_attached_file :flag,
     styles: { thumb: "200x200", medium: "500x500>", big: "1000x1000>" }
