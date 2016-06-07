@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/tournext/:id', to: 'home#tournext'
   get '/buytour/:id', to: 'home#buytour'
   get '/thanks/:id', to: 'home#thanks'
+  get '/resort_items/:id/:page', to: 'countries#resort_items'
 
   resources :countries, only: [:index, :show]
 end

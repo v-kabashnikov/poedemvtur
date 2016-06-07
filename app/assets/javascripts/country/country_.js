@@ -29,19 +29,19 @@
     }
     return false;
   });
-  var resortsCounter = 0;
-  $('.country-resorts-showmore').on('click',function(){
-    resortsCounter++;
-    var item = $('.country-resorts-item_popular').last().clone();
-    $('.country-resorts_popular .country-resorts-list').append(item);
-    console.log('load resorts!');
-    if(resortsCounter >= 2){
-      $(this).parent().slideUp(200,function(){
-        $(this).remove();
-      });
-    }
-    return false;
-  });
+  //var resortsCounter = 0;
+  //$('.country-resorts-showmore').on('click',function(){
+  //  resortsCounter++;
+  //  var item = $('.country-resorts-item_popular').last().clone();
+  //  $('.country-resorts_popular .country-resorts-list').append(item);
+  //  console.log('load resorts!');
+ //   if(resortsCounter >= 2){
+ //     $(this).parent().slideUp(200,function(){
+  //      $(this).remove();
+ //     });
+ //   }
+ //   return false;
+ // });
   $('.country-info-select .form-control').change(function(){
     console.log($(this).attr('name') + ' change');
   });

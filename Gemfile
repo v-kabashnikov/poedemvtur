@@ -33,6 +33,7 @@ gem 'russian'
 gem 'dropzonejs-rails'
 gem 'rails_admin_multiple_upload', git: 'git@github.com:luizpicolo/rails_admin_multiple_upload.git'
 gem 'haml'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'pry', '~> 0.10.3'

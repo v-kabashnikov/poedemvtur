@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607083241) do
+ActiveRecord::Schema.define(version: 20160607094123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,8 +337,9 @@ ActiveRecord::Schema.define(version: 20160607083241) do
     t.boolean  "display"
     t.integer  "country_id"
     t.integer  "sletat_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "seasonality"
   end
 
   add_index "resorts", ["country_id"], name: "index_resorts_on_country_id", using: :btree
