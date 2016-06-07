@@ -540,7 +540,7 @@
             </ul>
           </div>
 
-          <% @popular_resorts[5..19].in_groups_of(5, false) do |group| %>
+          <% @popular_resorts[5..19].to_a.in_groups_of(5, false) do |group| %>
             <div class="col-md-3 col-sm-4 hidden-xs">
               <ul class="country-resorts-links-menu">
                 <% group.each do |resort| %>
