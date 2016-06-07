@@ -863,7 +863,7 @@
   <div class="country-photo hidden-xs">
     <div class="container">
       <div class="country-photo-slider">
-        <% @country.images.each do |image| %>
+        <% @country.photos.each do |image| %>
           <div class="item">
             <a href="<%= image.file.url(:original) %>" class="fancybox" rel="country-gallery">
               <img src="<%= image.file.url(:thumb) %>" alt="">
