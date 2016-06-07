@@ -43,6 +43,9 @@ bower.json
 # Ignore application configuration
 /config/application.yml
 
+# Ignore db config
+/config/database.yml
+
 /config/initializers/secret_token.rb
 /config/deploy/
 
