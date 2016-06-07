@@ -2,7 +2,6 @@ class Hotel < ActiveRecord::Base
   include Sletat
   belongs_to :resort
   belongs_to :star
-  belongs_to :resort
   has_many :flights, dependent: :destroy
   has_many :oil_taxes, dependent: :destroy
   has_many :search_results, dependent: :destroy

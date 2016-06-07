@@ -1110,11 +1110,12 @@
 
     $('.roundtour-place--list').click(function() {
       $li = $(this).find('li');
+      $curort = $(this).find('li .roundtour-place--info .roundtour-place--country');
 
       $('#place_id').val($li.data('id'));
       $('#place_type').val($li.data('type'));
       $('.roundtour-place--submenu').css('display', 'none');
-      $('#place').text($('.roundtour-place--curort').html());
+      $('#place').text($curort.html());
     });
 
     $('.roundtour-city--list li').click(function() {
