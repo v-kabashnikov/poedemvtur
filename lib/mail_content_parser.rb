@@ -31,7 +31,7 @@ class MailContentParser
     content.gsub!('{ToResortName}', hotel.resort.name)
     content.gsub!('{ToHotelName}', hotel.name)
     content.gsub!('{NightsCount}', tour.nights.to_s)
-    content.gsub!('{RoomType}', toor.room_type)
+    content.gsub!('{RoomType}', tour.room_type)
     content.gsub!('{MealType}', tour.meal)
 
     content
