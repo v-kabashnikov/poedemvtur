@@ -1212,8 +1212,8 @@
 
   function init() {
       var mapOptions = {
-        zoom: 11,
-        center: new google.maps.LatLng(55.796842, 37.683964),
+        zoom: 6,
+        center: new google.maps.LatLng(<%= @country.latitude %>, <%= @country.longitude %>),
         styles: [{
           "featureType":"all",
           "elementType":"all",
@@ -1230,19 +1230,14 @@
 
       var map = new google.maps.Map(mapElement, mapOptions);
 
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(55.796842, 37.683964),
-        map: map,
-        title: 'Первый маркер!',
-        icon : '/img/map/marker.png'
-      });
-
-      var marker2 = new google.maps.Marker({
-        position: new google.maps.LatLng(55.770104, 37.610750),
-        map: map,
-        title: 'Второй маркер!',
-        icon : '/img/map/marker.png'
-      });
+      <% @hotels.each do |hotel| %>
+        new google.maps.Marker({
+          position: new google.maps.LatLng(<%= hotel.latitude %>, <%= hotel.longitude %>),
+          map: map,
+          title: '<%= hotel.name %>',
+          icon : '/img/map/marker.png'
+        });
+      <% end %>
   }
 </script>
 
