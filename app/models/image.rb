@@ -1,10 +1,12 @@
 class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
 
-  has_attached_file :file, styles: {thumb: '442x300#'}
-  validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z/
+  has_attached_file :image, styles: {thumb: '442x300#'}
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   rails_admin do
-    field :file, :paperclip
+    edit do
+      field :image, :paperclip
+    end
   end
 end

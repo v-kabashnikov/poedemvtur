@@ -1,6 +1,8 @@
 ru:
   admin:
     actions:
+      multiple_upload:
+        menu: 'Изображения слайдера'
       bulk_delete:
         breadcrumb: "Удаление"
         bulk_link: "Удалить выбранные %{model_label_plural}"
