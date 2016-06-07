@@ -16,24 +16,17 @@ class CountriesController < ApplicationController
 
     @resorts = Resort.
       where(country_id: @country.id).
-      joins(:hotels).
-      select('resorts.id, resorts.name, hotels.id AS hotel_id').
       where(seasonality: true).
-      group('resorts.id, resorts.name, hotels.id').
       paginate(page: 1, per_page: 5)
 
-    @resorts_without_season = @country.
-      resorts.
-      joins(:hotels).
-      select('resorts.*, hotels.id AS hotel_id').
-      where(seasonality: [nil, false])
+    @resorts_without_season = @country.resorts.where(seasonality: [nil, false])
 
     @min_prices = {}
 
     @hotels.
       joins(:search_results).
-      select('hotels.id, MIN(search_results.min_price) price').
-      group('hotels.id').
+      select('hotels.resort_id, MIN(search_results.min_price) price').
+      group('hotels.resort_id').
       each do |res|
         @min_prices[res['id'].to_i] = res['price'].to_f
       end
@@ -45,10 +38,7 @@ class CountriesController < ApplicationController
     @country = Country.find(params[:id])
     @resorts = Resort.
       where(country_id: @country.id).
-      joins(:hotels).
-      select('resorts.id, resorts.name, hotels.id AS hotel_id').
       where(seasonality: true).
-      group('resorts.id, resorts.name, hotels.id').
       paginate(page: params[:page], per_page: 5)
 
     @min_prices = {}
@@ -57,8 +47,8 @@ class CountriesController < ApplicationController
 
     @hotels.
       joins(:search_results).
-      select('hotels.id, MIN(search_results.min_price) price').
-      group('hotels.id').
+      select('hotels.resort_id, MIN(search_results.min_price) price').
+      group('hotels.resort_id').
       each do |res|
         @min_prices[res['id'].to_i] = res['price'].to_f
       end

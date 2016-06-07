@@ -422,7 +422,7 @@
                   </div>
                   <div class="col-md-12 hidden-sm">
                     <div class="country-resorts-item-buttons">
-                      <% if price = @min_prices[resort.hotel_id] %>
+                      <% if price = @min_prices[resort.id] %>
                         <button class="btn btn_brown country-resorts-item-price">
                           <span><%= number_with_delimiter(price, locale: :ru) %></span><i class="fa fa-rub" aria-hidden="true"></i>
                         </button>
