@@ -865,8 +865,8 @@
       <div class="country-photo-slider">
         <% @country.photos.each do |image| %>
           <div class="item">
-            <a href="<%= image.file.url(:original) %>" class="fancybox" rel="country-gallery">
-              <img src="<%= image.file.url(:thumb) %>" alt="">
+            <a href="<%= image.image.url(:original) %>" class="fancybox" rel="country-gallery">
+              <img src="<%= image.image.url(:thumb) %>" alt="">
               <span class="country-photo-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
             </a>
           </div>
