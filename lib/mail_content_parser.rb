@@ -9,8 +9,7 @@ class MailContentParser
   def call
     content = @email_template.content
     hotel = Hotel.find(params[:id])
-    tour_results = hotel.tour_results.order(:id)
-    tour = tour_results.find(params[:tour_id])
+    tour = hotel.tour_results.order(:id).find(params[:tour_id])
     date = Time.now
 
     content.gsub!('{TouristName}', params[:name])
@@ -21,10 +20,10 @@ class MailContentParser
     content.gsub!('{HotelRang}', hotel.stars_count.to_s)
     content.gsub!('{StartDate}', tour.depart_date.strftime('%d.%m.%Y'))
     content.gsub!('{EndDate}', tour.date_end.strftime('%d.%m.%Y'))
-    content.gsub!('{TotalPrice}', "#{tour.price}")
+    content.gsub!('{TotalPrice}', tour.price.to_s)
     content.gsub!('{CurrentDate}', date.strftime('%d.%m.%Y'))
     content.gsub!('{CurrentTime}', date.strftime('%H:%M'))
-    content.gsub!('{PaxCount}', tour_results.count.to_s)
+    content.gsub!('{PaxCount}', (tour.adults_number.to_i + tour.children_number.to_i).to_s)
     content.gsub!('{ZakazID}', tour.id.to_s)
     content.gsub!('{FromCity}', tour.depart_city)
     content.gsub!('{ToCountryName}', hotel.resort.country.name)

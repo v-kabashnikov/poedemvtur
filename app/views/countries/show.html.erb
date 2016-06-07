@@ -1209,6 +1209,41 @@
     $('.roundtour-date--months').text(month);
     $('.roundtour-date--nights').text(nightResult);
   }
+
+  function init() {
+      var mapOptions = {
+        zoom: 11,
+        center: new google.maps.LatLng(55.796842, 37.683964),
+        styles: [{
+          "featureType":"all",
+          "elementType":"all",
+          "stylers":[
+            { "saturation": -100 },
+            { "gamma" : 0.5 }
+          ]
+        }],
+        zoomControl: true,
+        scaleControl: true,
+        mapTypeControl: false
+      };
+      var mapElement = document.getElementById('countryMap');
+
+      var map = new google.maps.Map(mapElement, mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(55.796842, 37.683964),
+        map: map,
+        title: 'Первый маркер!',
+        icon : '/img/map/marker.png'
+      });
+
+      var marker2 = new google.maps.Marker({
+        position: new google.maps.LatLng(55.770104, 37.610750),
+        map: map,
+        title: 'Второй маркер!',
+        icon : '/img/map/marker.png'
+      });
+  }
 </script>
 
 </body>
