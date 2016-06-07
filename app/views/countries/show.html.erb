@@ -1231,6 +1231,7 @@
       var map = new google.maps.Map(mapElement, mapOptions);
 
       <% @hotels.each do |hotel| %>
+        <% next if hotel.latitude.blank? || hotel.longitude.blank? %>
         new google.maps.Marker({
           position: new google.maps.LatLng(<%= hotel.latitude %>, <%= hotel.longitude %>),
           map: map,
