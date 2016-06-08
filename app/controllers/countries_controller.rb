@@ -10,10 +10,10 @@ class CountriesController < ApplicationController
     @country = Country.find(params[:id])
     @hotels = @country.hotels
     @popular_resorts = @hotels.
-      select('resorts.name, hotels.hotel_rate').
+      select('DISTINCT ON (name) resorts.name, hotels.hotel_rate').
       where('hotels.hotel_rate IS NOT NULL').
-      order('hotels.hotel_rate DESC').
-      group('resorts.name, hotels.hotel_rate')[0..19]
+      order('resorts.name, hotels.hotel_rate DESC').
+      limit(20)
 
     @resorts = Resort.
       where(country_id: @country.id).
