@@ -26,4 +26,12 @@ class UserMailer < ApplicationMailer
 
     mail(to: email, subject: email_template.subject)
   end
+
+  def feedback_phone(email, options = {})
+    email_template = EmailTemplate.find_by_slug('feedback_phone')
+
+    @content = MailContentParser.new(email_template, options).call
+
+    mail(to: email, subject: email_template.subject)
+  end
 end

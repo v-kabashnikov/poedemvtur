@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/buytour/:id', to: 'home#buytour'
   get '/thanks/:id', to: 'home#thanks'
   get '/resort_items/:id/:page', to: 'countries#resort_items'
+  post '/feedback_phone', to: 'countries#feedback_phone'
 
   resources :countries, only: [:index, :show]
 end

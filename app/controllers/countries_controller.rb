@@ -11,6 +11,7 @@ class CountriesController < ApplicationController
     @hotels = @country.hotels
     @popular_resorts = @hotels.
       select('resorts.name, hotels.hotel_rate').
+      where('hotels.hotel_rate IS NOT NULL').
       order('hotels.hotel_rate DESC').
       group('resorts.name, hotels.hotel_rate')[0..19]
 
@@ -54,6 +55,12 @@ class CountriesController < ApplicationController
       end
 
     render partial: 'resort_items', layout: false
+  end
+
+  def feedback_phone
+    UserMailer.feedback_phone('office_m@poedemvtour.ru', params: params).deliver
+
+    render nothing: true
   end
 
   def show_region
