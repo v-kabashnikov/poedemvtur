@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608074517) do
+ActiveRecord::Schema.define(version: 20160608095613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "abouts", force: :cascade do |t|
     t.text     "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "beaches", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "beaches_resorts", force: :cascade do |t|
+    t.integer  "beach_id",   null: false
+    t.integer  "resort_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -337,9 +350,10 @@ ActiveRecord::Schema.define(version: 20160608074517) do
     t.boolean  "display"
     t.integer  "country_id"
     t.integer  "sletat_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "seasonality"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.date     "season_start"
+    t.date     "season_end"
   end
 
   add_index "resorts", ["country_id"], name: "index_resorts_on_country_id", using: :btree

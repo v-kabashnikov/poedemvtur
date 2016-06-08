@@ -21,7 +21,7 @@
                   <div class="form-group roundtour-place--container">
                     <a href="#" class="roundtour-place">
                       <span class="icon icons-location_orange"></span>
-                      <span id='place' class="text">Где хотите отдохнуть?</span>
+                      <span id='place' class="text"><%= @country.name %></span>
                     </a>
                     <div class="roundtour-place--submenu">
                       <input type="text" name="arrive_place" id="place1" autocomplete="off" class="form-control roundtour-place--search" value="" placeholder="Где хотите отдохнуть?">
@@ -100,8 +100,8 @@
               </div>
             </div>
             <input id="city-id" type="hidden" name="city_id" value='832' >
-            <input id="place_id" type="hidden" name="place_id" value='4023'>
-            <input id="place_type" type="hidden" name="place_type" value='resort' >
+            <input id="place_id" type="hidden" name="place_id" value='<%= @country.id %>'>
+            <input id="place_type" type="hidden" name="place_type" value='country' >
             <input id="nights_min" type="hidden" name="nights_min" >
             <input id="nights_max" type="hidden" name="nights_max" >
             <input id="date_min" type="hidden" name="date_min" >

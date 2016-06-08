@@ -96,6 +96,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
     connection_pool (2.2.0)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     devise (3.5.6)
       bcrypt (~> 3.0)
@@ -333,6 +334,7 @@ DEPENDENCIES
   capistrano-rvm
   ckeditor
   coffee-rails (~> 4.1.0)
+  dalli
   devise (~> 3.5.2)
   draper (~> 2.1)
   dropzonejs-rails

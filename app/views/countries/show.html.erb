@@ -339,6 +339,7 @@
   </div>
   <!-- country chart end -->
 
+  <% if @resorts.present? %>
   <!-- country resorts popular begin -->
   <div class="country-resorts country-resorts_popular">
     <div class="container">
@@ -349,7 +350,9 @@
     </div>
   </div>
   <!-- country resorts popular end -->
+  <% end %>
 
+  <% if @resorts_without_season.present? %>
   <!-- country resorts begin -->
   <div class="country-resorts">
     <div class="container">
@@ -381,8 +384,8 @@
                             Вода — <!--29°C-->
                           </li>
                           <li class="country-resorts-item-info--item country-resorts-item-info--item_beach">
-                            <span class="strong">Пляж:</span> <!--&nbsp;Песок, Оборудованный, Каменистый/скалистый<br>-->
-                            <span class="strong">Сезон:</span> <!--февраль - август-->
+                            <span class="strong">Пляж:</span> &nbsp;<%= resort.beach_names %><br>
+                            <span class="strong">Сезон:</span> <%= resort.season_names %>
                           </li>
                         </ul>
                       </div>
@@ -409,6 +412,7 @@
     </div>
   </div>
   <!-- country resorts eng -->
+  <% end %>
 
   <!-- country info begin -->
   <div class="country-info">
