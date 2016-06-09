@@ -159,13 +159,12 @@ function meal(type)
   }
                 $('#hotels').append(hotel);
               }
-              if (hotels.length < 2) {
+              if (hotels.length <= 3) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
               if (hotels.length < 5) {
                 $('#hotels').append('<%= j render 'subscribe' %>');
               }
-              alert('1.' + hotels.length);
             }
   
               //$('.tour-filter--container').stop(true).slideUp(200);
@@ -435,14 +434,12 @@ function showHotels( hotels, requestId ){
   }
                 $('#hotels').append(hotel);
               }
-              if (hotels.length < 2) {
+              if (hotels.length <= 3) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
               if (hotels.length < 5) {
                 $('#hotels').append('<%= j render 'subscribe' %>');
               }
-
-              alert('2.' + hotels.length);
             }
 
 

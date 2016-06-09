@@ -258,14 +258,14 @@ ActiveRecord::Schema.define(version: 20160609055940) do
   add_index "hotels", ["star_id"], name: "index_hotels_on_star_id", using: :btree
 
   create_table "images", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
@@ -281,7 +281,7 @@ ActiveRecord::Schema.define(version: 20160609055940) do
     t.integer  "adults"
     t.integer  "kids"
     t.string   "nights"
-    t.json     "results"
+    t.jsonb    "results"
   end
 
   add_index "load_statuses", ["country_id"], name: "index_load_statuses_on_country_id", using: :btree
@@ -352,6 +352,7 @@ ActiveRecord::Schema.define(version: 20160609055940) do
     t.integer  "sletat_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "seasonality"
     t.date     "season_start"
     t.date     "season_end"
   end

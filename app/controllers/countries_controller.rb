@@ -49,7 +49,7 @@ class CountriesController < ApplicationController
     @hotels.
       joins(:search_results).
       select('hotels.resort_id, search_results.min_price').
-      where('search_results.min_price > 0.01')
+      where('search_results.min_price > 0.01').
       order(:min_price).
       each do |res|
         @min_prices[res['resort_id'].to_i] ||= res['price'].to_f
