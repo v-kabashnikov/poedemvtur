@@ -15,7 +15,7 @@ class CountriesController < ApplicationController
       order('resorts.name, hotels.hotel_rate DESC').
       limit(20)
 
-    @resorts_without_season = @country.resorts.where('season_start > ?', Time.now)
+    @resorts_without_season = @country.resorts.where('season_start > ?', Time.now).order(:name)
 
     render layout: false
   end
@@ -41,7 +41,7 @@ class CountriesController < ApplicationController
     @resorts = Resort.
       where(country_id: @country.id).
       where('season_end >= ? AND season_start <= ?', Time.now, Time.now).
-      order(:name),
+      order(:name).
       paginate(page: params[:page] || 1, per_page: 5)
 
     @min_prices = {}
