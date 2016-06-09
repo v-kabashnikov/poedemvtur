@@ -52,7 +52,7 @@ class CountriesController < ApplicationController
       where('search_results.min_price > 0.01').
       order(:min_price).
       each do |res|
-        @min_prices[res['resort_id'].to_i] ||= res['min_price'].to_f
+        @min_prices[res['resort_id'].to_i] ||= res['min_price'].to_i
       end
   end
 end
