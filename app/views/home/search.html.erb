@@ -107,7 +107,7 @@ function meal(type)
                 }
                 if (i == 3) {
                   var hotel = '<%= j render 'feedback_phone' %>';
-                } else if (i == 6) {
+                } else if (i == 5) {
                   var hotel = '<%= j render 'subscribe' %>';
                 } else {
                 // var hotel = hotels[i];
@@ -162,7 +162,7 @@ function meal(type)
               if (hotels.length < 3) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
-              if (hotels.length < 6) {
+              if (hotels.length < 5) {
                 $('#hotels').append('<%= j render 'subscribe' %>');
               }
             }
@@ -382,7 +382,7 @@ function showHotels( hotels, requestId ){
                 }
                 if (i == 3) {
                   var hotel = '<%= j render 'feedback_phone' %>';
-                } else if (i == 6) {
+                } else if (i == 5) {
                   var hotel = '<%= j render 'subscribe' %>';
                 } else {
                 // var hotel = hotels[i];
@@ -437,7 +437,7 @@ function showHotels( hotels, requestId ){
               if (hotels.length < 3) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
-              if (hotels.length < 6) {
+              if (hotels.length < 5) {
                 $('#hotels').append('<%= j render 'subscribe' %>');
               }
             }
