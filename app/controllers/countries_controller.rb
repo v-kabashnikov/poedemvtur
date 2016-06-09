@@ -11,7 +11,7 @@ class CountriesController < ApplicationController
 
     @popular_resorts = @hotels.
       select('DISTINCT ON (name) resorts.name, hotels.hotel_rate').
-      where('hotels.hotel_rate IS NOT NULL').
+      where('hotels.hotel_rate IS NOT NULL AND hotels.hotel_rate > 0.01').
       order('resorts.name, hotels.hotel_rate DESC').
       limit(20)
 
@@ -24,12 +24,6 @@ class CountriesController < ApplicationController
     populate
 
     render partial: 'resort_items', layout: false
-  end
-
-  def feedback_phone
-    UserMailer.feedback_phone('office_m@poedemvtour.ru', params: params).deliver
-
-    render nothing: true
   end
 
   def show_region

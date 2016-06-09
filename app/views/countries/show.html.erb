@@ -678,7 +678,9 @@
           }
         });
 
-        $.post("/feedback_phone", {phone: $('#feedbackPhone').val()});
+        if ($('#feedbackPhone').val() !== '') {
+          $.post("/feedback_phone", {phone: $('#feedbackPhone').val()});
+        }
       }
     });
 

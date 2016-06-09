@@ -21,8 +21,10 @@
   <%= javascript_include_tag 'readmore.js' %>
   <%= javascript_include_tag 'main.js' %>
   <%= javascript_include_tag 'tour-filter.js' %>
+  <%= javascript_include_tag 'jquery.maskedinput.min.js' %>
 
 <% end %>
+<%= stylesheet_link_tag 'style-country', media: 'all' %>
 <script>
 <%if @country.ad_delay%>
   <%delay = @country.ad_delay.to_i + 15000%>
@@ -349,8 +351,66 @@ function meal(type)
   </div>
   <div class="row" id="hotels">
   </div>
-  </br>
-  </br>
+
+    <!-- обратный звонок -->
+    <div class="col-xs-12 col-sm-6 col-md-6 col-large-4 tour-column feedbackDiv" style="display:none;">
+      <div class="tour-block tour-block-new">
+        <div class="tour-header row">
+          <div class="col-md-12">
+            <h2>
+              Заказ обратного звонка
+            </h2>
+          </div>
+        </div>
+        <div class="tour-desc tour-desc--before-form">Ответим на все вопросы</div>
+        <div class="country-notfound country-notfound--tour">
+          <h2 class="country-notfound-header country-notfound-header--tour"><strong>Не нашли</strong><br> что искали?</h2>
+          <p class="country-notfound-text country-notfound-text--tour">Мы с радостью ответим на все ваши вопросы.<br> Просто оставьте номер Вашего телефона.</p>
+          <form class="country-notfound-form country-notfound-form--tour">
+            <input type="text" id="feedbackPhone" class="form-control phone-mask" placeholder="+7 (___) ___ __ __" required>
+            <button id="feedbackBtn" class="form-send btn btn_black">
+              <span id="feedbackTextBtn" class="text1" style="display:block;">Ок</span>
+              <span class="text2"><i class="fa fa-check" aria-hidden="true"></i></span>
+            </button>
+
+          </form>
+          <p class="country-notfound-call">
+            <span class="text1">Перезвоним за <strong>25 секунд</strong></span>
+            <span class="text2">Спасибо. Ваша заявка принята</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- подписка -->
+    <div class="col-xs-12 col-sm-6 col-md-6 col-large-4 tour-column feedbackDiv" style="display:none;">
+      <div class="tour-block tour-block-new">
+        <div class="tour-header row">
+          <div class="col-md-12">
+            <h2>Оформите подписку</h2>
+          </div>
+        </div>
+        <div class="tour-desc tour-desc--before-form">Будьте в курсе новых туров</div>
+        <div class="country-notfound country-notfound--tour country-notfound--sub">
+          <h2 class="country-notfound-header country-notfound-header--tour">
+            <strong>Ничего</strong><br>не подходит?
+          </h2>
+          <p class="country-notfound-text country-notfound-text--tour">Оставьте нам адрес Вашей электронной почты<br> и получайте все самое лучше первыми!</p>
+          <form class="country-notfound-form country-notfound-form--tour country-notfound-form--sub">
+            <input type="email" id="subscribeEmail" class="form-control" placeholder="Ваш e-mail" required>
+            <button id="subscribeBtn" class="form-send form-send--yellow btn btn_black">
+              <span id="subscribeTextBtn" class="text1" style="display:block;">Ок</span>
+              <span class="text2"><i class="fa fa-check" aria-hidden="true"></i></span>
+            </button>
+          </form>
+          <p class="country-notfound-call">
+            <span class="text1"></span>
+            <span class="text2" id="subscribeText">Подписка оформлена</span>
+          </p>
+          <span class="country-notfound__line country-notfound__line--left"></span>
+          <span class="country-notfound__line country-notfound__line--right"></span>
+        </div>
+      </div>
+    </div>
   <div class="row" id="hotels">
     <div class="row">
     </div>
@@ -420,6 +480,86 @@ function showHotels( hotels, requestId ){
 
 
 $(document).ready(function(){
+  $('#feedbackBtn').click(function() {
+    if ($('#feedbackTextBtn').css('display') == 'block') {
+      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+
+      $.ajaxSetup({
+        beforeSend: function ( xhr ) {
+          xhr.setRequestHeader( 'X-CSRF-Token', token );
+        }
+      });
+
+      if ($('#feedbackPhone').val() !== '') {
+        $.post("/feedback_phone", {phone: $('#feedbackPhone').val()});
+      }
+    }
+  });
+
+  $('#subscribeBtn').click(function() {
+    if ($('#subscribeTextBtn').css('display') == 'block') {
+      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+
+      $.ajaxSetup({
+        beforeSend: function ( xhr ) {
+          xhr.setRequestHeader( 'X-CSRF-Token', token );
+        }
+      });
+
+      if ($('#subscribeEmail').val() !== '') {
+        if (validateEmail($('#subscribeEmail').val())) {
+          $.post("/subscribe", {email: $('#subscribeEmail').val()})
+            .done(function( data ) {
+             $('#subscribeText').text(data);
+          });
+        } else {
+          $('#subscribeText').text('Неверный Email');
+        }
+      }
+    }
+  });
+
+  $(".phone-mask").mask("+7 (999) 999 99 99");
+  var isSubmit = false;
+  $('.country-notfound-form').on('submit',function(){
+    var $form = $(this);
+    var $call = $form.next();
+    if(!isSubmit){
+      showSucces();
+    }else{
+      resetForm();
+    }
+    function showSucces(){
+      $form.addClass('country-notfound-form_submit');
+      $form.find('.form-control').fadeOut(100);
+      $form.find('.form-send').find('.text1').fadeOut(100,function(){
+        $form.find('.form-send').find('.text2').fadeIn(200);
+      });
+      $call
+        .addClass('success')
+        .find('.text1').fadeOut(200,function(){
+          $call.find('.text2').fadeIn(300);
+        });
+      isSubmit = true;
+    }
+    function resetForm(){
+      $form.removeClass('country-notfound-form_submit');
+      $form.find('.form-control').val('').delay(300).fadeIn(100);
+      $form.find('.form-send').find('.text2').delay(300).fadeOut(100,function(){
+        $form.find('.form-send').find('.text1').fadeIn(200);
+      });
+      $call
+        .removeClass('success')
+        .find('.text2').fadeOut(200,function(){
+          $call.find('.text1').fadeIn(300);
+        });
+      isSubmit = false;
+    }
+    console.log(isSubmit);
+    return false;
+  });
+
+
   if($('div').is('.tour-filter')){
     var filter = {
       $filter : $('.tour-filter'),
@@ -669,6 +809,7 @@ $(document).ready(function(){
           }
           else{
             showHotels($result["hotels"], $('#requestId').val());
+            $('.feedbackDiv').show();
             $('.tour-search-preload').fadeOut(500);
             if ($total!=0){
               $(' <div class="more" style="cursor: pointer;" onclick="loadMore()"><a>Загрузить еще</a></div>').insertAfter('#here');
@@ -732,7 +873,11 @@ $(document).ready(function(){
  }, 15500)
 
 
-
+function validateEmail(email)
+{
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 
 </script>
