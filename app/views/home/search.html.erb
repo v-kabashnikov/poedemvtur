@@ -105,8 +105,10 @@ function meal(type)
 
                   stars += ' <img src="<%= asset_path 'star.png' %>" width="12" height="12" alt="">'
                 }
-                if (i == 2) {
-                  var hotel = "<%= render 'feedback_phone' %>";
+                if (i == 3) {
+                  var hotel = '<%= j render 'feedback_phone' %>';
+                } else if (i == 6) {
+                  var hotel = '<%= j render 'subscribe' %>';
                 } else {
                 // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-large-4 \
@@ -156,6 +158,12 @@ function meal(type)
     </div>' 
   }
                 $('#hotels').append(hotel);
+              }
+              if (hotels.length < 3) {
+                $('#hotels').append('<%= j render 'feedback_phone' %>');
+              }
+              if (hotels.length < 6) {
+                $('#hotels').append('<%= j render 'subscribe' %>');
               }
             }
   
@@ -372,8 +380,10 @@ function showHotels( hotels, requestId ){
                 for(var j = 1; j <= hotels[i]['stars_count']; j++){
                   stars += '<img src="<%= asset_path 'star.png' %>" width="12" height="12" alt="">'
                 }
-                if (i == 2) {
-                  var hotel = "<%= render 'feedback_phone' %>";
+                if (i == 3) {
+                  var hotel = '<%= j render 'feedback_phone' %>';
+                } else if (i == 6) {
+                  var hotel = '<%= j render 'subscribe' %>';
                 } else {
                 // var hotel = hotels[i];
               var hotel = '<div class="col-xs-12 col-sm-6 col-md-6 col-large-4 \
@@ -424,90 +434,16 @@ function showHotels( hotels, requestId ){
   }
                 $('#hotels').append(hotel);
               }
+              if (hotels.length < 3) {
+                $('#hotels').append('<%= j render 'feedback_phone' %>');
+              }
+              if (hotels.length < 6) {
+                $('#hotels').append('<%= j render 'subscribe' %>');
+              }
             }
 
 
 $(document).ready(function(){
-  $('#feedbackBtn').click(function() {
-    if ($('#feedbackTextBtn').css('display') == 'block') {
-      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-
-      $.ajaxSetup({
-        beforeSend: function ( xhr ) {
-          xhr.setRequestHeader( 'X-CSRF-Token', token );
-        }
-      });
-
-      if ($('#feedbackPhone').val() !== '') {
-        $.post("/feedback_phone", {phone: $('#feedbackPhone').val()});
-      }
-    }
-  });
-
-  $('#subscribeBtn').click(function() {
-    if ($('#subscribeTextBtn').css('display') == 'block') {
-      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-
-      $.ajaxSetup({
-        beforeSend: function ( xhr ) {
-          xhr.setRequestHeader( 'X-CSRF-Token', token );
-        }
-      });
-
-      if ($('#subscribeEmail').val() !== '') {
-        if (validateEmail($('#subscribeEmail').val())) {
-          $.post("/subscribe", {email: $('#subscribeEmail').val()})
-            .done(function( data ) {
-             $('#subscribeText').text(data);
-          });
-        } else {
-          $('#subscribeText').text('Неверный Email');
-        }
-      }
-    }
-  });
-
-  $(".phone-mask").mask("+7 (999) 999 99 99");
-  var isSubmit = false;
-  $('.country-notfound-form').on('submit',function(){
-    var $form = $(this);
-    var $call = $form.next();
-    if(!isSubmit){
-      showSucces();
-    }else{
-      resetForm();
-    }
-    function showSucces(){
-      $form.addClass('country-notfound-form_submit');
-      $form.find('.form-control').fadeOut(100);
-      $form.find('.form-send').find('.text1').fadeOut(100,function(){
-        $form.find('.form-send').find('.text2').fadeIn(200);
-      });
-      $call
-        .addClass('success')
-        .find('.text1').fadeOut(200,function(){
-          $call.find('.text2').fadeIn(300);
-        });
-      isSubmit = true;
-    }
-    function resetForm(){
-      $form.removeClass('country-notfound-form_submit');
-      $form.find('.form-control').val('').delay(300).fadeIn(100);
-      $form.find('.form-send').find('.text2').delay(300).fadeOut(100,function(){
-        $form.find('.form-send').find('.text1').fadeIn(200);
-      });
-      $call
-        .removeClass('success')
-        .find('.text2').fadeOut(200,function(){
-          $call.find('.text1').fadeIn(300);
-        });
-      isSubmit = false;
-    }
-    console.log(isSubmit);
-    return false;
-  });
-
-
   if($('div').is('.tour-filter')){
     var filter = {
       $filter : $('.tour-filter'),
