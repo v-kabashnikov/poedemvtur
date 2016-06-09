@@ -41,6 +41,7 @@ class CountriesController < ApplicationController
     @resorts = Resort.
       where(country_id: @country.id).
       where('season_end >= ? AND season_start <= ?', Time.now, Time.now).
+      order(:name),
       paginate(page: params[:page] || 1, per_page: 5)
 
     @min_prices = {}
@@ -48,6 +49,7 @@ class CountriesController < ApplicationController
     @hotels.
       joins(:search_results).
       select('hotels.resort_id, search_results.min_price').
+      where('search_results.min_price > 0.01')
       order(:min_price).
       each do |res|
         @min_prices[res['resort_id'].to_i] ||= res['price'].to_f

@@ -159,7 +159,7 @@ function meal(type)
   }
                 $('#hotels').append(hotel);
               }
-              if (hotels.length < 3) {
+              if (hotels.length < 2) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
               if (hotels.length < 5) {
@@ -434,7 +434,7 @@ function showHotels( hotels, requestId ){
   }
                 $('#hotels').append(hotel);
               }
-              if (hotels.length < 3) {
+              if (hotels.length < 2) {
                 $('#hotels').append('<%= j render 'feedback_phone' %>');
               }
               if (hotels.length < 5) {
