@@ -35,7 +35,7 @@
                   <div class="col-md-12 hidden-sm">
                     <div class="country-resorts-item-buttons">
                       <% if price = @min_prices[resort.id] %>
-                        <button class="btn btn_brown country-resorts-item-price">
+                        <button class="btn btn_brown country-resorts-item-price" onclick="location.href='/search?utf8=✓&depart_city=Москва&arrive_place=&city_id=832&place_id=<%= resort.id %>&place_type=resort&nights_min=&nights_max=&date_min=&date_max=&children=&adult=2'">
                           <span><%= number_with_delimiter(price, locale: :ru) %></span><i class="fa fa-rub" aria-hidden="true"></i>
                         </button>
                       <% else %>

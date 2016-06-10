@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609055940) do
+ActiveRecord::Schema.define(version: 20160610050619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -258,14 +258,14 @@ ActiveRecord::Schema.define(version: 20160609055940) do
   add_index "hotels", ["star_id"], name: "index_hotels_on_star_id", using: :btree
 
   create_table "images", force: :cascade do |t|
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
@@ -281,7 +281,7 @@ ActiveRecord::Schema.define(version: 20160609055940) do
     t.integer  "adults"
     t.integer  "kids"
     t.string   "nights"
-    t.jsonb    "results"
+    t.json     "results"
   end
 
   add_index "load_statuses", ["country_id"], name: "index_load_statuses_on_country_id", using: :btree
@@ -344,17 +344,30 @@ ActiveRecord::Schema.define(version: 20160609055940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "resort_dates", force: :cascade do |t|
+    t.date     "season_start"
+    t.date     "season_end"
+    t.string   "name"
+    t.string   "site_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "resort_dates_resorts", force: :cascade do |t|
+    t.integer  "resort_date_id"
+    t.integer  "resort_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "resorts", force: :cascade do |t|
     t.string   "name"
     t.string   "alias"
     t.boolean  "display"
     t.integer  "country_id"
     t.integer  "sletat_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.boolean  "seasonality"
-    t.date     "season_start"
-    t.date     "season_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "resorts", ["country_id"], name: "index_resorts_on_country_id", using: :btree

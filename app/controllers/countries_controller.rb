@@ -15,7 +15,11 @@ class CountriesController < ApplicationController
       order('resorts.name, hotels.hotel_rate DESC').
       limit(20)
 
-    @resorts_without_season = @country.resorts.where('season_start > ?', Time.now).order(:name)
+    @resorts_without_season = @country.
+      resorts.
+      joins(:resort_dates).
+      includes(:resort_dates).
+      where('resort_dates.season_start > ? OR resort_dates.season_start IS NULL', Time.now).order(:name)
 
     render layout: false
   end
@@ -40,7 +44,9 @@ class CountriesController < ApplicationController
 
     @resorts = Resort.
       where(country_id: @country.id).
-      where('season_end >= ? AND season_start <= ?', Time.now, Time.now).
+      joins(:resort_dates).
+      includes(:resort_dates).
+      where('resort_dates.season_end >= ? AND resort_dates.season_start <= ?', Time.now, Time.now).
       order(:name).
       paginate(page: params[:page] || 1, per_page: 5)
 
