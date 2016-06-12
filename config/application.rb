@@ -36,5 +36,7 @@ module Poedemvtur
     # config.autoload_paths << Rails.root.join('lib/sletat')
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    $config = YAML.load_file("#{config.root}/config/application.yml")
   end
 end

@@ -43,18 +43,15 @@ class ResortDate < ActiveRecord::Base
     season_1 = String.new
     season_2 = String.new
 
-    year = season_start.strftime('%Y')
     month_1 = season_start.strftime('%m')
 
-    season_1 += "#{m[month_1]} #{year}"
+    season_1 += "#{m[month_1]}"
     season_2 += m[month_1]
 
-    year = season_end.strftime('%Y')
     month_2 = season_end.strftime('%m')
 
-
     if month_1.to_i != month_2.to_i
-      season_1 += " - #{m[month_2]} #{year}"
+      season_1 += " - #{m[month_2]}"
       season_2 += " - #{m[month_2]}"
     end
 

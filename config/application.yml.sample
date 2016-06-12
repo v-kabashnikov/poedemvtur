@@ -6,6 +6,8 @@ default: &default
   password: 12345678
   database_username: postgres
   database_password: dbpassword
+  weather_api_url: http://api.worldweatheronline.com
+  weather_api_key: api_key
 development:
   <<: *default
 test:

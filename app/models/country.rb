@@ -1,6 +1,9 @@
 require 'open-uri'
 
 class Country < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   extend Sletat
   belongs_to :country_category
   has_many :depart_cities

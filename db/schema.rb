@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610050619) do
+ActiveRecord::Schema.define(version: 20160612081643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160610050619) do
     t.text     "description"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "youtube_link_country"
+    t.string   "slug"
   end
 
   add_index "countries", ["country_category_id"], name: "index_countries_on_country_category_id", using: :btree
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160610050619) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
 
   create_table "depart_cities", force: :cascade do |t|
@@ -204,6 +207,19 @@ ActiveRecord::Schema.define(version: 20160610050619) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "hotel_options", force: :cascade do |t|
     t.string   "icon_file_name"
     t.string   "icon_content_type"
@@ -258,14 +274,14 @@ ActiveRecord::Schema.define(version: 20160610050619) do
   add_index "hotels", ["star_id"], name: "index_hotels_on_star_id", using: :btree
 
   create_table "images", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
@@ -281,7 +297,7 @@ ActiveRecord::Schema.define(version: 20160610050619) do
     t.integer  "adults"
     t.integer  "kids"
     t.string   "nights"
-    t.json     "results"
+    t.jsonb    "results"
   end
 
   add_index "load_statuses", ["country_id"], name: "index_load_statuses_on_country_id", using: :btree
@@ -366,8 +382,11 @@ ActiveRecord::Schema.define(version: 20160610050619) do
     t.boolean  "display"
     t.integer  "country_id"
     t.integer  "sletat_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "seasonality"
+    t.date     "season_start"
+    t.date     "season_end"
   end
 
   add_index "resorts", ["country_id"], name: "index_resorts_on_country_id", using: :btree

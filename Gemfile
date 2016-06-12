@@ -35,6 +35,8 @@ gem 'rails_admin_multiple_upload', git: 'git@github.com:luizpicolo/rails_admin_m
 gem 'haml'
 gem 'will_paginate'
 gem 'dalli'
+gem 'friendly_id', '~> 5.1.0'
+gem 'faraday'
 
 group :development, :test do
   gem 'pry', '~> 0.10.3'

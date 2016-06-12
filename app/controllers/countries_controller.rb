@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   layout 'static'
 
   def index
-	  @countries = Country.all
+	  @countries = Country.order(:name)
 	  @categories = CountryCategory.all
 	end
 
@@ -11,15 +11,25 @@ class CountriesController < ApplicationController
 
     @popular_resorts = @hotels.
       select('DISTINCT ON (name) resorts.name, hotels.hotel_rate').
-      where('hotels.hotel_rate IS NOT NULL AND hotels.hotel_rate > 0.01').
+      where('hotels.hotel_rate > 0.01').
       order('resorts.name, hotels.hotel_rate DESC').
       limit(20)
 
     @resorts_without_season = @country.
       resorts.
+      joins(:hotels).
       joins(:resort_dates).
       includes(:resort_dates).
-      where('resort_dates.season_start > ? OR resort_dates.season_start IS NULL', Time.now).order(:name)
+      where('EXTRACT(MONTH FROM resort_dates.season_start) > ?', Time.now.strftime('%m')).
+      order(:name)
+
+    @resorts_without_season = @resorts_without_season - @resorts
+    @resorts = @resorts.paginate(page: 1, per_page: 5)
+
+    @weather = Rails.cache.fetch(params, expires_in: 3.hours) do
+      hotels = (@resorts_without_season + @resorts).map(&:hotels).uniq
+      Weather.new(@hotels).call
+    end
 
     render layout: false
   end
@@ -27,28 +37,36 @@ class CountriesController < ApplicationController
   def resort_items
     populate
 
+    @resorts = @resorts.paginate(page: params[:page], per_page: 5)
+
+    @weather = Rails.cache.fetch(params, expires_in: 3.hours) do
+      hotels = @resorts.map(&:hotels).uniq
+
+      Weather.new(@hotels).call
+    end
+
     render partial: 'resort_items', layout: false
   end
 
   def show_region
   	@categories = CountryCategory.all
-    @category = CountryCategory.find(params[:id])
-  	@countries = CountryCategory.find(params[:id]).countries
+    @category = CountryCategory.friendly.find(params[:id])
+  	@countries = @category.countries
   end
 
   private
 
   def populate
-    @country = Country.find(params[:id])
+    @country = Country.friendly.find(params[:id])
     @hotels = @country.hotels
 
     @resorts = Resort.
       where(country_id: @country.id).
+      joins(:hotels).
       joins(:resort_dates).
       includes(:resort_dates).
-      where('resort_dates.season_end >= ? AND resort_dates.season_start <= ?', Time.now, Time.now).
-      order(:name).
-      paginate(page: params[:page] || 1, per_page: 5)
+      where('EXTRACT(MONTH FROM resort_dates.season_end) >= ? AND EXTRACT(MONTH FROM resort_dates.season_start) <= ?', Time.now.strftime('%m'), Time.now.strftime('%m')).
+      order(:name)
 
     @min_prices = {}
 

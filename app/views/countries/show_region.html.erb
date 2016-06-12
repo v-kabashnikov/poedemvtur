@@ -26,7 +26,7 @@
 			<a href="/countries/">Все страны</a>
 			<%@categories.each do |category| %>
 				 <%if category.name != "Все страны"%>
-				  	<a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a>
+				  	<a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.slug%>"><%=category.name%></a>
 				  <%end%>
 			<%end%>
 		</div>
@@ -39,7 +39,7 @@
 			<li><a href="/countries/">Все страны</a></li>
 			<%@categories.each do |category| %>
 				 <%if category.name != "Все страны"%>
-				  	<li><a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.id%>"><%=category.name%></a></li>
+				  	<li><a class="<%='active' if @category.id == category.id%>" href="/countries/category/<%=category.slug%>"><%=category.name%></a></li>
 				  <%end%>
 			<%end%>
 			</ul>
@@ -59,7 +59,7 @@
 				<%else%>
 				<%img = country.flag_link %>
 				<%end%>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="/search?utf8=✓&depart_city=Москва&city_id=832&place_id=<%=country.id%>&place_type=country&nights_min=4&nights_max=14&date_min=&date_max=&children=&adult=&arrive_place=<%=country.name%>&roundtour-price=0%3B200000"><i>	<img src="<%=img%>"></i><span><%=country.name%></span></a></div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><a href="<%= country_url(country) %>"><i>	<img src="<%=img%>"></i><span><%=country.name%></span></a></div>
 				<%end%>	
 			</div>
 		</div>
