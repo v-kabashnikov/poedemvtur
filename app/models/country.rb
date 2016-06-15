@@ -47,6 +47,8 @@ class Country < ActiveRecord::Base
       include_all_fields
 
       field :description, :ck_editor
+
+      exclude_fields :hotels
     end
   end
 end
