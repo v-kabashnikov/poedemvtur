@@ -75,7 +75,7 @@ Rails.application.configure do
   authentication: :login,
   tls: true,
   user_name: 'zakaz@poedemvtour.ru',
-  password: 'Silena15',
+  password: 'CoroNa06',
   enable_starttls_auto: true
   }
 
